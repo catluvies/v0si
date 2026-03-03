@@ -1,0 +1,150 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@plugin "daisyui" {
+  themes: light --default, dark --prefersDark, lambda;
+}
+
+@custom-variant dark (&:is(.dark *, [data-theme="dark"] *));
+
+/* Lambda Ingenieros Custom Theme */
+@theme inline {
+  --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), 'Geist Mono', monospace;
+
+  /* Warm earth palette - organic solar tech */
+  --color-lambda-50: #faf8f5;
+  --color-lambda-100: #f0ece5;
+  --color-lambda-200: #e0d7ca;
+  --color-lambda-300: #cdbda8;
+  --color-lambda-400: #b69e84;
+  --color-lambda-500: #a38668;
+  --color-lambda-600: #96755b;
+  --color-lambda-700: #7d604d;
+  --color-lambda-800: #674f43;
+  --color-lambda-900: #554239;
+
+  /* Teal accent - clean technology */
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-200: #99f6e4;
+  --color-teal-300: #5eead4;
+  --color-teal-400: #2dd4bf;
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+  --color-teal-900: #134e4a;
+
+  /* Semantic tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: #faf8f5;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --primary: #0d9488;
+  --primary-foreground: #ffffff;
+  --secondary: #f0ece5;
+  --secondary-foreground: #554239;
+  --muted: #f0ece5;
+  --muted-foreground: #7d604d;
+  --accent: #e0d7ca;
+  --accent-foreground: #554239;
+  --destructive: #ef4444;
+  --destructive-foreground: #ef4444;
+  --border: #e0d7ca;
+  --input: #e0d7ca;
+  --ring: #0d9488;
+  --chart-1: #0d9488;
+  --chart-2: #a38668;
+  --chart-3: #2dd4bf;
+  --chart-4: #cdbda8;
+  --chart-5: #14b8a6;
+  --radius: 0.75rem;
+}
+
+.dark,
+[data-theme="dark"] {
+  --background: #0f1114;
+  --foreground: #f0ece5;
+  --card: #1a1d23;
+  --card-foreground: #f0ece5;
+  --popover: #1a1d23;
+  --popover-foreground: #f0ece5;
+  --primary: #14b8a6;
+  --primary-foreground: #0f1114;
+  --secondary: #252830;
+  --secondary-foreground: #e0d7ca;
+  --muted: #252830;
+  --muted-foreground: #b69e84;
+  --accent: #252830;
+  --accent-foreground: #e0d7ca;
+  --destructive: #dc2626;
+  --destructive-foreground: #fca5a5;
+  --border: #2a2d35;
+  --input: #2a2d35;
+  --ring: #14b8a6;
+  --chart-1: #14b8a6;
+  --chart-2: #b69e84;
+  --chart-3: #5eead4;
+  --chart-4: #7d604d;
+  --chart-5: #2dd4bf;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for dark mode */
+[data-theme="dark"] ::-webkit-scrollbar {
+  width: 8px;
+}
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #1a1d23;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #2a2d35;
+  border-radius: 4px;
+}
