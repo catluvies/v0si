@@ -51,11 +51,10 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-7 max-w-lg space-y-2"
+            className="mt-7 max-w-xl space-y-2"
           >
             <p className="text-xl text-foreground/80 font-medium leading-snug">
-              Especialistas en proyectos eléctricos y{' '}
-              <span className="whitespace-nowrap">eficiencia energética.</span>
+              Especialistas en proyectos eléctricos y eficiencia energética.
             </p>
             <p className="text-base text-foreground/50 leading-relaxed">
               Desarrollamos tecnología Made in Chile para la gestión inteligente
