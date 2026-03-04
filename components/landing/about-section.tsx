@@ -35,10 +35,8 @@ export default function AboutSection() {
               <p className="text-xs text-foreground/50">Proyectos realizados</p>
             </div>
             <div className="text-center h-16 flex flex-col items-center justify-start">
-              <span className="inline-block mb-1 px-2 py-0.5 rounded-md bg-primary/10 border border-primary/20 text-primary text-xs font-semibold tracking-wide">
-                Made in Chile
-              </span>
-              <p className="text-xs text-foreground/50 block">Tecnología propia</p>
+              <p className="text-3xl font-bold text-primary mb-1">Made in Chile</p>
+              <p className="text-xs text-foreground/50">Tecnología propia</p>
             </div>
           </div>
         </div>
