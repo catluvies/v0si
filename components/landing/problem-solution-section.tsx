@@ -50,59 +50,30 @@ export default function ProblemSolutionSection() {
           </p>
         </motion.div>
 
-        {/* Tarjeta situación actual — 2 columnas */}
+        {/* Tarjeta situación actual — full width */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="rounded-2xl border border-border/40 bg-foreground/[0.03] overflow-hidden border-l-2 border-l-primary"
+          className="rounded-2xl border border-border/40 bg-foreground/[0.03] border-l-2 border-l-primary p-8 lg:p-10"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-
-            {/* Izquierda: texto */}
-            <div className="p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-border/30">
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
-                Situación Actual
-              </span>
-              <h3 className="text-xl font-bold text-foreground mb-4 text-balance">
-                La Falta de Visibilidad y Control Energético
-              </h3>
-              <p className="text-sm text-foreground/60 leading-relaxed mb-4">
-                Muchas empresas e instituciones desconocen cómo están utilizando realmente su energía.
-                Sin datos precisos y análisis en tiempo real, es imposible optimizar el consumo,
-                detectar anomalías o tomar decisiones informadas sobre eficiencia energética.
-              </p>
-              <p className="text-sm text-foreground/60 leading-relaxed">
-                Detectamos que es un error adelantar la instalación de paneles solares sin
-                preocuparse de corregir primero la eficiencia en el uso de la energía existente.
-                El monitoreo y análisis son fundamentales para cualquier estrategia energética exitosa.
-              </p>
-            </div>
-
-            {/* Derecha: consecuencias como filas */}
-            <div className="flex flex-col divide-y divide-border/30">
-              {impacts.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
-                  className="flex-1 flex items-start gap-4 px-8 py-6"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <item.icon className="w-3.5 h-3.5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground mb-1">{item.title}</p>
-                    <p className="text-xs text-foreground/50 leading-relaxed">{item.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-          </div>
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
+            Situación Actual
+          </span>
+          <h3 className="text-xl font-bold text-foreground mb-4 text-balance">
+            La Falta de Visibilidad y Control Energético
+          </h3>
+          <p className="text-sm text-foreground/60 leading-relaxed mb-4 max-w-3xl">
+            Muchas empresas e instituciones desconocen cómo están utilizando realmente su energía.
+            Sin datos precisos y análisis en tiempo real, es imposible optimizar el consumo,
+            detectar anomalías o tomar decisiones informadas sobre eficiencia energética.
+          </p>
+          <p className="text-sm text-foreground/60 leading-relaxed max-w-3xl">
+            Detectamos que es un error adelantar la instalación de paneles solares sin
+            preocuparse de corregir primero la eficiencia en el uso de la energía existente.
+            El monitoreo y análisis son fundamentales para cualquier estrategia energética exitosa.
+          </p>
         </motion.div>
 
         {/* Impact cards */}
