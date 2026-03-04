@@ -14,13 +14,13 @@ export default function AboutSection() {
       title: 'Nuestra Historia',
       content: (
         <div className="space-y-4">
-          <p className="text-sm text-foreground/70 leading-relaxed">
+          <p className="text-base text-foreground/70 leading-relaxed">
             El año 2004 comienza a forjarse el sueño compartido de un grupo de
             ingenieros chilenos, quienes trabajan hasta el día de hoy para romper los límites
             y asumir el desafío tecnológico de generar modelos y herramientas Made in Chile
             de análisis de datos en torno a la eficiencia del uso de la energía.
           </p>
-          <p className="text-sm text-foreground/70 leading-relaxed">
+          <p className="text-base text-foreground/70 leading-relaxed">
             Con presencia desde la frontera norte hasta el Cabo de Hornos, hemos
             desarrollado sistemas como SolarTech® y EnergiaPlus®, reconocidos por resolver
             problemas en los territorios más extremos del país.
@@ -48,7 +48,7 @@ export default function AboutSection() {
       title: 'Nuestra Misión',
       content: (
         <div className="space-y-4">
-          <p className="text-sm text-foreground/70 leading-relaxed">
+          <p className="text-base text-foreground/70 leading-relaxed">
             Proporcionar desde la ingeniería y el desarrollo tecnológico Made in Chile,
             soluciones innovadoras y sostenibles en proyectos eléctricos y de eficiencia
             que permitan optimizar el consumo energético de nuestros clientes.
@@ -57,7 +57,7 @@ export default function AboutSection() {
             {['Tecnología Made in Chile', 'Soluciones para entornos extremos', 'Compromiso con la sostenibilidad'].map((item) => (
               <li key={item} className="flex items-center gap-2.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                <span className="text-sm text-foreground/70">{item}</span>
+                <span className="text-base text-foreground/70">{item}</span>
               </li>
             ))}
           </ul>
@@ -70,7 +70,7 @@ export default function AboutSection() {
       title: 'Nuestra Visión',
       content: (
         <div className="space-y-4">
-          <p className="text-sm text-foreground/70 leading-relaxed">
+          <p className="text-base text-foreground/70 leading-relaxed">
             Ser líderes en el desarrollo de sistemas tecnológicos y sustentables en el
             sector de la eficiencia eléctrica. Aspiramos a impulsar un cambio cultural
             donde la sostenibilidad y la eficiencia sean la norma para contribuir al
@@ -80,7 +80,7 @@ export default function AboutSection() {
             {['Liderazgo en eficiencia energética', 'Desarrollo sustentable', 'Cambio cultural hacia la sostenibilidad'].map((item) => (
               <li key={item} className="flex items-center gap-2.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                <span className="text-sm text-foreground/70">{item}</span>
+                <span className="text-base text-foreground/70">{item}</span>
               </li>
             ))}
           </ul>
@@ -97,7 +97,7 @@ export default function AboutSection() {
     <section id="about" className="relative overflow-hidden">
       <div className="flex min-h-[80vh]">
         {/* Columna izquierda */}
-        <div className="w-full lg:w-5/12 px-8 lg:px-16 py-16 lg:py-24 flex flex-col justify-center">
+        <div className="w-full lg:w-5/12 px-8 lg:px-16 py-20 flex flex-col justify-center">
           {/* Encabezado */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -106,13 +106,13 @@ export default function AboutSection() {
             transition={{ duration: 0.5 }}
             className="mb-10"
           >
-            <span className="badge badge-outline badge-sm text-primary border-primary/30 mb-3 font-medium tracking-widest uppercase text-xs">
+            <span className="badge badge-outline badge-sm text-primary border-primary/30 mb-4 font-medium tracking-widest uppercase text-xs">
               Sobre Nosotros
             </span>
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">
               ¿Quiénes Somos?
             </h2>
-            <p className="text-sm text-foreground/55 leading-relaxed">
+            <p className="text-base text-foreground/55 leading-relaxed">
               Somos una empresa B de ingenieros chilenos comprometidos con el desarrollo
               sustentable de soluciones de eficiencia energética.
             </p>
@@ -124,26 +124,25 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="h-[320px] flex flex-col"
           >
-            <h3 className="text-lg font-semibold text-foreground mb-4">
+            <h3 className="text-xl font-semibold text-foreground mb-5">
               {slides[activeSlide].title}
             </h3>
-            <div className="flex-1">
+            <div className="mb-8">
               {slides[activeSlide].content}
             </div>
 
             {/* Controles */}
-            <div className="flex items-center gap-3 mt-auto pt-6 border-t border-border/30">
+            <div className="flex items-center gap-3 pt-6 border-t border-border/30">
               <button
                 onClick={handlePrev}
                 aria-label="Anterior"
-                className="w-8 h-8 rounded-full border border-border/50 flex items-center justify-center text-foreground/50 hover:text-foreground hover:border-foreground/30 transition-colors"
+                className="w-8 h-8 rounded-full border border-border/50 flex items-center justify-center text-foreground/50 hover:text-foreground hover:border-foreground/30 transition-colors flex-shrink-0"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
 
-              <div className="flex gap-1.5">
+              <div className="flex items-center gap-1.5">
                 {slides.map((_, index) => (
                   <button
                     key={index}
@@ -161,7 +160,7 @@ export default function AboutSection() {
               <button
                 onClick={handleNext}
                 aria-label="Siguiente"
-                className="w-8 h-8 rounded-full border border-border/50 flex items-center justify-center text-foreground/50 hover:text-foreground hover:border-foreground/30 transition-colors"
+                className="w-8 h-8 rounded-full border border-border/50 flex items-center justify-center text-foreground/50 hover:text-foreground hover:border-foreground/30 transition-colors flex-shrink-0"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
