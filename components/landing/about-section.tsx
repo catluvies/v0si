@@ -136,12 +136,12 @@ export default function AboutSection() {
   }
 
   return (
-    <section id="about" className="py-24 lg:py-32">
+    <section id="about" className="relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Grid: Encabezado + Carrusel a la izquierda | Imagen a la derecha */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-start min-h-screen">
           {/* Columna izquierda: Encabezado + Carrusel */}
-          <div className="lg:col-span-5 pr-8">
+          <div className="lg:col-span-5 pr-8 py-24 lg:py-32">
             {/* Encabezado */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -216,8 +216,8 @@ export default function AboutSection() {
           </div>
 
           {/* Columna derecha: Imagen con fade */}
-          <div className="lg:col-span-7">
-            <div className="relative w-full h-[500px] lg:h-[550px] overflow-hidden">
+          <div className="lg:col-span-7 h-full">
+            <div className="relative w-full h-full overflow-hidden sticky top-0">
               <Image
                 src={slides[activeSlide].image}
                 alt={slides[activeSlide].title}
