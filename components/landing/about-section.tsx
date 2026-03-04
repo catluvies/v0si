@@ -136,7 +136,7 @@ export default function AboutSection() {
   }
 
   return (
-    <section id="about" className="relative">
+    <section id="about" className="relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Grid: Encabezado + Carrusel a la izquierda | Imagen a la derecha */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-start min-h-screen">
@@ -215,8 +215,8 @@ export default function AboutSection() {
             </motion.div>
           </div>
 
-          {/* Columna derecha: Imagen con fade */}
-          <div className="lg:col-span-7 h-full">
+          {/* Columna derecha: Imagen con fade - Sale del contenedor */}
+          <div className="lg:col-span-7 h-full lg:-mr-12">
             <div className="relative w-full h-full overflow-hidden sticky top-0">
               <Image
                 src={slides[activeSlide].image}
