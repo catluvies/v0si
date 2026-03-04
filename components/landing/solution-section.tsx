@@ -123,26 +123,21 @@ export default function SolutionSection() {
             </div>
           </div>
 
-          {/* Features inline row — integrated into the card */}
-          <div className="border-t border-border/30">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border/30">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: 0.2 + index * 0.06 }}
-                  className="px-6 py-5 flex items-start gap-3"
-                >
-                  <feature.icon className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-xs font-semibold text-foreground mb-1">{feature.title}</p>
-                    <p className="text-[11px] text-foreground/45 leading-relaxed">{feature.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          {/* Features as simple tags */}
+          <div className="border-t border-border/30 px-6 lg:px-10 py-5 flex flex-wrap items-center gap-3">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: 0.2 + index * 0.05 }}
+                className="flex items-center gap-2 rounded-full border border-border/40 bg-foreground/[0.03] px-4 py-2"
+              >
+                <feature.icon className="w-3.5 h-3.5 text-primary" />
+                <span className="text-xs font-medium text-foreground/70">{feature.title}</span>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
 
