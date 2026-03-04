@@ -44,14 +44,16 @@ export default function LogoCloud() {
               {clients.map((client, i) => (
                 <div
                   key={`a-${i}`}
-                  className="inline-flex items-center justify-center mx-10 h-32 w-56 rounded-2xl bg-white border border-border px-8 py-5"
+                  className="inline-flex items-center justify-center mx-6 h-40 w-56 rounded-2xl bg-foreground/[0.04] backdrop-blur-sm border border-foreground/10 px-8 py-6"
                 >
                   <Image
                     src={client.src}
                     alt={client.name}
-                    width={180}
-                    height={100}
-                    className="object-contain max-h-20 w-auto"
+                    width={200}
+                    height={120}
+                    className={`object-contain max-h-32 w-auto ${
+                      client.name === 'Armada de Chile' ? 'scale-125' : ''
+                    }`}
                   />
                 </div>
               ))}
@@ -60,14 +62,16 @@ export default function LogoCloud() {
                 <div
                   key={`b-${i}`}
                   aria-hidden="true"
-                  className="inline-flex items-center justify-center mx-10 h-32 w-56 rounded-2xl bg-white border border-border px-8 py-5"
+                  className="inline-flex items-center justify-center mx-6 h-40 w-56 rounded-2xl bg-foreground/[0.04] backdrop-blur-sm border border-foreground/10 px-8 py-6"
                 >
                   <Image
                     src={client.src}
                     alt=""
-                    width={180}
-                    height={100}
-                    className="object-contain max-h-20 w-auto"
+                    width={200}
+                    height={120}
+                    className={`object-contain max-h-32 w-auto ${
+                      client.name === 'Armada de Chile' ? 'scale-125' : ''
+                    }`}
                   />
                 </div>
               ))}
