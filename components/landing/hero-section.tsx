@@ -57,9 +57,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-10 max-w-2xl space-y-5"
+            className="mt-10 max-w-2xl rounded-2xl bg-foreground/[0.04] backdrop-blur-sm border border-foreground/10 px-8 py-6 space-y-4"
           >
-            <p className="text-lg md:text-xl text-foreground/80 leading-relaxed text-pretty">
+            <p className="text-lg md:text-xl text-foreground/85 leading-relaxed text-pretty">
               Especialistas en proyectos eléctricos y eficiencia energética.
               Desarrollamos tecnología Made in Chile para la gestión inteligente
               de sistemas fotovoltaicos.
@@ -67,7 +67,7 @@ export default function HeroSection() {
             <p className="text-lg md:text-xl text-primary font-semibold text-pretty">
               ¡Explora nuestro sistema de monitoreo en tiempo real!
             </p>
-            <p className="text-sm text-foreground/40 italic">
+            <p className="text-xs text-foreground/40 italic">
               Datos actualizados a diciembre de 2024
             </p>
           </motion.div>
