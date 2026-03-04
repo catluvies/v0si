@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, BarChart3, Zap } from 'lucide-react'
+import { ArrowRight, BarChart3, Zap, Activity } from 'lucide-react'
 import Image from 'next/image'
 
 export default function HeroSection() {
@@ -11,7 +11,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-solar.jpg"
-          alt="Paneles solares en instalacion fotovoltaica"
+          alt="Paneles solares en instalación fotovoltaica"
           fill
           className="object-cover"
           priority
@@ -31,135 +31,86 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-24">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          {/* Left - Copy */}
-          <div className="flex-1 text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="badge badge-outline badge-md text-primary border-primary/40 mb-8 font-medium px-4 py-3 text-sm">
-                Sistema Fotovoltaico RadioTumbes
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-balance text-foreground"
-            >
-              Mas de 20 Anos Mejorando la{' '}
-              <span className="text-primary">Eficiencia Energetica</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-8 text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0 text-pretty"
-            >
-              Especialistas en{' '}
-              <strong className="text-foreground font-semibold">proyectos electricos y eficiencia energetica</strong>.
-              Desarrollamos tecnologia Made in Chile para la gestion inteligente de sistemas fotovoltaicos.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-10 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
-            >
-              <a href="#dashboard" className="btn btn-primary btn-lg rounded-xl gap-2 px-8 text-base">
-                Explorar Dashboard
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <a href="#features" className="btn btn-ghost btn-lg rounded-xl text-muted-foreground gap-2 text-base">
-                Ver funcionalidades
-              </a>
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-              className="mt-4 text-sm text-muted-foreground italic text-center lg:text-left"
-            >
-              Datos actualizados a diciembre de 2024
-            </motion.p>
-
-            {/* Quick stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-12 flex items-center gap-10 justify-center lg:justify-start"
-            >
-              <div className="flex items-center gap-3">
-                <BarChart3 className="w-6 h-6 text-primary" />
-                <div>
-                  <p className="text-3xl font-bold text-foreground">3,203</p>
-                  <p className="text-sm text-muted-foreground">Lecturas del Sistema</p>
-                </div>
-              </div>
-              <div className="w-px h-12 bg-border" />
-              <div className="flex items-center gap-3">
-                <Zap className="w-6 h-6 text-primary" />
-                <div>
-                  <p className="text-3xl font-bold text-foreground">4</p>
-                  <p className="text-sm text-muted-foreground">Trackers Solares</p>
-                </div>
-              </div>
-              <div className="w-px h-12 bg-border" />
-              <div className="flex items-center gap-3">
-                <BarChart3 className="w-6 h-6 text-primary" />
-                <div>
-                  <p className="text-3xl font-bold text-foreground">24/7</p>
-                  <p className="text-sm text-muted-foreground">Monitoreo Continuo</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Right - Dashboard Preview */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 lg:px-12 pt-36 pb-24">
+        <div className="flex flex-col items-center text-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex-1 w-full max-w-xl lg:max-w-none"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="relative rounded-3xl bg-card border border-border p-6 shadow-2xl shadow-primary/10">
-              {/* Fake dashboard header */}
-              <div className="flex items-center gap-2 mb-5">
-                <div className="w-3.5 h-3.5 rounded-full bg-destructive/60" />
-                <div className="w-3.5 h-3.5 rounded-full bg-chart-2" />
-                <div className="w-3.5 h-3.5 rounded-full bg-primary/60" />
-                <span className="ml-3 text-sm text-muted-foreground font-mono">dashboard.lambda.cl</span>
-              </div>
+            <span className="badge badge-outline badge-md text-primary border-primary/40 mb-8 font-medium px-4 py-3 text-sm">
+              Sistema Fotovoltaico RadioTumbes
+            </span>
+          </motion.div>
 
-              {/* Fake dashboard content */}
-              <div className="grid grid-cols-3 gap-4 mb-5">
-                <DashboardStat label="Lecturas Totales" value="3,203" change="+24 hoy" />
-                <DashboardStat label="Trackers Activos" value="4 / 4" change="100%" />
-                <DashboardStat label="Uptime" value="24/7" change="99.9%" />
-              </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-balance text-foreground"
+          >
+            Más de 20 Años Mejorando la{' '}
+            <span className="text-primary">Eficiencia Energética</span>
+          </motion.h1>
 
-              {/* Fake chart area */}
-              <div className="h-48 rounded-2xl bg-secondary/50 flex items-end gap-1.5 p-5">
-                {[35, 45, 60, 80, 70, 90, 85, 95, 75, 65, 50, 40].map((h, i) => (
-                  <div
-                    key={i}
-                    className="flex-1 rounded-t bg-primary/70 transition-all"
-                    style={{ height: `${h}%` }}
-                  />
-                ))}
-              </div>
-              <p className="text-sm text-muted-foreground mt-3 text-center">
-                Generacion de energia — Ultimas 12 horas
-              </p>
-            </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-8 text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl text-pretty"
+          >
+            Especialistas en{' '}
+            <strong className="text-foreground font-semibold">proyectos eléctricos y eficiencia energética</strong>.
+            Desarrollamos tecnología Made in Chile para la gestión inteligente de
+            sistemas fotovoltaicos.{' '}
+            <strong className="text-foreground font-semibold">
+              ¡Explora nuestro sistema de monitoreo en tiempo real!
+            </strong>
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-4 text-sm text-muted-foreground italic"
+          >
+            Datos actualizados a diciembre de 2024
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="mt-10 flex flex-col sm:flex-row items-center gap-4"
+          >
+            <a href="#dashboard" className="btn btn-primary btn-lg rounded-xl gap-2 px-8 text-base">
+              <BarChart3 className="w-5 h-5" />
+              Explorar Dashboard
+            </a>
+          </motion.div>
+
+          {/* Stat cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl"
+          >
+            <StatCard
+              icon={<BarChart3 className="w-6 h-6" />}
+              value="3,203"
+              label="Lecturas del Sistema"
+            />
+            <StatCard
+              icon={<Zap className="w-6 h-6" />}
+              value="4"
+              label="Trackers Solares"
+            />
+            <StatCard
+              icon={<Activity className="w-6 h-6" />}
+              value="24/7"
+              label="Monitoreo Continuo"
+            />
           </motion.div>
         </div>
       </div>
@@ -167,20 +118,22 @@ export default function HeroSection() {
   )
 }
 
-function DashboardStat({
-  label,
+function StatCard({
+  icon,
   value,
-  change,
+  label,
 }: {
-  label: string
+  icon: React.ReactNode
   value: string
-  change: string
+  label: string
 }) {
   return (
-    <div className="rounded-2xl bg-secondary/50 p-4">
-      <p className="text-xs text-muted-foreground leading-tight">{label}</p>
-      <p className="text-lg font-bold text-foreground mt-1.5">{value}</p>
-      <p className="text-sm text-primary font-medium mt-1">{change}</p>
+    <div className="rounded-2xl bg-card/80 backdrop-blur-sm border border-border p-6 flex flex-col items-center gap-3">
+      <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+        {icon}
+      </div>
+      <p className="text-3xl font-bold text-foreground">{value}</p>
+      <p className="text-sm text-muted-foreground">{label}</p>
     </div>
   )
 }
