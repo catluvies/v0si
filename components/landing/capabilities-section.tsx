@@ -50,7 +50,7 @@ const capabilities = [
 
 export default function CapabilitiesSection() {
   return (
-    <section id="capabilities" className="py-24 lg:py-32 bg-foreground/[0.02]">
+    <section id="capabilities" className="py-24 lg:py-32">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
@@ -59,7 +59,7 @@ export default function CapabilitiesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
           <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
             Capacidades
@@ -72,39 +72,33 @@ export default function CapabilitiesSection() {
           </p>
         </motion.div>
 
-        {/* Capabilities list */}
-        <div className="border border-border/30 rounded-2xl overflow-hidden">
+        {/* Cards grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
           {capabilities.map((item, index) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: index * 0.06 }}
-              className="group flex items-center gap-6 px-8 py-6 border-b border-border/20 last:border-b-0 bg-background hover:bg-foreground/[0.03] transition-colors duration-200"
+              transition={{ duration: 0.35, delay: index * 0.05 }}
+              className="group relative rounded-xl border border-border/30 bg-foreground/[0.02] p-5 flex flex-col gap-4 cursor-default overflow-hidden transition-all duration-300 hover:border-primary/40 hover:bg-foreground/[0.05] hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_hsl(var(--primary)/0.15)]"
             >
-              {/* Number */}
-              <span className="text-3xl font-bold text-primary/25 tabular-nums w-10 shrink-0 leading-none group-hover:text-primary/50 transition-colors duration-200">
-                {String(index + 1).padStart(2, '0')}
-              </span>
+              {/* Glow accent on hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-[radial-gradient(ellipse_at_top_left,hsl(var(--primary)/0.07),transparent_70%)]" />
 
               {/* Icon */}
-              <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-primary/20 group-hover:border-primary/40">
                 <item.icon className="w-4 h-4 text-primary" />
               </div>
 
               {/* Text */}
-              <div className="flex-1 min-w-0">
-                <h3 className="text-sm font-semibold text-foreground mb-0.5">{item.title}</h3>
-                <p className="text-sm text-foreground/50 leading-relaxed">{item.description}</p>
+              <div className="flex flex-col gap-1.5">
+                <h3 className="text-sm font-semibold text-foreground leading-snug">{item.title}</h3>
+                <p className="text-xs text-foreground/50 leading-relaxed">{item.description}</p>
               </div>
 
-              {/* Arrow */}
-              <div className="w-6 h-6 rounded-full border border-border/40 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                  <path d="M2 5h6M5.5 2.5L8 5l-2.5 2.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="text-primary" />
-                </svg>
-              </div>
+              {/* Bottom accent line */}
+              <div className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full bg-primary/40 transition-all duration-500" />
             </motion.div>
           ))}
         </div>
