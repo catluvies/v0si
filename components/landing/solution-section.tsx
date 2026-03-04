@@ -50,8 +50,8 @@ const features = [
 
 export default function SolutionSection() {
   return (
-    <section id="solution" className="pt-24 pb-0 lg:pt-32">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col gap-16">
+    <section id="solution" className="bg-base-300 py-20 lg:py-24">
+      <div className="container mx-auto px-6 lg:px-8">
 
         {/* Header */}
         <motion.div
@@ -59,30 +59,30 @@ export default function SolutionSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto"
+          className="text-center max-w-2xl mx-auto mb-16"
         >
           <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
             Nuestra Solución
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
             Monitoreo Inteligente con Tecnología Made in Chile
           </h2>
-          <p className="text-base text-foreground/55 leading-relaxed text-pretty">
+          <p className="text-base text-base-content/70 leading-relaxed text-pretty">
             Sistema de monitoreo y análisis en tiempo real que permite optimizar el consumo energético,
             detectar ineficiencias y tomar decisiones informadas. Más de 20 años de experiencia en
             proyectos eléctricos y eficiencia energética.
           </p>
         </motion.div>
 
-        {/* Main card with 2-column layout */}
+        {/* Main content without card border - content breathes directly */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="rounded-2xl border border-border/40 bg-base-100 overflow-hidden"
+          className="overflow-hidden"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 lg:p-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
             {/* Left: text */}
             <div className="border-l-2 border-l-primary pl-6">
               <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
@@ -109,7 +109,7 @@ export default function SolutionSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
-                  className="rounded-lg border border-border/40 bg-base-200 p-5 flex items-start gap-4 hover:bg-base-300 transition-colors duration-300"
+                  className="rounded-lg border border-border/40 bg-base-200 p-5 flex items-start gap-4 hover:bg-base-100 transition-colors duration-300"
                 >
                   <div className="w-10 h-10 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0">
                     <item.icon className="w-5 h-5 text-primary" />
@@ -124,7 +124,7 @@ export default function SolutionSection() {
           </div>
 
           {/* Features as separated cards */}
-          <div className="border-t border-border/30 bg-base-200 p-6 lg:p-8">
+          <div className="bg-base-200 rounded-lg p-6 lg:p-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {features.map((feature, index) => (
                 <motion.div

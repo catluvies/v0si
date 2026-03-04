@@ -56,8 +56,108 @@ const steps = [
 
 export default function CapabilitiesSection() {
   return (
-    <section id="capabilities" className="pt-16 pb-24 lg:pb-32 bg-base-200">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+    <section id="capabilities" className="bg-base-300 py-20 lg:py-24">
+      <div className="container mx-auto px-6 lg:px-8">
+
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto mb-12"
+        >
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
+            Capacidades
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
+            Capacidades del Sistema
+          </h2>
+          <p className="text-base text-base-content/70 leading-relaxed text-pretty">
+            Explora todas las funcionalidades de monitoreo y análisis del sistema fotovoltaico RadioTumbes.
+          </p>
+        </motion.div>
+
+        {/* Capabilities Grid - 3 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          {capabilities.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: index * 0.05 }}
+              className="relative group rounded-lg border border-border/40 bg-base-100 p-6 hover:border-primary/40 hover:shadow-lg transition-all duration-300 overflow-hidden"
+            >
+              {/* Number background */}
+              <div className="absolute -top-8 -right-8 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                <span className="text-9xl font-bold text-primary">{item.number}</span>
+              </div>
+
+              {/* Content */}
+              <div className="relative z-10">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 border border-primary/30 mb-4">
+                  <span className="text-sm font-bold text-primary">{item.number}</span>
+                </div>
+                <h3 className="text-base font-semibold text-base-content mb-2">{item.title}</h3>
+                <p className="text-sm text-base-content/60 leading-relaxed">{item.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Divider */}
+        <div className="h-px bg-border/30 my-16" />
+
+        {/* Explora los Datos */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto mb-12"
+        >
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
+            Acceso a la Plataforma
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
+            Explora los Datos
+          </h2>
+          <p className="text-base text-base-content/70 leading-relaxed text-pretty">
+            El sistema te permite explorar y visualizar información del sistema fotovoltaico en tiempo real de manera simple e intuitiva. Más de 3,200 registros disponibles para análisis.
+          </p>
+        </motion.div>
+
+        {/* 3 steps with connecting line */}
+        <div className="relative">
+          {/* Connecting line */}
+          <div className="hidden sm:block absolute top-8 left-[16.67%] right-[16.67%] h-px bg-border/40" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-0">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="flex flex-col items-center text-center"
+              >
+                {/* Number circle */}
+                <div className="relative z-10 w-16 h-16 rounded-full border-2 border-primary/40 bg-base-100 flex items-center justify-center mb-5 hover:border-primary/60 hover:shadow-lg transition-all duration-300">
+                  <span className="text-xl font-bold text-primary">{step.number}</span>
+                </div>
+                <h3 className="text-base font-semibold text-base-content mb-1.5">{step.title}</h3>
+                <p className="text-sm text-base-content/60 leading-relaxed max-w-[220px]">{step.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  )
+}
 
         {/* Header */}
         <motion.div
