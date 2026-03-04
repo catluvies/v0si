@@ -72,35 +72,42 @@ export default function CapabilitiesSection() {
           </p>
         </motion.div>
 
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-          {capabilities.map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: index * 0.05 }}
-              className="group relative rounded-xl border border-border/30 bg-foreground/[0.02] p-5 flex flex-col gap-4 cursor-default overflow-hidden transition-all duration-300 hover:border-primary/40 hover:bg-foreground/[0.05] hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_hsl(var(--primary)/0.15)]"
-            >
-              {/* Glow accent on hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-[radial-gradient(ellipse_at_top_left,hsl(var(--primary)/0.07),transparent_70%)]" />
+        {/* Bento grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          {capabilities.map((item, index) => {
+            // First two cards span 2 cols each → fills row 1 (2+2=4)
+            // Remaining 5 cards are 1 col each → fills row 2 (1+1+1+1) + row 3 start (1)
+            // To avoid orphan: make last card span 2 as well
+            const isWide = index < 2
+            const isLastWide = index === 6
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: index * 0.05 }}
+                className={`group relative rounded-xl border border-border/30 bg-foreground/[0.02] p-6 flex flex-col gap-4 cursor-default overflow-hidden transition-all duration-300 hover:border-primary/40 hover:bg-foreground/[0.05] hover:-translate-y-0.5 hover:shadow-[0_0_24px_-4px_hsl(var(--primary)/0.15)] ${isWide || isLastWide ? 'col-span-2' : 'col-span-1'}`}
+              >
+                {/* Glow accent on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-[radial-gradient(ellipse_at_top_left,hsl(var(--primary)/0.07),transparent_70%)]" />
 
-              {/* Icon */}
-              <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-primary/20 group-hover:border-primary/40">
-                <item.icon className="w-4 h-4 text-primary" />
-              </div>
+                {/* Icon */}
+                <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-primary/20 group-hover:border-primary/40">
+                  <item.icon className="w-4 h-4 text-primary" />
+                </div>
 
-              {/* Text */}
-              <div className="flex flex-col gap-1.5">
-                <h3 className="text-sm font-semibold text-foreground leading-snug">{item.title}</h3>
-                <p className="text-xs text-foreground/50 leading-relaxed">{item.description}</p>
-              </div>
+                {/* Text */}
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="text-sm font-semibold text-foreground leading-snug">{item.title}</h3>
+                  <p className="text-xs text-foreground/50 leading-relaxed">{item.description}</p>
+                </div>
 
-              {/* Bottom accent line */}
-              <div className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full bg-primary/40 transition-all duration-500" />
-            </motion.div>
-          ))}
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full bg-primary/40 transition-all duration-500" />
+              </motion.div>
+            )
+          })}
         </div>
 
       </div>
