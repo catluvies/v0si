@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { AlertTriangle, ArrowRight } from 'lucide-react'
+import { AlertTriangle } from 'lucide-react'
 
 const stats = [
   {
@@ -18,7 +18,7 @@ const stats = [
   },
 ]
 
-export default function ProblemSolutionSection() {
+export default function ProblemSection() {
   return (
     <section id="problem" className="py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -91,31 +91,6 @@ export default function ProblemSolutionSection() {
               ))}
             </div>
           </div>
-        </motion.div>
-
-        {/* CTA banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-6 rounded-2xl bg-primary px-8 py-10 text-center"
-        >
-          <h3 className="text-xl md:text-2xl font-bold text-primary-content mb-3 text-balance">
-            Es Momento de un Cambio
-          </h3>
-          <p className="text-sm text-primary-content/80 leading-relaxed max-w-lg mx-auto text-pretty">
-            La tecnología para resolver estos problemas existe y está probada. Con más de 20
-            años de experiencia, sabemos cómo implementarla correctamente para maximizar
-            la eficiencia energética.
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 mt-6 px-6 py-2.5 rounded-lg bg-background/15 hover:bg-background/25 text-primary-content text-sm font-medium transition-all duration-200 border border-background/20"
-          >
-            Contáctanos
-            <ArrowRight className="w-4 h-4" />
-          </a>
         </motion.div>
 
       </div>
