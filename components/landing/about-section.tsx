@@ -128,12 +128,13 @@ export default function AboutSection() {
             <h3 className="text-base font-semibold text-foreground mb-4">
               {slides[activeSlide].title}
             </h3>
-            <div className="mb-6">
+            {/* Altura fija para que no salte al cambiar slide */}
+            <div className="h-48 overflow-hidden mb-6">
               {slides[activeSlide].content}
             </div>
 
-            {/* Controles */}
-            <div className="flex items-center gap-3 pt-5 border-t border-border/30">
+            {/* Controles centrados con números */}
+            <div className="flex items-center justify-center gap-4 pt-5 border-t border-border/30">
               <button
                 onClick={handlePrev}
                 aria-label="Anterior"
@@ -142,18 +143,20 @@ export default function AboutSection() {
                 <ChevronLeft className="w-3.5 h-3.5" />
               </button>
 
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-2">
                 {slides.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setActiveSlide(index)}
                     aria-label={`Slide ${index + 1}`}
-                    className={`h-1 rounded-full transition-all duration-300 ${
+                    className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium transition-all duration-300 ${
                       activeSlide === index
-                        ? 'bg-primary w-5'
-                        : 'bg-foreground/20 w-1 hover:bg-foreground/40'
+                        ? 'bg-primary text-primary-content'
+                        : 'text-foreground/40 hover:text-foreground/70'
                     }`}
-                  />
+                  >
+                    {index + 1}
+                  </button>
                 ))}
               </div>
 
