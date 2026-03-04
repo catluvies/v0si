@@ -137,96 +137,93 @@ export default function AboutSection() {
 
   return (
     <section id="about" className="relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Grid: Encabezado + Carrusel a la izquierda | Imagen a la derecha */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-start min-h-screen">
-          {/* Columna izquierda: Encabezado + Carrusel */}
-          <div className="lg:col-span-5 pr-8 py-24 lg:py-32">
-            {/* Encabezado */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="mb-16"
-            >
-              <span className="badge badge-outline badge-sm text-primary border-primary/30 mb-4 font-medium">
-                Sobre Nosotros
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance mb-6">
-                ¿Quiénes Somos?
-              </h2>
-              <p className="text-base lg:text-lg text-foreground/60 leading-relaxed text-pretty">
-                Somos una empresa B, integrada por ingenieros chilenos comprometidos con el
-                desarrollo sustentable de modelos, productos y herramientas de análisis de datos
-                en torno a la eficiencia del uso de la energía.
-              </p>
-            </motion.div>
+      <div className="flex min-h-screen">
+        {/* Columna izquierda: Encabezado + Carrusel */}
+        <div className="w-full lg:w-5/12 max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32">
+          {/* Encabezado */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-16 pr-8"
+          >
+            <span className="badge badge-outline badge-sm text-primary border-primary/30 mb-4 font-medium">
+              Sobre Nosotros
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance mb-6">
+              ¿Quiénes Somos?
+            </h2>
+            <p className="text-base lg:text-lg text-foreground/60 leading-relaxed text-pretty">
+              Somos una empresa B, integrada por ingenieros chilenos comprometidos con el
+              desarrollo sustentable de modelos, productos y herramientas de análisis de datos
+              en torno a la eficiencia del uso de la energía.
+            </p>
+          </motion.div>
 
-            {/* Carrusel */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="h-[500px] lg:h-[550px] flex flex-col"
-            >
-              <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
-                {slides[activeSlide].title}
-              </h3>
-              <div className="flex-1 mt-6">
-                {slides[activeSlide].content}
-              </div>
-
-              {/* Controles de navegación */}
-              <div className="flex items-center gap-4 pt-6 mt-auto">
-                <button
-                  onClick={handlePrev}
-                  className="btn btn-circle btn-ghost btn-sm"
-                  aria-label="Anterior"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-
-                {/* Dots indicadores */}
-                <div className="flex gap-2">
-                  {slides.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveSlide(index)}
-                      className={`w-2.5 h-2.5 rounded-full transition-all ${
-                        activeSlide === index
-                          ? 'bg-primary w-8'
-                          : 'bg-foreground/20 hover:bg-foreground/40'
-                      }`}
-                      aria-label={`Slide ${index + 1}`}
-                    />
-                  ))}
-                </div>
-
-                <button
-                  onClick={handleNext}
-                  className="btn btn-circle btn-ghost btn-sm"
-                  aria-label="Siguiente"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Columna derecha: Imagen con fade - Sale del contenedor */}
-          <div className="lg:col-span-7 h-full lg:-mr-12">
-            <div className="relative w-full h-full overflow-hidden sticky top-0">
-              <Image
-                src={slides[activeSlide].image}
-                alt={slides[activeSlide].title}
-                fill
-                className="object-cover"
-              />
-              {/* Fade difuminado en la izquierda */}
-              <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent" />
+          {/* Carrusel */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="h-[500px] lg:h-[550px] flex flex-col pr-8"
+          >
+            <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
+              {slides[activeSlide].title}
+            </h3>
+            <div className="flex-1 mt-6">
+              {slides[activeSlide].content}
             </div>
+
+            {/* Controles de navegación */}
+            <div className="flex items-center gap-4 pt-6 mt-auto">
+              <button
+                onClick={handlePrev}
+                className="btn btn-circle btn-ghost btn-sm"
+                aria-label="Anterior"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+
+              {/* Dots indicadores */}
+              <div className="flex gap-2">
+                {slides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveSlide(index)}
+                    className={`w-2.5 h-2.5 rounded-full transition-all ${
+                      activeSlide === index
+                        ? 'bg-primary w-8'
+                        : 'bg-foreground/20 hover:bg-foreground/40'
+                    }`}
+                    aria-label={`Slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={handleNext}
+                className="btn btn-circle btn-ghost btn-sm"
+                aria-label="Siguiente"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Columna derecha: Imagen - Ocupa el espacio restante */}
+        <div className="hidden lg:flex w-7/12 h-full overflow-hidden sticky top-0">
+          <div className="relative w-full h-full">
+            <Image
+              src={slides[activeSlide].image}
+              alt={slides[activeSlide].title}
+              fill
+              className="object-cover"
+            />
+            {/* Fade difuminado en la izquierda */}
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent" />
           </div>
         </div>
       </div>
