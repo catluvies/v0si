@@ -1,12 +1,13 @@
 import Navbar from '@/components/landing/navbar'
 import HeroSection from '@/components/landing/hero-section'
 import LogoCloud from '@/components/landing/logo-cloud'
-import FeaturesSection from '@/components/landing/features-section'
+import AboutSection from '@/components/landing/about-section'
+import MissionVisionSection from '@/components/landing/mission-vision-section'
 import ProblemSolutionSection from '@/components/landing/problem-solution-section'
 import DataVisualizationSection from '@/components/landing/data-visualization-section'
+import CTASection from '@/components/landing/cta-section'
 import TeamSection from '@/components/landing/team-section'
 import FAQSection from '@/components/landing/faq-section'
-import CTASection from '@/components/landing/cta-section'
 import Footer from '@/components/landing/footer'
 
 export default function Home() {
@@ -16,12 +17,13 @@ export default function Home() {
       <main>
         <HeroSection />
         <LogoCloud />
-        <FeaturesSection />
+        <AboutSection />
+        <MissionVisionSection />
         <ProblemSolutionSection />
         <DataVisualizationSection />
+        <CTASection />
         <TeamSection />
         <FAQSection />
-        <CTASection />
       </main>
       <Footer />
     </>
