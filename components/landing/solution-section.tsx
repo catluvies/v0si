@@ -123,9 +123,9 @@ export default function SolutionSection() {
             </div>
           </div>
 
-          {/* Features row with full descriptions */}
-          <div className="border-t border-border/30">
-            <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-border/30">
+          {/* Features as separated cards */}
+          <div className="border-t border-border/30 p-6 lg:p-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {features.map((feature, index) => (
                 <motion.div
                   key={feature.title}
@@ -133,7 +133,7 @@ export default function SolutionSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: 0.2 + index * 0.06 }}
-                  className="px-5 py-5 flex flex-col gap-2"
+                  className="rounded-lg border border-border/40 bg-foreground/[0.02] p-4 flex flex-col gap-2 hover:border-border/60 hover:bg-foreground/[0.04] transition-all duration-300"
                 >
                   <div className="flex items-center gap-2">
                     <feature.icon className="w-3.5 h-3.5 text-primary shrink-0" />
