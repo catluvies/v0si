@@ -56,48 +56,55 @@ export default function ProblemSolutionSection() {
           </p>
         </motion.div>
 
-        {/* Tarjeta situación actual */}
+        {/* Tarjeta situación actual — 2 columnas */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="rounded-2xl border border-border/40 bg-foreground/[0.03] p-8 lg:p-10 border-l-2 border-l-primary"
+          className="rounded-2xl border border-border/40 bg-foreground/[0.03] overflow-hidden border-l-2 border-l-primary"
         >
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
-            Situación Actual
-          </span>
-          <h3 className="text-xl font-bold text-foreground mb-4 text-balance">
-            La Falta de Visibilidad y Control Energético
-          </h3>
-          <p className="text-sm text-foreground/60 leading-relaxed mb-4 max-w-3xl">
-            Muchas empresas e instituciones desconocen cómo están utilizando realmente su energía.
-            Sin datos precisos y análisis en tiempo real, es imposible optimizar el consumo,
-            detectar anomalías o tomar decisiones informadas sobre eficiencia energética.
-          </p>
-          <p className="text-sm text-foreground/60 leading-relaxed max-w-3xl">
-            Detectamos que es un error adelantar la instalación de paneles solares sin
-            preocuparse de corregir primero la eficiencia en el uso de la energía existente.
-            El monitoreo y análisis son fundamentales para cualquier estrategia energética exitosa.
-          </p>
-        </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2">
 
-        {/* Stats row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border/30 rounded-2xl overflow-hidden border border-border/30">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.value}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="bg-background px-8 py-10 flex flex-col gap-2"
-            >
-              <p className="text-6xl font-bold text-primary leading-none tracking-tight">{stat.value}</p>
-              <p className="text-sm text-foreground/50 leading-relaxed">{stat.description}</p>
-            </motion.div>
-          ))}
-        </div>
+            {/* Izquierda: texto */}
+            <div className="p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-border/30">
+              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
+                Situación Actual
+              </span>
+              <h3 className="text-xl font-bold text-foreground mb-4 text-balance">
+                La Falta de Visibilidad y Control Energético
+              </h3>
+              <p className="text-sm text-foreground/60 leading-relaxed mb-4">
+                Muchas empresas e instituciones desconocen cómo están utilizando realmente su energía.
+                Sin datos precisos y análisis en tiempo real, es imposible optimizar el consumo,
+                detectar anomalías o tomar decisiones informadas sobre eficiencia energética.
+              </p>
+              <p className="text-sm text-foreground/60 leading-relaxed">
+                Detectamos que es un error adelantar la instalación de paneles solares sin
+                preocuparse de corregir primero la eficiencia en el uso de la energía existente.
+                El monitoreo y análisis son fundamentales para cualquier estrategia energética exitosa.
+              </p>
+            </div>
+
+            {/* Derecha: stats como filas */}
+            <div className="flex flex-col divide-y divide-border/30">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.value}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
+                  className="flex items-center gap-5 px-8 py-7"
+                >
+                  <p className="text-4xl font-bold text-primary shrink-0 w-20 leading-none tabular-nums">{stat.value}</p>
+                  <p className="text-sm text-foreground/55 leading-relaxed">{stat.description}</p>
+                </motion.div>
+              ))}
+            </div>
+
+          </div>
+        </motion.div>
 
         {/* Impact cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
