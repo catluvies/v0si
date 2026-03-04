@@ -130,8 +130,7 @@ export default function AboutSection() {
             <h3 className="text-base font-semibold text-foreground mb-4">
               {slides[activeSlide].title}
             </h3>
-            {/* Altura fija para que no salte al cambiar slide */}
-            <div className="h-72 overflow-hidden mb-6">
+            <div className="mb-6">
               {slides[activeSlide].content}
             </div>
 
