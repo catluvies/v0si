@@ -67,7 +67,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-16 w-full"
+            className="mt-8 w-full"
           >
             <div className="flex flex-col sm:flex-row gap-4">
               <StatCard
