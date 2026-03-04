@@ -74,34 +74,34 @@ export default function SolutionSection() {
           </p>
         </motion.div>
 
-        {/* Main card */}
+        {/* Main card with 2-column layout */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="rounded-2xl border border-border/40 bg-foreground/[0.03] overflow-hidden"
+          className="rounded-2xl border border-border/40 bg-base-100 overflow-hidden"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 lg:p-10">
             {/* Left: text */}
-            <div className="p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-border/30 border-l-2 border-l-primary">
+            <div className="border-l-2 border-l-primary pl-6">
               <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
                 La Respuesta que Necesitas
               </span>
-              <p className="text-sm text-foreground/60 leading-relaxed mb-4">
+              <p className="text-sm text-base-content/70 leading-relaxed mb-4">
                 Nuestro sistema SolarTech® combina gestión de energía eléctrica, acumulación en
                 baterías de litio y monitoreo en tiempo real. Con presencia desde la frontera norte
                 hasta el Cabo de Hornos, operamos en los entornos más extremos de Chile.
               </p>
-              <p className="text-sm text-foreground/60 leading-relaxed">
+              <p className="text-sm text-base-content/70 leading-relaxed">
                 Especializados en entornos aislados, energías renovables (aerogeneradores,
                 turbogeneradores, paneles solares) y sistemas de inversión. Acceso desde cualquier
                 dispositivo con análisis en tiempo real de más de 3,200 registros disponibles.
               </p>
             </div>
 
-            {/* Right: highlights */}
-            <div className="flex flex-col divide-y divide-border/30">
+            {/* Right: highlights as cards */}
+            <div className="flex flex-col gap-4">
               {highlights.map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -109,14 +109,14 @@ export default function SolutionSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
-                  className="flex items-start gap-4 p-6 lg:p-7"
+                  className="rounded-lg border border-border/40 bg-base-200 p-5 flex items-start gap-4 hover:bg-base-300 transition-colors duration-300"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                    <item.icon className="w-4 h-4 text-primary" />
+                  <div className="w-10 h-10 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0">
+                    <item.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-foreground mb-0.5">{item.label}</p>
-                    <p className="text-xs text-foreground/50 leading-relaxed">{item.description}</p>
+                    <p className="text-sm font-semibold text-base-content mb-1">{item.label}</p>
+                    <p className="text-xs text-base-content/60 leading-relaxed">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -124,7 +124,7 @@ export default function SolutionSection() {
           </div>
 
           {/* Features as separated cards */}
-          <div className="border-t border-border/30 p-6 lg:p-8">
+          <div className="border-t border-border/30 bg-base-200 p-6 lg:p-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {features.map((feature, index) => (
                 <motion.div
@@ -133,13 +133,13 @@ export default function SolutionSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: 0.2 + index * 0.06 }}
-                  className="rounded-lg border border-border/40 bg-foreground/[0.02] p-4 flex flex-col gap-2 hover:border-border/60 hover:bg-foreground/[0.04] transition-all duration-300"
+                  className="rounded-lg border border-border/40 bg-base-100 p-4 flex flex-col gap-2 hover:border-primary/40 hover:bg-base-300 transition-all duration-300"
                 >
                   <div className="flex items-center gap-2">
                     <feature.icon className="w-3.5 h-3.5 text-primary shrink-0" />
-                    <p className="text-xs font-semibold text-foreground">{feature.title}</p>
+                    <p className="text-xs font-semibold text-base-content">{feature.title}</p>
                   </div>
-                  <p className="text-[11px] text-foreground/45 leading-relaxed">{feature.description}</p>
+                  <p className="text-[11px] text-base-content/60 leading-relaxed">{feature.description}</p>
                 </motion.div>
               ))}
             </div>
