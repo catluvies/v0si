@@ -26,15 +26,15 @@ export default function AboutSection() {
             problemas en los territorios más extremos del país.
           </p>
           <div className="grid grid-cols-3 gap-6 pt-6 border-t border-border/40">
-            <div className="text-center">
+            <div className="text-center h-16 flex flex-col items-center justify-start">
               <p className="text-3xl font-bold text-primary mb-1">20+</p>
               <p className="text-xs text-foreground/50">Años de experiencia</p>
             </div>
-            <div className="text-center">
+            <div className="text-center h-16 flex flex-col items-center justify-start">
               <p className="text-3xl font-bold text-primary mb-1">100+</p>
               <p className="text-xs text-foreground/50">Proyectos realizados</p>
             </div>
-            <div className="text-center">
+            <div className="text-center h-16 flex flex-col items-center justify-start">
               <span className="inline-block mb-1 px-2 py-0.5 rounded-md bg-primary/10 border border-primary/20 text-primary text-xs font-semibold tracking-wide">
                 Made in Chile
               </span>
