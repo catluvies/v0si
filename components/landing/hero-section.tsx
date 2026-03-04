@@ -53,33 +53,22 @@ export default function HeroSection() {
             <span className="text-primary">Eficiencia Energética</span>
           </motion.h1>
 
-          <motion.div
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-8 max-w-2xl space-y-1"
+            className="mt-6 max-w-lg text-base md:text-lg text-foreground/60 leading-relaxed text-balance"
           >
-            <p className="text-lg md:text-xl text-foreground/65 leading-relaxed text-balance">
-              Especialistas en proyectos eléctricos y eficiencia energética.
-              Desarrollamos tecnología Made in Chile para la gestión inteligente
-              de sistemas fotovoltaicos.
-            </p>
-          </motion.div>
-
-          {/* Divisor */}
-          <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-12 w-16 h-px bg-primary/50"
-          />
+            Especialistas en proyectos eléctricos y eficiencia energética. Tecnología
+            Made in Chile para la gestión inteligente de sistemas fotovoltaicos.
+          </motion.p>
 
           {/* Stat cards */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            className="mt-12 w-full max-w-3xl"
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="mt-14 w-full max-w-3xl"
           >
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <StatCard
@@ -98,7 +87,7 @@ export default function HeroSection() {
                 label="Monitoreo Continuo"
               />
             </div>
-            <p className="mt-4 text-xs text-foreground/35 italic text-center">
+            <p className="mt-3 text-xs text-foreground/35 italic text-center">
               * Datos actualizados a diciembre de 2024
             </p>
           </motion.div>
