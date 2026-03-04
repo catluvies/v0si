@@ -143,7 +143,7 @@ export default function SolutionSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="mb-8"
+            className="mb-8 text-center"
           >
             <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
               Características
