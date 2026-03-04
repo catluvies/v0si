@@ -216,16 +216,16 @@ export default function AboutSection() {
           </div>
 
           {/* Columna derecha: Imagen con fade */}
-          <div className="lg:col-span-7 h-screen lg:sticky lg:top-0">
-            <div className="relative w-full h-96 lg:h-screen rounded-3xl overflow-hidden border border-border">
+          <div className="lg:col-span-7">
+            <div className="relative w-full h-[500px] lg:h-[550px] overflow-hidden rounded-2xl">
               <Image
                 src={slides[activeSlide].image}
                 alt={slides[activeSlide].title}
                 fill
                 className="object-cover"
               />
-              {/* Fade difuminado de izquierda a derecha */}
-              <div className="absolute inset-0 bg-gradient-to-r from-background via-background/20 to-transparent" />
+              {/* Fade difuminado en la izquierda */}
+              <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent" />
             </div>
           </div>
         </div>
