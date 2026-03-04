@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 
@@ -44,16 +45,15 @@ export default function Navbar() {
       }`}
     >
       <div className="navbar-start">
-        <a href="#" className="flex items-center gap-2 text-xl font-bold tracking-tight text-foreground">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="text-primary">
-            <path
-              d="M16 2L4 28h8l4-10 4 10h8L16 2z"
-              fill="currentColor"
-              opacity="0.9"
-            />
-            <circle cx="16" cy="12" r="3" fill="currentColor" opacity="0.5" />
-          </svg>
-          <span>Lambda</span>
+        <a href="#" className="flex items-center">
+          <Image
+            src="/images/lambda-logo.png"
+            alt="Lambda Ingenieros"
+            width={160}
+            height={52}
+            className="h-10 w-auto object-contain"
+            priority
+          />
         </a>
       </div>
 

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Mail, Phone, MapPin } from 'lucide-react'
 
 const footerLinks = {
@@ -27,12 +28,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand + contact */}
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2 text-xl font-bold tracking-tight text-foreground">
-              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" className="text-primary">
-                <path d="M16 2L4 28h8l4-10 4 10h8L16 2z" fill="currentColor" opacity="0.9" />
-                <circle cx="16" cy="12" r="3" fill="currentColor" opacity="0.5" />
-              </svg>
-              <span>Lambda Ingenieros</span>
+            <a href="#" className="flex items-center">
+              <Image
+                src="/images/lambda-logo.png"
+                alt="Lambda Ingenieros"
+                width={180}
+                height={60}
+                className="h-12 w-auto object-contain"
+              />
             </a>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
               Ingenieria solar fotovoltaica y monitoreo inteligente para hogares
