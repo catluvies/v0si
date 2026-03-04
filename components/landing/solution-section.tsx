@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { TrendingUp, Clock, ShieldCheck, Zap, BarChart2, History } from 'lucide-react'
+import { TrendingUp, Clock, ShieldCheck, BarChart2, History, BellRing } from 'lucide-react'
 
 const highlights = [
   {
@@ -23,13 +23,7 @@ const highlights = [
 
 const features = [
   {
-    icon: Zap,
-    title: 'Monitoreo en Tiempo Real',
-    description:
-      'Visualización instantánea de todos los parámetros críticos del sistema solar con actualización continua 24/7.',
-  },
-  {
-    icon: ShieldCheck,
+    icon: BellRing,
     title: 'Alertas Inteligentes',
     description:
       'Notificaciones automáticas ante anomalías, desviaciones de rendimiento o condiciones críticas del sistema.',
@@ -39,12 +33,6 @@ const features = [
     title: 'Análisis Avanzado',
     description:
       'Reportes detallados, análisis de tendencias y recomendaciones basadas en más de 3,200 registros históricos.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Alta Confiabilidad',
-    description:
-      'Sistema probado en entornos extremos desde Arica hasta el Cabo de Hornos con operación continua garantizada.',
   },
   {
     icon: TrendingUp,
