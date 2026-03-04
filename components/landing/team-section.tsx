@@ -101,19 +101,16 @@ export default function TeamSection() {
                   <a
                     href={member.linkedin}
                     aria-label={`LinkedIn de ${member.name}`}
-                    className="flex items-center gap-1.5 text-xs text-foreground/40 hover:text-primary transition-colors duration-200"
+                    className="w-7 h-7 rounded-md flex items-center justify-center text-foreground/40 hover:text-primary hover:bg-primary/10 transition-all duration-200"
                   >
                     <Linkedin className="w-3.5 h-3.5" />
-                    LinkedIn
                   </a>
-                  <span className="text-border/40">·</span>
                   <a
                     href={`mailto:${member.email}`}
                     aria-label={`Email de ${member.name}`}
-                    className="flex items-center gap-1.5 text-xs text-foreground/40 hover:text-primary transition-colors duration-200"
+                    className="w-7 h-7 rounded-md flex items-center justify-center text-foreground/40 hover:text-primary hover:bg-primary/10 transition-all duration-200"
                   >
                     <Mail className="w-3.5 h-3.5" />
-                    {member.email}
                   </a>
                 </div>
               </motion.div>
