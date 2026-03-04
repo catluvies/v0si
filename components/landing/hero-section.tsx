@@ -53,37 +53,24 @@ export default function HeroSection() {
             <span className="text-primary">Eficiencia Energética</span>
           </motion.h1>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-8 text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl text-pretty"
+            className="mt-10 max-w-2xl space-y-5"
           >
-            Especialistas en{' '}
-            <strong className="text-foreground font-semibold">
-              proyectos eléctricos y eficiencia energética
-            </strong>
-            . Desarrollamos tecnología Made in Chile para la gestión inteligente
-            de sistemas fotovoltaicos.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.28 }}
-            className="mt-4 text-lg md:text-xl text-foreground font-semibold max-w-2xl text-pretty"
-          >
-            ¡Explora nuestro sistema de monitoreo en tiempo real!
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-3 text-sm text-muted-foreground/70 italic"
-          >
-            Datos actualizados a diciembre de 2024
-          </motion.p>
+            <p className="text-lg md:text-xl text-foreground/80 leading-relaxed text-pretty">
+              Especialistas en proyectos eléctricos y eficiencia energética.
+              Desarrollamos tecnología Made in Chile para la gestión inteligente
+              de sistemas fotovoltaicos.
+            </p>
+            <p className="text-lg md:text-xl text-primary font-semibold text-pretty">
+              ¡Explora nuestro sistema de monitoreo en tiempo real!
+            </p>
+            <p className="text-sm text-foreground/40 italic">
+              Datos actualizados a diciembre de 2024
+            </p>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
