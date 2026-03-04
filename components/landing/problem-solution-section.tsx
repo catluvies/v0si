@@ -95,7 +95,7 @@ export default function ProblemSolutionSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
-                  className="flex items-center gap-5 px-8 py-7"
+                  className="flex-1 flex items-center gap-5 px-8 py-6"
                 >
                   <p className="text-4xl font-bold text-primary shrink-0 w-20 leading-none tabular-nums">{stat.value}</p>
                   <p className="text-sm text-foreground/55 leading-relaxed">{stat.description}</p>
