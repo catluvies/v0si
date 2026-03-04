@@ -108,7 +108,7 @@ export default function ProblemSolutionSection() {
           className="flex items-center gap-4"
         >
           <div className="h-px flex-1 bg-border/30" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-foreground/30">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary">
             Consecuencias
           </span>
           <div className="h-px flex-1 bg-border/30" />
@@ -123,16 +123,13 @@ export default function ProblemSolutionSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="rounded-2xl border border-border/30 bg-foreground/[0.03] p-7 flex flex-col gap-5 hover:border-primary/40 hover:bg-foreground/[0.05] transition-all duration-300"
+              className="rounded-xl border border-border/30 bg-foreground/[0.03] p-6 flex flex-col gap-4 hover:border-primary/30 transition-all duration-300"
             >
-              <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                  <item.icon className="w-5 h-5 text-primary" />
-                </div>
-                <span className="text-4xl font-bold text-foreground/8 tabular-nums">0{index + 1}</span>
+              <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
+                <item.icon className="w-4 h-4 text-primary" />
               </div>
               <div>
-                <h3 className="text-base font-semibold text-foreground mb-2">{item.title}</h3>
+                <h3 className="text-base font-semibold text-foreground mb-1.5">{item.title}</h3>
                 <p className="text-sm text-foreground/55 leading-relaxed">{item.description}</p>
               </div>
             </motion.div>
