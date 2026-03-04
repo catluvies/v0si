@@ -38,7 +38,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`navbar fixed top-0 z-50 transition-all duration-300 px-4 lg:px-8 ${
+      className={`navbar fixed top-0 z-50 transition-all duration-300 px-6 lg:px-12 min-h-20 ${
         scrolled
           ? 'bg-background/80 backdrop-blur-xl shadow-sm border-b border-border'
           : 'bg-transparent'
@@ -49,21 +49,21 @@ export default function Navbar() {
           <Image
             src="/images/lambda-logo.png"
             alt="Lambda Ingenieros"
-            width={160}
-            height={52}
-            className="h-10 w-auto object-contain"
+            width={200}
+            height={66}
+            className="h-12 w-auto object-contain"
             priority
           />
         </a>
       </div>
 
       <nav className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal gap-1 px-1 text-sm">
+        <ul className="menu menu-horizontal gap-1 px-1 text-base">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                className="rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors font-medium"
               >
                 {link.label}
               </a>
@@ -81,7 +81,7 @@ export default function Navbar() {
           {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
         </button>
 
-        <a href="#contact" className="btn btn-primary btn-sm hidden lg:inline-flex rounded-lg text-sm">
+        <a href="#contact" className="btn btn-primary hidden lg:inline-flex rounded-xl text-base px-6">
           Acceder al Dashboard
         </a>
 
