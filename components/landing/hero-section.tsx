@@ -51,7 +51,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-7 max-w-xl space-y-2"
+            className="mt-7 max-w-2xl space-y-2"
           >
             <p className="text-xl text-foreground/80 font-medium leading-snug">
               Especialistas en proyectos eléctricos y eficiencia energética.
