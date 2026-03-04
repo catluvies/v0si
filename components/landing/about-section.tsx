@@ -55,10 +55,10 @@ export default function AboutSection() {
             soluciones innovadoras y sostenibles en proyectos eléctricos y de eficiencia
             que permitan optimizar el consumo energético de nuestros clientes.
           </p>
-          <ul className="space-y-2.5 pt-2">
+          <ul className="space-y-3 pt-3">
             {['Tecnología Made in Chile', 'Soluciones para entornos extremos', 'Compromiso con la sostenibilidad'].map((item) => (
-              <li key={item} className="flex items-center gap-2.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+              <li key={item} className="flex items-start gap-3">
+                <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0 mt-1.5" />
                 <span className="text-sm text-foreground/70">{item}</span>
               </li>
             ))}
@@ -78,10 +78,10 @@ export default function AboutSection() {
             donde la sostenibilidad y la eficiencia sean la norma para contribuir al
             bienestar de la sociedad y el medio ambiente.
           </p>
-          <ul className="space-y-2.5 pt-2">
+          <ul className="space-y-3 pt-3">
             {['Liderazgo en eficiencia energética', 'Desarrollo sustentable', 'Cambio cultural hacia la sostenibilidad'].map((item) => (
-              <li key={item} className="flex items-center gap-2.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+              <li key={item} className="flex items-start gap-3">
+                <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0 mt-1.5" />
                 <span className="text-sm text-foreground/70">{item}</span>
               </li>
             ))}
