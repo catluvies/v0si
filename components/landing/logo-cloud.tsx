@@ -51,9 +51,7 @@ export default function LogoCloud() {
                     alt={client.name}
                     width={200}
                     height={120}
-                    className={`object-contain max-h-32 w-auto ${
-                      client.name === 'Armada de Chile' ? 'scale-125' : ''
-                    }`}
+                    className="object-contain max-h-32 w-auto"
                   />
                 </div>
               ))}
@@ -69,9 +67,7 @@ export default function LogoCloud() {
                     alt=""
                     width={200}
                     height={120}
-                    className={`object-contain max-h-32 w-auto ${
-                      client.name === 'Armada de Chile' ? 'scale-125' : ''
-                    }`}
+                    className="object-contain max-h-32 w-auto"
                   />
                 </div>
               ))}
