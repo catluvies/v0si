@@ -3,6 +3,7 @@ import HeroSection from '@/components/landing/hero-section'
 import LogoCloud from '@/components/landing/logo-cloud'
 import AboutSection from '@/components/landing/about-section'
 import ProblemSolutionSection from '@/components/landing/problem-solution-section'
+import CTABannerSection from '@/components/landing/cta-banner-section'
 import DataVisualizationSection from '@/components/landing/data-visualization-section'
 import CTASection from '@/components/landing/cta-section'
 import TeamSection from '@/components/landing/team-section'
@@ -18,6 +19,7 @@ export default function Home() {
         <LogoCloud />
         <AboutSection />
         <ProblemSolutionSection />
+        <CTABannerSection />
         <DataVisualizationSection />
         <CTASection />
         <TeamSection />

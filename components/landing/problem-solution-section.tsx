@@ -121,33 +121,6 @@ export default function ProblemSolutionSection() {
           ))}
         </div>
 
-        {/* CTA Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="rounded-2xl bg-primary px-10 py-12 lg:px-14 lg:py-14 flex flex-col lg:flex-row items-center justify-between gap-8"
-        >
-          <div className="max-w-lg">
-            <h3 className="text-2xl md:text-3xl font-bold text-primary-content mb-3 text-balance">
-              Es Momento de un Cambio
-            </h3>
-            <p className="text-sm text-primary-content/75 leading-relaxed text-pretty">
-              La tecnología para resolver estos problemas existe y está probada. Con más de 20
-              años de experiencia, sabemos cómo implementarla correctamente para maximizar
-              la eficiencia energética.
-            </p>
-          </div>
-          <a
-            href="#contact"
-            className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-background text-foreground text-sm font-semibold hover:bg-background/90 transition-all duration-200 whitespace-nowrap"
-          >
-            Contáctanos
-            <ArrowRight className="w-4 h-4" />
-          </a>
-        </motion.div>
-
       </div>
     </section>
   )
