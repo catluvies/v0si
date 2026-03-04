@@ -25,20 +25,20 @@ export default function AboutSection() {
             desarrollado sistemas como SolarTech® y EnergiaPlus®, reconocidos por resolver
             problemas en los territorios más extremos del país.
           </p>
-          <div className="grid grid-cols-3 gap-4 pt-5 border-t border-border/40">
-            <div className="flex flex-col gap-1">
-              <p className="text-3xl font-bold text-primary leading-none">20+</p>
-              <p className="text-xs text-foreground/50 leading-tight">Años de<br/>experiencia</p>
+          <div className="grid grid-cols-3 gap-6 pt-6 border-t border-border/40">
+            <div className="text-center">
+              <p className="text-3xl font-bold text-primary mb-1">20+</p>
+              <p className="text-xs text-foreground/50">Años de experiencia</p>
             </div>
-            <div className="flex flex-col gap-1">
-              <p className="text-3xl font-bold text-primary leading-none">100+</p>
-              <p className="text-xs text-foreground/50 leading-tight">Proyectos<br/>realizados</p>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-primary mb-1">100+</p>
+              <p className="text-xs text-foreground/50">Proyectos realizados</p>
             </div>
-            <div className="flex flex-col gap-1">
-              <span className="inline-flex items-center self-start px-2 py-0.5 rounded-md bg-primary/10 border border-primary/20 text-primary text-sm font-semibold tracking-wide">
+            <div className="text-center">
+              <span className="inline-block mb-1 px-2 py-0.5 rounded-md bg-primary/10 border border-primary/20 text-primary text-xs font-semibold tracking-wide">
                 Made in Chile
               </span>
-              <p className="text-xs text-foreground/50 leading-tight">Tecnología<br/>propia</p>
+              <p className="text-xs text-foreground/50 block">Tecnología propia</p>
             </div>
           </div>
         </div>
