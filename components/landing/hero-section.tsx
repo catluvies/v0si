@@ -60,19 +60,27 @@ export default function HeroSection() {
             className="mt-8 text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl text-pretty"
           >
             Especialistas en{' '}
-            <strong className="text-foreground font-semibold">proyectos eléctricos y eficiencia energética</strong>.
-            Desarrollamos tecnología Made in Chile para la gestión inteligente de
-            sistemas fotovoltaicos.{' '}
             <strong className="text-foreground font-semibold">
-              ¡Explora nuestro sistema de monitoreo en tiempo real!
+              proyectos eléctricos y eficiencia energética
             </strong>
+            . Desarrollamos tecnología Made in Chile para la gestión inteligente
+            de sistemas fotovoltaicos.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.28 }}
+            className="mt-4 text-lg md:text-xl text-foreground font-semibold max-w-2xl text-pretty"
+          >
+            ¡Explora nuestro sistema de monitoreo en tiempo real!
           </motion.p>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-4 text-sm text-muted-foreground italic"
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="mt-3 text-sm text-muted-foreground/70 italic"
           >
             Datos actualizados a diciembre de 2024
           </motion.p>
