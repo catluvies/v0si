@@ -53,14 +53,14 @@ export default function AboutSection() {
             soluciones innovadoras y sostenibles en proyectos eléctricos y de eficiencia
             que permitan optimizar el consumo energético de nuestros clientes.
           </p>
-          <ul className="space-y-3 pt-3">
+          <div className="space-y-2 pt-3">
             {['Tecnología Made in Chile', 'Soluciones para entornos extremos', 'Compromiso con la sostenibilidad'].map((item) => (
-              <li key={item} className="flex items-start gap-3">
+              <div key={item} className="flex items-start gap-3 px-3 py-2.5 rounded-lg bg-foreground/5 border border-border/30 hover:bg-foreground/10 hover:border-border/50 transition-all">
                 <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0 mt-1.5" />
                 <span className="text-sm text-foreground/70">{item}</span>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       ),
       image: '/placeholder.svg?height=500&width=600',
@@ -76,14 +76,14 @@ export default function AboutSection() {
             donde la sostenibilidad y la eficiencia sean la norma para contribuir al
             bienestar de la sociedad y el medio ambiente.
           </p>
-          <ul className="space-y-3 pt-3">
+          <div className="space-y-2 pt-3">
             {['Liderazgo en eficiencia energética', 'Desarrollo sustentable', 'Cambio cultural hacia la sostenibilidad'].map((item) => (
-              <li key={item} className="flex items-start gap-3">
+              <div key={item} className="flex items-start gap-3 px-3 py-2.5 rounded-lg bg-foreground/5 border border-border/30 hover:bg-foreground/10 hover:border-border/50 transition-all">
                 <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0 mt-1.5" />
                 <span className="text-sm text-foreground/70">{item}</span>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       ),
       image: '/placeholder.svg?height=500&width=600',
