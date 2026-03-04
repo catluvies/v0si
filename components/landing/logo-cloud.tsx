@@ -25,7 +25,7 @@ export default function LogoCloud() {
           <p className="text-sm font-semibold tracking-wider uppercase text-primary/70">
             Nuestros Clientes
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-balance max-w-3xl mx-auto">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground text-balance max-w-2xl mx-auto">
             Socios de Confianza en Eficiencia Energética
           </h2>
         </motion.div>
