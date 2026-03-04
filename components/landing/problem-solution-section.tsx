@@ -3,12 +3,6 @@
 import { motion } from 'framer-motion'
 import { TrendingDown, Clock, DollarSign, ArrowRight } from 'lucide-react'
 
-const stats = [
-  { value: '30%', description: 'Ahorro potencial detectando ineficiencias operacionales' },
-  { value: '20+', description: 'Años desarrollando soluciones de eficiencia energética' },
-  { value: '24/7', description: 'Monitoreo continuo para identificar problemas en tiempo real' },
-]
-
 const impacts = [
   {
     icon: TrendingDown,
@@ -86,19 +80,24 @@ export default function ProblemSolutionSection() {
               </p>
             </div>
 
-            {/* Derecha: stats como filas */}
+            {/* Derecha: consecuencias como filas */}
             <div className="flex flex-col divide-y divide-border/30">
-              {stats.map((stat, index) => (
+              {impacts.map((item, index) => (
                 <motion.div
-                  key={stat.value}
+                  key={item.title}
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
-                  className="flex-1 flex items-center gap-5 px-8 py-6"
+                  className="flex-1 flex items-start gap-4 px-8 py-6"
                 >
-                  <p className="text-4xl font-bold text-primary shrink-0 w-20 leading-none tabular-nums">{stat.value}</p>
-                  <p className="text-sm text-foreground/55 leading-relaxed">{stat.description}</p>
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <item.icon className="w-3.5 h-3.5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground mb-1">{item.title}</p>
+                    <p className="text-xs text-foreground/50 leading-relaxed">{item.description}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
