@@ -35,35 +35,52 @@ export default function ProblemSolutionSection() {
     <section id="problem" className="py-24 lg:py-32">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col gap-16">
 
-        {/* Top block: label + title left, paragraph right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
-              El Problema
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground text-balance leading-tight">
-              El Problema que Abordamos
-            </h2>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-col justify-end lg:pt-12"
-          >
-            <p className="text-base text-foreground/55 leading-relaxed text-pretty">
-              Las constantes alzas de tarifas eléctricas han impactado negativamente los costos
-              de empresas, industrias, instituciones y condominios. Sin un sistema de monitoreo
-              adecuado, se generan pérdidas importantes por uso ineficiente de la energía.
-            </p>
-          </motion.div>
-        </div>
+        {/* Header centrado */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto"
+        >
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
+            El Problema
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance mb-4">
+            El Problema que Abordamos
+          </h2>
+          <p className="text-base text-foreground/55 leading-relaxed text-pretty">
+            Las constantes alzas de tarifas eléctricas han impactado negativamente los costos
+            de empresas, industrias, instituciones y condominios. Sin un sistema de monitoreo
+            adecuado, se generan pérdidas importantes por uso ineficiente de la energía.
+          </p>
+        </motion.div>
+
+        {/* Tarjeta situación actual */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="rounded-2xl border border-border/40 bg-foreground/[0.03] p-8 lg:p-10 border-l-2 border-l-primary"
+        >
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
+            Situación Actual
+          </span>
+          <h3 className="text-xl font-bold text-foreground mb-4 text-balance">
+            La Falta de Visibilidad y Control Energético
+          </h3>
+          <p className="text-sm text-foreground/60 leading-relaxed mb-4 max-w-3xl">
+            Muchas empresas e instituciones desconocen cómo están utilizando realmente su energía.
+            Sin datos precisos y análisis en tiempo real, es imposible optimizar el consumo,
+            detectar anomalías o tomar decisiones informadas sobre eficiencia energética.
+          </p>
+          <p className="text-sm text-foreground/60 leading-relaxed max-w-3xl">
+            Detectamos que es un error adelantar la instalación de paneles solares sin
+            preocuparse de corregir primero la eficiencia en el uso de la energía existente.
+            El monitoreo y análisis son fundamentales para cualquier estrategia energética exitosa.
+          </p>
+        </motion.div>
 
         {/* Stats row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border/30 rounded-2xl overflow-hidden border border-border/30">
