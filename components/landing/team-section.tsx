@@ -43,75 +43,77 @@ export default function TeamSection() {
     <section id="team" className="py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
-        {/* Encabezado centrado */}
+        {/* Encabezado */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-14"
+          className="max-w-2xl mb-14"
         >
           <span className="badge badge-outline badge-sm text-primary border-primary/30 mb-4 font-medium tracking-widest uppercase text-xs">
-            Equipo
+            Nuestro Equipo
           </span>
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance">
-              Nuestro Equipo
-            </h2>
-            <p className="text-sm text-foreground/50 leading-relaxed lg:max-w-sm text-pretty">
-              Ingenieros chilenos con experiencia en industrias químicas, mineras,
-              astilleros y proyectos de especialidad eléctrica, electrónica y automatización.
-            </p>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance mb-4">
+            Ingenieros que conocen el terreno
+          </h2>
+          <p className="text-base text-foreground/55 leading-relaxed text-pretty">
+            Liderados por John Doe, nuestro equipo está compuesto por ingenieros chilenos
+            con experiencia en industrias químicas, mineras, astilleros y proyectos de
+            especialidad eléctrica, electrónica, automatización y supervisión.
+          </p>
         </motion.div>
 
-        {/* Lista de equipo */}
-        <div className="divide-y divide-border/30">
+        {/* Grid 2x2 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {team.map((member, index) => {
             const Icon = member.icon
             return (
               <motion.div
                 key={member.name}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-                className="group flex flex-col sm:flex-row sm:items-center gap-4 py-6 hover:bg-foreground/[0.03] px-4 -mx-4 rounded-lg transition-colors duration-200"
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="group relative flex flex-col gap-4 p-6 rounded-xl border border-border/30 bg-foreground/[0.03] hover:bg-foreground/[0.06] hover:border-border/50 transition-all duration-200"
               >
-                {/* Icono */}
-                <div className="w-10 h-10 rounded-lg bg-foreground/5 border border-border/40 flex items-center justify-center flex-shrink-0 group-hover:border-primary/30 group-hover:bg-primary/5 transition-all duration-200">
-                  <Icon className="w-4 h-4 text-primary" />
+                {/* Acento superior al hacer hover */}
+                <div className="absolute top-0 left-6 right-6 h-px bg-primary/0 group-hover:bg-primary/40 transition-all duration-300 rounded-full" />
+
+                {/* Header: icono + rol */}
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
+                    <Icon className="w-4.5 h-4.5 text-primary" />
+                  </div>
+                  <span className="text-xs font-medium text-primary/70 border border-primary/20 bg-primary/5 px-2.5 py-1 rounded-full">
+                    {member.role}
+                  </span>
                 </div>
 
-                {/* Nombre + rol */}
-                <div className="sm:w-56 flex-shrink-0">
-                  <p className="font-semibold text-foreground text-sm">{member.name}</p>
-                  <p className="text-xs text-primary/80 mt-0.5">{member.role}</p>
+                {/* Nombre */}
+                <div>
+                  <h3 className="text-base font-semibold text-foreground">{member.name}</h3>
+                  <p className="text-sm text-foreground/50 leading-relaxed mt-1">{member.bio}</p>
                 </div>
-
-                {/* Divisor vertical solo en desktop */}
-                <div className="hidden sm:block w-px h-8 bg-border/30 flex-shrink-0" />
-
-                {/* Bio */}
-                <p className="text-sm text-foreground/50 leading-relaxed flex-1">
-                  {member.bio}
-                </p>
 
                 {/* Links */}
-                <div className="flex items-center gap-2 flex-shrink-0">
+                <div className="flex items-center gap-2 mt-auto pt-4 border-t border-border/20">
                   <a
                     href={member.linkedin}
                     aria-label={`LinkedIn de ${member.name}`}
-                    className="w-8 h-8 rounded-md border border-border/40 flex items-center justify-center text-foreground/35 hover:text-primary hover:border-primary/40 transition-all duration-200"
+                    className="flex items-center gap-1.5 text-xs text-foreground/40 hover:text-primary transition-colors duration-200"
                   >
                     <Linkedin className="w-3.5 h-3.5" />
+                    LinkedIn
                   </a>
+                  <span className="text-border/40">·</span>
                   <a
                     href={`mailto:${member.email}`}
                     aria-label={`Email de ${member.name}`}
-                    className="w-8 h-8 rounded-md border border-border/40 flex items-center justify-center text-foreground/35 hover:text-primary hover:border-primary/40 transition-all duration-200"
+                    className="flex items-center gap-1.5 text-xs text-foreground/40 hover:text-primary transition-colors duration-200"
                   >
                     <Mail className="w-3.5 h-3.5" />
+                    {member.email}
                   </a>
                 </div>
               </motion.div>
