@@ -69,8 +69,8 @@ export default function SolutionSection() {
           </h2>
           <p className="text-base text-foreground/55 leading-relaxed text-pretty">
             Sistema de monitoreo y análisis en tiempo real que permite optimizar el consumo energético,
-            detectar ineficiencias y tomar decisiones informadas. Tecnología Made in Chile con más de
-            20 años de experiencia en proyectos eléctricos y eficiencia energética.
+            detectar ineficiencias y tomar decisiones informadas. Más de 20 años de experiencia en
+            proyectos eléctricos y eficiencia energética.
           </p>
         </motion.div>
 
