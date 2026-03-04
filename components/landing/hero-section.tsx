@@ -57,37 +57,29 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-10 max-w-2xl space-y-3"
+            className="mt-8 max-w-2xl space-y-1"
           >
-            <p className="text-2xl md:text-3xl font-semibold text-foreground/90 text-balance leading-snug">
+            <p className="text-lg md:text-xl text-foreground/65 leading-relaxed text-balance">
               Especialistas en proyectos eléctricos y eficiencia energética.
-            </p>
-            <p className="text-base md:text-lg text-foreground/55 leading-relaxed text-pretty">
-              Desarrollamos tecnología Made in Chile para la gestión inteligente de sistemas fotovoltaicos.
-            </p>
-            <p className="text-base md:text-lg text-primary font-semibold pt-2">
-              ¡Explora nuestro sistema de monitoreo en tiempo real!
+              Desarrollamos tecnología Made in Chile para la gestión inteligente
+              de sistemas fotovoltaicos.
             </p>
           </motion.div>
 
+          {/* Divisor */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-10 flex flex-col sm:flex-row items-center gap-4"
-          >
-            <a href="#dashboard" className="btn btn-primary btn-lg rounded-xl gap-2 px-8 text-base">
-              <BarChart3 className="w-5 h-5" />
-              Explorar Dashboard
-            </a>
-          </motion.div>
+            className="mt-12 w-16 h-px bg-primary/50"
+          />
 
           {/* Stat cards */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-16 w-full max-w-3xl"
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="mt-12 w-full max-w-3xl"
           >
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <StatCard
@@ -106,7 +98,7 @@ export default function HeroSection() {
                 label="Monitoreo Continuo"
               />
             </div>
-            <p className="mt-4 text-xs text-foreground/40 italic text-center">
+            <p className="mt-4 text-xs text-foreground/35 italic text-center">
               * Datos actualizados a diciembre de 2024
             </p>
           </motion.div>
