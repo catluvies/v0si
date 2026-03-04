@@ -118,6 +118,9 @@ export default function CapabilitiesSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-10"
         >
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
+            Explora los Datos
+          </span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance mb-4">
             Explora los Datos
           </h2>
