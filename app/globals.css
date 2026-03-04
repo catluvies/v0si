@@ -137,6 +137,21 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Marquee animation for client carousel */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* Custom scrollbar for dark mode */
 [data-theme="dark"] ::-webkit-scrollbar {
   width: 8px;
