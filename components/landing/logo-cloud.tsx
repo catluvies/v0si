@@ -20,7 +20,7 @@ export default function LogoCloud() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16 flex flex-col items-center text-center space-y-4"
+          className="mb-10 flex flex-col items-center text-center space-y-4"
         >
           <p className="text-xs font-semibold tracking-widest uppercase text-primary/60">
             Nuestros Clientes
