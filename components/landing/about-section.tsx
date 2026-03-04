@@ -138,91 +138,97 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Encabezado */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-20"
-        >
-          <span className="badge badge-outline badge-sm text-primary border-primary/30 mb-4 font-medium">
-            Sobre Nosotros
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground text-balance mb-8">
-            ¿Quiénes Somos?
-          </h2>
-          <p className="text-lg text-foreground/60 leading-relaxed text-pretty">
-            Somos una empresa B, integrada por ingenieros chilenos comprometidos con el
-            desarrollo sustentable de modelos, productos y herramientas de análisis de datos
-            en torno a la eficiencia del uso de la energía.
-          </p>
-        </motion.div>
+        {/* Grid: Encabezado + Carrusel a la izquierda | Imagen a la derecha */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          {/* Columna izquierda: Encabezado + Carrusel */}
+          <div className="lg:col-span-5">
+            {/* Encabezado */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-16"
+            >
+              <span className="badge badge-outline badge-sm text-primary border-primary/30 mb-4 font-medium">
+                Sobre Nosotros
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance mb-6">
+                ¿Quiénes Somos?
+              </h2>
+              <p className="text-base lg:text-lg text-foreground/60 leading-relaxed text-pretty">
+                Somos una empresa B, integrada por ingenieros chilenos comprometidos con el
+                desarrollo sustentable de modelos, productos y herramientas de análisis de datos
+                en torno a la eficiencia del uso de la energía.
+              </p>
+            </motion.div>
 
-        {/* Carrusel */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
-        >
-          {/* Contenido del slide */}
-          <div className="h-[500px] lg:h-[550px] flex flex-col">
-            <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
-              {slides[activeSlide].title}
-            </h3>
-            <div className="flex-1 mt-6">
-              {slides[activeSlide].content}
-            </div>
-
-            {/* Controles de navegación */}
-            <div className="flex items-center gap-4 pt-6 mt-auto">
-              <button
-                onClick={handlePrev}
-                className="btn btn-circle btn-ghost btn-sm"
-                aria-label="Anterior"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-
-              {/* Dots indicadores */}
-              <div className="flex gap-2">
-                {slides.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveSlide(index)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all ${
-                      activeSlide === index
-                        ? 'bg-primary w-8'
-                        : 'bg-foreground/20 hover:bg-foreground/40'
-                    }`}
-                    aria-label={`Slide ${index + 1}`}
-                  />
-                ))}
+            {/* Carrusel */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="h-[500px] lg:h-[550px] flex flex-col"
+            >
+              <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
+                {slides[activeSlide].title}
+              </h3>
+              <div className="flex-1 mt-6">
+                {slides[activeSlide].content}
               </div>
 
-              <button
-                onClick={handleNext}
-                className="btn btn-circle btn-ghost btn-sm"
-                aria-label="Siguiente"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
+              {/* Controles de navegación */}
+              <div className="flex items-center gap-4 pt-6 mt-auto">
+                <button
+                  onClick={handlePrev}
+                  className="btn btn-circle btn-ghost btn-sm"
+                  aria-label="Anterior"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+
+                {/* Dots indicadores */}
+                <div className="flex gap-2">
+                  {slides.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveSlide(index)}
+                      className={`w-2.5 h-2.5 rounded-full transition-all ${
+                        activeSlide === index
+                          ? 'bg-primary w-8'
+                          : 'bg-foreground/20 hover:bg-foreground/40'
+                      }`}
+                      aria-label={`Slide ${index + 1}`}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  onClick={handleNext}
+                  className="btn btn-circle btn-ghost btn-sm"
+                  aria-label="Siguiente"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+            </motion.div>
           </div>
 
-          {/* Imagen */}
-          <div className="relative h-96 lg:h-full min-h-96 rounded-3xl overflow-hidden border border-border">
-            <Image
-              src={slides[activeSlide].image}
-              alt={slides[activeSlide].title}
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+          {/* Columna derecha: Imagen con fade */}
+          <div className="lg:col-span-7 h-screen lg:sticky lg:top-0">
+            <div className="relative w-full h-96 lg:h-screen rounded-3xl overflow-hidden border border-border">
+              <Image
+                src={slides[activeSlide].image}
+                alt={slides[activeSlide].title}
+                fill
+                className="object-cover"
+              />
+              {/* Fade difuminado de izquierda a derecha */}
+              <div className="absolute inset-0 bg-gradient-to-r from-background via-background/20 to-transparent" />
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
