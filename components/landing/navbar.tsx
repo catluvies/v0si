@@ -6,9 +6,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 
 const navLinks = [
-  { href: '#features', label: 'Funcionalidades' },
-  { href: '#solution', label: 'Soluciones' },
-  { href: '#data', label: 'Dashboard' },
+  { href: '#solution', label: 'Nuestra Solución' },
+  { href: '#capabilities', label: 'Capacidades' },
   { href: '#team', label: 'Equipo' },
   { href: '#faq', label: 'FAQ' },
 ]
@@ -81,8 +80,8 @@ export default function Navbar() {
           {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
         </button>
 
-        <a href="#contact" className="btn btn-primary hidden lg:inline-flex rounded-xl text-base px-6">
-          Acceder al Dashboard
+        <a href="#contact" className="btn btn-ghost border border-border/40 hover:border-border/60 hidden lg:inline-flex rounded-xl text-base px-6">
+          Iniciar sesión
         </a>
 
         <button
@@ -118,10 +117,10 @@ export default function Navbar() {
               <li>
                 <a
                   href="#contact"
-                  className="btn btn-primary btn-sm mt-2 rounded-lg"
+                  className="btn btn-ghost border border-border/40 btn-sm mt-2 rounded-lg"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Acceder al Dashboard
+                  Iniciar sesión
                 </a>
               </li>
             </ul>
