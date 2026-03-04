@@ -168,11 +168,11 @@ export default function AboutSection() {
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
         >
           {/* Contenido del slide */}
-          <div className="h-96 lg:h-full overflow-hidden flex flex-col">
+          <div className="h-[500px] lg:h-[550px] flex flex-col">
             <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
               {slides[activeSlide].title}
             </h3>
-            <div className="flex-1 overflow-y-auto mt-6">
+            <div className="flex-1 mt-6">
               {slides[activeSlide].content}
             </div>
 
