@@ -54,7 +54,8 @@ export default function HeroSection() {
             className="mt-7 max-w-lg space-y-2"
           >
             <p className="text-xl text-foreground/80 font-medium leading-snug">
-              Especialistas en proyectos eléctricos y eficiencia energética.
+              Especialistas en proyectos eléctricos y{' '}
+              <span className="whitespace-nowrap">eficiencia energética.</span>
             </p>
             <p className="text-base text-foreground/50 leading-relaxed">
               Desarrollamos tecnología Made in Chile para la gestión inteligente
