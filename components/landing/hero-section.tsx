@@ -41,7 +41,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6 }}
             >
               <span className="badge badge-outline badge-md text-primary border-primary/40 mb-8 font-medium px-4 py-3 text-sm">
-                Monitoreo Solar Inteligente
+                Sistema Fotovoltaico RadioTumbes
               </span>
             </motion.div>
 
@@ -51,8 +51,8 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-balance text-foreground"
             >
-              Controla tu energia{' '}
-              <span className="text-primary">solar</span> en tiempo real
+              Mas de 20 Anos Mejorando la{' '}
+              <span className="text-primary">Eficiencia Energetica</span>
             </motion.h1>
 
             <motion.p
@@ -61,8 +61,9 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-8 text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0 text-pretty"
             >
-              Plataforma integral de monitoreo fotovoltaico que te permite visualizar,
-              analizar y optimizar la generacion de cada uno de tus paneles solares.
+              Especialistas en{' '}
+              <strong className="text-foreground font-semibold">proyectos electricos y eficiencia energetica</strong>.
+              Desarrollamos tecnologia Made in Chile para la gestion inteligente de sistemas fotovoltaicos.
             </motion.p>
 
             <motion.div
@@ -71,8 +72,8 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-10 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
             >
-              <a href="#contact" className="btn btn-primary btn-lg rounded-xl gap-2 px-8 text-base">
-                Solicitar Demo
+              <a href="#dashboard" className="btn btn-primary btn-lg rounded-xl gap-2 px-8 text-base">
+                Explorar Dashboard
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a href="#features" className="btn btn-ghost btn-lg rounded-xl text-muted-foreground gap-2 text-base">
@@ -80,26 +81,43 @@ export default function HeroSection() {
               </a>
             </motion.div>
 
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="mt-4 text-sm text-muted-foreground italic text-center lg:text-left"
+            >
+              Datos actualizados a diciembre de 2024
+            </motion.p>
+
             {/* Quick stats */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-14 flex items-center gap-10 justify-center lg:justify-start"
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mt-12 flex items-center gap-10 justify-center lg:justify-start"
             >
               <div className="flex items-center gap-3">
                 <BarChart3 className="w-6 h-6 text-primary" />
                 <div>
-                  <p className="text-3xl font-bold text-foreground">+150</p>
-                  <p className="text-sm text-muted-foreground">Sistemas monitoreados</p>
+                  <p className="text-3xl font-bold text-foreground">3,203</p>
+                  <p className="text-sm text-muted-foreground">Lecturas del Sistema</p>
                 </div>
               </div>
               <div className="w-px h-12 bg-border" />
               <div className="flex items-center gap-3">
                 <Zap className="w-6 h-6 text-primary" />
                 <div>
-                  <p className="text-3xl font-bold text-foreground">99.8%</p>
-                  <p className="text-sm text-muted-foreground">Uptime del servicio</p>
+                  <p className="text-3xl font-bold text-foreground">4</p>
+                  <p className="text-sm text-muted-foreground">Trackers Solares</p>
+                </div>
+              </div>
+              <div className="w-px h-12 bg-border" />
+              <div className="flex items-center gap-3">
+                <BarChart3 className="w-6 h-6 text-primary" />
+                <div>
+                  <p className="text-3xl font-bold text-foreground">24/7</p>
+                  <p className="text-sm text-muted-foreground">Monitoreo Continuo</p>
                 </div>
               </div>
             </motion.div>
@@ -123,9 +141,9 @@ export default function HeroSection() {
 
               {/* Fake dashboard content */}
               <div className="grid grid-cols-3 gap-4 mb-5">
-                <DashboardStat label="Generacion Hoy" value="42.8 kWh" change="+12%" />
-                <DashboardStat label="Potencia Actual" value="5.2 kW" change="+8%" />
-                <DashboardStat label="Ahorro Mensual" value="$185K" change="+15%" />
+                <DashboardStat label="Lecturas Totales" value="3,203" change="+24 hoy" />
+                <DashboardStat label="Trackers Activos" value="4 / 4" change="100%" />
+                <DashboardStat label="Uptime" value="24/7" change="99.9%" />
               </div>
 
               {/* Fake chart area */}
