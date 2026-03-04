@@ -5,6 +5,7 @@ import AboutSection from '@/components/landing/about-section'
 import ProblemSolutionSection from '@/components/landing/problem-solution-section'
 import CTABannerSection from '@/components/landing/cta-banner-section'
 import SolutionSection from '@/components/landing/solution-section'
+import CapabilitiesSection from '@/components/landing/capabilities-section'
 import CTASection from '@/components/landing/cta-section'
 import TeamSection from '@/components/landing/team-section'
 import FAQSection from '@/components/landing/faq-section'
@@ -21,6 +22,7 @@ export default function Home() {
         <CTABannerSection />
         <ProblemSolutionSection />
         <SolutionSection />
+        <CapabilitiesSection />
         <CTASection />
         <TeamSection />
         <FAQSection />
