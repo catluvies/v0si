@@ -1,16 +1,17 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Linkedin, Mail, Users, Wrench, FolderKanban, Headset } from 'lucide-react'
+import { Linkedin, Mail, Wrench, FolderKanban, Headset, User } from 'lucide-react'
 
 const team = [
   {
     name: 'John Doe',
     role: 'Gerente General',
-    icon: Users,
+    icon: User,
     linkedin: '#',
     email: 'john@empresa.cl',
     bio: 'Ingeniero Naval Eléctrico y ex-oficial de la Armada de Chile. Líder en innovación, negociación y desarrollo tecnológico.',
+    featured: true,
   },
   {
     name: 'Equipo Técnico',
@@ -19,6 +20,7 @@ const team = [
     linkedin: '#',
     email: 'tecnico@empresa.cl',
     bio: 'Especialistas en diseño, construcción y programación de sistemas tecnológicos de control y gestión energética.',
+    featured: false,
   },
   {
     name: 'Equipo de Proyectos',
@@ -27,6 +29,7 @@ const team = [
     linkedin: '#',
     email: 'proyectos@empresa.cl',
     bio: 'Expertos en montaje eléctrico, mecánico y civil. Experiencia en entornos extremos desde Arica al Cabo de Hornos.',
+    featured: false,
   },
   {
     name: 'Soporte y Mantención',
@@ -35,14 +38,13 @@ const team = [
     linkedin: '#',
     email: 'soporte@empresa.cl',
     bio: 'Equipo dedicado a monitoreo continuo, soporte remoto y mantención de sistemas en todo Chile.',
+    featured: false,
   },
 ]
 
 const containerVariants = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.1 },
-  },
+  visible: { transition: { staggerChildren: 0.1 } },
 }
 
 const itemVariants = {
@@ -87,33 +89,48 @@ export default function TeamSection() {
               <motion.div
                 key={member.name}
                 variants={itemVariants}
-                className="flex flex-col p-5 rounded-xl bg-foreground/5 border border-border/30 hover:border-primary/30 hover:bg-foreground/8 transition-all duration-300 group"
+                className={`relative flex flex-col p-5 rounded-xl border transition-all duration-300 group overflow-hidden
+                  ${member.featured
+                    ? 'bg-primary/10 border-primary/30 hover:border-primary/60 sm:col-span-2 lg:col-span-1'
+                    : 'bg-foreground/5 border-border/30 hover:border-primary/30 hover:bg-foreground/8'
+                  }`}
               >
-                {/* Icono */}
-                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-                  <Icon className="w-5 h-5 text-primary" />
+                {/* Barra de acento superior al hover */}
+                <div className={`absolute top-0 left-0 right-0 h-0.5 transition-all duration-300
+                  ${member.featured ? 'bg-primary' : 'bg-primary/0 group-hover:bg-primary/60'}`}
+                />
+
+                {/* Icono + rol en la misma fila */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0
+                    ${member.featured ? 'bg-primary/20 border border-primary/40' : 'bg-foreground/8 border border-border/40'}`}
+                  >
+                    <Icon className="w-4 h-4 text-primary" />
+                  </div>
+                  <span className="text-xs text-primary font-medium tracking-wide">{member.role}</span>
                 </div>
 
-                {/* Info */}
-                <h3 className="font-semibold text-foreground text-base mb-1">{member.name}</h3>
-                <p className="text-xs text-primary font-medium mb-3">{member.role}</p>
+                {/* Nombre */}
+                <h3 className="font-semibold text-foreground text-base mb-2">{member.name}</h3>
+
+                {/* Bio */}
                 <p className="text-xs text-foreground/55 leading-relaxed flex-1">{member.bio}</p>
 
                 {/* Links */}
-                <div className="flex items-center gap-2 mt-5 pt-4 border-t border-border/30">
+                <div className="flex items-center gap-2 mt-5 pt-4 border-t border-border/20">
                   <a
                     href={member.linkedin}
                     aria-label={`LinkedIn de ${member.name}`}
-                    className="w-8 h-8 rounded-lg bg-foreground/5 border border-border/40 flex items-center justify-center text-foreground/40 hover:text-primary hover:border-primary/30 transition-all"
+                    className="w-7 h-7 rounded-md bg-foreground/5 border border-border/40 flex items-center justify-center text-foreground/40 hover:text-primary hover:border-primary/30 transition-all"
                   >
-                    <Linkedin className="w-3.5 h-3.5" />
+                    <Linkedin className="w-3 h-3" />
                   </a>
                   <a
                     href={`mailto:${member.email}`}
                     aria-label={`Email de ${member.name}`}
-                    className="w-8 h-8 rounded-lg bg-foreground/5 border border-border/40 flex items-center justify-center text-foreground/40 hover:text-primary hover:border-primary/30 transition-all"
+                    className="w-7 h-7 rounded-md bg-foreground/5 border border-border/40 flex items-center justify-center text-foreground/40 hover:text-primary hover:border-primary/30 transition-all"
                   >
-                    <Mail className="w-3.5 h-3.5" />
+                    <Mail className="w-3 h-3" />
                   </a>
                 </div>
               </motion.div>
