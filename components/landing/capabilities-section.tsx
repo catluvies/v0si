@@ -72,7 +72,7 @@ function CapabilityCard({ item, index }: { item: typeof capabilities[0]; index: 
 
 export default function CapabilitiesSection() {
   return (
-    <section id="capabilities" className="py-24 lg:py-32">
+    <section id="capabilities" className="pt-16 pb-24 lg:pb-32">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
@@ -119,7 +119,7 @@ export default function CapabilitiesSection() {
           className="text-center max-w-2xl mx-auto mb-10"
         >
           <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
-            Explora los Datos
+            Acceso a la Plataforma
           </span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance mb-4">
             Explora los Datos

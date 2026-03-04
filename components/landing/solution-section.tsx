@@ -50,7 +50,7 @@ const features = [
 
 export default function SolutionSection() {
   return (
-    <section id="solution" className="py-24 lg:py-32">
+    <section id="solution" className="pt-24 pb-0 lg:pt-32">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col gap-16">
 
         {/* Header */}
