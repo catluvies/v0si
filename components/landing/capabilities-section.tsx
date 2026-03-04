@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Sun, Battery, LineChart, Scale, BarChart2, Database, Activity } from 'lucide-react'
+import { Sun, Battery, LineChart, Scale, BarChart2, Database, Activity, Search, Eye, Download } from 'lucide-react'
 
 const capabilities = [
   {
@@ -104,6 +104,52 @@ export default function CapabilitiesSection() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:w-3/4 lg:mx-auto">
           {capabilities.slice(4).map((item, index) => (
             <CapabilityCard key={item.title} item={item} index={index + 4} />
+          ))}
+        </div>
+
+        {/* Divider */}
+        <div className="h-px bg-border/30 my-16" />
+
+        {/* Explora los Datos */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto mb-10"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance mb-4">
+            Explora los Datos
+          </h2>
+          <p className="text-base text-foreground/55 leading-relaxed text-pretty">
+            El sistema te permite explorar y visualizar información del sistema fotovoltaico en tiempo real de manera simple e intuitiva. Más de 3,200 registros disponibles para análisis.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {[
+            { icon: Search, title: 'Busca', description: 'Filtra datos por fecha, tracker o tipo de métrica' },
+            { icon: Eye, title: 'Visualiza', description: 'Gráficos interactivos y dashboards en tiempo real' },
+            { icon: Download, title: 'Analiza', description: 'Descarga datos para análisis avanzados externos' },
+          ].map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: index * 0.07 }}
+              className="group relative rounded-xl border border-border/30 bg-foreground/[0.02] p-8 flex flex-col items-center text-center gap-4 cursor-default overflow-hidden transition-all duration-300 hover:border-primary/40 hover:bg-foreground/[0.05] hover:-translate-y-1 hover:shadow-[0_0_24px_-4px_hsl(var(--primary)/0.15)]"
+            >
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.07),transparent_70%)]" />
+              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20 group-hover:border-primary/40">
+                <item.icon className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-foreground mb-1.5">{item.title}</h3>
+                <p className="text-sm text-foreground/50 leading-relaxed">{item.description}</p>
+              </div>
+              <div className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full bg-primary/40 transition-all duration-500" />
+            </motion.div>
           ))}
         </div>
 
