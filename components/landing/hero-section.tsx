@@ -23,14 +23,17 @@ export default function HeroSection() {
         <div className="flex flex-col items-start max-w-2xl">
 
           {/* Badge */}
-          <motion.span
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="badge badge-outline text-primary border-primary/40 font-medium px-4 py-3 text-sm mb-8"
+            className="flex items-center gap-3 mb-8"
           >
-            Sistema Fotovoltaico RadioTumbes
-          </motion.span>
+            <span className="w-8 h-px bg-primary/60" />
+            <span className="text-sm font-medium text-primary/80 tracking-widest uppercase">
+              Sistema Fotovoltaico RadioTumbes
+            </span>
+          </motion.div>
 
           {/* Título */}
           <motion.h1
@@ -46,16 +49,20 @@ export default function HeroSection() {
           </motion.h1>
 
           {/* Párrafo */}
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-7 text-lg text-foreground/60 leading-relaxed max-w-md"
+            className="mt-7 max-w-lg space-y-2"
           >
-            Especialistas en proyectos eléctricos y eficiencia energética.
-            Tecnología Made in Chile para la gestión inteligente de sistemas
-            fotovoltaicos.
-          </motion.p>
+            <p className="text-xl text-foreground/80 font-medium leading-snug">
+              Especialistas en proyectos eléctricos y eficiencia energética.
+            </p>
+            <p className="text-base text-foreground/50 leading-relaxed">
+              Desarrollamos tecnología Made in Chile para la gestión inteligente
+              de sistemas fotovoltaicos.
+            </p>
+          </motion.div>
 
           {/* Stat cards */}
           <motion.div
