@@ -22,33 +22,26 @@ export default function ProblemSection() {
     <section id="problem" className="py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
-        {/* Two-column header layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 mb-16 items-end">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
-              El Problema
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground text-balance leading-tight">
-              El Problema que Abordamos
-            </h2>
-          </motion.div>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-base text-foreground/55 leading-relaxed text-pretty lg:pb-1"
-          >
+        {/* Centered header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto mb-14"
+        >
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
+            El Problema
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance mb-4">
+            El Problema que Abordamos
+          </h2>
+          <p className="text-base text-foreground/55 leading-relaxed text-pretty">
             Las constantes alzas de tarifas eléctricas han impactado negativamente los costos
             de empresas, industrias, instituciones y condominios. Sin un sistema de monitoreo
             adecuado, se generan pérdidas importantes por uso ineficiente de la energía.
-          </motion.p>
-        </div>
+          </p>
+        </motion.div>
 
         {/* Main content: text left + stats right */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
