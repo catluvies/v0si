@@ -17,9 +17,9 @@ export default function Home() {
       <main>
         <HeroSection />
         <LogoCloud />
-        <AboutSection />
         <ProblemSolutionSection />
         <CTABannerSection />
+        <AboutSection />
         <SolutionSection />
         <CTASection />
         <TeamSection />
