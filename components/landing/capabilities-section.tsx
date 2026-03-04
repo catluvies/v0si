@@ -1,74 +1,50 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Sun, Battery, LineChart, Scale, BarChart2, Database, Activity, Search, Eye, Download } from 'lucide-react'
 
 const capabilities = [
   {
-    icon: Sun,
     title: 'Generación Solar',
     description:
       'Monitoreo en tiempo real de 4 trackers solares con datos de voltaje, potencia y rendimiento.',
   },
   {
-    icon: Battery,
     title: 'Sistema de Baterías',
     description:
       'Control completo del estado de carga, voltaje, corriente y temperatura de las baterías.',
   },
   {
-    icon: LineChart,
     title: 'Análisis Temporal',
     description:
       'Visualización de series temporales con patrones de generación y consumo horario.',
   },
   {
-    icon: Scale,
     title: 'Balance Energético',
     description:
       'Seguimiento detallado del equilibrio entre generación solar y consumo eléctrico.',
   },
   {
-    icon: BarChart2,
     title: 'Comparativas',
     description:
       'Análisis comparativo del rendimiento de cada tracker y métricas de eficiencia del sistema.',
   },
   {
-    icon: Database,
     title: 'Base de Datos',
     description:
       'Más de 3,200 registros históricos disponibles para análisis y procesamiento.',
   },
   {
-    icon: Activity,
     title: '24/7 Monitoring',
     description:
       'Monitoreo continuo con actualización automática de métricas y alertas del sistema.',
   },
 ]
 
-function CapabilityCard({ item, index }: { item: typeof capabilities[0]; index: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.35, delay: index * 0.05 }}
-      className="group relative rounded-xl border border-border/30 bg-foreground/[0.02] p-6 flex flex-col gap-4 cursor-default overflow-hidden transition-all duration-300 hover:border-primary/40 hover:bg-foreground/[0.05] hover:-translate-y-1 hover:shadow-[0_0_24px_-4px_hsl(var(--primary)/0.15)]"
-    >
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-[radial-gradient(ellipse_at_top_left,hsl(var(--primary)/0.07),transparent_70%)]" />
-      <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-primary/20 group-hover:border-primary/40">
-        <item.icon className="w-4 h-4 text-primary" />
-      </div>
-      <div className="flex flex-col gap-1.5">
-        <h3 className="text-sm font-semibold text-foreground leading-snug">{item.title}</h3>
-        <p className="text-xs text-foreground/50 leading-relaxed">{item.description}</p>
-      </div>
-      <div className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full bg-primary/40 transition-all duration-500" />
-    </motion.div>
-  )
-}
+const steps = [
+  { number: '01', title: 'Busca', description: 'Filtra datos por fecha, tracker o tipo de métrica' },
+  { number: '02', title: 'Visualiza', description: 'Gráficos interactivos y dashboards en tiempo real' },
+  { number: '03', title: 'Analiza', description: 'Descarga datos para análisis avanzados externos' },
+]
 
 export default function CapabilitiesSection() {
   return (
@@ -81,7 +57,7 @@ export default function CapabilitiesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-14"
+          className="text-center max-w-2xl mx-auto mb-12"
         >
           <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
             Capacidades
@@ -94,29 +70,47 @@ export default function CapabilitiesSection() {
           </p>
         </motion.div>
 
-        {/* Row 1: 4 cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-3">
-          {capabilities.slice(0, 4).map((item, index) => (
-            <CapabilityCard key={item.title} item={item} index={index} />
-          ))}
-        </div>
-        {/* Row 2: 3 cards centered */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:w-3/4 lg:mx-auto">
-          {capabilities.slice(4).map((item, index) => (
-            <CapabilityCard key={item.title} item={item} index={index + 4} />
-          ))}
+        {/* Capabilities as structured 2-column list */}
+        <div className="grid grid-cols-1 md:grid-cols-2 rounded-xl border border-border/30 overflow-hidden">
+          {capabilities.map((item, index) => {
+            const isLast = index === capabilities.length - 1
+            const isLastAndOdd = isLast && capabilities.length % 2 !== 0
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: index * 0.04 }}
+                className={`flex items-start gap-4 px-6 py-5 border-b border-border/20 ${
+                  index % 2 === 0 ? 'md:border-r' : ''
+                } ${isLastAndOdd ? 'md:col-span-2 md:border-r-0' : ''} ${
+                  // Remove bottom border from last row
+                  (isLastAndOdd || index >= capabilities.length - 2) ? 'md:border-b-0' : ''
+                } ${index === capabilities.length - 1 ? 'border-b-0' : ''}`}
+              >
+                <span className="text-primary font-mono text-xs font-semibold mt-0.5 shrink-0 w-5 opacity-50">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-foreground mb-1">{item.title}</p>
+                  <p className="text-xs text-foreground/50 leading-relaxed">{item.description}</p>
+                </div>
+              </motion.div>
+            )
+          })}
         </div>
 
         {/* Divider */}
         <div className="h-px bg-border/30 my-16" />
 
-        {/* Explora los Datos */}
+        {/* Explora los Datos — 3-step process */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-10"
+          className="text-center max-w-2xl mx-auto mb-12"
         >
           <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
             Acceso a la Plataforma
@@ -129,31 +123,30 @@ export default function CapabilitiesSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {[
-            { icon: Search, title: 'Busca', description: 'Filtra datos por fecha, tracker o tipo de métrica' },
-            { icon: Eye, title: 'Visualiza', description: 'Gráficos interactivos y dashboards en tiempo real' },
-            { icon: Download, title: 'Analiza', description: 'Descarga datos para análisis avanzados externos' },
-          ].map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: index * 0.07 }}
-              className="group relative rounded-xl border border-border/30 bg-foreground/[0.02] p-8 flex flex-col items-center text-center gap-4 cursor-default overflow-hidden transition-all duration-300 hover:border-primary/40 hover:bg-foreground/[0.05] hover:-translate-y-1 hover:shadow-[0_0_24px_-4px_hsl(var(--primary)/0.15)]"
-            >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.07),transparent_70%)]" />
-              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center transition-all duration-300 group-hover:bg-primary/20 group-hover:border-primary/40">
-                <item.icon className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-base font-semibold text-foreground mb-1.5">{item.title}</h3>
-                <p className="text-sm text-foreground/50 leading-relaxed">{item.description}</p>
-              </div>
-              <div className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full bg-primary/40 transition-all duration-500" />
-            </motion.div>
-          ))}
+        {/* 3 steps with connecting line */}
+        <div className="relative">
+          {/* Connecting line */}
+          <div className="hidden sm:block absolute top-8 left-[16.67%] right-[16.67%] h-px bg-border/40" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-0">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="flex flex-col items-center text-center"
+              >
+                {/* Number circle */}
+                <div className="relative z-10 w-16 h-16 rounded-full border-2 border-primary/30 bg-background flex items-center justify-center mb-5">
+                  <span className="text-xl font-bold text-primary">{step.number}</span>
+                </div>
+                <h3 className="text-base font-semibold text-foreground mb-1.5">{step.title}</h3>
+                <p className="text-sm text-foreground/50 leading-relaxed max-w-[220px]">{step.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
       </div>

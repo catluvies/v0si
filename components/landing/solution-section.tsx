@@ -122,46 +122,29 @@ export default function SolutionSection() {
               ))}
             </div>
           </div>
-        </motion.div>
 
-        {/* Features grid */}
-        <div>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="mb-8 text-center"
-          >
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
-              Características
-            </span>
-            <h3 className="text-2xl font-bold text-foreground text-balance">
-              Características Principales
-            </h3>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.07 }}
-                className="rounded-xl border border-border/30 bg-foreground/[0.03] p-6 flex flex-col gap-4 hover:border-primary/30 transition-all duration-300"
-              >
-                <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
-                  <feature.icon className="w-4 h-4 text-primary" />
-                </div>
-                <div>
-                  <h4 className="text-base font-semibold text-foreground mb-1.5">{feature.title}</h4>
-                  <p className="text-sm text-foreground/55 leading-relaxed">{feature.description}</p>
-                </div>
-              </motion.div>
-            ))}
+          {/* Features inline row — integrated into the card */}
+          <div className="border-t border-border/30">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border/30">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: 0.2 + index * 0.06 }}
+                  className="px-6 py-5 flex items-start gap-3"
+                >
+                  <feature.icon className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-xs font-semibold text-foreground mb-1">{feature.title}</p>
+                    <p className="text-[11px] text-foreground/45 leading-relaxed">{feature.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>
