@@ -40,7 +40,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-foreground text-balance"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tighter text-foreground text-balance"
           >
             Más de 20 Años{' '}
             <br className="hidden md:block" />
