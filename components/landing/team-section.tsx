@@ -1,37 +1,40 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { Linkedin } from 'lucide-react'
+import { Linkedin, Mail, Users, Wrench, FolderKanban, Headset } from 'lucide-react'
 
 const team = [
   {
-    name: 'Andres Gutierrez',
-    role: 'Director de Ingenieria',
-    image: '/images/team-1.jpg',
+    name: 'John Doe',
+    role: 'Gerente General',
+    icon: Users,
     linkedin: '#',
-    bio: 'Ingeniero electrico con 12 anos de experiencia en sistemas fotovoltaicos.',
+    email: 'john@empresa.cl',
+    bio: 'Ingeniero Naval Eléctrico y ex-oficial de la Armada de Chile. Líder en innovación, negociación y desarrollo tecnológico.',
   },
   {
-    name: 'Catalina Rojas',
-    role: 'Ingeniera de Energia',
-    image: '/images/team-2.jpg',
+    name: 'Equipo Técnico',
+    role: 'Ingeniería y Desarrollo',
+    icon: Wrench,
     linkedin: '#',
-    bio: 'Especialista en diseno y optimizacion de plantas solares residenciales.',
+    email: 'tecnico@empresa.cl',
+    bio: 'Especialistas en diseño, construcción y programación de sistemas tecnológicos de control y gestión energética.',
   },
   {
-    name: 'Felipe Torres',
-    role: 'Desarrollador Full-Stack',
-    image: '/images/team-3.jpg',
+    name: 'Equipo de Proyectos',
+    role: 'Implementación',
+    icon: FolderKanban,
     linkedin: '#',
-    bio: 'Arquitecto de software detras de la plataforma de monitoreo Lambda.',
+    email: 'proyectos@empresa.cl',
+    bio: 'Expertos en montaje eléctrico, mecánico y civil. Experiencia en entornos extremos desde Arica al Cabo de Hornos.',
   },
   {
-    name: 'Maria Paz Herrera',
-    role: 'Project Manager',
-    image: '/images/team-4.jpg',
+    name: 'Soporte y Mantención',
+    role: 'Post Venta',
+    icon: Headset,
     linkedin: '#',
-    bio: 'Coordinacion de proyectos y relacion con clientes corporativos.',
+    email: 'soporte@empresa.cl',
+    bio: 'Equipo dedicado a monitoreo continuo, soporte remoto y mantención de sistemas en todo Chile.',
   },
 ]
 
@@ -49,24 +52,25 @@ const itemVariants = {
 
 export default function TeamSection() {
   return (
-    <section id="team" className="py-24 lg:py-32 bg-secondary/20">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8">
+    <section id="team" className="py-20 lg:py-28">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
-          <span className="badge badge-outline badge-sm text-primary border-primary/30 mb-4 font-medium">
+          <span className="badge badge-outline badge-sm text-primary border-primary/30 mb-4 font-medium tracking-widest uppercase text-xs">
             Equipo
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance">
-            Ingenieros chilenos comprometidos con la energia limpia
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance mb-4">
+            Nuestro Equipo
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground leading-relaxed text-pretty">
-            Un equipo multidisciplinario que combina ingenieria electrica,
-            desarrollo de software y gestion de proyectos solares.
+          <p className="text-base text-foreground/55 leading-relaxed text-pretty">
+            Liderados por John Doe, nuestro equipo está compuesto por ingenieros chilenos con experiencia
+            en industrias químicas, mineras, astilleros y proyectos de especialidad eléctrica,
+            electrónica, automatización y supervisión.
           </p>
         </motion.div>
 
@@ -75,41 +79,46 @@ export default function TeamSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
         >
-          {team.map((member) => (
-            <motion.div
-              key={member.name}
-              variants={itemVariants}
-              className="card bg-card border border-border group hover:border-primary/20 transition-all duration-300"
-            >
-              <figure className="relative h-64 overflow-hidden">
-                <Image
-                  src={member.image}
-                  alt={`Foto de ${member.name}`}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
-              </figure>
-              <div className="card-body p-5 gap-1">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-foreground">{member.name}</h3>
+          {team.map((member) => {
+            const Icon = member.icon
+            return (
+              <motion.div
+                key={member.name}
+                variants={itemVariants}
+                className="flex flex-col p-5 rounded-xl bg-foreground/5 border border-border/30 hover:border-primary/30 hover:bg-foreground/8 transition-all duration-300 group"
+              >
+                {/* Icono */}
+                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
+                  <Icon className="w-5 h-5 text-primary" />
+                </div>
+
+                {/* Info */}
+                <h3 className="font-semibold text-foreground text-base mb-1">{member.name}</h3>
+                <p className="text-xs text-primary font-medium mb-3">{member.role}</p>
+                <p className="text-xs text-foreground/55 leading-relaxed flex-1">{member.bio}</p>
+
+                {/* Links */}
+                <div className="flex items-center gap-2 mt-5 pt-4 border-t border-border/30">
                   <a
                     href={member.linkedin}
-                    className="btn btn-ghost btn-xs btn-circle text-muted-foreground hover:text-primary"
                     aria-label={`LinkedIn de ${member.name}`}
+                    className="w-8 h-8 rounded-lg bg-foreground/5 border border-border/40 flex items-center justify-center text-foreground/40 hover:text-primary hover:border-primary/30 transition-all"
                   >
-                    <Linkedin className="w-4 h-4" />
+                    <Linkedin className="w-3.5 h-3.5" />
+                  </a>
+                  <a
+                    href={`mailto:${member.email}`}
+                    aria-label={`Email de ${member.name}`}
+                    className="w-8 h-8 rounded-lg bg-foreground/5 border border-border/40 flex items-center justify-center text-foreground/40 hover:text-primary hover:border-primary/30 transition-all"
+                  >
+                    <Mail className="w-3.5 h-3.5" />
                   </a>
                 </div>
-                <p className="text-sm text-primary font-medium">{member.role}</p>
-                <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
-                  {member.bio}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            )
+          })}
         </motion.div>
       </div>
     </section>
