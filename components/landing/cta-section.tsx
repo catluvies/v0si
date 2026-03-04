@@ -1,64 +1,47 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
 
 export default function CTASection() {
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-secondary/20">
+    <section id="contact" className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="relative rounded-2xl bg-card border border-border p-8 md:p-12 lg:p-16 text-center overflow-hidden"
+          className="relative rounded-3xl bg-gradient-to-r from-purple-600 to-purple-700 p-8 md:p-16 lg:p-20 text-center overflow-hidden"
         >
-          {/* Subtle background pattern */}
-          <div className="absolute inset-0 opacity-[0.03]">
+          {/* Decorative elements */}
+          <div className="absolute inset-0 opacity-10">
             <div
               className="h-full w-full"
               style={{
                 backgroundImage:
-                  'radial-gradient(circle, var(--primary) 1px, transparent 1px)',
+                  'radial-gradient(circle, white 1px, transparent 1px)',
                 backgroundSize: '24px 24px',
               }}
             />
           </div>
 
           <div className="relative z-10">
-            <span className="badge badge-outline badge-sm text-primary border-primary/30 mb-6 font-medium">
-              Comienza Hoy
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground text-balance max-w-3xl mx-auto">
-              Lleva tu planta solar al siguiente nivel
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white text-balance max-w-3xl mx-auto">
+              ¿Buscas Optimizar tu Consumo Energético?
             </h2>
-            <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto text-pretty">
-              Agenda una demo personalizada y descubre como Lambda Solar puede
-              optimizar el rendimiento de tu sistema fotovoltaico.
+            <p className="mt-6 text-lg text-white/90 leading-relaxed max-w-2xl mx-auto text-pretty">
+              Con más de 20 años de experiencia, estamos listos para ayudarte a
+              alcanzar la eficiencia energética con tecnología Made in Chile.
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-10">
               <a
                 href="mailto:contacto@lambdaingenieroschile.com"
-                className="btn btn-primary rounded-lg gap-2 px-8"
+                className="btn bg-white hover:bg-white/90 text-purple-600 border-0 rounded-lg gap-2 px-8"
               >
-                Solicitar Demo Gratuita
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
-                href="https://wa.me/56912345678"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-outline border-border text-foreground hover:bg-secondary rounded-lg gap-2"
-              >
-                Contactar por WhatsApp
+                Contáctanos
               </a>
             </div>
-
-            <p className="mt-6 text-xs text-muted-foreground">
-              Sin compromiso. Respuesta en menos de 24 horas.
-            </p>
           </div>
         </motion.div>
       </div>
