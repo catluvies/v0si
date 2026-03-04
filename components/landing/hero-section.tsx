@@ -20,7 +20,7 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 pt-40 pb-28">
-        <div className="flex flex-col items-start max-w-2xl">
+        <div className="flex flex-col items-start max-w-4xl">
 
           {/* Badge */}
           <motion.div
@@ -42,9 +42,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tighter text-foreground text-balance"
           >
-            Más de 20 Años{' '}
-            <br className="hidden md:block" />
-            Mejorando la{' '}
+            Más de 20 Años Mejorando la{' '}
             <span className="text-primary">Eficiencia Energética</span>
           </motion.h1>
 
