@@ -213,18 +213,16 @@ export default function AboutSection() {
           </motion.div>
         </div>
 
-        {/* Columna derecha: Imagen - Ocupa el espacio restante */}
-        <div className="hidden lg:flex w-7/12 h-full overflow-hidden sticky top-0">
-          <div className="relative w-full h-full">
-            <Image
-              src={slides[activeSlide].image}
-              alt={slides[activeSlide].title}
-              fill
-              className="object-cover"
-            />
-            {/* Fade difuminado en la izquierda */}
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent" />
-          </div>
+        {/* Columna derecha: Imagen - Ocupa el espacio restante hasta el borde */}
+        <div className="hidden lg:block w-7/12 relative min-h-screen">
+          <Image
+            src={slides[activeSlide].image}
+            alt={slides[activeSlide].title}
+            fill
+            className="object-cover"
+          />
+          {/* Fade difuminado de izquierda hacia la imagen */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent" />
         </div>
       </div>
     </section>
