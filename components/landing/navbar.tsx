@@ -38,7 +38,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`navbar fixed top-0 z-50 transition-all duration-300 px-6 lg:px-12 min-h-20 ${
+      className={`navbar fixed top-0 z-50 transition-all duration-300 px-6 lg:px-12 min-h-24 ${
         scrolled
           ? 'bg-background/80 backdrop-blur-xl shadow-sm border-b border-border'
           : 'bg-transparent'
@@ -49,9 +49,9 @@ export default function Navbar() {
           <Image
             src="/images/lambda-logo.png"
             alt="Lambda Ingenieros"
-            width={200}
-            height={66}
-            className="h-12 w-auto object-contain"
+            width={220}
+            height={73}
+            className="h-16 w-auto object-contain"
             priority
           />
         </a>
