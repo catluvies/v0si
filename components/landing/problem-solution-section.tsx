@@ -99,21 +99,6 @@ export default function ProblemSolutionSection() {
           ))}
         </div>
 
-        {/* Divider with label */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="flex items-center gap-4"
-        >
-          <div className="h-px flex-1 bg-border/30" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary">
-            Consecuencias
-          </span>
-          <div className="h-px flex-1 bg-border/30" />
-        </motion.div>
-
         {/* Impact cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {impacts.map((item, index) => (
