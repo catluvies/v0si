@@ -67,9 +67,6 @@ export default function HeroSection() {
             <p className="text-lg md:text-xl text-primary font-semibold text-pretty">
               ¡Explora nuestro sistema de monitoreo en tiempo real!
             </p>
-            <p className="text-xs text-foreground/40 italic">
-              Datos actualizados a diciembre de 2024
-            </p>
           </motion.div>
 
           <motion.div
@@ -89,23 +86,28 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl"
+            className="mt-16 w-full max-w-3xl"
           >
-            <StatCard
-              icon={<BarChart3 className="w-6 h-6" />}
-              value="3,203"
-              label="Lecturas del Sistema"
-            />
-            <StatCard
-              icon={<Zap className="w-6 h-6" />}
-              value="4"
-              label="Trackers Solares"
-            />
-            <StatCard
-              icon={<Activity className="w-6 h-6" />}
-              value="24/7"
-              label="Monitoreo Continuo"
-            />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <StatCard
+                icon={<BarChart3 className="w-6 h-6" />}
+                value="3,203"
+                label="Lecturas del Sistema"
+              />
+              <StatCard
+                icon={<Zap className="w-6 h-6" />}
+                value="4"
+                label="Trackers Solares"
+              />
+              <StatCard
+                icon={<Activity className="w-6 h-6" />}
+                value="24/7"
+                label="Monitoreo Continuo"
+              />
+            </div>
+            <p className="mt-4 text-xs text-foreground/40 italic text-center">
+              * Datos actualizados a diciembre de 2024
+            </p>
           </motion.div>
         </div>
       </div>
@@ -123,12 +125,12 @@ function StatCard({
   label: string
 }) {
   return (
-    <div className="rounded-2xl bg-card/80 backdrop-blur-sm border border-border p-6 flex flex-col items-center gap-3">
-      <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+    <div className="rounded-2xl bg-foreground/[0.06] backdrop-blur-sm border border-foreground/10 px-6 py-7 flex flex-col items-center gap-3 hover:bg-foreground/[0.09] transition-colors">
+      <div className="w-11 h-11 rounded-xl bg-primary/15 text-primary flex items-center justify-center">
         {icon}
       </div>
-      <p className="text-3xl font-bold text-foreground">{value}</p>
-      <p className="text-sm text-muted-foreground">{label}</p>
+      <p className="text-4xl font-bold text-foreground tracking-tight">{value}</p>
+      <p className="text-sm text-foreground/50 font-medium">{label}</p>
     </div>
   )
 }
