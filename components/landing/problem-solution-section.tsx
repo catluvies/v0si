@@ -50,12 +50,12 @@ export default function ProblemSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="rounded-2xl border border-border/40 bg-foreground/[0.03] overflow-hidden"
+          className="rounded-2xl border border-border/40 overflow-hidden"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2">
 
             {/* Left: text */}
-            <div className="p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-border/30">
+            <div className="p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-border/30 border-l-2 border-l-primary">
               <span className="inline-block text-xs font-medium text-primary border border-primary/25 bg-primary/10 rounded-full px-3 py-1 mb-6">
                 Situación Actual
               </span>
@@ -75,7 +75,7 @@ export default function ProblemSection() {
             </div>
 
             {/* Right: stats */}
-            <div className="flex flex-col divide-y divide-border/30">
+            <div className="flex flex-col divide-y divide-border/30 bg-primary/5">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.value}
@@ -85,8 +85,8 @@ export default function ProblemSection() {
                   transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
                   className="flex items-start gap-5 p-7 lg:p-8"
                 >
-                  <p className="text-3xl font-bold text-primary shrink-0 w-16">{stat.value}</p>
-                  <p className="text-sm text-foreground/55 leading-relaxed pt-1">{stat.description}</p>
+                  <p className="text-4xl font-bold text-primary shrink-0 w-20 leading-none">{stat.value}</p>
+                  <p className="text-sm text-foreground/60 leading-relaxed pt-1">{stat.description}</p>
                 </motion.div>
               ))}
             </div>

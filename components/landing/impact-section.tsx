@@ -26,7 +26,7 @@ const impacts = [
 
 export default function ImpactSection() {
   return (
-    <section id="impact" className="py-20 lg:py-28 bg-foreground/[0.02] border-y border-border/25">
+    <section id="impact" className="py-20 lg:py-28 border-t border-border/30" style={{ background: 'linear-gradient(180deg, hsl(var(--foreground) / 0.04) 0%, transparent 100%)' }}>
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
@@ -54,9 +54,9 @@ export default function ImpactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="group rounded-xl border border-border/40 bg-background p-6 hover:border-primary/30 transition-all duration-300"
+              className="group rounded-xl border border-border/40 bg-foreground/[0.03] p-6 hover:border-primary/40 hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors">
+              <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
                 <item.icon className="w-4 h-4 text-primary" />
               </div>
               <h3 className="text-base font-semibold text-foreground mb-2">{item.title}</h3>
@@ -71,9 +71,9 @@ export default function ImpactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="rounded-2xl bg-primary px-8 py-10 text-center"
+          className="rounded-2xl bg-primary px-8 py-12 text-center"
         >
-          <h3 className="text-xl md:text-2xl font-bold text-primary-content mb-3 text-balance">
+          <h3 className="text-2xl md:text-3xl font-bold text-primary-content mb-4 text-balance">
             Es Momento de un Cambio
           </h3>
           <p className="text-sm text-primary-content/80 leading-relaxed max-w-lg mx-auto text-pretty">
@@ -83,7 +83,7 @@ export default function ImpactSection() {
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 mt-6 px-6 py-2.5 rounded-lg bg-background/15 hover:bg-background/25 text-primary-content text-sm font-medium transition-all duration-200 border border-background/20"
+            className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-lg bg-background/15 hover:bg-background/25 text-primary-content text-sm font-semibold transition-all duration-200 border border-background/20"
           >
             Contáctanos
             <ArrowRight className="w-4 h-4" />
