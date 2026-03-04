@@ -139,13 +139,15 @@ html {
 
 /* Marquee animation for client carousel */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .animate-marquee {
-  animation: marquee 18s linear infinite;
+  display: flex;
+  animation: marquee 12s linear infinite;
   will-change: transform;
+  min-width: max-content;
 }
 
 .animate-marquee:hover {
