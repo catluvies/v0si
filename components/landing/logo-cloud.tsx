@@ -20,12 +20,12 @@ export default function LogoCloud() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-14 text-center"
+          className="mb-16 text-center space-y-3"
         >
-          <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground/50 mb-3">
+          <p className="text-sm font-semibold tracking-wider uppercase text-primary/70">
             Nuestros Clientes
           </p>
-          <h2 className="text-2xl md:text-3xl font-semibold text-foreground">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-balance max-w-3xl mx-auto">
             Socios de Confianza en Eficiencia Energética
           </h2>
         </motion.div>
