@@ -4,13 +4,10 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const clients = [
-  { name: 'ASMAR', src: '/images/clients/asmar.avif' },
+  { name: 'ASMAR', src: '/images/clients/asmar.png' },
   { name: 'Armada de Chile', src: '/images/clients/armada.avif' },
-  { name: 'Enel Green Power', src: '/images/clients/enel.avif' },
+  { name: 'Enel Green Power', src: '/images/clients/enel.png' },
 ]
-
-// Duplicamos varias veces para que el carrusel se vea lleno
-const loopClients = [...clients, ...clients, ...clients, ...clients]
 
 export default function LogoCloud() {
   return (
@@ -23,12 +20,12 @@ export default function LogoCloud() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 text-center"
+          className="mb-14 text-center"
         >
           <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground/50 mb-3">
             Nuestros Clientes
           </p>
-          <h2 className="text-2xl md:text-3xl font-semibold text-foreground leading-snug">
+          <h2 className="text-2xl md:text-3xl font-semibold text-foreground">
             Socios de Confianza en Eficiencia Energética
           </h2>
         </motion.div>
@@ -36,24 +33,41 @@ export default function LogoCloud() {
         {/* Carrusel */}
         <div className="relative">
           {/* Fade izquierda */}
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-neutral-50 dark:from-neutral-900 to-transparent" />
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-neutral-50 dark:from-neutral-900 to-transparent" />
           {/* Fade derecha */}
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-neutral-50 dark:from-neutral-900 to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-neutral-50 dark:from-neutral-900 to-transparent" />
 
-          <div className="flex overflow-hidden">
-            <div className="animate-marquee flex shrink-0 items-center gap-16">
-              {loopClients.map((client, i) => (
+          <div className="overflow-hidden">
+            {/* Un solo div con las dos copias para el loop continuo */}
+            <div className="animate-marquee">
+              {/* Copia 1 */}
+              {clients.map((client, i) => (
                 <div
-                  key={`${client.name}-${i}`}
-                  aria-hidden={i >= clients.length}
-                  className="flex items-center justify-center h-24 w-44 shrink-0 rounded-xl bg-white dark:bg-white/5 border border-border px-5 py-4"
+                  key={`a-${i}`}
+                  className="inline-flex items-center justify-center mx-10 h-32 w-56 rounded-2xl bg-white border border-border px-8 py-5"
                 >
                   <Image
                     src={client.src}
-                    alt={i < clients.length ? client.name : ''}
-                    width={140}
-                    height={70}
-                    className="object-contain h-full w-auto"
+                    alt={client.name}
+                    width={180}
+                    height={100}
+                    className="object-contain max-h-20 w-auto"
+                  />
+                </div>
+              ))}
+              {/* Copia 2 — aria-hidden para accesibilidad */}
+              {clients.map((client, i) => (
+                <div
+                  key={`b-${i}`}
+                  aria-hidden="true"
+                  className="inline-flex items-center justify-center mx-10 h-32 w-56 rounded-2xl bg-white border border-border px-8 py-5"
+                >
+                  <Image
+                    src={client.src}
+                    alt=""
+                    width={180}
+                    height={100}
+                    className="object-contain max-h-20 w-auto"
                   />
                 </div>
               ))}
