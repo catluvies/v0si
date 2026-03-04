@@ -97,7 +97,7 @@ export default function AboutSection() {
     <section id="about" className="relative overflow-hidden">
       <div className="flex">
         {/* Columna izquierda */}
-        <div className="w-full lg:w-5/12 px-8 lg:px-14 py-14 flex flex-col justify-center">
+        <div className="w-full lg:w-1/2 px-8 lg:px-14 py-14 flex flex-col justify-center">
           {/* Encabezado */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -129,7 +129,7 @@ export default function AboutSection() {
               {slides[activeSlide].title}
             </h3>
             {/* Altura fija para que no salte al cambiar slide */}
-            <div className="h-48 overflow-hidden mb-6">
+            <div className="h-60 overflow-hidden mb-6">
               {slides[activeSlide].content}
             </div>
 
@@ -172,7 +172,7 @@ export default function AboutSection() {
         </div>
 
         {/* Columna derecha: Imagen */}
-        <div className="hidden lg:block w-7/12 relative" style={{ minHeight: '100%' }}>
+        <div className="hidden lg:block w-1/2 relative min-h-full">
           <Image
             src={slides[activeSlide].image}
             alt={slides[activeSlide].title}
