@@ -86,7 +86,7 @@ export default function CapabilitiesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: index * 0.05 }}
-              className="relative group rounded-lg border border-border/40 bg-base-100 p-6 hover:border-primary/40 hover:shadow-lg transition-all duration-300 overflow-hidden"
+              className="relative group rounded-lg border border-base-content/10/40 bg-base-100 p-6 hover:border-primary/40 hover:shadow-lg transition-all duration-300 overflow-hidden"
             >
               {/* Number background */}
               <div className="absolute -top-8 -right-8 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
@@ -106,7 +106,7 @@ export default function CapabilitiesSection() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-border/30 my-16" />
+        <div className="h-px bg-base-content/30 my-16" />
 
         {/* Explora los Datos */}
         <motion.div
@@ -130,7 +130,7 @@ export default function CapabilitiesSection() {
         {/* 3 steps with connecting line */}
         <div className="relative">
           {/* Connecting line */}
-          <div className="hidden sm:block absolute top-8 left-[16.67%] right-[16.67%] h-px bg-border/40" />
+          <div className="hidden sm:block absolute top-8 left-[16.67%] right-[16.67%] h-px bg-base-content/40" />
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-0">
             {steps.map((step, index) => (

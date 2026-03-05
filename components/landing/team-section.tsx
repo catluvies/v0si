@@ -54,10 +54,10 @@ export default function TeamSection() {
           <span className="badge badge-outline badge-sm text-primary border-primary/30 mb-4 font-medium tracking-widest uppercase text-xs">
             Nuestro Equipo
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
             Ingenieros que conocen el terreno
           </h2>
-          <p className="text-base text-foreground/55 leading-relaxed text-pretty">
+          <p className="text-base text-base-content/55 leading-relaxed text-pretty">
             Liderados por John Doe, nuestro equipo está compuesto por ingenieros chilenos
             con experiencia en industrias químicas, mineras, astilleros y proyectos de
             especialidad eléctrica, electrónica, automatización y supervisión.
@@ -75,7 +75,7 @@ export default function TeamSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="group relative flex flex-col gap-4 p-6 rounded-xl border border-border/30 bg-foreground/[0.03] hover:bg-foreground/[0.06] hover:border-border/50 transition-all duration-200"
+                className="group relative flex flex-col gap-4 p-6 rounded-xl border border-base-content/10/30 bg-base-content/[0.03] hover:bg-base-content/[0.06] hover:border-base-content/10/50 transition-all duration-200"
               >
                 {/* Acento superior al hacer hover */}
                 <div className="absolute top-0 left-6 right-6 h-px bg-primary/0 group-hover:bg-primary/40 transition-all duration-300 rounded-full" />
@@ -92,23 +92,23 @@ export default function TeamSection() {
 
                 {/* Nombre */}
                 <div>
-                  <h3 className="text-base font-semibold text-foreground">{member.name}</h3>
-                  <p className="text-sm text-foreground/50 leading-relaxed mt-1">{member.bio}</p>
+                  <h3 className="text-base font-semibold text-base-content">{member.name}</h3>
+                  <p className="text-sm text-base-content/50 leading-relaxed mt-1">{member.bio}</p>
                 </div>
 
                 {/* Links */}
-                <div className="flex items-center gap-2 mt-auto pt-4 border-t border-border/20">
+                <div className="flex items-center gap-2 mt-auto pt-4 border-t border-base-content/10/20">
                   <a
                     href={member.linkedin}
                     aria-label={`LinkedIn de ${member.name}`}
-                    className="w-7 h-7 rounded-md flex items-center justify-center text-foreground/40 hover:text-primary hover:bg-primary/10 transition-all duration-200"
+                    className="w-7 h-7 rounded-md flex items-center justify-center text-base-content/40 hover:text-primary hover:bg-primary/10 transition-all duration-200"
                   >
                     <Linkedin className="w-3.5 h-3.5" />
                   </a>
                   <a
                     href={`mailto:${member.email}`}
                     aria-label={`Email de ${member.name}`}
-                    className="w-7 h-7 rounded-md flex items-center justify-center text-foreground/40 hover:text-primary hover:bg-primary/10 transition-all duration-200"
+                    className="w-7 h-7 rounded-md flex items-center justify-center text-base-content/40 hover:text-primary hover:bg-primary/10 transition-all duration-200"
                   >
                     <Mail className="w-3.5 h-3.5" />
                   </a>

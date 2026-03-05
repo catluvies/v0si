@@ -49,10 +49,10 @@ export default function FAQSection() {
           <span className="badge badge-outline badge-sm text-primary border-primary/30 mb-4 font-medium">
             FAQ
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance">
             Preguntas frecuentes
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground leading-relaxed text-pretty">
+          <p className="mt-4 text-lg text-base-content/60 leading-relaxed text-pretty">
             Respuestas a las consultas mas comunes sobre nuestra plataforma de monitoreo.
           </p>
         </motion.div>
@@ -67,13 +67,13 @@ export default function FAQSection() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="collapse collapse-arrow bg-card border border-border rounded-xl"
+              className="collapse collapse-arrow bg-base-200 border border-base-content/10 rounded-xl"
             >
               <input type="radio" name="faq-accordion" />
-              <div className="collapse-title font-semibold text-foreground text-sm">
+              <div className="collapse-title font-semibold text-base-content text-sm">
                 {faq.question}
               </div>
-              <div className="collapse-content text-sm text-muted-foreground leading-relaxed">
+              <div className="collapse-content text-sm text-base-content/60 leading-relaxed">
                 <p>{faq.answer}</p>
               </div>
             </div>

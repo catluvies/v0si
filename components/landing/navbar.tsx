@@ -39,7 +39,7 @@ export default function Navbar() {
     <header
       className={`navbar fixed top-0 z-50 transition-all duration-300 px-6 lg:px-12 min-h-24 ${
         scrolled
-          ? 'bg-background/80 backdrop-blur-xl shadow-sm border-b border-border'
+          ? 'bg-base-100/80 backdrop-blur-xl shadow-sm border-b border-base-content/10'
           : 'bg-transparent'
       }`}
     >
@@ -62,7 +62,7 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors font-medium"
+                className="rounded-lg text-base-content/60 hover:text-base-content hover:bg-base-200 transition-colors font-medium"
               >
                 {link.label}
               </a>
@@ -80,7 +80,7 @@ export default function Navbar() {
           {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
         </button>
 
-        <a href="#contact" className="btn btn-ghost border border-border/40 hover:border-border/60 hidden lg:inline-flex rounded-xl text-base px-6">
+        <a href="#contact" className="btn btn-ghost border border-base-content/10 hover:border-base-content/20 hidden lg:inline-flex rounded-xl text-base px-6">
           Iniciar sesión
         </a>
 
@@ -100,14 +100,14 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border p-4 lg:hidden"
+            className="absolute top-full left-0 right-0 bg-base-100/95 backdrop-blur-xl border-b border-base-content/10 p-4 lg:hidden"
           >
             <ul className="menu gap-1">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="rounded-lg text-muted-foreground hover:text-foreground"
+                    className="rounded-lg text-base-content/60 hover:text-base-content"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}
@@ -117,7 +117,7 @@ export default function Navbar() {
               <li>
                 <a
                   href="#contact"
-                  className="btn btn-ghost border border-border/40 btn-sm mt-2 rounded-lg"
+                  className="btn btn-ghost border border-base-content/10 btn-sm mt-2 rounded-lg"
                   onClick={() => setMobileOpen(false)}
                 >
                   Iniciar sesión

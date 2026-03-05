@@ -16,7 +16,7 @@ export default function HeroSection() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-base-100/95 via-base-100/75 to-base-100/30" />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 pt-40 pb-28">
@@ -40,7 +40,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tighter text-foreground text-balance"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tighter text-base-content text-balance"
           >
             Más de 20 Años Mejorando la{' '}
             <span className="text-primary">Eficiencia Energética</span>
@@ -53,10 +53,10 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-7 max-w-2xl space-y-2"
           >
-            <p className="text-xl text-foreground/80 font-medium leading-snug">
+            <p className="text-xl text-base-content/80 font-medium leading-snug">
               Especialistas en proyectos eléctricos y eficiencia energética.
             </p>
-            <p className="text-base text-foreground/50 leading-relaxed">
+            <p className="text-base text-base-content/50 leading-relaxed">
               Desarrollamos tecnología Made in Chile para la gestión inteligente
               de sistemas fotovoltaicos.
             </p>
@@ -86,7 +86,7 @@ export default function HeroSection() {
                 label="Monitoreo Continuo"
               />
             </div>
-            <p className="mt-4 text-xs text-foreground/35 italic">
+            <p className="mt-4 text-xs text-base-content/35 italic">
               * Datos actualizados a diciembre de 2024
             </p>
           </motion.div>
@@ -107,13 +107,13 @@ function StatCard({
   label: string
 }) {
   return (
-    <div className="flex items-center gap-4 rounded-2xl bg-foreground/[0.07] backdrop-blur-sm border border-foreground/10 px-6 py-5 hover:bg-foreground/[0.11] transition-colors">
+    <div className="flex items-center gap-4 rounded-2xl bg-base-content/[0.07] backdrop-blur-sm border border-base-content/10 px-6 py-5 hover:bg-base-content/[0.11] transition-colors">
       <div className="w-10 h-10 rounded-xl bg-primary/15 text-primary flex items-center justify-center shrink-0">
         {icon}
       </div>
       <div>
-        <p className="text-2xl font-bold text-foreground tracking-tight leading-none">{value}</p>
-        <p className="text-sm text-foreground/50 mt-1">{label}</p>
+        <p className="text-2xl font-bold text-base-content tracking-tight leading-none">{value}</p>
+        <p className="text-sm text-base-content/50 mt-1">{label}</p>
       </div>
     </div>
   )
