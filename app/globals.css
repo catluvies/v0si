@@ -67,6 +67,17 @@ html {
   animation: subtle-zoom 12s ease-in-out infinite;
 }
 
+/* Unified image treatment: desaturated, dimmed, brand-tinted */
+.img-brand {
+  filter: saturate(0.3) brightness(0.8) contrast(1.1);
+}
+
+.img-brand-tint {
+  background-color: var(--color-teal-900);
+  mix-blend-mode: color;
+  opacity: 0.15;
+}
+
 /* Custom scrollbar for dark mode */
 [data-theme="dark"] ::-webkit-scrollbar {
   width: 8px;
