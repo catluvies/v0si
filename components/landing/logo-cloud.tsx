@@ -12,7 +12,7 @@ const clients = [
 
 export default function LogoCloud() {
   return (
-    <section className="py-20 lg:py-28 bg-base-200 overflow-hidden">
+    <section className="relative py-14 lg:py-20 bg-base-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
         {/* Header */}
@@ -21,13 +21,10 @@ export default function LogoCloud() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-12"
+          className="text-center max-w-2xl mx-auto mb-6"
         >
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
-            Nuestros Clientes
-          </span>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-base-content text-balance">
-            Empresas que confian en nuestras soluciones
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-base-content text-balance uppercase">
+            Socios de Confianza
           </h2>
         </motion.div>
 
@@ -67,6 +64,8 @@ export default function LogoCloud() {
           </div>
         </div>
       </div>
+      {/* Bottom fade into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-base-100 via-base-100/50 to-transparent pointer-events-none" />
     </section>
   )
 }
