@@ -40,7 +40,7 @@ const team = [
 
 export default function TeamSection() {
   return (
-    <section id="team" className="py-20 lg:py-28">
+    <section id="team" className="py-20 lg:py-28 bg-base-200">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Encabezado */}

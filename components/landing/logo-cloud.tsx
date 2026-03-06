@@ -11,7 +11,7 @@ const clients = [
 
 export default function LogoCloud() {
   return (
-    <section className="py-20 bg-base-200 border-y border-base-content/10 overflow-hidden">
+    <section className="py-20 lg:py-28 bg-base-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
         {/* Encabezado */}

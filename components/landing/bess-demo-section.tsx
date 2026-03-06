@@ -44,7 +44,7 @@ const fleetKpis = [
 
 export default function BESSDemoSection() {
   return (
-    <section className="py-24 lg:py-32 bg-base-300">
+    <section className="py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
