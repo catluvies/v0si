@@ -48,13 +48,23 @@ html {
 
 .animate-marquee {
   display: flex;
-  animation: marquee 12s linear infinite;
+  animation: marquee 20s linear infinite;
   will-change: transform;
   min-width: max-content;
 }
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+/* Subtle breathing zoom for images */
+@keyframes subtle-zoom {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.03); }
+}
+
+.animate-subtle-zoom {
+  animation: subtle-zoom 12s ease-in-out infinite;
 }
 
 /* Custom scrollbar for dark mode */
