@@ -2,47 +2,12 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Linkedin, Mail, Wrench, FolderKanban, Headset, User } from 'lucide-react'
+import { Linkedin, Mail } from 'lucide-react'
 
 const stats = [
   { value: '20+', label: 'Años de experiencia' },
   { value: '100+', label: 'Proyectos realizados' },
   { value: 'Made in Chile', label: 'Tecnología propia' },
-]
-
-const team = [
-  {
-    name: 'John Doe',
-    role: 'Gerente General',
-    icon: User,
-    linkedin: '#',
-    email: 'john@empresa.cl',
-    bio: 'Ingeniero Naval Eléctrico y ex-oficial de la Armada de Chile. Líder en innovación, negociación y desarrollo tecnológico.',
-  },
-  {
-    name: 'Equipo Técnico',
-    role: 'Ingeniería y Desarrollo',
-    icon: Wrench,
-    linkedin: '#',
-    email: 'tecnico@empresa.cl',
-    bio: 'Especialistas en diseño, construcción y programación de sistemas tecnológicos de control y gestión energética.',
-  },
-  {
-    name: 'Equipo de Proyectos',
-    role: 'Implementación',
-    icon: FolderKanban,
-    linkedin: '#',
-    email: 'proyectos@empresa.cl',
-    bio: 'Expertos en montaje eléctrico, mecánico y civil. Experiencia en entornos extremos desde Arica al Cabo de Hornos.',
-  },
-  {
-    name: 'Soporte y Mantención',
-    role: 'Post Venta',
-    icon: Headset,
-    linkedin: '#',
-    email: 'soporte@empresa.cl',
-    bio: 'Equipo dedicado a monitoreo continuo, soporte remoto y mantención de sistemas en todo Chile.',
-  },
 ]
 
 export default function AboutSection() {
@@ -67,7 +32,7 @@ export default function AboutSection() {
           </p>
         </motion.div>
 
-        {/* Stats — centered, prominent */}
+        {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,13 +57,13 @@ export default function AboutSection() {
           ))}
         </motion.div>
 
-        {/* Historia — image behind, card overlapping bottom-right */}
+        {/* Historia — card right, extends below image */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative mb-6 lg:pb-12"
+          className="relative lg:mb-10 mb-6"
         >
           <div className="relative aspect-[16/9] lg:aspect-[21/9] rounded-xl overflow-hidden">
             <Image
@@ -107,147 +72,121 @@ export default function AboutSection() {
               fill
               className="object-cover animate-subtle-zoom"
             />
-            <div className="absolute inset-0 bg-gradient-to-l from-base-100/90 via-base-100/40 via-40% to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-l from-base-100/70 via-base-100/25 via-45% to-transparent" />
           </div>
-          <div className="relative lg:absolute lg:bottom-8 lg:right-8 lg:w-[55%] border border-base-content/10 bg-base-100/95 backdrop-blur-sm p-8 lg:p-10 -mt-16 mx-4 lg:mt-0 lg:mx-0 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
+          <div className="relative lg:absolute lg:bottom-[-1.5rem] lg:right-8 lg:w-[48%] border border-base-content/10 bg-base-100/95 backdrop-blur-sm p-8 lg:p-10 -mt-16 mx-4 lg:mt-0 lg:mx-0 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
             <h3 className="text-xl font-bold text-base-content uppercase tracking-wide text-center w-fit mx-auto pb-2 border-b border-base-content/20 mb-5">Nuestra Historia</h3>
-            <p className="text-sm text-base-content/60 leading-relaxed text-justify mb-4">
+            <p className="text-sm text-base-content/60 leading-loose text-justify mb-4">
               El año 2004 comienza a forjarse el sueño compartido de un grupo de
-              ingenieros chilenos, quienes trabajan hasta el día de hoy para romper los límites
-              y asumir el desafío tecnológico de generar modelos y herramientas Made in Chile
-              de análisis de datos en torno a la eficiencia del uso de la energía.
+              ingenieros chilenos, quienes trabajan hasta el día de hoy para romper
+              los límites y asumir el desafío tecnológico de generar modelos y
+              herramientas <strong className="text-base-content/70">Made in Chile</strong> de
+              análisis de datos en torno a la eficiencia del uso de la energía.
             </p>
-            <p className="text-sm text-base-content/60 leading-relaxed text-justify">
+            <p className="text-sm text-base-content/60 leading-loose text-justify">
               Con presencia desde la frontera norte hasta el Cabo de Hornos, hemos
-              desarrollado sistemas como SolarTech® y EnergiaPlus®, reconocidos por resolver
+              desarrollado sistemas como <strong className="text-base-content/70">SolarTech®</strong> y{' '}
+              <strong className="text-base-content/70">EnergiaPlus®</strong>, reconocidos por resolver
               problemas en los territorios más extremos del país.
             </p>
           </div>
         </motion.div>
 
-        {/* Equipo */}
+        {/* Misión + Visión — par sobre una imagen, cards extend below */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-6"
+          transition={{ duration: 0.6 }}
+          className="relative lg:mb-10 mb-6"
         >
-          <div className="max-w-2xl mb-8">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
-              Nuestro Equipo
+          <div className="relative aspect-[16/9] lg:aspect-[21/9] rounded-xl overflow-hidden">
+            <Image
+              src="/images/hero-solar.jpg"
+              alt="Misión y Visión de Lambda Ingenieros"
+              fill
+              className="object-cover animate-subtle-zoom"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-base-100/80 via-base-100/30 to-transparent" />
+          </div>
+
+          <div className="relative lg:absolute lg:bottom-[-1.5rem] lg:left-8 lg:right-8 flex flex-col lg:flex-row gap-4 -mt-16 mx-4 lg:mt-0 lg:mx-0">
+            {/* Misión */}
+            <div className="flex-1 bg-base-100/95 border border-base-content/10 backdrop-blur-sm p-6 lg:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
+              <h3 className="text-lg font-bold text-base-content uppercase tracking-wide text-center w-fit mx-auto pb-2 border-b border-base-content/20 mb-4">Nuestra Misión</h3>
+              <p className="text-sm text-base-content/60 leading-loose text-justify">
+                Desarrollamos tecnología <strong className="text-base-content/70">Made in Chile</strong> para
+                optimizar el consumo energético. Desde la ingeniería, creamos soluciones
+                sostenibles en proyectos eléctricos y eficiencia energética que generan
+                impacto real: menos consumo, menor huella ambiental, mayor eficiencia operativa.
+              </p>
+            </div>
+
+            {/* Visión */}
+            <div className="flex-1 bg-base-100/95 border border-base-content/10 backdrop-blur-sm p-6 lg:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
+              <h3 className="text-lg font-bold text-base-content uppercase tracking-wide text-center w-fit mx-auto pb-2 border-b border-base-content/20 mb-4">Nuestra Visión</h3>
+              <p className="text-sm text-base-content/60 leading-loose text-justify">
+                Liderar el desarrollo de sistemas tecnológicos sustentables en{' '}
+                <strong className="text-base-content/70">eficiencia eléctrica</strong>, con soluciones
+                propias que resuelvan las necesidades reales del sector. Impulsar un cambio
+                donde la sostenibilidad no sea la excepción, sino el estándar.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Fundador — cierre centrado, más presencia */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative lg:mb-8"
+        >
+          <div className="relative aspect-[16/9] rounded-xl overflow-hidden">
+            <Image
+              src="/images/hero-solar.jpg"
+              alt="Rodrigo Oporto, Gerente General"
+              fill
+              className="object-cover animate-subtle-zoom"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-base-100/80 via-base-100/25 to-transparent" />
+          </div>
+          <div className="relative lg:absolute lg:bottom-[-2rem] lg:left-1/2 lg:-translate-x-1/2 lg:w-[50%] bg-base-100/95 border border-base-content/10 border-t-2 border-t-primary backdrop-blur-sm p-8 lg:p-10 -mt-16 mx-4 lg:mt-0 lg:mx-0 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
+            <h3 className="text-2xl font-bold text-base-content uppercase tracking-wide text-center w-fit mx-auto pb-2 border-b border-base-content/20 mb-1">Rodrigo Oporto</h3>
+            <span className="block text-center mb-5">
+              <span className="inline-block text-xs font-medium bg-primary/10 border border-primary/20 text-primary/80 px-3 py-1 rounded-full">Gerente General</span>
             </span>
-            <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-base-content text-balance mb-3">
-              Ingenieros que conocen el terreno
-            </h3>
-            <p className="text-sm text-base-content/60 leading-relaxed text-pretty">
-              Liderados por John Doe, nuestro equipo está compuesto por ingenieros chilenos
-              con experiencia en industrias químicas, mineras, astilleros y proyectos de
-              especialidad eléctrica, electrónica, automatización y supervisión.
+            <p className="text-sm text-base-content/60 leading-loose text-justify mb-3">
+              Ingeniero Naval Eléctrico y ex-oficial de la Armada de Chile con trayectoria
+              en industrias químicas, mineras, astilleros y empresas de ingeniería.
+              Especialista en proyectos eléctricos, electrónicos, automatización y supervisión.
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {team.map((member, index) => {
-              const Icon = member.icon
-              return (
-                <motion.div
-                  key={member.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="group relative flex flex-col gap-4 p-6 rounded-xl border border-base-content/10 bg-base-content/[0.03] hover:bg-base-content/[0.06] hover:border-base-content/20 transition-all duration-200"
-                >
-                  <div className="absolute top-0 left-6 right-6 h-px bg-primary/0 group-hover:bg-primary/40 transition-all duration-300 rounded-full" />
-
-                  <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
-                      <Icon className="w-4.5 h-4.5 text-primary" />
-                    </div>
-                    <span className="text-xs font-medium text-primary/70 border border-primary/20 bg-primary/5 px-2.5 py-1 rounded-full">
-                      {member.role}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h4 className="text-base font-semibold text-base-content">{member.name}</h4>
-                    <p className="text-sm text-base-content/50 leading-relaxed mt-1">{member.bio}</p>
-                  </div>
-
-                  <div className="flex items-center gap-2 mt-auto pt-4 border-t border-base-content/10">
-                    <a
-                      href={member.linkedin}
-                      aria-label={`LinkedIn de ${member.name}`}
-                      className="w-7 h-7 rounded-md flex items-center justify-center text-base-content/40 hover:text-primary hover:bg-primary/10 transition-all duration-200"
-                    >
-                      <Linkedin className="w-3.5 h-3.5" />
-                    </a>
-                    <a
-                      href={`mailto:${member.email}`}
-                      aria-label={`Email de ${member.name}`}
-                      className="w-7 h-7 rounded-md flex items-center justify-center text-base-content/40 hover:text-primary hover:bg-primary/10 transition-all duration-200"
-                    >
-                      <Mail className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                </motion.div>
-              )
-            })}
-          </div>
-        </motion.div>
-
-        {/* Mision — inverted, image behind, card overlapping bottom-left */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative mb-6 lg:pb-12"
-        >
-          <div className="relative aspect-[16/9] lg:aspect-[21/9] rounded-xl overflow-hidden">
-            <Image
-              src="/images/hero-solar.jpg"
-              alt="Misión de Lambda Ingenieros"
-              fill
-              className="object-cover animate-subtle-zoom"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-base-100/90 via-base-100/40 via-40% to-transparent" />
-          </div>
-          <div className="relative lg:absolute lg:bottom-8 lg:left-8 lg:w-[55%] bg-base-100/95 border border-base-content/10 backdrop-blur-sm p-8 lg:p-10 -mt-16 mx-4 lg:mt-0 lg:mx-0 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
-            <h3 className="text-xl font-bold text-base-content uppercase tracking-wide text-center w-fit mx-auto pb-2 border-b border-base-content/20 mb-4">Nuestra Misión</h3>
-            <p className="text-base text-base-content/60 leading-relaxed text-justify">
-              Desarrollamos tecnología Made in Chile para optimizar el consumo energético.
-              Desde la ingeniería, creamos soluciones sostenibles en proyectos eléctricos y
-              eficiencia energética que generan impacto real: menos consumo, menor huella, mejor futuro.
+            <p className="text-sm text-base-content/60 leading-loose text-justify mb-5">
+              Combina experiencia <strong className="text-base-content/70">técnica</strong>,{' '}
+              <strong className="text-base-content/70">académica</strong>,{' '}
+              <strong className="text-base-content/70">comercial</strong> y de{' '}
+              <strong className="text-base-content/70">dirección de organizaciones</strong>.
             </p>
-          </div>
-        </motion.div>
-
-        {/* Vision — image behind, card overlapping bottom-right */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative lg:pb-12"
-        >
-          <div className="relative aspect-[16/9] lg:aspect-[21/9] rounded-xl overflow-hidden">
-            <Image
-              src="/images/hero-solar.jpg"
-              alt="Visión de Lambda Ingenieros"
-              fill
-              className="object-cover animate-subtle-zoom"
-            />
-            <div className="absolute inset-0 bg-gradient-to-l from-base-100/90 via-base-100/40 via-40% to-transparent" />
-          </div>
-          <div className="relative lg:absolute lg:bottom-8 lg:right-8 lg:w-[55%] border border-base-content/10 bg-base-100/95 backdrop-blur-sm p-8 lg:p-10 -mt-16 mx-4 lg:mt-0 lg:mx-0 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
-            <h3 className="text-xl font-bold text-base-content uppercase tracking-wide text-center w-fit mx-auto pb-2 border-b border-base-content/20 mb-4">Nuestra Visión</h3>
-            <p className="text-base text-base-content/60 leading-relaxed text-justify">
-              Liderar el desarrollo de sistemas tecnológicos sustentables en eficiencia
-              eléctrica, con soluciones propias que resuelvan las necesidades reales del sector.
-              Impulsar un cambio donde la sostenibilidad no sea la excepción, sino el estándar.
-            </p>
+            <div className="flex items-center justify-center gap-3">
+              <a
+                href="#"
+                aria-label="LinkedIn de Rodrigo Oporto"
+                className="flex items-center gap-1.5 text-base-content/40 hover:text-primary transition-colors duration-200"
+              >
+                <Linkedin className="w-4 h-4" />
+                <span className="text-xs">LinkedIn</span>
+              </a>
+              <span className="w-px h-4 bg-base-content/10" />
+              <a
+                href="mailto:rodrigo@lambda.cl"
+                aria-label="Email de Rodrigo Oporto"
+                className="flex items-center gap-1.5 text-base-content/40 hover:text-primary transition-colors duration-200"
+              >
+                <Mail className="w-4 h-4" />
+                <span className="text-xs">Contacto</span>
+              </a>
+            </div>
           </div>
         </motion.div>
 
