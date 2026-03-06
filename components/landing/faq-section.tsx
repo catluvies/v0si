@@ -4,56 +4,56 @@ import { motion } from 'framer-motion'
 
 const faqs = [
   {
-    question: 'Que tipos de inversores son compatibles?',
+    question: 'Que datos puedo consultar en el sistema?',
     answer:
-      'Lambda Solar es compatible con Victron Energy, Fronius, Huawei Solar, SMA, Growatt, Goodwe y otros inversores con protocolo Modbus TCP, MQTT o API REST. Si tu inversor no esta en la lista, contactanos para evaluar la integracion.',
+      'Puedes consultar datos de generacion solar, estado de baterias, consumo electrico, rendimiento de trackers individuales, y mas de 15 metricas diferentes del sistema fotovoltaico.',
   },
   {
-    question: 'Necesito instalar hardware adicional?',
+    question: 'Como puedo descargar los datos?',
     answer:
-      'En la mayoria de los casos, no. Si tu inversor ya tiene conectividad WiFi o Ethernet, solo necesitas configurar la conexion a nuestra plataforma. Para sistemas Victron, usamos el Cerbo GX como gateway. En otros casos, podemos instalar un gateway IoT compacto.',
+      'El sistema permite exportar los datos en formato CSV desde el dashboard principal. Simplemente selecciona el rango de fechas y las metricas que deseas exportar.',
   },
   {
-    question: 'Cuanto cuesta el servicio de monitoreo?',
+    question: 'Con que frecuencia se actualizan los datos?',
     answer:
-      'Ofrecemos planes desde $15.000 CLP mensuales para sistemas residenciales. Los planes comerciales e industriales se cotizan segun la cantidad de inversores y paneles a monitorear. Todos los planes incluyen alertas, reportes y acceso ilimitado al dashboard.',
+      'El sistema realiza monitoreo continuo 24/7 con actualizacion automatica de metricas. Los datos se registran cada vez que hay cambios significativos en el sistema.',
   },
   {
-    question: 'Mis datos estan seguros?',
+    question: 'Que informacion muestran los trackers?',
     answer:
-      'Si. Todos los datos se transmiten con encriptacion TLS y se almacenan en servidores con respaldo automatico. Cumplimos con las normativas de proteccion de datos y los estandares de la SEC Chile.',
+      'Cada tracker solar muestra voltaje, potencia generada, rendimiento diario y comparativas de eficiencia. Esto permite identificar rapidamente cualquier problema de rendimiento en paneles especificos.',
   },
   {
-    question: 'Puedo integrar Lambda Solar con otros sistemas?',
+    question: 'Puedo ver el historial de datos?',
     answer:
-      'Si. Nuestra API REST permite integrar los datos de tu planta solar con sistemas ERP, plataformas de gestion energetica, Home Assistant y otros sistemas de automatizacion. Tambien ofrecemos webhooks para integraciones personalizadas.',
+      'Si. El sistema cuenta con miles de registros historicos disponibles. Puedes visualizar series temporales, analizar patrones y generar reportes de cualquier periodo desde que se inicio el monitoreo.',
   },
   {
-    question: 'Ofrecen servicio de instalacion?',
+    question: 'El sistema envia alertas?',
     answer:
-      'Si. Lambda Ingenieros ofrece servicio completo de instalacion, configuracion y puesta en marcha del sistema de monitoreo. Tambien realizamos mantenciones preventivas y optimizacion de plantas existentes en la Region Metropolitana y Valparaiso.',
+      'Si. El dashboard incluye un sistema de alertas que notifica sobre eventos importantes como picos de generacion, estado critico de bateria y anomalias en el sistema. Tambien proporciona recomendaciones automaticas de mantenimiento.',
   },
 ]
 
 export default function FAQSection() {
   return (
     <section id="faq" className="py-24 lg:py-32">
-      <div className="max-w-3xl mx-auto px-4 lg:px-8">
+      <div className="max-w-3xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center max-w-2xl mx-auto mb-16"
         >
           <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
             FAQ
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance">
-            Preguntas frecuentes
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
+            Preguntas Frecuentes
           </h2>
-          <p className="mt-4 text-lg text-base-content/60 leading-relaxed text-pretty">
-            Respuestas a las consultas mas comunes sobre nuestra plataforma de monitoreo.
+          <p className="text-base text-base-content/60 leading-relaxed text-pretty">
+            Tienes dudas sobre el sistema? Aqui encontraras respuestas a las preguntas mas comunes.
           </p>
         </motion.div>
 
@@ -67,9 +67,9 @@ export default function FAQSection() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="collapse collapse-arrow bg-base-200 border border-base-content/10 rounded-xl"
+              className="collapse collapse-arrow rounded-xl border border-base-content/10 bg-base-content/[0.03] hover:border-base-content/20 hover:bg-base-content/[0.06] transition-all duration-200"
             >
-              <input type="radio" name="faq-accordion" />
+              <input type="checkbox" />
               <div className="collapse-title font-semibold text-base-content text-sm">
                 {faq.question}
               </div>

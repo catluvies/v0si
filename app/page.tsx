@@ -5,7 +5,7 @@ import AboutSection from '@/components/landing/about-section'
 import ProblemSolutionSection from '@/components/landing/problem-solution-section'
 import CTABannerSection from '@/components/landing/cta-banner-section'
 import SolutionSection from '@/components/landing/solution-section'
-import SolarDemoSection from '@/components/landing/solar-demo-section'
+import BESSDemoSection from '@/components/landing/bess-demo-section'
 import CapabilitiesSection from '@/components/landing/capabilities-section'
 import TeamSection from '@/components/landing/team-section'
 import FAQSection from '@/components/landing/faq-section'
@@ -26,7 +26,7 @@ export default function Home() {
         />
         <ProblemSolutionSection />
         <SolutionSection />
-        <SolarDemoSection />
+        <BESSDemoSection />
         <CapabilitiesSection />
         <CTABannerSection
           title="¿Buscas Optimizar tu Consumo Energético?"
