@@ -7,7 +7,6 @@ import CTABannerSection from '@/components/landing/cta-banner-section'
 import SolutionSection from '@/components/landing/solution-section'
 import BESSDemoSection from '@/components/landing/bess-demo-section'
 import CapabilitiesSection from '@/components/landing/capabilities-section'
-import TeamSection from '@/components/landing/team-section'
 import FAQSection from '@/components/landing/faq-section'
 import Footer from '@/components/landing/footer'
 import DemoFloat from '@/components/landing/demo-float'
@@ -32,7 +31,6 @@ export default function Home() {
           title="¿Buscas Optimizar tu Consumo Energético?"
           description="Con más de 20 años de experiencia, estamos listos para ayudarte a alcanzar la eficiencia energética con tecnología Made in Chile."
         />
-        <TeamSection />
         <FAQSection />
       </main>
       <Footer />
