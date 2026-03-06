@@ -12,7 +12,7 @@ const clients = [
 
 export default function LogoCloud() {
   return (
-    <section className="relative py-14 lg:py-20 bg-base-200 overflow-hidden">
+    <section className="relative py-14 lg:py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
         {/* Header */}
@@ -31,9 +31,9 @@ export default function LogoCloud() {
         {/* Marquee */}
         <div className="relative">
           {/* Fade left */}
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 sm:w-32 z-10 bg-gradient-to-r from-base-200 to-transparent" />
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 sm:w-32 z-10 bg-gradient-to-r from-base-100 to-transparent" />
           {/* Fade right */}
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 sm:w-32 z-10 bg-gradient-to-l from-base-200 to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 sm:w-32 z-10 bg-gradient-to-l from-base-100 to-transparent" />
 
           <div className="overflow-hidden">
             <div className="animate-marquee">
@@ -64,8 +64,6 @@ export default function LogoCloud() {
           </div>
         </div>
       </div>
-      {/* Bottom fade into next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-base-100 via-base-100/50 to-transparent pointer-events-none" />
     </section>
   )
 }
