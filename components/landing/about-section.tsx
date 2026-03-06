@@ -58,15 +58,12 @@ export default function AboutSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
-            Sobre Nosotros
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4 uppercase">
             Quiénes Somos
           </h2>
           <p className="text-base text-base-content/60 leading-relaxed text-pretty">
-            Somos una empresa B de ingenieros chilenos comprometidos con el desarrollo
-            sustentable de soluciones de eficiencia energetica.
+            Empresa B de ingenieros chilenos comprometidos con el desarrollo
+            sustentable de soluciones de eficiencia energética.
           </p>
         </motion.div>
 
@@ -106,24 +103,24 @@ export default function AboutSection() {
           <div className="relative aspect-[16/9] lg:aspect-[21/9] rounded-xl overflow-hidden">
             <Image
               src="/images/hero-solar.jpg"
-              alt="Instalacion de paneles solares en Chile"
+              alt="Instalación de paneles solares en Chile"
               fill
               className="object-cover animate-subtle-zoom"
             />
             <div className="absolute inset-0 bg-gradient-to-l from-base-100/90 via-base-100/40 via-40% to-transparent" />
           </div>
           <div className="relative lg:absolute lg:bottom-8 lg:right-8 lg:w-[55%] border border-base-content/10 bg-base-100/95 backdrop-blur-sm p-8 lg:p-10 -mt-16 mx-4 lg:mt-0 lg:mx-0 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
-            <h3 className="text-xl font-bold text-base-content mb-5 uppercase tracking-wide text-center">Nuestra Historia</h3>
+            <h3 className="text-xl font-bold text-base-content uppercase tracking-wide text-center w-fit mx-auto pb-2 border-b border-base-content/20 mb-5">Nuestra Historia</h3>
             <p className="text-sm text-base-content/60 leading-relaxed text-justify mb-4">
               El año 2004 comienza a forjarse el sueño compartido de un grupo de
-              ingenieros chilenos, quienes trabajan hasta el dia de hoy para romper los limites
-              y asumir el desafio tecnologico de generar modelos y herramientas Made in Chile
-              de analisis de datos en torno a la eficiencia del uso de la energia.
+              ingenieros chilenos, quienes trabajan hasta el día de hoy para romper los límites
+              y asumir el desafío tecnológico de generar modelos y herramientas Made in Chile
+              de análisis de datos en torno a la eficiencia del uso de la energía.
             </p>
             <p className="text-sm text-base-content/60 leading-relaxed text-justify">
               Con presencia desde la frontera norte hasta el Cabo de Hornos, hemos
               desarrollado sistemas como SolarTech® y EnergiaPlus®, reconocidos por resolver
-              problemas en los territorios mas extremos del pais.
+              problemas en los territorios más extremos del país.
             </p>
           </div>
         </motion.div>
@@ -211,14 +208,14 @@ export default function AboutSection() {
           <div className="relative aspect-[16/9] lg:aspect-[21/9] rounded-xl overflow-hidden">
             <Image
               src="/images/hero-solar.jpg"
-              alt="Mision de Lambda Ingenieros"
+              alt="Misión de Lambda Ingenieros"
               fill
               className="object-cover animate-subtle-zoom"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-base-100/90 via-base-100/40 via-40% to-transparent" />
           </div>
           <div className="relative lg:absolute lg:bottom-8 lg:left-8 lg:w-[55%] bg-base-100/95 border border-base-content/10 backdrop-blur-sm p-8 lg:p-10 -mt-16 mx-4 lg:mt-0 lg:mx-0 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
-            <h3 className="text-xl font-bold text-base-content mb-4 uppercase tracking-wide text-center">Nuestra Mision</h3>
+            <h3 className="text-xl font-bold text-base-content uppercase tracking-wide text-center w-fit mx-auto pb-2 border-b border-base-content/20 mb-4">Nuestra Misión</h3>
             <p className="text-base text-base-content/60 leading-relaxed text-justify">
               Desarrollamos tecnología Made in Chile para optimizar el consumo energético.
               Desde la ingeniería, creamos soluciones sostenibles en proyectos eléctricos y
@@ -238,14 +235,14 @@ export default function AboutSection() {
           <div className="relative aspect-[16/9] lg:aspect-[21/9] rounded-xl overflow-hidden">
             <Image
               src="/images/hero-solar.jpg"
-              alt="Vision de Lambda Ingenieros"
+              alt="Visión de Lambda Ingenieros"
               fill
               className="object-cover animate-subtle-zoom"
             />
             <div className="absolute inset-0 bg-gradient-to-l from-base-100/90 via-base-100/40 via-40% to-transparent" />
           </div>
           <div className="relative lg:absolute lg:bottom-8 lg:right-8 lg:w-[55%] border border-base-content/10 bg-base-100/95 backdrop-blur-sm p-8 lg:p-10 -mt-16 mx-4 lg:mt-0 lg:mx-0 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
-            <h3 className="text-xl font-bold text-base-content mb-4 uppercase tracking-wide text-center">Nuestra Vision</h3>
+            <h3 className="text-xl font-bold text-base-content uppercase tracking-wide text-center w-fit mx-auto pb-2 border-b border-base-content/20 mb-4">Nuestra Visión</h3>
             <p className="text-base text-base-content/60 leading-relaxed text-justify">
               Liderar el desarrollo de sistemas tecnológicos sustentables en eficiencia
               eléctrica, con soluciones propias que resuelvan las necesidades reales del sector.
