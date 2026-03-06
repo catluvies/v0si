@@ -7,6 +7,7 @@ const clients = [
   { name: 'ASMAR', src: '/images/clients/asmar.png' },
   { name: 'Armada de Chile', src: '/images/clients/armada.avif' },
   { name: 'Enel Green Power', src: '/images/clients/enel.png' },
+  { name: 'Ministerio de Obras Públicas', src: '/images/clients/ministerio_obras_publicas.png' },
 ]
 
 export default function LogoCloud() {
@@ -14,63 +15,54 @@ export default function LogoCloud() {
     <section className="py-20 lg:py-28 bg-base-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
-        {/* Encabezado */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-10 flex flex-col items-center text-center space-y-4"
+          className="text-center max-w-2xl mx-auto mb-12"
         >
-          <p className="text-xs font-semibold tracking-widest uppercase text-primary/60">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
             Nuestros Clientes
-          </p>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-base-content leading-tight">
-            Socios de Confianza<br className="hidden sm:block" /> en Eficiencia Energética
+          </span>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-base-content text-balance">
+            Empresas que confian en nuestras soluciones
           </h2>
         </motion.div>
 
-        {/* Carrusel */}
+        {/* Marquee */}
         <div className="relative">
-          {/* Fade izquierda */}
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-base-200 to-transparent" />
-          {/* Fade derecha */}
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-base-200 to-transparent" />
+          {/* Fade left */}
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 sm:w-32 z-10 bg-gradient-to-r from-base-200 to-transparent" />
+          {/* Fade right */}
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 sm:w-32 z-10 bg-gradient-to-l from-base-200 to-transparent" />
 
           <div className="overflow-hidden">
-            {/* Un solo div con las dos copias para el loop continuo */}
             <div className="animate-marquee">
-              {/* Copia 1 */}
-              {clients.map((client, i) => (
-                <div
-                  key={`a-${i}`}
-                  className="inline-flex items-center justify-center mx-6 h-40 w-56 rounded-2xl bg-base-content/[0.04] backdrop-blur-sm border border-base-content/10 px-8 py-6"
-                >
-                  <Image
-                    src={client.src}
-                    alt={client.name}
-                    width={200}
-                    height={120}
-                    className="object-contain max-h-32 w-auto"
-                  />
-                </div>
-              ))}
-              {/* Copia 2 — aria-hidden para accesibilidad */}
-              {clients.map((client, i) => (
-                <div
-                  key={`b-${i}`}
-                  aria-hidden="true"
-                  className="inline-flex items-center justify-center mx-6 h-40 w-56 rounded-2xl bg-base-content/[0.04] backdrop-blur-sm border border-base-content/10 px-8 py-6"
-                >
-                  <Image
-                    src={client.src}
-                    alt=""
-                    width={200}
-                    height={120}
-                    className="object-contain max-h-32 w-auto"
-                  />
-                </div>
-              ))}
+              {/* 4 copies for seamless loop */}
+              {[0, 1, 2].map((copy) =>
+                clients.map((client, i) => (
+                  <div
+                    key={`${copy}-${i}`}
+                    aria-hidden={copy > 0}
+                    className="inline-flex flex-col items-center justify-center mx-10 sm:mx-14 lg:mx-16 w-44 sm:w-48 lg:w-56 shrink-0"
+                  >
+                    <div className="h-16 sm:h-20 lg:h-24 flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300">
+                      <Image
+                        src={client.src}
+                        alt={copy === 0 ? client.name : ''}
+                        width={240}
+                        height={96}
+                        className="object-contain max-h-full w-auto"
+                      />
+                    </div>
+                    <span className="text-xs text-base-content/35 mt-3 font-medium">
+                      {client.name}
+                    </span>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>
