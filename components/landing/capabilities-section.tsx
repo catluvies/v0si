@@ -56,7 +56,7 @@ const steps = [
 export default function CapabilitiesSection() {
   return (
     <section id="capabilities" className="bg-base-300 py-20 lg:py-24">
-      <div className="container mx-auto px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
         <motion.div
@@ -86,7 +86,7 @@ export default function CapabilitiesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: index * 0.05 }}
-              className="relative group rounded-lg border border-base-content/10/40 bg-base-100 p-6 hover:border-primary/40 hover:shadow-lg transition-all duration-300 overflow-hidden"
+              className="relative group rounded-lg border border-base-content/10 bg-base-100 p-6 hover:border-primary/40 hover:shadow-lg transition-all duration-300 overflow-hidden"
             >
               {/* Number background */}
               <div className="absolute -top-8 -right-8 opacity-5 group-hover:opacity-10 transition-opacity duration-300">

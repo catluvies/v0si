@@ -35,7 +35,7 @@ export default function AboutSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
-          <span className="badge badge-outline badge-sm text-primary border-primary/30 mb-4 font-medium">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
             Sobre Nosotros
           </span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance">
@@ -78,13 +78,13 @@ export default function AboutSection() {
               </div>
               <h3 className="text-xl font-bold text-base-content">Nuestra Historia</h3>
             </div>
-            <p className="text-base-content/65 leading-relaxed">
+            <p className="text-base-content/60 leading-relaxed">
               El año 2004 comienza a forjarse el sueño compartido de un grupo de
               ingenieros chilenos, quienes trabajan hasta el dia de hoy para romper los limites
               y asumir el desafio tecnologico de generar modelos y herramientas Made in Chile
               de analisis de datos en torno a la eficiencia del uso de la energia.
             </p>
-            <p className="text-base-content/65 leading-relaxed">
+            <p className="text-base-content/60 leading-relaxed">
               Con presencia desde la frontera norte hasta el Cabo de Hornos, hemos
               desarrollado sistemas como SolarTech® y EnergiaPlus®, reconocidos por resolver
               problemas en los territorios mas extremos del pais.
@@ -116,7 +116,7 @@ export default function AboutSection() {
               </div>
               <h3 className="text-xl font-bold text-base-content">Nuestra Mision</h3>
             </div>
-            <p className="text-base-content/65 leading-relaxed">
+            <p className="text-base-content/60 leading-relaxed">
               Proporcionar desde la ingenieria y el desarrollo tecnologico Made in Chile,
               soluciones innovadoras y sostenibles en proyectos electricos y de eficiencia
               que permitan optimizar el consumo energetico de nuestros clientes.
@@ -170,7 +170,7 @@ export default function AboutSection() {
               </div>
               <h3 className="text-xl font-bold text-base-content">Nuestra Vision</h3>
             </div>
-            <p className="text-base-content/65 leading-relaxed">
+            <p className="text-base-content/60 leading-relaxed">
               Ser lideres en el desarrollo de sistemas tecnologicos y sustentables en el
               sector de la eficiencia electrica. Aspiramos a impulsar un cambio cultural
               donde la sostenibilidad y la eficiencia sean la norma para contribuir al

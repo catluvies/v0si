@@ -51,7 +51,7 @@ const features = [
 export default function SolutionSection() {
   return (
     <section id="solution" className="bg-base-300 py-20 lg:py-24">
-      <div className="container mx-auto px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
         <motion.div
@@ -109,7 +109,7 @@ export default function SolutionSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
-                  className="rounded-lg border border-base-content/10/40 bg-base-200 p-5 flex items-start gap-4 hover:bg-base-100 transition-colors duration-300"
+                  className="rounded-lg border border-base-content/10 bg-base-200 p-5 flex items-start gap-4 hover:bg-base-100 transition-colors duration-300"
                 >
                   <div className="w-10 h-10 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0">
                     <item.icon className="w-5 h-5 text-primary" />
@@ -133,7 +133,7 @@ export default function SolutionSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: 0.2 + index * 0.06 }}
-                  className="rounded-lg border border-base-content/10/40 bg-base-100 p-4 flex flex-col gap-2 hover:border-primary/40 hover:bg-base-300 transition-all duration-300"
+                  className="rounded-lg border border-base-content/10 bg-base-100 p-4 flex flex-col gap-2 hover:border-primary/40 hover:bg-base-300 transition-all duration-300"
                 >
                   <div className="flex items-center gap-2">
                     <feature.icon className="w-3.5 h-3.5 text-primary shrink-0" />

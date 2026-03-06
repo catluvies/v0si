@@ -51,13 +51,13 @@ export default function TeamSection() {
           transition={{ duration: 0.5 }}
           className="max-w-2xl mb-14"
         >
-          <span className="badge badge-outline badge-sm text-primary border-primary/30 mb-4 font-medium tracking-widest uppercase text-xs">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
             Nuestro Equipo
           </span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
             Ingenieros que conocen el terreno
           </h2>
-          <p className="text-base text-base-content/55 leading-relaxed text-pretty">
+          <p className="text-base text-base-content/60 leading-relaxed text-pretty">
             Liderados por John Doe, nuestro equipo está compuesto por ingenieros chilenos
             con experiencia en industrias químicas, mineras, astilleros y proyectos de
             especialidad eléctrica, electrónica, automatización y supervisión.
@@ -75,7 +75,7 @@ export default function TeamSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="group relative flex flex-col gap-4 p-6 rounded-xl border border-base-content/10/30 bg-base-content/[0.03] hover:bg-base-content/[0.06] hover:border-base-content/10/50 transition-all duration-200"
+                className="group relative flex flex-col gap-4 p-6 rounded-xl border border-base-content/10 bg-base-content/[0.03] hover:bg-base-content/[0.06] hover:border-base-content/20 transition-all duration-200"
               >
                 {/* Acento superior al hacer hover */}
                 <div className="absolute top-0 left-6 right-6 h-px bg-primary/0 group-hover:bg-primary/40 transition-all duration-300 rounded-full" />
@@ -97,7 +97,7 @@ export default function TeamSection() {
                 </div>
 
                 {/* Links */}
-                <div className="flex items-center gap-2 mt-auto pt-4 border-t border-base-content/10/20">
+                <div className="flex items-center gap-2 mt-auto pt-4 border-t border-base-content/10">
                   <a
                     href={member.linkedin}
                     aria-label={`LinkedIn de ${member.name}`}

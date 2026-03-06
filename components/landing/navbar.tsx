@@ -24,8 +24,12 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    const theme = document.documentElement.getAttribute('data-theme')
-    setIsDark(theme === 'dark')
+    const observer = new MutationObserver(() => {
+      const theme = document.documentElement.getAttribute('data-theme')
+      setIsDark(theme === 'dark')
+    })
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    return () => observer.disconnect()
   }, [])
 
   function toggleTheme() {

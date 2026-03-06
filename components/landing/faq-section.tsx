@@ -46,7 +46,7 @@ export default function FAQSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="badge badge-outline badge-sm text-primary border-primary/30 mb-4 font-medium">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
             FAQ
           </span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance">
