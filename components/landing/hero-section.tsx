@@ -17,6 +17,8 @@ export default function HeroSection() {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-base-100/95 via-base-100/70 to-base-100/30" />
+        {/* Bottom fade into next section (bg-base-200) */}
+        <div className="absolute bottom-0 left-0 right-0 h-72 bg-gradient-to-t from-base-200 via-base-200/50 via-40% to-transparent" />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 pt-40 pb-28">
