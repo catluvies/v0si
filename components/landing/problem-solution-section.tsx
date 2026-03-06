@@ -26,7 +26,7 @@ const impacts = [
 
 export default function ProblemSolutionSection() {
   return (
-    <section id="problem" className="py-24 lg:py-32">
+    <section id="problem" className="py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col gap-16">
 
         {/* Header centrado */}
