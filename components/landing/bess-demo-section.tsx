@@ -55,9 +55,6 @@ export default function BESSDemoSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
-            Monitoreo en Tiempo Real
-          </span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
             Control Total de tu Energia
           </h2>

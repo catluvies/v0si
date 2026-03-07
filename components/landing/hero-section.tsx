@@ -24,19 +24,6 @@ export default function HeroSection() {
         <div className="flex flex-col items-start max-w-4xl">
 
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-3 mb-8"
-          >
-            <span className="w-8 h-px bg-primary/60" />
-            <span className="text-sm font-medium text-primary/80 tracking-widest uppercase">
-              Sistema Fotovoltaico RadioTumbes
-            </span>
-          </motion.div>
-
-          {/* Título */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

@@ -37,9 +37,6 @@ export default function ProblemSolutionSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
-            El Problema
-          </span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
             El Problema que Abordamos
           </h2>
@@ -58,9 +55,6 @@ export default function ProblemSolutionSection() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="rounded-2xl border border-base-content/10 bg-base-content/[0.03] border-l-2 border-l-primary p-8 lg:p-10"
         >
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
-            Situación Actual
-          </span>
           <h3 className="text-xl font-bold text-base-content mb-4 text-balance">
             La Falta de Visibilidad y Control Energético
           </h3>

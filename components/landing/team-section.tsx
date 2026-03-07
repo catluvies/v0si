@@ -51,9 +51,6 @@ export default function TeamSection() {
           transition={{ duration: 0.5 }}
           className="max-w-2xl mb-14"
         >
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
-            Nuestro Equipo
-          </span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
             Ingenieros que conocen el terreno
           </h2>

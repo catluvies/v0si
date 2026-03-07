@@ -61,9 +61,6 @@ export default function SolutionSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
-            Nuestra Solución
-          </span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
             Monitoreo Inteligente con Tecnología Made in Chile
           </h2>
@@ -85,9 +82,6 @@ export default function SolutionSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
             {/* Left: text */}
             <div className="border-l-2 border-l-primary pl-6">
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
-                La Respuesta que Necesitas
-              </span>
               <p className="text-sm text-base-content/70 leading-relaxed mb-4">
                 Nuestro sistema SolarTech® combina gestión de energía eléctrica, acumulación en
                 baterías de litio y monitoreo en tiempo real. Con presencia desde la frontera norte
