@@ -4,18 +4,12 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Linkedin, Mail } from 'lucide-react'
 
-const stats = [
-  { value: '20+', label: 'Años de experiencia' },
-  { value: '100+', label: 'Proyectos realizados' },
-  { value: 'Made in Chile', label: 'Tecnología propia' },
-]
-
-const CARD_CLASSES = 'border border-base-content/10 bg-base-100/95 backdrop-blur-sm px-8 py-6 lg:px-12 lg:py-7 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out'
+const CARD_CLASSES = 'rounded border border-base-content/10 bg-base-100/95 backdrop-blur-sm px-8 py-6 lg:px-12 lg:py-7 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out'
 
 export default function AboutSection() {
   return (
     <section id="about" className="relative py-20 lg:py-28 overflow-hidden">
-      <div className="absolute inset-0 -z-10 h-full w-full bg-base-100 [background:radial-gradient(125%_125%_at_50%_10%,var(--color-base-100)_40%,var(--color-blue-700)_100%)]" />
+      <div className="absolute inset-0 -z-10 h-full w-full bg-base-100 [background:radial-gradient(125%_125%_at_50%_10%,var(--color-base-100)_60%,var(--color-blue-900)_100%)]" />
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
@@ -35,30 +29,6 @@ export default function AboutSection() {
           </p>
         </motion.div>
 
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="rounded border border-base-content/10 bg-base-content/[0.03] max-w-2xl mx-auto mb-14 py-4 sm:py-2"
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-3">
-            {stats.map((stat, index) => (
-              <div
-                key={stat.value}
-                className={`text-center py-3 sm:py-4 ${index < stats.length - 1 ? 'border-b sm:border-b-0 sm:border-r border-base-content/10' : ''}`}
-              >
-                <p className="text-3xl sm:text-4xl font-bold text-primary leading-none mb-2 tracking-tight">
-                  {stat.value}
-                </p>
-                <p className="text-xs text-base-content/50 font-medium uppercase tracking-widest">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
 
         {/* Historia */}
         <ImageCardBlock
@@ -70,9 +40,10 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className={`${CARD_CLASSES} rounded-none sm:rounded sm:-mt-12 sm:mx-4 md:absolute md:bottom-[-1rem] md:left-1/2 md:-translate-x-1/2 md:w-[68%] md:mt-0 md:mx-0`}
+            className={`${CARD_CLASSES} sm:-mt-12 sm:mx-4 md:absolute md:bottom-[-1rem] md:left-1/2 md:-translate-x-1/2 md:w-[68%] md:mt-0 md:mx-0`}
           >
-            <h3 className="text-xl font-bold text-base-content uppercase tracking-wide text-center w-fit mx-auto pb-2 border-b border-base-content/20 mb-4">Nuestra Historia</h3>
+            <h3 className="text-xl font-bold text-base-content uppercase tracking-wide text-center mb-2">Nuestra Historia</h3>
+            <div className="w-12 h-0.5 bg-primary mx-auto mb-4" />
             <p className="text-sm text-base-content/60 leading-relaxed text-justify mb-3">
               El año 2004 comienza a forjarse el sueño compartido de un grupo de
               ingenieros chilenos, quienes trabajan hasta el día de hoy para romper
@@ -103,22 +74,26 @@ export default function AboutSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="flex flex-col md:flex-row md:gap-4 sm:-mt-12 sm:mx-4 md:absolute md:bottom-[-1rem] md:left-8 md:right-8 md:mt-0 md:mx-0"
           >
-            <div className={`${CARD_CLASSES} flex-1 rounded-none sm:rounded border-t border-base-content/10`}>
-              <h3 className="text-lg font-bold text-base-content uppercase tracking-wide text-center w-fit mx-auto pb-2 border-b border-base-content/20 mb-4">Nuestra Misión</h3>
+            <div className={`${CARD_CLASSES} flex-1`}>
+              <h3 className="text-lg font-bold text-base-content uppercase tracking-wide text-center mb-2">Nuestra Misión</h3>
+              <div className="w-12 h-0.5 bg-primary mx-auto mb-4" />
               <p className="text-sm text-base-content/60 leading-relaxed text-justify">
                 Desarrollamos tecnología <strong className="text-base-content/70">Made in Chile</strong> para
-                optimizar el consumo energético. Desde la ingeniería, creamos soluciones
-                sostenibles en proyectos eléctricos y eficiencia energética que generan
-                impacto real: menos consumo, menor huella ambiental, mayor eficiencia operativa.
+                optimizar el consumo energético en zonas aisladas y extremas. Desde la ingeniería,
+                creamos soluciones de hibridación energética que integran energías renovables,
+                almacenamiento en baterías de litio y sistemas de respaldo, generando impacto real:
+                menos combustible fósil, menor huella de carbono, mayor autonomía operativa.
               </p>
             </div>
-            <div className={`${CARD_CLASSES} flex-1 rounded-none sm:rounded border-t border-base-content/10`}>
-              <h3 className="text-lg font-bold text-base-content uppercase tracking-wide text-center w-fit mx-auto pb-2 border-b border-base-content/20 mb-4">Nuestra Visión</h3>
+            <div className={`${CARD_CLASSES} flex-1`}>
+              <h3 className="text-lg font-bold text-base-content uppercase tracking-wide text-center mb-2">Nuestra Visión</h3>
+              <div className="w-12 h-0.5 bg-primary mx-auto mb-4" />
               <p className="text-sm text-base-content/60 leading-relaxed text-justify">
-                Liderar el desarrollo de sistemas tecnológicos sustentables en{' '}
-                <strong className="text-base-content/70">eficiencia eléctrica</strong>, con soluciones
-                propias que resuelvan las necesidades reales del sector. Impulsar un cambio
-                donde la sostenibilidad no sea la excepción, sino el estándar.
+                Liderar el desarrollo de sistemas de{' '}
+                <strong className="text-base-content/70">hibridación energética</strong> sustentables, con soluciones
+                propias que resuelvan las necesidades reales de zonas aisladas. Impulsar un cambio
+                donde la carbono-neutralidad no sea la excepción, sino el estándar — desde los
+                canales australes hasta el resto de Chile y el mundo.
               </p>
             </div>
           </motion.div>
@@ -135,14 +110,22 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className={`${CARD_CLASSES} rounded-none sm:rounded sm:-mt-12 sm:mx-4 md:absolute md:bottom-[-1rem] md:left-1/2 md:-translate-x-1/2 md:w-[68%] md:mt-0 md:mx-0`}
+            className={`${CARD_CLASSES} sm:-mt-12 sm:mx-4 md:absolute md:bottom-[-1rem] md:left-1/2 md:-translate-x-1/2 md:w-[68%] md:mt-0 md:mx-0`}
           >
-            <h3 className="text-xl font-bold text-base-content uppercase tracking-wide text-center w-fit mx-auto pb-2 border-b border-base-content/20 mb-4">Nuestro Fundador</h3>
+            <h3 className="text-xl font-bold text-base-content uppercase tracking-wide text-center mb-2">Nuestro Fundador</h3>
+            <div className="w-12 h-0.5 bg-primary mx-auto mb-4" />
             <p className="text-sm text-base-content/60 leading-relaxed text-justify mb-2">
               <strong className="text-base-content/70">Rodrigo Oporto</strong>, Gerente General, es
               Ingeniero Naval Eléctrico y ex-oficial de la Armada de Chile con trayectoria
               en industrias químicas, mineras, astilleros y empresas de ingeniería.
               Especialista en proyectos eléctricos, electrónicos, automatización y supervisión.
+            </p>
+            <p className="text-sm text-base-content/60 leading-relaxed text-justify mb-2">
+              Bajo su liderazgo, Lambda Ingenieros desarrolló el sistema{' '}
+              <strong className="text-base-content/70">ENEFISYS</strong> y forjó una alianza
+              público-privada con <strong className="text-base-content/70">ASMAR Magallanes</strong> para
+              llevar energía limpia a las zonas más remotas del país, logrando reducciones de
+              hasta un 95% en el uso de combustibles fósiles.
             </p>
             <p className="text-sm text-base-content/60 leading-relaxed text-justify mb-4">
               Combina experiencia <strong className="text-base-content/70">técnica</strong>,{' '}
