@@ -107,7 +107,7 @@ export default function SolarDemoSection() {
             value="87.3"
             unit="%"
             data={sparkData.efficiency}
-            color="#14b8a6"
+            color="#3b82f6"
           />
           <StatCard
             icon={<Zap className="w-5 h-5 text-primary" />}
@@ -115,7 +115,7 @@ export default function SolarDemoSection() {
             value="$2.4M"
             unit="CLP"
             data={sparkData.savings}
-            color="#a78bfa"
+            color="#6366f1"
           />
           <StatCard
             icon={<TrendingUp className="w-5 h-5 text-primary" />}
@@ -123,7 +123,7 @@ export default function SolarDemoSection() {
             value="72.1"
             unit="kWh"
             data={sparkData.production}
-            color="#f59e0b"
+            color="#0ea5e9"
           />
         </motion.div>
 
@@ -153,7 +153,7 @@ export default function SolarDemoSection() {
                 background: 'transparent',
                 fontFamily: 'inherit',
               },
-              colors: ['#14b8a6', '#a78bfa'],
+              colors: ['#3b82f6', '#6366f1'],
               stroke: { width: 2.5, curve: 'smooth' },
               fill: {
                 type: 'gradient',
@@ -223,7 +223,7 @@ export default function SolarDemoSection() {
                 background: 'transparent',
                 fontFamily: 'inherit',
               },
-              colors: ['#14b8a6', '#a78bfa'],
+              colors: ['#3b82f6', '#6366f1'],
               plotOptions: {
                 bar: { borderRadius: 6, columnWidth: '55%' },
               },
