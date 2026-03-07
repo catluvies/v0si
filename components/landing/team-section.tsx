@@ -51,7 +51,7 @@ export default function TeamSection() {
           transition={{ duration: 0.5 }}
           className="max-w-2xl mb-14"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
             Ingenieros que conocen el terreno
           </h2>
           <p className="text-base text-base-content/60 leading-relaxed text-pretty">

@@ -28,7 +28,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tighter text-base-content text-balance"
+            className="font-display text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-[-0.02em] text-base-content text-balance"
           >
             Más de 20 Años Mejorando la{' '}
             <span className="text-primary">Eficiencia Energética</span>

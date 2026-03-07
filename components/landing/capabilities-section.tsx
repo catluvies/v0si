@@ -66,7 +66,7 @@ export default function CapabilitiesSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
             Capacidades del <span className="text-primary">Sistema</span>
           </h2>
           <p className="text-base text-base-content/70 leading-relaxed text-pretty">
@@ -113,7 +113,7 @@ export default function CapabilitiesSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
             Explora los <span className="text-primary">Datos</span>
           </h2>
           <p className="text-base text-base-content/70 leading-relaxed text-pretty">

@@ -46,7 +46,7 @@ export default function FAQSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
             Preguntas <span className="text-primary">Frecuentes</span>
           </h2>
           <p className="text-base text-base-content/60 leading-relaxed text-pretty">

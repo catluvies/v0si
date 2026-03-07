@@ -23,7 +23,7 @@ export default function LogoCloud() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-6"
         >
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-base-content text-balance uppercase">
+          <h2 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-base-content text-balance uppercase">
             Socios de Confianza
           </h2>
         </motion.div>
