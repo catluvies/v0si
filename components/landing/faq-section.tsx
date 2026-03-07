@@ -4,41 +4,41 @@ import { motion } from 'framer-motion'
 
 const faqs = [
   {
-    question: 'Que datos puedo consultar en el sistema?',
+    question: '¿Qué datos puedo consultar en el sistema?',
     answer:
-      'Puedes consultar datos de generacion solar, estado de baterias, consumo electrico, rendimiento de trackers individuales, y mas de 15 metricas diferentes del sistema fotovoltaico.',
+      'Puedes consultar datos de generación solar, estado de baterías, consumo eléctrico, rendimiento de trackers individuales, y más de 15 métricas diferentes del sistema fotovoltaico.',
   },
   {
-    question: 'Como puedo descargar los datos?',
+    question: '¿Cómo puedo descargar los datos?',
     answer:
-      'El sistema permite exportar los datos en formato CSV desde el dashboard principal. Simplemente selecciona el rango de fechas y las metricas que deseas exportar.',
+      'El sistema permite exportar los datos en formato CSV desde el dashboard principal. Simplemente selecciona el rango de fechas y las métricas que deseas exportar.',
   },
   {
-    question: 'Con que frecuencia se actualizan los datos?',
+    question: '¿Con qué frecuencia se actualizan los datos?',
     answer:
-      'El sistema realiza monitoreo continuo 24/7 con actualizacion automatica de metricas. Los datos se registran cada vez que hay cambios significativos en el sistema.',
+      'El sistema realiza monitoreo continuo 24/7 con actualización automática de métricas. Los datos se registran cada vez que hay cambios significativos en el sistema.',
   },
   {
-    question: 'Que informacion muestran los trackers?',
+    question: '¿Qué información muestran los trackers?',
     answer:
-      'Cada tracker solar muestra voltaje, potencia generada, rendimiento diario y comparativas de eficiencia. Esto permite identificar rapidamente cualquier problema de rendimiento en paneles especificos.',
+      'Cada tracker solar muestra voltaje, potencia generada, rendimiento diario y comparativas de eficiencia. Esto permite identificar rápidamente cualquier problema de rendimiento en paneles específicos.',
   },
   {
-    question: 'Puedo ver el historial de datos?',
+    question: '¿Puedo ver el historial de datos?',
     answer:
-      'Si. El sistema cuenta con miles de registros historicos disponibles. Puedes visualizar series temporales, analizar patrones y generar reportes de cualquier periodo desde que se inicio el monitoreo.',
+      'Sí. El sistema cuenta con miles de registros históricos disponibles. Puedes visualizar series temporales, analizar patrones y generar reportes de cualquier período desde que se inició el monitoreo.',
   },
   {
-    question: 'El sistema envia alertas?',
+    question: '¿El sistema envía alertas?',
     answer:
-      'Si. El dashboard incluye un sistema de alertas que notifica sobre eventos importantes como picos de generacion, estado critico de bateria y anomalias en el sistema. Tambien proporciona recomendaciones automaticas de mantenimiento.',
+      'Sí. El dashboard incluye un sistema de alertas que notifica sobre eventos importantes como picos de generación, estado crítico de batería y anomalías en el sistema. También proporciona recomendaciones automáticas de mantenimiento.',
   },
 ]
 
 export default function FAQSection() {
   return (
     <section id="faq" className="py-20 lg:py-28">
-      <div className="max-w-3xl mx-auto px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,32 +50,33 @@ export default function FAQSection() {
             Preguntas Frecuentes
           </h2>
           <p className="text-base text-base-content/60 leading-relaxed text-pretty">
-            Tienes dudas sobre el sistema? Aqui encontraras respuestas a las preguntas mas comunes.
+            ¿Tienes dudas sobre el sistema? Aquí encontrarás respuestas a las preguntas más comunes.
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-col gap-2"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           {faqs.map((faq, index) => (
-            <div
+            <motion.div
               key={index}
-              className="collapse collapse-arrow rounded-xl border border-base-content/10 bg-base-content/[0.03] hover:border-base-content/20 hover:bg-base-content/[0.06] transition-all duration-200"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="collapse collapse-arrow rounded-xl border border-base-content/10 bg-base-content/[0.03] hover:border-primary/30 transition-all duration-300"
             >
               <input type="checkbox" />
-              <div className="collapse-title font-semibold text-base-content text-sm">
-                {faq.question}
+              <div className="collapse-title flex items-center gap-3 pr-12">
+                <span className="w-7 h-7 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-xs font-bold text-primary">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className="font-semibold text-base-content text-sm">{faq.question}</span>
               </div>
-              <div className="collapse-content text-sm text-base-content/60 leading-relaxed">
+              <div className="collapse-content text-sm text-base-content/60 leading-relaxed pl-[calc(0.75rem+1.75rem+0.75rem)]">
                 <p>{faq.answer}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )
