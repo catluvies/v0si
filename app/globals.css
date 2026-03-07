@@ -10,29 +10,27 @@
   --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
   --font-mono: var(--font-dm-mono), 'DM Mono', monospace;
 
-  /* Lambda warm earth palette */
-  --color-lambda-50: #faf8f5;
-  --color-lambda-100: #f0ece5;
-  --color-lambda-200: #e0d7ca;
-  --color-lambda-300: #cdbda8;
-  --color-lambda-400: #b69e84;
-  --color-lambda-500: #a38668;
-  --color-lambda-600: #96755b;
-  --color-lambda-700: #7d604d;
-  --color-lambda-800: #674f43;
-  --color-lambda-900: #554239;
+  /* Blue accent palette */
+  --color-blue-50:  #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-300: #93c5fd;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-blue-800: #1e40af;
+  --color-blue-900: #1e3a8a;
+}
 
-  /* Teal accent palette */
-  --color-teal-50: #f0fdfa;
-  --color-teal-100: #ccfbf1;
-  --color-teal-200: #99f6e4;
-  --color-teal-300: #5eead4;
-  --color-teal-400: #2dd4bf;
-  --color-teal-500: #14b8a6;
-  --color-teal-600: #0d9488;
-  --color-teal-700: #0f766e;
-  --color-teal-800: #115e59;
-  --color-teal-900: #134e4a;
+/* DaisyUI primary override — blue */
+[data-theme="dark"] {
+  --color-primary: oklch(62.3% 0.214 259.1);
+  --color-primary-content: oklch(98% 0.01 260);
+}
+[data-theme="light"] {
+  --color-primary: oklch(54.6% 0.245 262.88);
+  --color-primary-content: oklch(98% 0.01 260);
 }
 
 /* Smooth scroll for anchor links */
@@ -73,7 +71,7 @@ html {
 }
 
 .img-brand-tint {
-  background-color: var(--color-teal-900);
+  background-color: var(--color-blue-900);
   mix-blend-mode: color;
   opacity: 0.15;
 }
