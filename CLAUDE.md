@@ -45,7 +45,7 @@ public/
 | Archivos | `kebab-case.tsx` | `hero-section.tsx` |
 | Componentes | `PascalCase` | `HeroSection` |
 | Variables / funciones | `camelCase` | `navLinks`, `toggleTheme` |
-| CSS custom properties | `--kebab-case` | `--color-lambda-500` |
+| CSS custom properties | `--kebab-case` | `--color-blue-500` |
 | Data arrays | `camelCase`, top del archivo | `const highlights = [...]` |
 | Types / Interfaces | `PascalCase` | `StatCardProps` |
 
@@ -306,7 +306,7 @@ Usar clases semanticas de DaisyUI cuando exista un componente. No reconstruir co
 
 ```tsx
 // MAL
-<button className="px-4 py-2 rounded-lg bg-teal-500 text-white font-medium">
+<button className="px-4 py-2 rounded-lg bg-blue-500 text-white font-medium">
 
 // BIEN
 <button className="btn btn-primary">
@@ -337,7 +337,7 @@ className="bg-primary text-primary-content"
 
 Tokens disponibles: `base-100`, `base-200`, `base-300`, `base-content`, `primary`, `primary-content`, `secondary`, `accent`
 
-Paleta custom (definida en `@theme`): `lambda-50` a `lambda-900`, `teal-50` a `teal-900`
+Paleta custom (definida en `@theme`): `blue-50` a `blue-900`
 
 ## Imagenes
 
@@ -436,7 +436,7 @@ Convenciones de estilo para charts:
 - `chart.background: 'transparent'` — fondo transparente
 - `tooltip.theme: 'dark'` — tooltips oscuros
 - `grid.borderColor: 'rgba(255,255,255,0.06)'` — lineas de grid sutiles
-- Colores primarios: `#14b8a6` (teal/primary), `#a78bfa` (violet), `#f59e0b` (amber)
+- Colores primarios: `#3b82f6` (blue/primary), `#6366f1` (indigo), `#0ea5e9` (sky)
 - `chart.toolbar.show: false` — ocultar toolbar en landing (mostrar en dashboard)
 
 ## Validacion (Zod)
