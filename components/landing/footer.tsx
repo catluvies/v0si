@@ -37,29 +37,26 @@ export default function Footer() {
                 className="h-12 w-auto object-contain"
               />
             </a>
-            <p className="mt-4 text-sm text-base-content/60 leading-relaxed max-w-xs">
-              Ingenieria solar fotovoltaica y monitoreo inteligente para hogares
-              y empresas en Chile.
-            </p>
+            {/* TODO: agregar frase descriptiva de Lambda o quitar este párrafo */}
             <div className="mt-6 flex flex-col gap-3">
+              <span className="flex items-start gap-2 text-sm text-base-content/60">
+                <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
+                Villanelo Alto 180, Of. 606, Viña del Mar. Chile
+              </span>
               <a
-                href="mailto:contacto@lambdaingenieroschile.com"
-                className="flex items-center gap-2 text-sm text-base-content/60 hover:text-base-content transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-                contacto@lambdaingenieroschile.com
-              </a>
-              <a
-                href="tel:+56912345678"
+                href="tel:+56931014289"
                 className="flex items-center gap-2 text-sm text-base-content/60 hover:text-base-content transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                +56 9 1234 5678
+                +56 9 3101 4289
               </a>
-              <span className="flex items-center gap-2 text-sm text-base-content/60">
-                <MapPin className="w-4 h-4" />
-                Santiago, Chile
-              </span>
+              <a
+                href="mailto:contacto@lambdaingenieros.cl"
+                className="flex items-center gap-2 text-sm text-base-content/60 hover:text-base-content transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                contacto@lambdaingenieros.cl
+              </a>
             </div>
           </div>
 
@@ -86,20 +83,13 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-base-content/10">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8 py-6 flex flex-col items-center gap-1 text-center">
           <p className="text-xs text-base-content/60">
-            {'2024 Lambda Ingenieros Chile. Todos los derechos reservados.'}
+            © 2026 Sistema Fotovoltaico RadioTumbes. Todos los derechos reservados.
           </p>
-          <div className="flex items-center gap-4">
-            <a
-              href="https://www.lambdaingenieroschile.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-base-content/60 hover:text-base-content transition-colors"
-            >
-              lambdaingenieroschile.com
-            </a>
-          </div>
+          <p className="text-xs text-base-content/60">
+            © 2026 Lambda Ingenieros · Tecnología Made in Chile
+          </p>
         </div>
       </div>
     </footer>
