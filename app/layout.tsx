@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { DM_Sans, DM_Mono } from 'next/font/google'
+import { DM_Sans, DM_Mono, Outfit } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -13,6 +13,13 @@ const dmMono = DM_Mono({
   subsets: ['latin'],
   weight: ['400', '500'],
   variable: '--font-dm-mono',
+  display: 'swap',
+})
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  weight: ['700', '800', '900'],
+  variable: '--font-outfit',
   display: 'swap',
 })
 
@@ -47,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" data-theme="dark" className={`${dmSans.variable} ${dmMono.variable}`}>
+    <html lang="es" data-theme="dark" className={`${dmSans.variable} ${dmMono.variable} ${outfit.variable}`}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />

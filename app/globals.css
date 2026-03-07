@@ -8,6 +8,7 @@
 
 @theme inline {
   --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  --font-display: var(--font-outfit), 'Outfit', system-ui, sans-serif;
   --font-mono: var(--font-dm-mono), 'DM Mono', monospace;
 
   /* Blue accent palette */
@@ -31,6 +32,11 @@
 [data-theme="light"] {
   --color-primary: oklch(54.6% 0.245 262.88);
   --color-primary-content: oklch(98% 0.01 260);
+}
+
+/* Display font utility */
+.font-display {
+  font-family: var(--font-display);
 }
 
 /* Smooth scroll for anchor links */
