@@ -70,23 +70,35 @@ export default function BESSDemoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="rounded-xl border border-base-content/10 bg-base-content/[0.03] p-4 sm:p-6 lg:p-8 mb-6"
+          className="relative overflow-hidden rounded-xl border border-base-content/10 bg-base-content/[0.03] p-4 sm:p-6 lg:p-8 mb-6"
         >
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <h3 className="text-sm font-semibold text-base-content">
-                Flujo Energetico — Instalacion BESS
-              </h3>
-              <p className="text-xs text-base-content/50 mt-0.5">
-                Zona Norte · Chile
-              </p>
+          {/* Dot grid background with edge fade */}
+          <div
+            className="pointer-events-none absolute inset-0 opacity-15"
+            style={{
+              backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)',
+              backgroundSize: '20px 20px',
+              maskImage: 'radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 100%)',
+              WebkitMaskImage: 'radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 100%)',
+            }}
+          />
+          <div className="relative z-10">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h3 className="text-sm font-bold text-base-content">
+                  Flujo Energetico — Instalacion BESS
+                </h3>
+                <p className="text-xs text-base-content/60 mt-0.5">
+                  Zona Norte · Chile
+                </p>
+              </div>
+              <div className="flex items-center gap-2 rounded-full bg-green-500/10 border border-green-500/20 px-3 py-1">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-xs text-green-500 font-medium">En linea</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-xs text-green-500 font-medium">En linea</span>
-            </div>
+            <EnergyFlowDiagram />
           </div>
-          <EnergyFlowDiagram />
         </motion.div>
 
         {/* Fleet KPIs */}
@@ -294,7 +306,7 @@ function EnergyFlowDiagram() {
         </text>
       </g>
 
-      <g transform="translate(415, 240)">
+      <g transform="translate(430, 240)">
         <rect x="-24" y="-11" width="48" height="22" rx="6"
           fill="rgba(0,0,0,0.5)" />
         <text x="0" y="4" textAnchor="middle" fill="#60a5fa" fontSize="10" fontWeight="600">
