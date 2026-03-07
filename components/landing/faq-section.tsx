@@ -46,8 +46,8 @@ export default function FAQSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
-            Preguntas Frecuentes
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
+            Preguntas <span className="text-primary">Frecuentes</span>
           </h2>
           <p className="text-base text-base-content/60 leading-relaxed text-pretty">
             ¿Tienes dudas sobre el sistema? Aquí encontrarás respuestas a las preguntas más comunes.
@@ -62,11 +62,11 @@ export default function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="collapse collapse-arrow rounded-xl border border-base-content/10 bg-base-content/[0.03] hover:border-primary/30 transition-all duration-300"
+              className="collapse collapse-arrow rounded border border-base-content/10 bg-base-content/[0.03] hover:border-primary/30 transition-all duration-300"
             >
               <input type="checkbox" />
               <div className="collapse-title flex items-center gap-3 pr-12">
-                <span className="w-7 h-7 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-xs font-bold text-primary">
+                <span className="w-7 h-7 rounded bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-xs font-bold text-primary">
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 <span className="font-semibold text-base-content text-sm">{faq.question}</span>
