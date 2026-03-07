@@ -35,7 +35,7 @@ export default function CTABannerSection({
         </div>
         <a
           href={href}
-          className="shrink-0 inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-base-100 text-base-content text-sm font-semibold hover:bg-base-100/90 transition-all duration-200 whitespace-nowrap"
+          className="shrink-0 inline-flex items-center gap-2 px-6 py-2.5 rounded bg-base-100 text-base-content text-sm font-semibold hover:bg-base-100/90 transition-all duration-200 whitespace-nowrap"
         >
           {buttonText}
           <ArrowRight className="w-4 h-4" />

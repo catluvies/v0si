@@ -32,7 +32,7 @@ export default function DemoFloat() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.95 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className="fixed bottom-0 left-0 right-0 z-40 rounded-t-2xl border-t border-base-content/10 bg-base-200/95 backdrop-blur-xl shadow-2xl p-5 sm:bottom-6 sm:right-6 sm:left-auto sm:w-80 sm:rounded-2xl sm:border"
+          className="fixed bottom-0 left-0 right-0 z-40 rounded-t border-t border-base-content/10 bg-base-200/95 backdrop-blur-xl shadow-2xl p-5 sm:bottom-6 sm:right-6 sm:left-auto sm:w-80 sm:rounded sm:border"
         >
           <button
             onClick={() => setDismissed(true)}
@@ -49,7 +49,7 @@ export default function DemoFloat() {
               transition={{ duration: 0.3 }}
               className="flex flex-col items-center gap-3 py-2 text-center"
             >
-              <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
+              <div className="w-10 h-10 rounded bg-primary/10 border border-primary/20 flex items-center justify-center">
                 <CheckCircle className="w-5 h-5 text-primary" />
               </div>
               <p className="text-sm font-semibold text-base-content">
@@ -62,7 +62,7 @@ export default function DemoFloat() {
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                   <BarChart3 className="w-5 h-5 text-primary" />
                 </div>
                 <div>

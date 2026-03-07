@@ -95,8 +95,8 @@ function StatCard({
   label: string
 }) {
   return (
-    <div className="flex items-center gap-4 rounded-2xl bg-base-content/[0.07] backdrop-blur-sm border border-base-content/10 px-6 py-5 hover:bg-base-content/[0.11] transition-colors">
-      <div className="w-10 h-10 rounded-xl bg-primary/15 text-primary flex items-center justify-center shrink-0">
+    <div className="flex items-center gap-4 rounded bg-base-content/[0.07] backdrop-blur-sm border border-base-content/10 px-6 py-5 hover:bg-base-content/[0.11] transition-colors">
+      <div className="w-10 h-10 rounded bg-primary/15 text-primary flex items-center justify-center shrink-0">
         {icon}
       </div>
       <div>

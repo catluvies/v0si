@@ -66,8 +66,8 @@ export default function CapabilitiesSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
-            Capacidades del Sistema
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
+            Capacidades del <span className="text-primary">Sistema</span>
           </h2>
           <p className="text-base text-base-content/70 leading-relaxed text-pretty">
             Explora todas las funcionalidades de monitoreo y análisis del sistema fotovoltaico RadioTumbes.
@@ -83,7 +83,7 @@ export default function CapabilitiesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: index * 0.05 }}
-              className="relative group rounded-lg border border-base-content/10 bg-base-content/[0.03] p-6 hover:border-primary/40 hover:shadow-lg transition-all duration-300 overflow-hidden"
+              className="relative group rounded border border-base-content/10 bg-base-content/[0.03] p-6 hover:border-primary/40 hover:shadow-lg transition-all duration-300 overflow-hidden"
             >
               {/* Number background */}
               <div className="absolute -top-8 -right-8 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
@@ -92,7 +92,7 @@ export default function CapabilitiesSection() {
 
               {/* Content */}
               <div className="relative z-10">
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 border border-primary/30 mb-4">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded bg-primary/10 border border-primary/30 mb-4">
                   <span className="text-sm font-bold text-primary">{item.number}</span>
                 </div>
                 <h3 className="text-base font-semibold text-base-content mb-2">{item.title}</h3>
@@ -113,8 +113,8 @@ export default function CapabilitiesSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
-            Explora los Datos
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
+            Explora los <span className="text-primary">Datos</span>
           </h2>
           <p className="text-base text-base-content/70 leading-relaxed text-pretty">
             El sistema te permite explorar y visualizar información del sistema fotovoltaico en tiempo real de manera simple e intuitiva. Más de 3,200 registros disponibles para análisis.

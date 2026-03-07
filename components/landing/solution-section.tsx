@@ -61,8 +61,8 @@ export default function SolutionSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
-            Monitoreo Inteligente con Tecnología Made in Chile
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
+            Monitoreo Inteligente con Tecnología <span className="text-primary">Made in Chile</span>
           </h2>
           <p className="text-base text-base-content/70 leading-relaxed text-pretty">
             Sistema de monitoreo y análisis en tiempo real que permite optimizar el consumo energético,
@@ -81,7 +81,7 @@ export default function SolutionSection() {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
             {/* Left: text */}
-            <div className="border-l-2 border-l-primary pl-6">
+            <div className="rounded border border-base-content/10 bg-base-content/[0.03] border-l-2 border-l-primary p-6 flex flex-col justify-center">
               <p className="text-sm text-base-content/70 leading-relaxed mb-4">
                 Nuestro sistema SolarTech® combina gestión de energía eléctrica, acumulación en
                 baterías de litio y monitoreo en tiempo real. Con presencia desde la frontera norte
@@ -103,9 +103,9 @@ export default function SolutionSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
-                  className="rounded-lg border border-base-content/10 bg-base-content/[0.03] p-5 flex items-start gap-4 hover:bg-base-content/[0.06] transition-colors duration-300"
+                  className="rounded border border-base-content/10 bg-base-content/[0.03] p-5 flex items-start gap-4 hover:bg-base-content/[0.06] transition-colors duration-300"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0">
                     <item.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
@@ -118,7 +118,7 @@ export default function SolutionSection() {
           </div>
 
           {/* Features as separated cards */}
-          <div className="bg-base-content/[0.03] rounded-lg p-6 lg:p-8">
+          <div className="bg-base-content/[0.03] rounded p-6 lg:p-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {features.map((feature, index) => (
                 <motion.div
@@ -127,7 +127,7 @@ export default function SolutionSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: 0.2 + index * 0.06 }}
-                  className="rounded-lg border border-base-content/10 bg-base-200 p-4 flex flex-col gap-2 hover:border-primary/40 hover:bg-base-content/[0.06] transition-all duration-300"
+                  className="rounded border border-base-content/10 bg-base-200 p-4 flex flex-col gap-2 hover:border-primary/40 hover:bg-base-content/[0.06] transition-all duration-300"
                 >
                   <div className="flex items-center gap-2">
                     <feature.icon className="w-3.5 h-3.5 text-primary shrink-0" />

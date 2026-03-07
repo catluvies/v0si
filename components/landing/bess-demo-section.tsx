@@ -55,8 +55,8 @@ export default function BESSDemoSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
-            Control Total de tu Energia
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
+            Control Total de tu <span className="text-primary">Energía</span>
           </h2>
           <p className="text-base text-base-content/60 leading-relaxed text-pretty">
             Monitoreo del flujo energetico entre generacion solar,
@@ -70,7 +70,7 @@ export default function BESSDemoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-xl border border-base-content/10 bg-base-content/[0.03] p-4 sm:p-6 lg:p-8 mb-6"
+          className="relative overflow-hidden rounded border border-base-content/10 bg-base-content/[0.03] p-4 sm:p-6 lg:p-8 mb-6"
         >
           {/* Dot grid background with edge fade */}
           <div
@@ -92,7 +92,7 @@ export default function BESSDemoSection() {
                   Zona Norte · Chile
                 </p>
               </div>
-              <div className="flex items-center gap-2 rounded-full bg-green-500/10 border border-green-500/20 px-3 py-1">
+              <div className="flex items-center gap-2 rounded bg-green-500/10 border border-green-500/20 px-3 py-1">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                 <span className="text-xs text-green-500 font-medium">En linea</span>
               </div>
@@ -118,9 +118,9 @@ export default function BESSDemoSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className={`rounded-xl border ${kpi.border} bg-base-content/[0.03] p-4 sm:p-5`}
+                className={`rounded border ${kpi.border} bg-base-content/[0.03] p-4 sm:p-5`}
               >
-                <div className={`w-9 h-9 rounded-lg ${kpi.bg} flex items-center justify-center mb-3`}>
+                <div className={`w-9 h-9 rounded ${kpi.bg} flex items-center justify-center mb-3`}>
                   <Icon className={`w-4.5 h-4.5 ${kpi.color}`} />
                 </div>
                 <div className="flex items-baseline gap-1.5">

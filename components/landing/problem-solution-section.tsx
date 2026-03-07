@@ -37,8 +37,8 @@ export default function ProblemSolutionSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
-            El Problema que Abordamos
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
+            El Problema que <span className="text-primary">Abordamos</span>
           </h2>
           <p className="text-base text-base-content/60 leading-relaxed text-pretty">
             Las constantes alzas de tarifas eléctricas han impactado negativamente los costos
@@ -53,7 +53,7 @@ export default function ProblemSolutionSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="rounded-2xl border border-base-content/10 bg-base-content/[0.03] border-l-2 border-l-primary p-8 lg:p-10"
+          className="rounded border border-base-content/10 bg-base-content/[0.03] border-l-2 border-l-primary p-8 lg:p-10"
         >
           <h3 className="text-xl font-bold text-base-content mb-4 text-balance">
             La Falta de Visibilidad y Control Energético
@@ -79,9 +79,9 @@ export default function ProblemSolutionSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="rounded-xl border border-base-content/10 bg-base-content/[0.03] p-6 flex flex-col gap-4 hover:border-primary/30 transition-all duration-300"
+              className="rounded border border-base-content/10 bg-base-content/[0.03] p-6 flex flex-col gap-4 hover:border-primary/30 transition-all duration-300"
             >
-              <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
+              <div className="w-9 h-9 rounded bg-primary/10 border border-primary/20 flex items-center justify-center">
                 <item.icon className="w-4 h-4 text-primary" />
               </div>
               <div>
