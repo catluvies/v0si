@@ -83,7 +83,7 @@ export default function CapabilitiesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: index * 0.05 }}
-              className="relative group rounded-xl border border-base-content/10 bg-base-content/[0.03] p-6 hover:border-primary/35 hover:shadow-lg transition-all duration-300 overflow-hidden"
+              className="relative group rounded-xl border border-base-content/10 bg-base-content/3 p-6 hover:border-primary/35 hover:shadow-lg transition-all duration-300 overflow-hidden"
             >
               {/* Number background */}
               <div className="absolute -top-8 -right-8 opacity-5 group-hover:opacity-10 transition-opacity duration-300">

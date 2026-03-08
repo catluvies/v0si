@@ -62,7 +62,7 @@ export default function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="collapse collapse-arrow rounded-xl border border-base-content/10 bg-base-content/[0.03] hover:border-primary/35 transition-all duration-300"
+              className="collapse collapse-arrow rounded-xl border border-base-content/10 bg-base-content/3 hover:border-primary/35 transition-all duration-300"
             >
               <input type="checkbox" />
               <div className="collapse-title flex items-center gap-3 pr-12">

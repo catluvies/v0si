@@ -70,7 +70,7 @@ export default function BESSDemoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-xl border border-base-content/10 bg-base-content/[0.03] p-4 sm:p-6 lg:p-8 mb-6"
+          className="relative overflow-hidden rounded-xl border border-base-content/10 bg-base-content/3 p-4 sm:p-6 lg:p-8 mb-6"
         >
           {/* Dot grid background with edge fade */}
           <div
@@ -118,7 +118,7 @@ export default function BESSDemoSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className={`rounded-xl border ${kpi.border} bg-base-content/[0.03] p-4 sm:p-5`}
+                className={`rounded-xl border ${kpi.border} bg-base-content/3 p-4 sm:p-5`}
               >
                 <div className={`w-10 h-10 rounded-lg ${kpi.bg} flex items-center justify-center mb-3`}>
                   <Icon className={`w-4.5 h-4.5 ${kpi.color}`} />

@@ -81,7 +81,7 @@ export default function SolutionSection() {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
             {/* Left: text */}
-            <div className="rounded-xl border border-base-content/10 bg-base-content/[0.03] border-l-2 border-l-primary p-6 flex flex-col justify-center">
+            <div className="rounded-xl border border-base-content/10 bg-base-content/3 border-l-2 border-l-primary p-6 flex flex-col justify-center">
               <p className="text-sm text-base-content/70 leading-relaxed mb-4">
                 Nuestro sistema SolarTech® combina gestión de energía eléctrica, acumulación en
                 baterías de litio y monitoreo en tiempo real. Con presencia desde la frontera norte
@@ -103,7 +103,7 @@ export default function SolutionSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.15 + index * 0.08 }}
-                  className="rounded-xl border border-base-content/10 bg-base-content/[0.03] p-5 flex items-start gap-4 hover:bg-base-content/5 transition-colors duration-300"
+                  className="rounded-xl border border-base-content/10 bg-base-content/3 p-5 flex items-start gap-4 hover:bg-base-content/5 transition-colors duration-300"
                 >
                   <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                     <item.icon className="w-5 h-5 text-primary" />
@@ -118,7 +118,7 @@ export default function SolutionSection() {
           </div>
 
           {/* Features as separated cards */}
-          <div className="bg-base-content/[0.03] rounded-xl p-6 lg:p-8">
+          <div className="bg-base-content/3 rounded-xl p-6 lg:p-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {features.map((feature, index) => (
                 <motion.div
