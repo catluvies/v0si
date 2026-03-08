@@ -46,10 +46,10 @@ export default function FAQSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-white text-balance uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-text-heading text-balance uppercase mb-4">
             Preguntas <span className="text-primary">Frecuentes</span>
           </h2>
-          <p className="text-base text-zinc-400 leading-relaxed text-pretty">
+          <p className="text-base text-text-body leading-relaxed text-pretty">
             ¿Tienes dudas sobre el sistema? Aquí encontrarás respuestas a las preguntas más comunes.
           </p>
         </motion.div>
@@ -64,14 +64,11 @@ export default function FAQSection() {
               transition={{ duration: 0.4, delay: index * 0.05 }}
               className="collapse collapse-arrow rounded-xl border border-base-300 bg-base-200 hover:border-primary/35 transition-all duration-300"
             >
-              <input type="checkbox" />
-              <div className="collapse-title flex items-center gap-3 pr-12">
-                <span className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-xs font-bold text-primary">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <span className="font-semibold text-white text-sm">{faq.question}</span>
+              <input type="radio" name="faq-accordion" defaultChecked={index === 0} />
+              <div className="collapse-title font-semibold text-text-heading text-sm">
+                {faq.question}
               </div>
-              <div className="collapse-content text-sm text-zinc-400 leading-relaxed pl-[calc(0.75rem+1.75rem+0.75rem)]">
+              <div className="collapse-content text-sm text-text-body leading-relaxed">
                 <p>{faq.answer}</p>
               </div>
             </motion.div>
