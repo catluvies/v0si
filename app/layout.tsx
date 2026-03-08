@@ -24,7 +24,7 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: 'Lambda Solar Dashboard | Monitoreo Fotovoltaico Inteligente',
+  title: 'Lambda Solar | Monitoreo Fotovoltaico Inteligente',
   description:
     'Plataforma de monitoreo en tiempo real para sistemas solares fotovoltaicos. Visualiza, analiza y optimiza tu generacion de energia con Lambda Ingenieros.',
   generator: 'v0.app',
@@ -54,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" data-theme="dark" className={`${dmSans.variable} ${dmMono.variable} ${outfit.variable}`}>
+    <html lang="es" data-theme="dark" className={`${dmSans.variable} ${dmMono.variable} ${outfit.variable} scroll-smooth`}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />

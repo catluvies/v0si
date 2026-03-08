@@ -11,6 +11,12 @@
   --font-display: var(--font-outfit), 'Outfit', system-ui, sans-serif;
   --font-mono: var(--font-dm-mono), 'DM Mono', monospace;
 
+  /* Text scale — defaults registered here, overridden per theme below */
+  --color-text-heading: #ffffff;
+  --color-text-emphasis: #d4d4d8;
+  --color-text-body: #a1a1aa;
+  --color-text-muted: #71717a;
+
   /* Surface hover */
   --color-surface-hover: #171717;
 
@@ -32,10 +38,20 @@
   --color-base-100: #000000;
   --color-base-200: #0A0A0A;
   --color-base-300: #262626;
+  --color-text-heading: #ffffff;
+  --color-text-emphasis: #d4d4d8;
+  --color-text-body: #a1a1aa;
+  --color-text-muted: #71717a;
+  --color-surface-hover: #171717;
   --color-primary: oklch(62.3% 0.214 259.1);
   --color-primary-content: oklch(98% 0.01 260);
 }
 [data-theme="light"] {
+  --color-text-heading: #18181b;
+  --color-text-emphasis: #3f3f46;
+  --color-text-body: #52525b;
+  --color-text-muted: #a1a1aa;
+  --color-surface-hover: #f4f4f5;
   --color-primary: oklch(54.6% 0.245 262.88);
   --color-primary-content: oklch(98% 0.01 260);
 }
@@ -43,11 +59,6 @@
 /* Display font utility */
 .font-display {
   font-family: var(--font-display);
-}
-
-/* Smooth scroll for anchor links */
-html {
-  scroll-behavior: smooth;
 }
 
 /* Marquee animation for client carousel */
@@ -86,6 +97,50 @@ html {
   background-color: var(--color-blue-900);
   mix-blend-mode: color;
   opacity: 0.15;
+}
+
+/* Zigzag fade: texto izquierda, imagen asoma por derecha */
+.zigzag-fade-left {
+  background: linear-gradient(
+    to right,
+    var(--color-base-100) 0%,
+    var(--color-base-100) 45%,
+    color-mix(in srgb, var(--color-base-100) 95%, transparent) 55%,
+    color-mix(in srgb, var(--color-base-100) 80%, transparent) 65%,
+    color-mix(in srgb, var(--color-base-100) 50%, transparent) 78%,
+    color-mix(in srgb, var(--color-base-100) 20%, transparent) 90%,
+    transparent 100%
+  );
+}
+
+/* Zigzag fade: texto derecha, imagen asoma por izquierda */
+.zigzag-fade-right {
+  background: linear-gradient(
+    to left,
+    var(--color-base-100) 0%,
+    var(--color-base-100) 45%,
+    color-mix(in srgb, var(--color-base-100) 95%, transparent) 55%,
+    color-mix(in srgb, var(--color-base-100) 80%, transparent) 65%,
+    color-mix(in srgb, var(--color-base-100) 50%, transparent) 78%,
+    color-mix(in srgb, var(--color-base-100) 20%, transparent) 90%,
+    transparent 100%
+  );
+}
+
+/* Mobile: gradiente vertical (imagen arriba, texto abajo) */
+@media (max-width: 767px) {
+  .zigzag-fade-left,
+  .zigzag-fade-right {
+    background: linear-gradient(
+      to top,
+      var(--color-base-100) 0%,
+      var(--color-base-100) 40%,
+      color-mix(in srgb, var(--color-base-100) 90%, transparent) 55%,
+      color-mix(in srgb, var(--color-base-100) 60%, transparent) 70%,
+      color-mix(in srgb, var(--color-base-100) 30%, transparent) 85%,
+      transparent 100%
+    );
+  }
 }
 
 /* Custom scrollbar for dark mode */
