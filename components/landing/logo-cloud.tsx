@@ -1,7 +1,4 @@
-'use client'
-
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 
 const clients = [
   { name: 'ASMAR', src: '/images/clients/asmar.png' },
@@ -14,19 +11,6 @@ export default function LogoCloud() {
   return (
     <section className="relative py-14 lg:py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-6"
-        >
-          <h2 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-base-content text-balance uppercase">
-            Socios de Confianza
-          </h2>
-        </motion.div>
 
         {/* Marquee */}
         <div className="relative">
