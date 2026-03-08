@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Linkedin, Mail } from 'lucide-react'
+import { Mail } from 'lucide-react'
 
-const CARD_CLASSES = 'rounded border border-base-content/10 bg-base-100/95 backdrop-blur-sm px-8 py-6 lg:px-12 lg:py-7 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out'
+const CARD_CLASSES = 'rounded-xl border border-base-content/10 bg-base-100/80 backdrop-blur-sm px-8 py-6 lg:px-12 lg:py-7 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out'
 
 export default function AboutSection() {
   return (
@@ -94,7 +94,7 @@ export default function AboutSection() {
                 Liderar el desarrollo de sistemas de{' '}
                 <strong className="text-base-content/70">hibridación energética</strong> sustentables, con soluciones
                 propias que resuelvan las necesidades reales de zonas aisladas. Impulsar un cambio
-                donde la carbono-neutralidad no sea la excepción, sino el estándar — desde los
+                donde la carbono-neutralidad no sea la excepción, sino el estándar, desde los
                 canales australes hasta el resto de Chile y el mundo.
               </p>
             </div>
@@ -137,16 +137,7 @@ export default function AboutSection() {
             </p>
             <div className="flex items-center justify-center gap-3">
               <a
-                href="#"
-                aria-label="LinkedIn de Rodrigo Oporto"
-                className="flex items-center gap-1.5 text-base-content/50 hover:text-primary transition-colors duration-200"
-              >
-                <Linkedin className="w-4 h-4" />
-                <span className="text-xs">LinkedIn</span>
-              </a>
-              <span className="w-px h-4 bg-base-content/10" />
-              <a
-                href="mailto:rodrigo@lambda.cl"
+                href="mailto:contacto@lambdaingenieros.cl"
                 aria-label="Email de Rodrigo Oporto"
                 className="flex items-center gap-1.5 text-base-content/50 hover:text-primary transition-colors duration-200"
               >
@@ -178,7 +169,7 @@ function ImageCardBlock({ src, alt, children, lastBlock }: ImageCardBlockProps) 
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="relative hidden sm:block sm:aspect-[3/1] md:aspect-[21/9] rounded overflow-hidden"
+        className="relative hidden sm:block sm:aspect-[3/1] md:aspect-[21/9] rounded-xl overflow-hidden"
       >
         <Image
           src={src}
@@ -187,7 +178,7 @@ function ImageCardBlock({ src, alt, children, lastBlock }: ImageCardBlockProps) 
           className="object-cover animate-subtle-zoom img-brand"
         />
         <div className="absolute inset-0 img-brand-tint" />
-        <div className="absolute inset-0 bg-gradient-to-t from-base-100/80 via-base-100/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-base-100/80 via-base-100/35 to-transparent" />
       </motion.div>
 
       {/* Cards */}

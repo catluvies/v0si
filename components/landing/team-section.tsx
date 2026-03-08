@@ -1,39 +1,31 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Linkedin, Mail, Wrench, FolderKanban, Headset, User } from 'lucide-react'
+import { Wrench, FolderKanban, Headset, User } from 'lucide-react'
 
 const team = [
   {
     name: 'John Doe',
     role: 'Gerente General',
     icon: User,
-    linkedin: '#',
-    email: 'john@empresa.cl',
     bio: 'Ingeniero Naval Eléctrico y ex-oficial de la Armada de Chile. Líder en innovación, negociación y desarrollo tecnológico.',
   },
   {
     name: 'Equipo Técnico',
     role: 'Ingeniería y Desarrollo',
     icon: Wrench,
-    linkedin: '#',
-    email: 'tecnico@empresa.cl',
     bio: 'Especialistas en diseño, construcción y programación de sistemas tecnológicos de control y gestión energética.',
   },
   {
     name: 'Equipo de Proyectos',
     role: 'Implementación',
     icon: FolderKanban,
-    linkedin: '#',
-    email: 'proyectos@empresa.cl',
     bio: 'Expertos en montaje eléctrico, mecánico y civil. Experiencia en entornos extremos desde Arica al Cabo de Hornos.',
   },
   {
     name: 'Soporte y Mantención',
     role: 'Post Venta',
     icon: Headset,
-    linkedin: '#',
-    email: 'soporte@empresa.cl',
     bio: 'Equipo dedicado a monitoreo continuo, soporte remoto y mantención de sistemas en todo Chile.',
   },
 ]
@@ -72,7 +64,7 @@ export default function TeamSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="group relative flex flex-col gap-4 p-6 rounded-xl border border-base-content/10 bg-base-content/[0.03] hover:bg-base-content/[0.06] hover:border-base-content/20 transition-all duration-200"
+                className="group relative flex flex-col gap-4 p-6 rounded-xl border border-base-content/10 bg-base-content/[0.03] hover:bg-base-content/5 hover:border-base-content/10 transition-all duration-200"
               >
                 {/* Acento superior al hacer hover */}
                 <div className="absolute top-0 left-6 right-6 h-px bg-primary/0 group-hover:bg-primary/40 transition-all duration-300 rounded-full" />
@@ -93,23 +85,7 @@ export default function TeamSection() {
                   <p className="text-sm text-base-content/50 leading-relaxed mt-1">{member.bio}</p>
                 </div>
 
-                {/* Links */}
-                <div className="flex items-center gap-2 mt-auto pt-4 border-t border-base-content/10">
-                  <a
-                    href={member.linkedin}
-                    aria-label={`LinkedIn de ${member.name}`}
-                    className="w-7 h-7 rounded-md flex items-center justify-center text-base-content/40 hover:text-primary hover:bg-primary/10 transition-all duration-200"
-                  >
-                    <Linkedin className="w-3.5 h-3.5" />
-                  </a>
-                  <a
-                    href={`mailto:${member.email}`}
-                    aria-label={`Email de ${member.name}`}
-                    className="w-7 h-7 rounded-md flex items-center justify-center text-base-content/40 hover:text-primary hover:bg-primary/10 transition-all duration-200"
-                  >
-                    <Mail className="w-3.5 h-3.5" />
-                  </a>
-                </div>
+                <div className="mt-auto pt-4 border-t border-base-content/10" />
               </motion.div>
             )
           })}
