@@ -83,7 +83,7 @@ export default function CapabilitiesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: index * 0.05 }}
-              className="relative group rounded border border-base-content/10 bg-base-content/[0.03] p-6 hover:border-primary/40 hover:shadow-lg transition-all duration-300 overflow-hidden"
+              className="relative group rounded-xl border border-base-content/10 bg-base-content/[0.03] p-6 hover:border-primary/35 hover:shadow-lg transition-all duration-300 overflow-hidden"
             >
               {/* Number background */}
               <div className="absolute -top-8 -right-8 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
@@ -92,7 +92,7 @@ export default function CapabilitiesSection() {
 
               {/* Content */}
               <div className="relative z-10">
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded bg-primary/10 border border-primary/30 mb-4">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 mb-4">
                   <span className="text-sm font-bold text-primary">{item.number}</span>
                 </div>
                 <h3 className="text-base font-semibold text-base-content mb-2">{item.title}</h3>
@@ -137,7 +137,7 @@ export default function CapabilitiesSection() {
                 className="flex flex-col items-center text-center"
               >
                 {/* Number circle */}
-                <div className="relative z-10 w-16 h-16 rounded-full border-2 border-primary/40 bg-base-200 flex items-center justify-center mb-5 hover:border-primary/60 hover:shadow-lg transition-all duration-300">
+                <div className="relative z-10 w-16 h-16 rounded-full border-2 border-primary/35 bg-base-200 flex items-center justify-center mb-5 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
                   <span className="text-xl font-bold text-primary">{step.number}</span>
                 </div>
                 <h3 className="text-base font-semibold text-base-content mb-1.5">{step.title}</h3>

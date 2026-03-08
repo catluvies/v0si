@@ -16,7 +16,7 @@ export default function HeroSection() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-base-100/95 via-base-100/70 to-base-100/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-base-100/80 via-base-100/70 to-base-100/35" />
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-96 z-[5] bg-gradient-to-t from-base-100 via-base-100/80 via-40% to-transparent pointer-events-none" />
 
@@ -85,18 +85,16 @@ export default function HeroSection() {
   )
 }
 
-function StatCard({
-  icon,
-  value,
-  label,
-}: {
+type StatCardProps = {
   icon: React.ReactNode
   value: string
   label: string
-}) {
+}
+
+function StatCard({ icon, value, label }: StatCardProps) {
   return (
-    <div className="flex items-center gap-4 rounded bg-base-content/[0.07] backdrop-blur-sm border border-base-content/10 px-6 py-5 hover:bg-base-content/[0.11] transition-colors">
-      <div className="w-10 h-10 rounded bg-primary/15 text-primary flex items-center justify-center shrink-0">
+    <div className="flex items-center gap-4 rounded-xl bg-base-content/5 backdrop-blur-sm border border-base-content/10 px-6 py-5 hover:bg-base-content/10 transition-colors">
+      <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
         {icon}
       </div>
       <div>

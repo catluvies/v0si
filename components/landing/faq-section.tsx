@@ -62,11 +62,11 @@ export default function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="collapse collapse-arrow rounded border border-base-content/10 bg-base-content/[0.03] hover:border-primary/30 transition-all duration-300"
+              className="collapse collapse-arrow rounded-xl border border-base-content/10 bg-base-content/[0.03] hover:border-primary/35 transition-all duration-300"
             >
               <input type="checkbox" />
               <div className="collapse-title flex items-center gap-3 pr-12">
-                <span className="w-7 h-7 rounded bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-xs font-bold text-primary">
+                <span className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-xs font-bold text-primary">
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 <span className="font-semibold text-base-content text-sm">{faq.question}</span>

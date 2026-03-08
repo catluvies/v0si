@@ -32,7 +32,7 @@ export default function DemoFloat() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.95 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className="fixed bottom-0 left-0 right-0 z-40 rounded-t border-t border-base-content/10 bg-base-200/95 backdrop-blur-xl shadow-2xl p-5 sm:bottom-6 sm:right-6 sm:left-auto sm:w-80 sm:rounded sm:border"
+          className="fixed bottom-0 left-0 right-0 z-40 rounded-t border-t border-base-content/10 bg-base-200/80 backdrop-blur-xl shadow-2xl p-5 sm:bottom-6 sm:right-6 sm:left-auto sm:w-80 sm:rounded-xl sm:border"
         >
           <button
             onClick={() => setDismissed(true)}

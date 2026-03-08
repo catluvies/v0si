@@ -44,7 +44,7 @@ const fleetKpis = [
 
 export default function BESSDemoSection() {
   return (
-    <section className="py-20 lg:py-28">
+    <section id="bess" className="py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
@@ -70,11 +70,11 @@ export default function BESSDemoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded border border-base-content/10 bg-base-content/[0.03] p-4 sm:p-6 lg:p-8 mb-6"
+          className="relative overflow-hidden rounded-xl border border-base-content/10 bg-base-content/[0.03] p-4 sm:p-6 lg:p-8 mb-6"
         >
           {/* Dot grid background with edge fade */}
           <div
-            className="pointer-events-none absolute inset-0 opacity-15"
+            className="pointer-events-none absolute inset-0 opacity-10"
             style={{
               backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)',
               backgroundSize: '20px 20px',
@@ -118,9 +118,9 @@ export default function BESSDemoSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className={`rounded border ${kpi.border} bg-base-content/[0.03] p-4 sm:p-5`}
+                className={`rounded-xl border ${kpi.border} bg-base-content/[0.03] p-4 sm:p-5`}
               >
-                <div className={`w-9 h-9 rounded ${kpi.bg} flex items-center justify-center mb-3`}>
+                <div className={`w-10 h-10 rounded-lg ${kpi.bg} flex items-center justify-center mb-3`}>
                   <Icon className={`w-4.5 h-4.5 ${kpi.color}`} />
                 </div>
                 <div className="flex items-baseline gap-1.5">
