@@ -1,44 +1,65 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Mail, Phone, MapPin } from 'lucide-react'
 
 const footerLinks = {
-  Producto: [
-    { label: 'Funcionalidades', href: '#features' },
-    { label: 'Dashboard', href: '#data' },
-    { label: 'Integraciones', href: '#solution' },
-    { label: 'Precios', href: '#contact' },
+  Solución: [
+    { label: 'Monitoreo Solar', href: '/solucion' },
+    { label: 'Control BESS', href: '/solucion#bess' },
+    { label: 'Capacidades', href: '/solucion#capabilities' },
+    { label: 'Preguntas Frecuentes', href: '/#faq' },
   ],
   Empresa: [
-    { label: 'Equipo', href: '#team' },
-    { label: 'Blog', href: '#' },
-    { label: 'Carreras', href: '#' },
-    { label: 'FAQ', href: '#faq' },
-  ],
-  Legal: [
-    { label: 'Politica de privacidad', href: '#' },
-    { label: 'Terminos de servicio', href: '#' },
-    { label: 'Politica de cookies', href: '#' },
+    { label: 'Quiénes Somos', href: '/nosotros' },
+    { label: 'Nuestro Equipo', href: '/nosotros#team' },
+    { label: 'Contacto', href: '/contacto' },
   ],
 }
 
 export default function Footer() {
   return (
     <footer className="border-t border-base-content/10 bg-base-200">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-          {/* Brand + contact */}
-          <div className="lg:col-span-2">
-            <a href="#" className="flex items-center">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-12">
+          {/* Brand */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <Link href="/">
               <Image
                 src="/images/lambda-logo.png"
                 alt="Lambda Ingenieros"
-                width={180}
-                height={60}
-                className="h-12 w-auto object-contain"
+                width={240}
+                height={80}
+                className="h-20 w-auto object-contain"
               />
-            </a>
-            {/* TODO: agregar frase descriptiva de Lambda o quitar este párrafo */}
-            <div className="mt-6 flex flex-col gap-3">
+            </Link>
+            <p className="mt-4 text-sm text-base-content/60 leading-relaxed">
+              Tecnología Made in Chile para la gestión inteligente de sistemas de eficiencia energética.
+            </p>
+          </div>
+
+          {/* Link columns */}
+          {Object.entries(footerLinks).map(([title, links]) => (
+            <div key={title}>
+              <h4 className="text-sm font-semibold text-base-content mb-4">{title}</h4>
+              <ul className="flex flex-col gap-3">
+                {links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-base-content/60 hover:text-base-content transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          {/* Contact column */}
+          <div>
+            <h4 className="text-sm font-semibold text-base-content mb-4">Contacto</h4>
+            <div className="flex flex-col gap-3">
               <span className="flex items-start gap-2 text-sm text-base-content/60">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
                 Villanelo Alto 180, Of. 606, Viña del Mar. Chile
@@ -59,34 +80,12 @@ export default function Footer() {
               </a>
             </div>
           </div>
-
-          {/* Link columns */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h4 className="text-sm font-semibold text-base-content mb-4">{title}</h4>
-              <ul className="flex flex-col gap-3">
-                {links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-base-content/60 hover:text-base-content transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
         </div>
       </div>
 
       {/* Bottom bar */}
       <div className="border-t border-base-content/10">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8 py-6 flex flex-col items-center gap-1 text-center">
-          <p className="text-xs text-base-content/60">
-            © 2026 Sistema Fotovoltaico RadioTumbes. Todos los derechos reservados.
-          </p>
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-6 flex flex-col items-center gap-1 text-center">
           <p className="text-xs text-base-content/60">
             © 2026 Lambda Ingenieros · Tecnología Made in Chile
           </p>
