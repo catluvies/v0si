@@ -11,6 +11,9 @@
   --font-display: var(--font-outfit), 'Outfit', system-ui, sans-serif;
   --font-mono: var(--font-dm-mono), 'DM Mono', monospace;
 
+  /* Surface hover */
+  --color-surface-hover: #171717;
+
   /* Blue accent palette */
   --color-blue-50:  #eff6ff;
   --color-blue-100: #dbeafe;
@@ -26,6 +29,9 @@
 
 /* DaisyUI primary override — blue */
 [data-theme="dark"] {
+  --color-base-100: #000000;
+  --color-base-200: #0A0A0A;
+  --color-base-300: #262626;
   --color-primary: oklch(62.3% 0.214 259.1);
   --color-primary-content: oklch(98% 0.01 260);
 }
