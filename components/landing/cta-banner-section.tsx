@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 type CTABannerProps = {
@@ -14,7 +15,7 @@ export default function CTABannerSection({
   title,
   description,
   buttonText = 'Contáctanos',
-  href = '#contact',
+  href = '/contacto',
 }: CTABannerProps) {
   return (
     <motion.section
@@ -33,13 +34,13 @@ export default function CTABannerSection({
             {description}
           </p>
         </div>
-        <a
+        <Link
           href={href}
           className="shrink-0 inline-flex items-center gap-2 px-6 py-2.5 rounded bg-base-100 text-base-content text-sm font-semibold hover:bg-base-100/90 transition-all duration-200 whitespace-nowrap"
         >
           {buttonText}
           <ArrowRight className="w-4 h-4" />
-        </a>
+        </Link>
       </div>
     </motion.section>
   )

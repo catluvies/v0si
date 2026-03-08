@@ -2,14 +2,16 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 
 const navLinks = [
-  { href: '#solution', label: 'Nuestra Solución' },
-  { href: '#capabilities', label: 'Capacidades' },
-  { href: '#team', label: 'Equipo' },
-  { href: '#faq', label: 'FAQ' },
+  { href: '/', label: 'Inicio' },
+  { href: '/solucion', label: 'Nuestra Solución' },
+  { href: '/nosotros', label: 'Nosotros' },
+  { href: '/contacto', label: 'Contacto' },
+  { href: '/#faq', label: 'FAQ' },
 ]
 
 export default function Navbar() {
@@ -48,7 +50,7 @@ export default function Navbar() {
       }`}
     >
       <div className="navbar-start">
-        <a href="#" className="flex items-center">
+        <Link href="/" className="flex items-center">
           <Image
             src="/images/lambda-logo.png"
             alt="Lambda Ingenieros"
@@ -57,19 +59,19 @@ export default function Navbar() {
             className="h-16 w-auto object-contain"
             priority
           />
-        </a>
+        </Link>
       </div>
 
       <nav className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal gap-1 px-1 text-base">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
+              <Link
                 href={link.href}
                 className="rounded-lg text-base-content/60 hover:text-base-content hover:bg-base-200 transition-colors font-medium"
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -84,9 +86,9 @@ export default function Navbar() {
           {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
         </button>
 
-        <a href="#contact" className="btn btn-ghost border border-base-content/10 hover:border-base-content/20 hidden lg:inline-flex rounded-xl text-base px-6">
+        <Link href="/contacto" className="btn btn-ghost border border-base-content/10 hover:border-base-content/20 hidden lg:inline-flex rounded-xl text-base px-6">
           Iniciar sesión
-        </a>
+        </Link>
 
         <button
           className="btn btn-ghost btn-circle lg:hidden"
@@ -109,23 +111,23 @@ export default function Navbar() {
             <ul className="menu gap-1">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="rounded-lg text-base-content/60 hover:text-base-content"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li>
-                <a
-                  href="#contact"
+                <Link
+                  href="/contacto"
                   className="btn btn-ghost border border-base-content/10 btn-sm mt-2 rounded-lg"
                   onClick={() => setMobileOpen(false)}
                 >
                   Iniciar sesión
-                </a>
+                </Link>
               </li>
             </ul>
           </motion.div>
