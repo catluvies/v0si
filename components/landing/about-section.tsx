@@ -42,7 +42,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className={`${CARD_CLASSES} sm:-mt-12 sm:mx-4 md:absolute md:bottom-[-1rem] md:left-1/2 md:-translate-x-1/2 md:w-[68%] md:mt-0 md:mx-0`}
+            className={`${CARD_CLASSES} sm:-mt-12 sm:mx-4 md:absolute md:-bottom-4 md:left-1/2 md:-translate-x-1/2 md:w-[68%] md:mt-0 md:mx-0`}
           >
             <h3 className="font-display text-xl font-bold text-base-content uppercase tracking-[0.08em] text-center mb-2">Nuestra Historia</h3>
             <div className="w-12 h-0.5 bg-primary mx-auto mb-4" />
@@ -74,7 +74,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex flex-col md:flex-row md:gap-4 sm:-mt-12 sm:mx-4 md:absolute md:bottom-[-1rem] md:left-8 md:right-8 md:mt-0 md:mx-0"
+            className="flex flex-col md:flex-row md:gap-4 sm:-mt-12 sm:mx-4 md:absolute md:-bottom-4 md:left-8 md:right-8 md:mt-0 md:mx-0"
           >
             <div className={`${CARD_CLASSES} flex-1`}>
               <h3 className="font-display text-lg font-bold text-base-content uppercase tracking-[0.08em] text-center mb-2">Nuestra Misión</h3>
@@ -112,7 +112,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className={`${CARD_CLASSES} sm:-mt-12 sm:mx-4 md:absolute md:bottom-[-1rem] md:left-1/2 md:-translate-x-1/2 md:w-[68%] md:mt-0 md:mx-0`}
+            className={`${CARD_CLASSES} sm:-mt-12 sm:mx-4 md:absolute md:-bottom-4 md:left-1/2 md:-translate-x-1/2 md:w-[68%] md:mt-0 md:mx-0`}
           >
             <h3 className="font-display text-xl font-bold text-base-content uppercase tracking-[0.08em] text-center mb-2">Nuestro Fundador</h3>
             <div className="w-12 h-0.5 bg-primary mx-auto mb-4" />
@@ -169,7 +169,7 @@ function ImageCardBlock({ src, alt, children, lastBlock }: ImageCardBlockProps) 
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="relative hidden sm:block sm:aspect-[3/1] md:aspect-[21/9] rounded-xl overflow-hidden"
+        className="relative hidden sm:block sm:aspect-3/1 md:aspect-21/9 rounded-xl overflow-hidden"
       >
         <Image
           src={src}
@@ -178,7 +178,7 @@ function ImageCardBlock({ src, alt, children, lastBlock }: ImageCardBlockProps) 
           className="object-cover animate-subtle-zoom img-brand"
         />
         <div className="absolute inset-0 img-brand-tint" />
-        <div className="absolute inset-0 bg-gradient-to-t from-base-100/80 via-base-100/35 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-base-100/80 via-base-100/35 to-transparent" />
       </motion.div>
 
       {/* Cards */}

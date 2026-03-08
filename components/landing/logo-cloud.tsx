@@ -31,9 +31,9 @@ export default function LogoCloud() {
         {/* Marquee */}
         <div className="relative">
           {/* Fade left */}
-          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 sm:w-32 z-10 bg-gradient-to-r from-base-100 to-transparent" />
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 sm:w-32 z-10 bg-linear-to-r from-base-100 to-transparent" />
           {/* Fade right */}
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 sm:w-32 z-10 bg-gradient-to-l from-base-100 to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 sm:w-32 z-10 bg-linear-to-l from-base-100 to-transparent" />
 
           <div className="overflow-hidden">
             <div className="animate-marquee">

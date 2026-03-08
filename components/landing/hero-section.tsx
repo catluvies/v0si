@@ -16,9 +16,9 @@ export default function HeroSection() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-base-100/80 via-base-100/70 to-base-100/35" />
+        <div className="absolute inset-0 bg-linear-to-r from-base-100/80 via-base-100/70 to-base-100/35" />
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-96 z-[5] bg-gradient-to-t from-base-100 via-base-100/80 via-40% to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-96 z-5 bg-linear-to-t from-base-100 via-base-100/80 via-40% to-transparent pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 pt-40 pb-28">
         <div className="flex flex-col items-start max-w-4xl">
