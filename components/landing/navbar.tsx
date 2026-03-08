@@ -14,6 +14,49 @@ const navLinks = [
   { href: '/#faq', label: 'FAQ' },
 ]
 
+type MobileMenuProps = {
+  open: boolean
+  onClose: () => void
+}
+
+function MobileMenu({ open, onClose }: MobileMenuProps) {
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          className="absolute top-full left-0 right-0 bg-base-100/95 backdrop-blur-xl border-b border-base-300 p-4 lg:hidden"
+        >
+          <ul className="menu gap-1">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="rounded-lg text-text-body hover:text-text-heading"
+                  onClick={onClose}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link
+                href="/contacto"
+                className="btn btn-ghost border border-base-300 btn-sm mt-2"
+                onClick={onClose}
+              >
+                Iniciar sesión
+              </Link>
+            </li>
+          </ul>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -68,7 +111,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-900 transition-colors font-medium"
+                className="rounded-lg text-text-body hover:text-text-heading hover:bg-surface-hover transition-colors font-medium"
               >
                 {link.label}
               </Link>
@@ -86,7 +129,7 @@ export default function Navbar() {
           {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
         </button>
 
-        <Link href="/contacto" className="btn btn-ghost border border-base-300 hover:border-zinc-700 hidden lg:inline-flex rounded-xl text-base px-6">
+        <Link href="/contacto" className="btn btn-ghost border border-base-300 hover:border-base-300 hidden lg:inline-flex">
           Iniciar sesión
         </Link>
 
@@ -99,40 +142,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="absolute top-full left-0 right-0 bg-base-100/95 backdrop-blur-xl border-b border-base-300 p-4 lg:hidden"
-          >
-            <ul className="menu gap-1">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="rounded-lg text-zinc-400 hover:text-white"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link
-                  href="/contacto"
-                  className="btn btn-ghost border border-base-300 btn-sm mt-2 rounded-lg"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Iniciar sesión
-                </Link>
-              </li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
     </header>
   )
 }
