@@ -38,7 +38,7 @@ export default function LogoCloud() {
                         className="object-contain max-h-full w-auto"
                       />
                     </div>
-                    <span className="text-xs text-base-content/35 mt-3 font-medium">
+                    <span className="text-xs text-zinc-500 mt-3 font-medium">
                       {client.name}
                     </span>
                   </div>

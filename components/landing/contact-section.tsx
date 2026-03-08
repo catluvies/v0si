@@ -63,10 +63,10 @@ export default function ContactSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-white text-balance uppercase mb-4">
             Contáctanos
           </h2>
-          <p className="text-base text-base-content/60 leading-relaxed text-pretty">
+          <p className="text-base text-zinc-400 leading-relaxed text-pretty">
             ¿Listo para optimizar tu consumo energético? Escríbenos y te contactaremos a la brevedad.
           </p>
         </motion.div>
@@ -82,17 +82,17 @@ export default function ContactSection() {
             className="lg:col-span-3"
           >
             {submitted ? (
-              <div className="rounded-xl border border-base-content/10 bg-base-content/3 p-10 flex flex-col items-center gap-4 text-center">
+              <div className="rounded-xl border border-base-300 bg-base-200 p-10 flex flex-col items-center gap-4 text-center">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
                   <CheckCircle className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-base-content">Mensaje enviado</h3>
-                <p className="text-sm text-base-content/60">
+                <h3 className="text-lg font-semibold text-white">Mensaje enviado</h3>
+                <p className="text-sm text-zinc-400">
                   Recibimos tu mensaje. Te contactaremos pronto.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="rounded-xl border border-base-content/10 bg-base-content/3 p-6 lg:p-8 flex flex-col gap-5">
+              <form onSubmit={handleSubmit} className="rounded-xl border border-base-300 bg-base-200 p-6 lg:p-8 flex flex-col gap-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <FormField
                     label="Nombre"
@@ -159,16 +159,16 @@ export default function ContactSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="lg:col-span-2 flex flex-col gap-6"
           >
-            <div className="rounded-xl border border-base-content/10 bg-base-content/3 p-6 flex flex-col gap-5">
-              <h3 className="text-base font-semibold text-base-content">Información de Contacto</h3>
+            <div className="rounded-xl border border-base-300 bg-base-200 p-6 flex flex-col gap-5">
+              <h3 className="text-base font-semibold text-white">Información de Contacto</h3>
 
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                   <MapPin className="w-4 h-4 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-base-content">Dirección</p>
-                  <p className="text-sm text-base-content/60">Villanelo Alto 180, Of. 606, Viña del Mar. Chile</p>
+                  <p className="text-sm font-medium text-white">Dirección</p>
+                  <p className="text-sm text-zinc-400">Villanelo Alto 180, Of. 606, Viña del Mar. Chile</p>
                 </div>
               </div>
 
@@ -177,8 +177,8 @@ export default function ContactSection() {
                   <Phone className="w-4 h-4 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-base-content">Teléfono</p>
-                  <a href="tel:+56931014289" className="text-sm text-base-content/60 hover:text-base-content transition-colors">
+                  <p className="text-sm font-medium text-white">Teléfono</p>
+                  <a href="tel:+56931014289" className="text-sm text-zinc-400 hover:text-white transition-colors">
                     +56 9 3101 4289
                   </a>
                 </div>
@@ -189,8 +189,8 @@ export default function ContactSection() {
                   <Mail className="w-4 h-4 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-base-content">Email</p>
-                  <a href="mailto:contacto@lambdaingenieros.cl" className="text-sm text-base-content/60 hover:text-base-content transition-colors">
+                  <p className="text-sm font-medium text-white">Email</p>
+                  <a href="mailto:contacto@lambdaingenieros.cl" className="text-sm text-zinc-400 hover:text-white transition-colors">
                     contacto@lambdaingenieros.cl
                   </a>
                 </div>
@@ -213,7 +213,7 @@ type FormFieldProps = {
 function FormField({ label, error, children }: FormFieldProps) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="text-sm font-medium text-base-content">{label}</label>
+      <label className="text-sm font-medium text-white">{label}</label>
       {children}
       {error && <p className="text-xs text-error">{error}</p>}
     </div>

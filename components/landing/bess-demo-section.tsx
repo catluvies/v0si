@@ -55,10 +55,10 @@ export default function BESSDemoSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-white text-balance uppercase mb-4">
             Control Total de tu <span className="text-primary">Energía</span>
           </h2>
-          <p className="text-base text-base-content/60 leading-relaxed text-pretty">
+          <p className="text-base text-zinc-400 leading-relaxed text-pretty">
             Monitoreo del flujo energetico entre generacion solar,
             almacenamiento en baterias y cargas de consumo en cada instalacion.
           </p>
@@ -70,7 +70,7 @@ export default function BESSDemoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-xl border border-base-content/10 bg-base-content/3 p-4 sm:p-6 lg:p-8 mb-6"
+          className="relative overflow-hidden rounded-xl border border-base-300 bg-base-200 p-4 sm:p-6 lg:p-8 mb-6"
         >
           {/* Dot grid background with edge fade */}
           <div
@@ -85,10 +85,10 @@ export default function BESSDemoSection() {
           <div className="relative z-10">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="text-sm font-bold text-base-content">
+                <h3 className="text-sm font-bold text-white">
                   Flujo Energetico — Instalacion BESS
                 </h3>
-                <p className="text-xs text-base-content/60 mt-0.5">
+                <p className="text-xs text-zinc-400 mt-0.5">
                   Zona Norte · Chile
                 </p>
               </div>
@@ -118,16 +118,16 @@ export default function BESSDemoSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className={`rounded-xl border ${kpi.border} bg-base-content/3 p-4 sm:p-5`}
+                className={`rounded-xl border ${kpi.border} bg-base-200 p-4 sm:p-5`}
               >
                 <div className={`w-10 h-10 rounded-lg ${kpi.bg} flex items-center justify-center mb-3`}>
                   <Icon className={`w-4.5 h-4.5 ${kpi.color}`} />
                 </div>
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-xl sm:text-2xl font-bold text-base-content">{kpi.value}</span>
+                  <span className="text-xl sm:text-2xl font-bold text-white">{kpi.value}</span>
                   <span className={`text-xs font-medium ${kpi.color}`}>{kpi.unit}</span>
                 </div>
-                <p className="text-xs text-base-content/50 mt-1">{kpi.label}</p>
+                <p className="text-xs text-zinc-500 mt-1">{kpi.label}</p>
               </motion.div>
             )
           })}
@@ -141,7 +141,7 @@ export default function BESSDemoSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center"
         >
-          <p className="text-sm text-base-content/35">
+          <p className="text-sm text-zinc-500">
             100 instalaciones BESS monitoreadas en tiempo real a lo largo de Chile
           </p>
         </motion.div>

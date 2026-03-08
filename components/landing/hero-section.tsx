@@ -28,7 +28,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-[-0.02em] text-base-content text-balance"
+            className="font-display text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-[-0.02em] text-white text-balance"
           >
             Más de 20 Años Mejorando la{' '}
             <span className="text-primary">Eficiencia Energética</span>
@@ -41,10 +41,10 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-7 max-w-2xl space-y-2"
           >
-            <p className="text-xl text-base-content/80 font-medium leading-snug">
+            <p className="text-xl text-white font-medium leading-snug">
               Especialistas en proyectos eléctricos y eficiencia energética.
             </p>
-            <p className="text-base text-base-content/50 leading-relaxed">
+            <p className="text-base text-zinc-500 leading-relaxed">
               Desarrollamos tecnología Made in Chile para la gestión inteligente
               de sistemas fotovoltaicos.
             </p>
@@ -74,7 +74,7 @@ export default function HeroSection() {
                 label="Monitoreo Continuo"
               />
             </div>
-            <p className="mt-4 text-xs text-base-content/35 italic">
+            <p className="mt-4 text-xs text-zinc-500 italic">
               * Datos actualizados a diciembre de 2024
             </p>
           </motion.div>
@@ -93,13 +93,13 @@ type StatCardProps = {
 
 function StatCard({ icon, value, label }: StatCardProps) {
   return (
-    <div className="flex items-center gap-4 rounded-xl bg-base-content/5 backdrop-blur-sm border border-base-content/10 px-6 py-5 hover:bg-base-content/10 transition-colors">
+    <div className="flex items-center gap-4 rounded-xl bg-base-200 backdrop-blur-sm border border-base-300 px-6 py-5 hover:bg-surface-hover transition-colors">
       <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
         {icon}
       </div>
       <div>
-        <p className="text-2xl font-bold text-base-content tracking-tight leading-none">{value}</p>
-        <p className="text-sm text-base-content/50 mt-1">{label}</p>
+        <p className="text-2xl font-bold text-white tracking-tight leading-none">{value}</p>
+        <p className="text-sm text-zinc-500 mt-1">{label}</p>
       </div>
     </div>
   )

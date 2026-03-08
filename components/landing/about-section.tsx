@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Mail } from 'lucide-react'
 
-const CARD_CLASSES = 'rounded-xl border border-base-content/10 bg-base-100/80 backdrop-blur-sm px-8 py-6 lg:px-12 lg:py-7 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out'
+const CARD_CLASSES = 'rounded-xl border border-base-300 bg-base-100/80 backdrop-blur-sm px-8 py-6 lg:px-12 lg:py-7 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out'
 
 export default function AboutSection() {
   return (
@@ -22,12 +22,12 @@ export default function AboutSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-8"
         >
-          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-black tracking-[-0.02em] text-base-content uppercase leading-none mb-5">
+          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-black tracking-[-0.02em] text-white uppercase leading-none mb-5">
             Quiénes <span className="text-primary">Somos</span>
           </h2>
-          <p className="text-base text-base-content/70 leading-relaxed">
+          <p className="text-base text-zinc-400 leading-relaxed">
             Empresa B de ingenieros chilenos comprometidos con el desarrollo
-            sustentable de soluciones de <strong className="text-base-content/80">eficiencia energética</strong>.
+            sustentable de soluciones de <strong className="text-white">eficiencia energética</strong>.
           </p>
         </motion.div>
 
@@ -44,19 +44,19 @@ export default function AboutSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className={`${CARD_CLASSES} sm:-mt-12 sm:mx-4 md:absolute md:-bottom-4 md:left-1/2 md:-translate-x-1/2 md:w-[68%] md:mt-0 md:mx-0`}
           >
-            <h3 className="font-display text-xl font-bold text-base-content uppercase tracking-[0.08em] text-center mb-2">Nuestra Historia</h3>
+            <h3 className="font-display text-xl font-bold text-white uppercase tracking-[0.08em] text-center mb-2">Nuestra Historia</h3>
             <div className="w-12 h-0.5 bg-primary mx-auto mb-4" />
-            <p className="text-sm text-base-content/60 leading-relaxed text-justify mb-3">
+            <p className="text-sm text-zinc-400 leading-relaxed text-justify mb-3">
               El año 2004 comienza a forjarse el sueño compartido de un grupo de
               ingenieros chilenos, quienes trabajan hasta el día de hoy para romper
               los límites y asumir el desafío tecnológico de generar soluciones{' '}
-              <strong className="text-base-content/70">Made in Chile</strong> de
+              <strong className="text-zinc-400">Made in Chile</strong> de
               eficiencia energética para los entornos más extremos del país.
             </p>
-            <p className="text-sm text-base-content/60 leading-relaxed text-justify">
+            <p className="text-sm text-zinc-400 leading-relaxed text-justify">
               Con presencia desde la frontera norte hasta el Cabo de Hornos, hemos
               desarrollado nuestro sistema propio{' '}
-              <strong className="text-base-content/70">ENEFISYS®</strong>, reconocido por resolver
+              <strong className="text-zinc-400">ENEFISYS®</strong>, reconocido por resolver
               problemas energéticos en los territorios más aislados de Chile, desde
               alcaldías de mar en canales australes hasta zonas dentro de parques
               nacionales y reservas de la biósfera.
@@ -77,10 +77,10 @@ export default function AboutSection() {
             className="flex flex-col md:flex-row md:gap-4 sm:-mt-12 sm:mx-4 md:absolute md:-bottom-4 md:left-8 md:right-8 md:mt-0 md:mx-0"
           >
             <div className={`${CARD_CLASSES} flex-1`}>
-              <h3 className="font-display text-lg font-bold text-base-content uppercase tracking-[0.08em] text-center mb-2">Nuestra Misión</h3>
+              <h3 className="font-display text-lg font-bold text-white uppercase tracking-[0.08em] text-center mb-2">Nuestra Misión</h3>
               <div className="w-12 h-0.5 bg-primary mx-auto mb-4" />
-              <p className="text-sm text-base-content/60 leading-relaxed text-justify">
-                Desarrollamos tecnología <strong className="text-base-content/70">Made in Chile</strong> para
+              <p className="text-sm text-zinc-400 leading-relaxed text-justify">
+                Desarrollamos tecnología <strong className="text-zinc-400">Made in Chile</strong> para
                 optimizar el consumo energético en zonas aisladas y extremas. Desde la ingeniería,
                 creamos soluciones de hibridación energética que integran energías renovables,
                 almacenamiento en baterías de litio y sistemas de respaldo, generando impacto real:
@@ -88,11 +88,11 @@ export default function AboutSection() {
               </p>
             </div>
             <div className={`${CARD_CLASSES} flex-1`}>
-              <h3 className="font-display text-lg font-bold text-base-content uppercase tracking-[0.08em] text-center mb-2">Nuestra Visión</h3>
+              <h3 className="font-display text-lg font-bold text-white uppercase tracking-[0.08em] text-center mb-2">Nuestra Visión</h3>
               <div className="w-12 h-0.5 bg-primary mx-auto mb-4" />
-              <p className="text-sm text-base-content/60 leading-relaxed text-justify">
+              <p className="text-sm text-zinc-400 leading-relaxed text-justify">
                 Liderar el desarrollo de sistemas de{' '}
-                <strong className="text-base-content/70">hibridación energética</strong> sustentables, con soluciones
+                <strong className="text-zinc-400">hibridación energética</strong> sustentables, con soluciones
                 propias que resuelvan las necesidades reales de zonas aisladas. Impulsar un cambio
                 donde la carbono-neutralidad no sea la excepción, sino el estándar, desde los
                 canales australes hasta el resto de Chile y el mundo.
@@ -114,32 +114,32 @@ export default function AboutSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className={`${CARD_CLASSES} sm:-mt-12 sm:mx-4 md:absolute md:-bottom-4 md:left-1/2 md:-translate-x-1/2 md:w-[68%] md:mt-0 md:mx-0`}
           >
-            <h3 className="font-display text-xl font-bold text-base-content uppercase tracking-[0.08em] text-center mb-2">Nuestro Fundador</h3>
+            <h3 className="font-display text-xl font-bold text-white uppercase tracking-[0.08em] text-center mb-2">Nuestro Fundador</h3>
             <div className="w-12 h-0.5 bg-primary mx-auto mb-4" />
-            <p className="text-sm text-base-content/60 leading-relaxed text-justify mb-2">
-              <strong className="text-base-content/70">Rodrigo Oporto</strong>, Gerente General, es
+            <p className="text-sm text-zinc-400 leading-relaxed text-justify mb-2">
+              <strong className="text-zinc-400">Rodrigo Oporto</strong>, Gerente General, es
               Ingeniero Naval Eléctrico y ex-oficial de la Armada de Chile con trayectoria
               en industrias químicas, mineras, astilleros y empresas de ingeniería.
               Especialista en proyectos eléctricos, electrónicos, automatización y supervisión.
             </p>
-            <p className="text-sm text-base-content/60 leading-relaxed text-justify mb-2">
+            <p className="text-sm text-zinc-400 leading-relaxed text-justify mb-2">
               Bajo su liderazgo, Lambda Ingenieros desarrolló el sistema{' '}
-              <strong className="text-base-content/70">ENEFISYS</strong> y forjó una alianza
-              público-privada con <strong className="text-base-content/70">ASMAR Magallanes</strong> para
+              <strong className="text-zinc-400">ENEFISYS</strong> y forjó una alianza
+              público-privada con <strong className="text-zinc-400">ASMAR Magallanes</strong> para
               llevar energía limpia a las zonas más remotas del país, logrando reducciones de
               hasta un 95% en el uso de combustibles fósiles.
             </p>
-            <p className="text-sm text-base-content/60 leading-relaxed text-justify mb-4">
-              Combina experiencia <strong className="text-base-content/70">técnica</strong>,{' '}
-              <strong className="text-base-content/70">académica</strong>,{' '}
-              <strong className="text-base-content/70">comercial</strong> y de{' '}
-              <strong className="text-base-content/70">dirección de organizaciones</strong>.
+            <p className="text-sm text-zinc-400 leading-relaxed text-justify mb-4">
+              Combina experiencia <strong className="text-zinc-400">técnica</strong>,{' '}
+              <strong className="text-zinc-400">académica</strong>,{' '}
+              <strong className="text-zinc-400">comercial</strong> y de{' '}
+              <strong className="text-zinc-400">dirección de organizaciones</strong>.
             </p>
             <div className="flex items-center justify-center gap-3">
               <a
                 href="mailto:contacto@lambdaingenieros.cl"
                 aria-label="Email de Rodrigo Oporto"
-                className="flex items-center gap-1.5 text-base-content/50 hover:text-primary transition-colors duration-200"
+                className="flex items-center gap-1.5 text-zinc-500 hover:text-primary transition-colors duration-200"
               >
                 <Mail className="w-4 h-4" />
                 <span className="text-xs">Contacto</span>

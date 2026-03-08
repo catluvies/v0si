@@ -55,7 +55,7 @@ const steps = [
 
 export default function CapabilitiesSection() {
   return (
-    <section id="capabilities" className="bg-base-200 py-20 lg:py-28">
+    <section id="capabilities" className="bg-base-100 py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
@@ -66,10 +66,10 @@ export default function CapabilitiesSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-white text-balance uppercase mb-4">
             Capacidades del <span className="text-primary">Sistema</span>
           </h2>
-          <p className="text-base text-base-content/70 leading-relaxed text-pretty">
+          <p className="text-base text-zinc-400 leading-relaxed text-pretty">
             Explora todas las funcionalidades de monitoreo y análisis del sistema fotovoltaico RadioTumbes.
           </p>
         </motion.div>
@@ -83,7 +83,7 @@ export default function CapabilitiesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: index * 0.05 }}
-              className="relative group rounded-xl border border-base-content/10 bg-base-content/3 p-6 hover:border-primary/35 hover:shadow-lg transition-all duration-300 overflow-hidden"
+              className="relative group rounded-xl border border-base-300 bg-base-200 p-6 hover:border-primary/35 hover:shadow-lg transition-all duration-300 overflow-hidden"
             >
               {/* Number background */}
               <div className="absolute -top-8 -right-8 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
@@ -95,15 +95,12 @@ export default function CapabilitiesSection() {
                 <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 mb-4">
                   <span className="text-sm font-bold text-primary">{item.number}</span>
                 </div>
-                <h3 className="text-base font-semibold text-base-content mb-2">{item.title}</h3>
-                <p className="text-sm text-base-content/60 leading-relaxed">{item.description}</p>
+                <h3 className="text-base font-semibold text-white mb-2">{item.title}</h3>
+                <p className="text-sm text-zinc-400 leading-relaxed">{item.description}</p>
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Divider */}
-        <div className="h-px bg-base-content/10 my-16" />
 
         {/* Explora los Datos */}
         <motion.div
@@ -113,10 +110,10 @@ export default function CapabilitiesSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-white text-balance uppercase mb-4">
             Explora los <span className="text-primary">Datos</span>
           </h2>
-          <p className="text-base text-base-content/70 leading-relaxed text-pretty">
+          <p className="text-base text-zinc-400 leading-relaxed text-pretty">
             El sistema te permite explorar y visualizar información del sistema fotovoltaico en tiempo real de manera simple e intuitiva. Más de 3,200 registros disponibles para análisis.
           </p>
         </motion.div>
@@ -124,7 +121,7 @@ export default function CapabilitiesSection() {
         {/* 3 steps with connecting line */}
         <div className="relative">
           {/* Connecting line */}
-          <div className="hidden sm:block absolute top-8 left-[16.67%] right-[16.67%] h-px bg-base-content/10" />
+          <div className="hidden sm:block absolute top-8 left-[16.67%] right-[16.67%] h-px bg-base-300" />
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-0">
             {steps.map((step, index) => (
@@ -140,8 +137,8 @@ export default function CapabilitiesSection() {
                 <div className="relative z-10 w-16 h-16 rounded-full border-2 border-primary/35 bg-base-200 flex items-center justify-center mb-5 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
                   <span className="text-xl font-bold text-primary">{step.number}</span>
                 </div>
-                <h3 className="text-base font-semibold text-base-content mb-1.5">{step.title}</h3>
-                <p className="text-sm text-base-content/60 leading-relaxed max-w-[220px]">{step.description}</p>
+                <h3 className="text-base font-semibold text-white mb-1.5">{step.title}</h3>
+                <p className="text-sm text-zinc-400 leading-relaxed max-w-[220px]">{step.description}</p>
               </motion.div>
             ))}
           </div>
