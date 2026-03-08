@@ -55,10 +55,10 @@ export default function BESSDemoSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-white text-balance uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-text-heading text-balance uppercase mb-4">
             Control Total de tu <span className="text-primary">Energía</span>
           </h2>
-          <p className="text-base text-zinc-400 leading-relaxed text-pretty">
+          <p className="text-base text-text-body leading-relaxed text-pretty">
             Monitoreo del flujo energetico entre generacion solar,
             almacenamiento en baterias y cargas de consumo en cada instalacion.
           </p>
@@ -85,10 +85,10 @@ export default function BESSDemoSection() {
           <div className="relative z-10">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="text-sm font-bold text-white">
+                <h3 className="text-sm font-bold text-text-heading">
                   Flujo Energetico — Instalacion BESS
                 </h3>
-                <p className="text-xs text-zinc-400 mt-0.5">
+                <p className="text-xs text-text-body mt-0.5">
                   Zona Norte · Chile
                 </p>
               </div>
@@ -101,57 +101,61 @@ export default function BESSDemoSection() {
           </div>
         </motion.div>
 
-        {/* Fleet KPIs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8"
-        >
-          {fleetKpis.map((kpi, index) => {
-            const Icon = kpi.icon
-            return (
-              <motion.div
-                key={kpi.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className={`rounded-xl border ${kpi.border} bg-base-200 p-4 sm:p-5`}
-              >
-                <div className={`w-10 h-10 rounded-lg ${kpi.bg} flex items-center justify-center mb-3`}>
-                  <Icon className={`w-4.5 h-4.5 ${kpi.color}`} />
-                </div>
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-xl sm:text-2xl font-bold text-white">{kpi.value}</span>
-                  <span className={`text-xs font-medium ${kpi.color}`}>{kpi.unit}</span>
-                </div>
-                <p className="text-xs text-zinc-500 mt-1">{kpi.label}</p>
-              </motion.div>
-            )
-          })}
-        </motion.div>
-
-        {/* Subtle CTA */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-center"
-        >
-          <p className="text-sm text-zinc-500">
-            100 instalaciones BESS monitoreadas en tiempo real a lo largo de Chile
-          </p>
-        </motion.div>
+        <FleetKpis />
 
       </div>
     </section>
   )
 }
 
-/* ─── Energy Flow Diagram (sub-component) ─── */
+function FleetKpis() {
+  return (
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8"
+      >
+        {fleetKpis.map((kpi, index) => {
+          const Icon = kpi.icon
+          return (
+            <motion.div
+              key={kpi.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className={`rounded-xl border ${kpi.border} bg-base-200 p-4 sm:p-5`}
+            >
+              <div className={`w-10 h-10 rounded-lg ${kpi.bg} flex items-center justify-center mb-3`}>
+                <Icon className={`w-4.5 h-4.5 ${kpi.color}`} />
+              </div>
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-xl sm:text-2xl font-bold text-text-heading">{kpi.value}</span>
+                <span className={`text-xs font-medium ${kpi.color}`}>{kpi.unit}</span>
+              </div>
+              <p className="text-xs text-text-muted mt-1">{kpi.label}</p>
+            </motion.div>
+          )
+        })}
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="text-center"
+      >
+        <p className="text-sm text-text-muted">
+          100 instalaciones BESS monitoreadas en tiempo real a lo largo de Chile
+        </p>
+      </motion.div>
+    </>
+  )
+}
 
 function EnergyFlowDiagram() {
   return (
@@ -169,93 +173,113 @@ function EnergyFlowDiagram() {
           </feMerge>
         </filter>
       </defs>
+      <SolarNode />
+      <InverterNode />
+      <LoadsNode />
+      <BatteryNode />
+      <FlowLines />
+    </svg>
+  )
+}
 
-      {/* ===== SOLAR PANELS (left) ===== */}
-      <g transform="translate(20, 60)">
-        <rect width="180" height="130" rx="12"
-          fill="rgba(14,165,233,0.06)" stroke="rgba(14,165,233,0.25)" strokeWidth="1.5" />
-        <g transform="translate(65, 18)">
-          <rect width="50" height="32" rx="4" fill="none" stroke="#0ea5e9" strokeWidth="2" />
-          <line x1="0" y1="16" x2="50" y2="16" stroke="#0ea5e9" strokeWidth="1" opacity="0.6" />
-          <line x1="17" y1="0" x2="17" y2="32" stroke="#0ea5e9" strokeWidth="1" opacity="0.6" />
-          <line x1="33" y1="0" x2="33" y2="32" stroke="#0ea5e9" strokeWidth="1" opacity="0.6" />
-        </g>
-        <text x="90" y="75" textAnchor="middle" fill="#38bdf8" fontSize="11" fontWeight="600">
-          Paneles Solares
-        </text>
-        <text x="90" y="100" textAnchor="middle" fill="#0ea5e9" fontSize="24" fontWeight="bold">
-          350 kW
-        </text>
-        <text x="90" y="118" textAnchor="middle" fill="rgba(14,165,233,0.45)" fontSize="10">
-          Generacion actual
-        </text>
+function SolarNode() {
+  return (
+    <g transform="translate(20, 60)">
+      <rect width="180" height="130" rx="12"
+        fill="rgba(14,165,233,0.06)" stroke="rgba(14,165,233,0.25)" strokeWidth="1.5" />
+      <g transform="translate(65, 18)">
+        <rect width="50" height="32" rx="4" fill="none" stroke="#0ea5e9" strokeWidth="2" />
+        <line x1="0" y1="16" x2="50" y2="16" stroke="#0ea5e9" strokeWidth="1" opacity="0.6" />
+        <line x1="17" y1="0" x2="17" y2="32" stroke="#0ea5e9" strokeWidth="1" opacity="0.6" />
+        <line x1="33" y1="0" x2="33" y2="32" stroke="#0ea5e9" strokeWidth="1" opacity="0.6" />
       </g>
+      <text x="90" y="75" textAnchor="middle" fill="#38bdf8" fontSize="11" fontWeight="600">
+        Paneles Solares
+      </text>
+      <text x="90" y="100" textAnchor="middle" fill="#0ea5e9" fontSize="24" fontWeight="bold">
+        350 kW
+      </text>
+      <text x="90" y="118" textAnchor="middle" fill="rgba(14,165,233,0.45)" fontSize="10">
+        Generacion actual
+      </text>
+    </g>
+  )
+}
 
-      {/* ===== INVERTER (center) ===== */}
-      <g transform="translate(300, 40)">
-        <rect width="200" height="170" rx="16"
-          fill="url(#inverterGrad)" filter="url(#glow)" />
-        <g transform="translate(70, 30)">
-          <path
-            d="M0,25 Q15,0 30,25 Q45,50 60,25"
-            fill="none" stroke="white" strokeWidth="3" strokeLinecap="round"
-          >
-            <animate
-              attributeName="d"
-              values="M0,25 Q15,0 30,25 Q45,50 60,25;M0,25 Q15,50 30,25 Q45,0 60,25;M0,25 Q15,0 30,25 Q45,50 60,25"
-              dur="2s" repeatCount="indefinite"
-            />
-          </path>
-        </g>
-        <text x="100" y="90" textAnchor="middle" fill="white" fontSize="15" fontWeight="700">
-          Inversor
-        </text>
-        <text x="100" y="115" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="11">
-          Operando
-        </text>
-        {/* Status indicator */}
-        <circle cx="100" cy="145" r="4" fill="#22c55e">
-          <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
-        </circle>
+function InverterNode() {
+  return (
+    <g transform="translate(300, 40)">
+      <rect width="200" height="170" rx="16"
+        fill="url(#inverterGrad)" filter="url(#glow)" />
+      <g transform="translate(70, 30)">
+        <path
+          d="M0,25 Q15,0 30,25 Q45,50 60,25"
+          fill="none" stroke="white" strokeWidth="3" strokeLinecap="round"
+        >
+          <animate
+            attributeName="d"
+            values="M0,25 Q15,0 30,25 Q45,50 60,25;M0,25 Q15,50 30,25 Q45,0 60,25;M0,25 Q15,0 30,25 Q45,50 60,25"
+            dur="2s" repeatCount="indefinite"
+          />
+        </path>
       </g>
+      <text x="100" y="90" textAnchor="middle" fill="white" fontSize="15" fontWeight="700">
+        Inversor
+      </text>
+      <text x="100" y="115" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="11">
+        Operando
+      </text>
+      <circle cx="100" cy="145" r="4" fill="#22c55e">
+        <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
+      </circle>
+    </g>
+  )
+}
 
-      {/* ===== AC LOADS (right) ===== */}
-      <g transform="translate(600, 60)">
-        <rect width="180" height="130" rx="12"
-          fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.25)" strokeWidth="1.5" />
-        <g transform="translate(72, 18)">
-          <path d="M18,0 L36,16 L32,16 L32,32 L4,32 L4,16 L0,16 Z"
-            fill="none" stroke="#6366f1" strokeWidth="2" strokeLinejoin="round" />
-          <rect x="14" y="20" width="8" height="12" rx="1" fill="none" stroke="#6366f1" strokeWidth="1.5" />
-        </g>
-        <text x="90" y="75" textAnchor="middle" fill="#a5b4fc" fontSize="11" fontWeight="600">
-          Cargas AC
-        </text>
-        <text x="90" y="100" textAnchor="middle" fill="#6366f1" fontSize="24" fontWeight="bold">
-          280 kW
-        </text>
-        <text x="90" y="118" textAnchor="middle" fill="rgba(99,102,241,0.45)" fontSize="10">
-          Consumo actual
-        </text>
+function LoadsNode() {
+  return (
+    <g transform="translate(600, 60)">
+      <rect width="180" height="130" rx="12"
+        fill="rgba(99,102,241,0.06)" stroke="rgba(99,102,241,0.25)" strokeWidth="1.5" />
+      <g transform="translate(72, 18)">
+        <path d="M18,0 L36,16 L32,16 L32,32 L4,32 L4,16 L0,16 Z"
+          fill="none" stroke="#6366f1" strokeWidth="2" strokeLinejoin="round" />
+        <rect x="14" y="20" width="8" height="12" rx="1" fill="none" stroke="#6366f1" strokeWidth="1.5" />
       </g>
+      <text x="90" y="75" textAnchor="middle" fill="#a5b4fc" fontSize="11" fontWeight="600">
+        Cargas AC
+      </text>
+      <text x="90" y="100" textAnchor="middle" fill="#6366f1" fontSize="24" fontWeight="bold">
+        280 kW
+      </text>
+      <text x="90" y="118" textAnchor="middle" fill="rgba(99,102,241,0.45)" fontSize="10">
+        Consumo actual
+      </text>
+    </g>
+  )
+}
 
-      {/* ===== BATTERY (bottom center) ===== */}
-      <g transform="translate(300, 270)">
-        <rect width="200" height="95" rx="12"
-          fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.25)" strokeWidth="1.5" />
-        <text x="100" y="30" textAnchor="middle" fill="#60a5fa" fontSize="12" fontWeight="600">
-          78% SoC · Cargando
-        </text>
-        <text x="100" y="58" textAnchor="middle" fill="#93c5fd" fontSize="22" fontWeight="bold">
-          1,500 kWh
-        </text>
-        <text x="100" y="78" textAnchor="middle" fill="rgba(59,130,246,0.4)" fontSize="10">
-          Banco de Baterias
-        </text>
-      </g>
+function BatteryNode() {
+  return (
+    <g transform="translate(300, 270)">
+      <rect width="200" height="95" rx="12"
+        fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.25)" strokeWidth="1.5" />
+      <text x="100" y="30" textAnchor="middle" fill="#60a5fa" fontSize="12" fontWeight="600">
+        78% SoC · Cargando
+      </text>
+      <text x="100" y="58" textAnchor="middle" fill="#93c5fd" fontSize="22" fontWeight="bold">
+        1,500 kWh
+      </text>
+      <text x="100" y="78" textAnchor="middle" fill="rgba(59,130,246,0.4)" fontSize="10">
+        Banco de Baterias
+      </text>
+    </g>
+  )
+}
 
-      {/* ===== FLOW LINES + ANIMATED DOTS ===== */}
-
+function FlowLines() {
+  return (
+    <>
       {/* Solar -> Inverter */}
       <path id="flowSolarInv" d="M200,125 L300,125"
         fill="none" stroke="rgba(14,165,233,0.2)" strokeWidth="2" />
@@ -278,7 +302,7 @@ function EnergyFlowDiagram() {
         </circle>
       ))}
 
-      {/* Inverter -> Battery (charging) */}
+      {/* Inverter -> Battery */}
       <path id="flowInvBat" d="M400,210 L400,270"
         fill="none" stroke="rgba(59,130,246,0.2)" strokeWidth="2" />
       {[0, 1].map(i => (
@@ -289,30 +313,19 @@ function EnergyFlowDiagram() {
         </circle>
       ))}
 
-      {/* Flow labels on lines */}
+      {/* Flow labels */}
       <g transform="translate(250, 110)">
-        <rect x="-28" y="-11" width="56" height="22" rx="6"
-          fill="rgba(0,0,0,0.5)" />
-        <text x="0" y="4" textAnchor="middle" fill="#0ea5e9" fontSize="10" fontWeight="600">
-          350 kW
-        </text>
+        <rect x="-28" y="-11" width="56" height="22" rx="6" fill="rgba(0,0,0,0.5)" />
+        <text x="0" y="4" textAnchor="middle" fill="#0ea5e9" fontSize="10" fontWeight="600">350 kW</text>
       </g>
-
       <g transform="translate(550, 110)">
-        <rect x="-28" y="-11" width="56" height="22" rx="6"
-          fill="rgba(0,0,0,0.5)" />
-        <text x="0" y="4" textAnchor="middle" fill="#3b82f6" fontSize="10" fontWeight="600">
-          280 kW
-        </text>
+        <rect x="-28" y="-11" width="56" height="22" rx="6" fill="rgba(0,0,0,0.5)" />
+        <text x="0" y="4" textAnchor="middle" fill="#3b82f6" fontSize="10" fontWeight="600">280 kW</text>
       </g>
-
       <g transform="translate(430, 240)">
-        <rect x="-24" y="-11" width="48" height="22" rx="6"
-          fill="rgba(0,0,0,0.5)" />
-        <text x="0" y="4" textAnchor="middle" fill="#60a5fa" fontSize="10" fontWeight="600">
-          70 kW
-        </text>
+        <rect x="-24" y="-11" width="48" height="22" rx="6" fill="rgba(0,0,0,0.5)" />
+        <text x="0" y="4" textAnchor="middle" fill="#60a5fa" fontSize="10" fontWeight="600">70 kW</text>
       </g>
-    </svg>
+    </>
   )
 }

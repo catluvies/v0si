@@ -66,10 +66,10 @@ export default function CapabilitiesSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-white text-balance uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-text-heading text-balance uppercase mb-4">
             Capacidades del <span className="text-primary">Sistema</span>
           </h2>
-          <p className="text-base text-zinc-400 leading-relaxed text-pretty">
+          <p className="text-base text-text-body leading-relaxed text-pretty">
             Explora todas las funcionalidades de monitoreo y análisis del sistema fotovoltaico RadioTumbes.
           </p>
         </motion.div>
@@ -95,8 +95,8 @@ export default function CapabilitiesSection() {
                 <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 mb-4">
                   <span className="text-sm font-bold text-primary">{item.number}</span>
                 </div>
-                <h3 className="text-base font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-zinc-400 leading-relaxed">{item.description}</p>
+                <h3 className="text-base font-semibold text-text-heading mb-2">{item.title}</h3>
+                <p className="text-sm text-text-body leading-relaxed">{item.description}</p>
               </div>
             </motion.div>
           ))}
@@ -110,10 +110,10 @@ export default function CapabilitiesSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-white text-balance uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-text-heading text-balance uppercase mb-4">
             Explora los <span className="text-primary">Datos</span>
           </h2>
-          <p className="text-base text-zinc-400 leading-relaxed text-pretty">
+          <p className="text-base text-text-body leading-relaxed text-pretty">
             El sistema te permite explorar y visualizar información del sistema fotovoltaico en tiempo real de manera simple e intuitiva. Más de 3,200 registros disponibles para análisis.
           </p>
         </motion.div>
@@ -137,8 +137,8 @@ export default function CapabilitiesSection() {
                 <div className="relative z-10 w-16 h-16 rounded-full border-2 border-primary/35 bg-base-200 flex items-center justify-center mb-5 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
                   <span className="text-xl font-bold text-primary">{step.number}</span>
                 </div>
-                <h3 className="text-base font-semibold text-white mb-1.5">{step.title}</h3>
-                <p className="text-sm text-zinc-400 leading-relaxed max-w-[220px]">{step.description}</p>
+                <h3 className="text-base font-semibold text-text-heading mb-1.5">{step.title}</h3>
+                <p className="text-sm text-text-body leading-relaxed max-w-[220px]">{step.description}</p>
               </motion.div>
             ))}
           </div>

@@ -28,7 +28,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-[-0.02em] text-white text-balance"
+            className="font-display text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-[-0.02em] text-text-heading text-balance"
           >
             Más de 20 Años Mejorando la{' '}
             <span className="text-primary">Eficiencia Energética</span>
@@ -41,10 +41,10 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-7 max-w-2xl space-y-2"
           >
-            <p className="text-xl text-white font-medium leading-snug">
+            <p className="text-xl text-text-heading font-medium leading-snug">
               Especialistas en proyectos eléctricos y eficiencia energética.
             </p>
-            <p className="text-base text-zinc-500 leading-relaxed">
+            <p className="text-base text-text-muted leading-relaxed">
               Desarrollamos tecnología Made in Chile para la gestión inteligente
               de sistemas fotovoltaicos.
             </p>
@@ -74,7 +74,7 @@ export default function HeroSection() {
                 label="Monitoreo Continuo"
               />
             </div>
-            <p className="mt-4 text-xs text-zinc-500 italic">
+            <p className="mt-4 text-xs text-text-muted italic">
               * Datos actualizados a diciembre de 2024
             </p>
           </motion.div>
@@ -98,8 +98,8 @@ function StatCard({ icon, value, label }: StatCardProps) {
         {icon}
       </div>
       <div>
-        <p className="text-2xl font-bold text-white tracking-tight leading-none">{value}</p>
-        <p className="text-sm text-zinc-500 mt-1">{label}</p>
+        <p className="text-2xl font-bold text-text-heading tracking-tight leading-none">{value}</p>
+        <p className="text-sm text-text-muted mt-1">{label}</p>
       </div>
     </div>
   )

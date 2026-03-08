@@ -23,20 +23,20 @@ export default function CTABannerSection({
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="w-full bg-zinc-800"
+      className="w-full bg-base-300"
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div>
-          <h3 className="text-lg font-bold text-white mb-1">
+          <h3 className="text-lg font-bold text-text-heading mb-1">
             {title}
           </h3>
-          <p className="text-sm text-zinc-400 leading-relaxed max-w-xl text-pretty">
+          <p className="text-sm text-text-body leading-relaxed max-w-xl text-pretty">
             {description}
           </p>
         </div>
         <Link
           href={href}
-          className="shrink-0 inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-all duration-200 whitespace-nowrap"
+          className="shrink-0 inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-primary text-text-heading text-sm font-semibold hover:bg-primary/90 transition-all duration-200 whitespace-nowrap"
         >
           {buttonText}
           <ArrowRight className="w-4 h-4" />

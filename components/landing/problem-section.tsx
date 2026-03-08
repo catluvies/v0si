@@ -37,10 +37,10 @@ export default function ProblemSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-white text-balance uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-text-heading text-balance uppercase mb-4">
             El Problema que <span className="text-primary">Abordamos</span>
           </h2>
-          <p className="text-base text-zinc-400 leading-relaxed text-pretty">
+          <p className="text-base text-text-body leading-relaxed text-pretty">
             Las constantes alzas de tarifas eléctricas han impactado negativamente los costos
             de empresas, industrias, instituciones y condominios. Sin un sistema de monitoreo
             adecuado, se generan pérdidas importantes por uso ineficiente de la energía.
@@ -55,15 +55,15 @@ export default function ProblemSection() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="rounded-xl border border-base-300 bg-base-200 border-l-2 border-l-primary p-8 lg:p-10"
         >
-          <h3 className="text-xl font-bold text-white mb-4 text-balance">
+          <h3 className="text-xl font-bold text-text-heading mb-4 text-balance">
             La Falta de Visibilidad y Control Energético
           </h3>
-          <p className="text-sm text-zinc-400 leading-relaxed mb-4 max-w-3xl">
+          <p className="text-sm text-text-body leading-relaxed mb-4 max-w-3xl">
             Muchas empresas e instituciones desconocen cómo están utilizando realmente su energía.
             Sin datos precisos y análisis en tiempo real, es imposible optimizar el consumo,
             detectar anomalías o tomar decisiones informadas sobre eficiencia energética.
           </p>
-          <p className="text-sm text-zinc-400 leading-relaxed max-w-3xl">
+          <p className="text-sm text-text-body leading-relaxed max-w-3xl">
             Detectamos que es un error adelantar la instalación de paneles solares sin
             preocuparse de corregir primero la eficiencia en el uso de la energía existente.
             El monitoreo y análisis son fundamentales para cualquier estrategia energética exitosa.
@@ -85,8 +85,8 @@ export default function ProblemSection() {
                 <item.icon className="w-4 h-4 text-primary" />
               </div>
               <div>
-                <h3 className="text-base font-semibold text-white mb-1.5">{item.title}</h3>
-                <p className="text-sm text-zinc-400 leading-relaxed">{item.description}</p>
+                <h3 className="text-base font-semibold text-text-heading mb-1.5">{item.title}</h3>
+                <p className="text-sm text-text-body leading-relaxed">{item.description}</p>
               </div>
             </motion.div>
           ))}

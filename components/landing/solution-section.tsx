@@ -61,10 +61,10 @@ export default function SolutionSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-white text-balance uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-text-heading text-balance uppercase mb-4">
             Monitoreo Inteligente con Tecnología <span className="text-primary">Made in Chile</span>
           </h2>
-          <p className="text-base text-zinc-400 leading-relaxed text-pretty">
+          <p className="text-base text-text-body leading-relaxed text-pretty">
             Sistema de monitoreo y análisis en tiempo real que permite optimizar el consumo energético,
             detectar ineficiencias y tomar decisiones informadas. Más de 20 años de experiencia en
             proyectos eléctricos y eficiencia energética.
@@ -82,12 +82,12 @@ export default function SolutionSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
             {/* Left: text */}
             <div className="rounded-xl border border-base-300 bg-base-200 border-l-2 border-l-primary p-6 flex flex-col justify-center">
-              <p className="text-sm text-zinc-400 leading-relaxed mb-4">
+              <p className="text-sm text-text-body leading-relaxed mb-4">
                 Nuestro sistema SolarTech® combina gestión de energía eléctrica, acumulación en
                 baterías de litio y monitoreo en tiempo real. Con presencia desde la frontera norte
                 hasta el Cabo de Hornos, operamos en los entornos más extremos de Chile.
               </p>
-              <p className="text-sm text-zinc-400 leading-relaxed">
+              <p className="text-sm text-text-body leading-relaxed">
                 Especializados en entornos aislados, energías renovables (aerogeneradores,
                 turbogeneradores, paneles solares) y sistemas de inversión. Acceso desde cualquier
                 dispositivo con análisis en tiempo real de más de 3,200 registros disponibles.
@@ -109,8 +109,8 @@ export default function SolutionSection() {
                     <item.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-white mb-1">{item.label}</p>
-                    <p className="text-xs text-zinc-400 leading-relaxed">{item.description}</p>
+                    <p className="text-sm font-semibold text-text-heading mb-1">{item.label}</p>
+                    <p className="text-xs text-text-body leading-relaxed">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -131,9 +131,9 @@ export default function SolutionSection() {
                 >
                   <div className="flex items-center gap-2">
                     <feature.icon className="w-3.5 h-3.5 text-primary shrink-0" />
-                    <p className="text-xs font-semibold text-white">{feature.title}</p>
+                    <p className="text-xs font-semibold text-text-heading">{feature.title}</p>
                   </div>
-                  <p className="text-[11px] text-zinc-400 leading-relaxed">{feature.description}</p>
+                  <p className="text-[11px] text-text-body leading-relaxed">{feature.description}</p>
                 </motion.div>
               ))}
             </div>
