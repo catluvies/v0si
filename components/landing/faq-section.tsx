@@ -1,6 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { ChevronDown } from 'lucide-react'
 
 const faqs = [
   {
@@ -36,6 +38,12 @@ const faqs = [
 ]
 
 export default function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0)
+
+  function toggle(index: number) {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
   return (
     <section id="faq" className="py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -54,25 +62,48 @@ export default function FAQSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="collapse collapse-arrow rounded-xl border border-base-300 bg-base-200 hover:border-primary/35 transition-all duration-300"
-            >
-              <input type="radio" name="faq-accordion" defaultChecked={index === 0} />
-              <div className="collapse-title font-semibold text-text-heading text-sm">
-                {faq.question}
-              </div>
-              <div className="collapse-content text-sm text-text-body leading-relaxed">
-                <p>{faq.answer}</p>
-              </div>
-            </motion.div>
-          ))}
+        <div className="max-w-3xl mx-auto flex flex-col gap-3">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index
+
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className={`rounded-xl border bg-base-200 transition-colors duration-300 ${
+                  isOpen ? 'border-primary/35' : 'border-base-300 hover:border-primary/35'
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => toggle(index)}
+                  className="w-full flex items-center justify-between p-4 text-left cursor-pointer"
+                >
+                  <span className="font-semibold text-text-heading text-sm">
+                    {faq.question}
+                  </span>
+                  <ChevronDown
+                    className={`w-4 h-4 shrink-0 ml-4 text-text-muted transition-transform duration-200 ${
+                      isOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                <div
+                  className="grid transition-[grid-template-rows] duration-200"
+                  style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
+                >
+                  <div className="overflow-hidden">
+                    <p className="px-4 pb-4 text-sm text-text-body leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>
