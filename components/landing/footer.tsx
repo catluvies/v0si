@@ -20,21 +20,18 @@ export default function Footer() {
   return (
     <footer className="border-t border-base-300 bg-base-100">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 items-start">
           {/* Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/">
+          <div className="sm:col-span-2 lg:col-span-1 flex items-start">
+            <Link href="/" className="block">
               <Image
-                src="/images/lambda-logo.svg"
+                src="/images/lambda-logoletra.svg"
                 alt="Lambda Ingenieros"
                 width={240}
-                height={80}
-                className="h-20 w-auto object-contain"
+                height={120}
+                className="w-full max-w-[180px] h-auto object-contain"
               />
             </Link>
-            <p className="mt-4 text-sm text-text-body leading-relaxed">
-              Tecnología Made in Chile para la gestión inteligente de sistemas de eficiencia energética.
-            </p>
           </div>
 
           {/* Link columns */}
