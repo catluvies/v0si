@@ -96,7 +96,7 @@ export default function CapabilitiesSection() {
                   <span className="text-sm font-bold text-primary">{item.number}</span>
                 </div>
                 <h3 className="text-base font-semibold text-text-heading mb-2">{item.title}</h3>
-                <p className="text-sm text-text-body leading-relaxed">{item.description}</p>
+                <p className="text-sm text-text-body leading-relaxed text-justify">{item.description}</p>
               </div>
             </motion.div>
           ))}
