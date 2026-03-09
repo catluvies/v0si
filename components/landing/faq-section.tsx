@@ -52,17 +52,17 @@ export default function FAQSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-8"
         >
           <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-text-heading text-balance uppercase mb-4">
             Preguntas <span className="text-primary">Frecuentes</span>
           </h2>
           <p className="text-base text-text-body leading-relaxed text-pretty">
-            ¿Tienes dudas sobre el sistema? Aquí encontrarás respuestas a las preguntas más comunes.
+            Resolvemos las consultas más frecuentes sobre nuestros sistemas de monitoreo y eficiencia energética.
           </p>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto flex flex-col gap-3">
+        <div className="max-w-3xl mx-auto divide-y divide-base-300">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index
 
@@ -73,20 +73,19 @@ export default function FAQSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className={`rounded-xl border bg-base-200 transition-colors duration-300 ${
-                  isOpen ? 'border-primary/35' : 'border-base-300 hover:border-primary/35'
-                }`}
               >
                 <button
                   type="button"
                   onClick={() => toggle(index)}
-                  className="w-full flex items-center justify-between p-4 text-left cursor-pointer"
+                  className="w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer group"
                 >
-                  <span className="font-semibold text-text-heading text-sm">
+                  <span className={`text-sm font-medium transition-colors duration-200 ${
+                    isOpen ? 'text-primary' : 'text-text-heading group-hover:text-primary'
+                  }`}>
                     {faq.question}
                   </span>
                   <ChevronDown
-                    className={`w-4 h-4 shrink-0 ml-4 text-text-muted transition-transform duration-200 ${
+                    className={`w-4 h-4 shrink-0 text-text-muted transition-transform duration-200 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
@@ -96,7 +95,7 @@ export default function FAQSection() {
                   style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-4 pb-4 text-sm text-text-body leading-relaxed">
+                    <p className="pb-5 text-sm text-text-body leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
