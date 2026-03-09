@@ -2,24 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { BarChart3, Zap, Activity } from 'lucide-react'
-import Image from 'next/image'
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Imagen de fondo con overlay */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero-solar.jpg"
-          alt="Paneles solares en instalación fotovoltaica"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-linear-to-r from-base-100/80 via-base-100/70 to-base-100/35" />
-      </div>
-      <div className="absolute bottom-0 left-0 right-0 h-96 z-5 bg-linear-to-t from-base-100 via-base-100/80 via-40% to-transparent pointer-events-none" />
-
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-base-100">
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 pt-40 pb-28">
         <div className="flex flex-col items-start max-w-4xl">
 

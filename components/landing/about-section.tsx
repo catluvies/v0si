@@ -9,7 +9,7 @@ export default function AboutSection() {
       <AboutHero />
 
       {/* Nuestra Historia */}
-      <ZigzagSection imageUrl="/images/prueba-historia.jpg">
+      <ZigzagSection imageUrl="/images/historia.jpg">
         <h2 className="font-display text-2xl lg:text-3xl font-bold text-text-heading uppercase tracking-[0.08em] mb-3">
           Nuestra Historia
         </h2>
@@ -32,7 +32,7 @@ export default function AboutSection() {
       </ZigzagSection>
 
       {/* Nuestra Misión */}
-      <ZigzagSection imageUrl="/images/prueba-mision-vision.jpg" reverse>
+      <ZigzagSection imageUrl="/images/mision.jpg" reverse>
         <h2 className="font-display text-2xl lg:text-3xl font-bold text-text-heading uppercase tracking-[0.08em] mb-3">
           Nuestra Misión
         </h2>
@@ -47,7 +47,7 @@ export default function AboutSection() {
       </ZigzagSection>
 
       {/* Nuestra Visión */}
-      <ZigzagSection imageUrl="/images/prueba-mision-vision.jpg">
+      <ZigzagSection imageUrl="/images/vision.jpg">
         <h2 className="font-display text-2xl lg:text-3xl font-bold text-text-heading uppercase tracking-[0.08em] mb-3">
           Nuestra Visión
         </h2>
@@ -62,7 +62,7 @@ export default function AboutSection() {
       </ZigzagSection>
 
       {/* Nuestro Fundador */}
-      <ZigzagSection imageUrl="/images/prueba-fundador.png" reverse>
+      <ZigzagSection imageUrl="/images/fundador.png" reverse>
         <h2 className="font-display text-2xl lg:text-3xl font-bold text-text-heading uppercase tracking-[0.08em] mb-3">
           Nuestro Fundador
         </h2>

@@ -95,7 +95,7 @@ export default function Navbar() {
       <div className="navbar-start">
         <Link href="/" className="flex items-center">
           <Image
-            src="/images/lambda-logo.png"
+            src="/images/lambda-logo.svg"
             alt="Lambda Ingenieros"
             width={220}
             height={73}

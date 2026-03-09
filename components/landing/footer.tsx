@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/">
               <Image
-                src="/images/lambda-logo.png"
+                src="/images/lambda-logo.svg"
                 alt="Lambda Ingenieros"
                 width={240}
                 height={80}
