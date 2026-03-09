@@ -99,6 +99,28 @@
   opacity: 0.15;
 }
 
+/* Imagen con tono azul frío — hover en .group restaura color original */
+.img-cool {
+  filter: grayscale(100%) brightness(0.25);
+  transition: filter 0.5s ease;
+}
+
+.group:hover .img-cool {
+  filter: grayscale(0%) brightness(0.6);
+}
+
+.img-cool-tint {
+  background-color: var(--color-primary);
+  mix-blend-mode: color;
+  opacity: 0.3;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.group:hover .img-cool-tint {
+  opacity: 0;
+}
+
 /* Zigzag fade: texto izquierda, imagen asoma por derecha */
 .zigzag-fade-left {
   background: linear-gradient(
@@ -141,6 +163,21 @@
       transparent 100%
     );
   }
+}
+
+/* Rotating border gradient for product cards */
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes border-spin {
+  to { --border-angle: 360deg; }
+}
+
+.animate-border-spin {
+  animation: border-spin 3s linear infinite;
 }
 
 /* Custom scrollbar for dark mode */
