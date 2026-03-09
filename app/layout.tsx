@@ -24,7 +24,7 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: 'Lambda Solar | Monitoreo Fotovoltaico Inteligente',
+  title: 'Lambda Ingenieros | Monitoreo Fotovoltaico Inteligente',
   description:
     'Plataforma de monitoreo en tiempo real para sistemas solares fotovoltaicos. Visualiza, analiza y optimiza tu generacion de energia con Lambda Ingenieros.',
   generator: 'v0.app',
