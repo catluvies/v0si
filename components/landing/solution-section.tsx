@@ -1,13 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { TrendingUp, Clock, ShieldCheck, BarChart2, History, BellRing } from 'lucide-react'
+import { TrendingUp, Clock, ShieldCheck } from 'lucide-react'
 
 const highlights = [
   {
     icon: TrendingUp,
-    label: '+30% Ahorro',
-    description: 'Reducción comprobada en consumo eléctrico mediante detección de ineficiencias',
+    label: 'Hasta 95% Reducción',
+    description: 'Reducción comprobada en uso de combustible fósil en entornos aislados',
   },
   {
     icon: Clock,
@@ -16,32 +16,28 @@ const highlights = [
   },
   {
     icon: ShieldCheck,
-    label: '20+ Años',
+    label: '+20 Años',
     description: 'Experiencia desarrollando soluciones tecnológicas Made in Chile',
   },
 ]
 
 const features = [
   {
-    icon: BellRing,
     title: 'Alertas Inteligentes',
     description:
       'Notificaciones automáticas ante anomalías, desviaciones de rendimiento o condiciones críticas del sistema.',
   },
   {
-    icon: BarChart2,
     title: 'Análisis Avanzado',
     description:
-      'Reportes detallados, análisis de tendencias y recomendaciones basadas en más de 3,200 registros históricos.',
+      'Reportes detallados, análisis de tendencias y recomendaciones basadas en datos históricos del sistema.',
   },
   {
-    icon: TrendingUp,
     title: 'Optimización Continua',
     description:
       'Recomendaciones automáticas basadas en análisis de datos para mejorar continuamente el rendimiento del sistema.',
   },
   {
-    icon: History,
     title: 'Historial Completo',
     description:
       'Acceso completo a históricos, series temporales y análisis de patrones para toma de decisiones informadas.',
@@ -82,15 +78,15 @@ export default function SolutionSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
             {/* Left: text */}
             <div className="rounded-xl border border-base-300 bg-base-200 border-l-2 border-l-primary p-6 flex flex-col justify-center">
-              <p className="text-sm text-text-body leading-relaxed mb-4">
-                Nuestro sistema SolarTech® combina gestión de energía eléctrica, acumulación en
+              <p className="text-sm text-text-body leading-relaxed text-justify mb-4">
+                Nuestro sistema ENEFISYS® combina gestión de energía eléctrica, acumulación en
                 baterías de litio y monitoreo en tiempo real. Con presencia desde la frontera norte
                 hasta el Cabo de Hornos, operamos en los entornos más extremos de Chile.
               </p>
-              <p className="text-sm text-text-body leading-relaxed">
+              <p className="text-sm text-text-body leading-relaxed text-justify">
                 Especializados en entornos aislados, energías renovables (aerogeneradores,
                 turbogeneradores, paneles solares) y sistemas de inversión. Acceso desde cualquier
-                dispositivo con análisis en tiempo real de más de 3,200 registros disponibles.
+                dispositivo con análisis en tiempo real con monitoreo continuo 24/7.
               </p>
             </div>
 
@@ -110,7 +106,7 @@ export default function SolutionSection() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-text-heading mb-1">{item.label}</p>
-                    <p className="text-xs text-text-body leading-relaxed">{item.description}</p>
+                    <p className="text-xs text-text-body leading-relaxed text-justify">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -127,13 +123,13 @@ export default function SolutionSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: 0.2 + index * 0.06 }}
-                  className="rounded-xl border border-base-300 bg-base-100 p-4 flex flex-col gap-2 hover:border-primary/35 hover:bg-surface-hover transition-all duration-300"
+                  className="rounded-xl border border-base-300 bg-base-100 p-4 flex flex-col gap-3 hover:border-primary/35 hover:bg-surface-hover transition-all duration-300"
                 >
-                  <div className="flex items-center gap-2">
-                    <feature.icon className="w-3.5 h-3.5 text-primary shrink-0" />
-                    <p className="text-xs font-semibold text-text-heading">{feature.title}</p>
+                  <div>
+                    <p className="text-xs font-semibold text-text-heading uppercase tracking-wide text-center">{feature.title}</p>
+                    <div className="w-8 h-px bg-primary mx-auto mt-2" />
                   </div>
-                  <p className="text-[11px] text-text-body leading-relaxed">{feature.description}</p>
+                  <p className="text-[11px] text-text-body leading-relaxed text-justify">{feature.description}</p>
                 </motion.div>
               ))}
             </div>
