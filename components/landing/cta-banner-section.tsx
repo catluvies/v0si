@@ -25,9 +25,12 @@ export default function CTABannerSection({
       transition={{ duration: 0.5 }}
       className="w-full bg-base-300"
     >
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="border-t border-base-300" />
+      </div>
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div>
-          <h3 className="text-lg font-bold text-text-heading mb-1">
+          <h3 className="text-lg font-bold text-text-heading uppercase mb-1">
             {title}
           </h3>
           <p className="text-sm text-text-body leading-relaxed max-w-xl text-pretty">
@@ -41,6 +44,9 @@ export default function CTABannerSection({
           {buttonText}
           <ArrowRight className="w-4 h-4" />
         </Link>
+      </div>
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="border-t border-base-300" />
       </div>
     </motion.section>
   )
