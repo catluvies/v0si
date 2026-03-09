@@ -58,15 +58,15 @@ export default function ProblemSection() {
           <h3 className="text-xl font-bold text-text-heading mb-4 text-balance">
             La Falta de Visibilidad y Control Energético
           </h3>
-          <p className="text-sm text-text-body leading-relaxed mb-4 max-w-3xl">
+          <p className="text-sm text-text-body leading-relaxed text-justify mb-4">
             Muchas empresas e instituciones desconocen cómo están utilizando realmente su energía.
             Sin datos precisos y análisis en tiempo real, es imposible optimizar el consumo,
             detectar anomalías o tomar decisiones informadas sobre eficiencia energética.
           </p>
-          <p className="text-sm text-text-body leading-relaxed max-w-3xl">
-            Detectamos que es un error adelantar la instalación de paneles solares sin
-            preocuparse de corregir primero la eficiencia en el uso de la energía existente.
-            El monitoreo y análisis son fundamentales para cualquier estrategia energética exitosa.
+          <p className="text-sm text-text-body leading-relaxed text-justify">
+            Instalar paneles solares sin antes corregir la eficiencia en el uso de la energía
+            existente es un error frecuente. El monitoreo y análisis son fundamentales para
+            cualquier estrategia energética exitosa.
           </p>
         </motion.div>
 
@@ -79,14 +79,14 @@ export default function ProblemSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="rounded-xl border border-base-300 bg-base-200 p-6 flex flex-col gap-4 hover:border-primary/35 transition-all duration-300"
+              className="rounded-xl border border-base-300 bg-base-200 p-6 flex flex-col items-center gap-4 hover:border-primary/35 transition-all duration-300"
             >
               <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
                 <item.icon className="w-4 h-4 text-primary" />
               </div>
               <div>
-                <h3 className="text-base font-semibold text-text-heading mb-1.5">{item.title}</h3>
-                <p className="text-sm text-text-body leading-relaxed">{item.description}</p>
+                <h3 className="text-base font-semibold text-text-heading mb-1.5 text-center">{item.title}</h3>
+                <p className="text-sm text-text-body leading-relaxed text-justify">{item.description}</p>
               </div>
             </motion.div>
           ))}
