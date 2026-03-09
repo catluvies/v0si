@@ -1,7 +1,35 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail } from 'lucide-react'
+import { Mail, Users, Rocket, Cpu, MapPin } from 'lucide-react'
+
+const selloValues = [
+  {
+    icon: Users,
+    title: 'Orientación al Cliente',
+    description:
+      'Escuchar los problemas y necesidades de los clientes, desarrollando la empresa a partir de un fuerte componente de realidad, potenciando capacidades tecnológicas y de innovación.',
+  },
+  {
+    icon: Rocket,
+    title: 'Desarrollo Continuo',
+    description:
+      'Respuesta desde la excelencia al vertiginoso avance tecnológico en sistemas eléctricos, reconocido permanentemente por sus clientes.',
+  },
+  {
+    icon: Cpu,
+    title: 'Tecnología Made in Chile',
+    description:
+      'Pensar, desarrollar y producir sistemas eléctricos originales e innovadores que responden a los principales desafíos de la sociedad.',
+  },
+]
+
+const projectCases = [
+  { name: 'Alcaldía de Mar Timbales', location: 'Canal Beagle', description: 'Turbina hídrica + baterías litio.' },
+  { name: 'Alcaldía de Mar Corrientes', location: 'Canal Murray', description: 'Aerogenerador eólico + baterías litio.' },
+  { name: 'Hospital Salamanca', location: 'Coquimbo', description: 'ENEFISYS BESS en sector salud.' },
+  { name: 'Faro Concordia', location: 'Arica', description: 'Planta solar + baterías litio + generadores. Proyecto más reciente (oct 2024).' },
+]
 
 export default function AboutSection() {
   return (
@@ -61,8 +89,43 @@ export default function AboutSection() {
         </p>
       </ZigzagSection>
 
+      {/* Nuestro Sello */}
+      <section className="bg-base-100 py-20 lg:py-28">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center max-w-2xl mx-auto mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text-heading text-balance mb-4">
+              NUESTRO <span className="text-primary">SELLO</span>
+            </h2>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {selloValues.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="rounded-xl border border-base-300 bg-base-200 p-6 hover:border-primary/35 transition-all duration-300"
+              >
+                <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
+                  <item.icon className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="text-sm font-semibold text-text-heading mb-2">{item.title}</h3>
+                <p className="text-sm text-text-body leading-relaxed text-justify">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Nuestro Fundador */}
-      <ZigzagSection imageUrl="/images/fundador.png" reverse>
+      <ZigzagSection imageUrl="/images/fundador.jpg" reverse>
         <h2 className="font-display text-2xl lg:text-3xl font-bold text-text-heading uppercase tracking-[0.08em] mb-3">
           Nuestro Fundador
         </h2>
@@ -95,13 +158,55 @@ export default function AboutSection() {
           <span className="text-xs">Contacto</span>
         </a>
       </ZigzagSection>
+
+      {/* Presencia Nacional */}
+      <section className="bg-base-100 py-20 lg:py-28">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center max-w-2xl mx-auto mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text-heading text-balance mb-4">
+              PRESENCIA <span className="text-primary">NACIONAL</span>
+            </h2>
+            <p className="text-base text-text-body leading-relaxed text-pretty">
+              Con 31 proyectos completados entre 2017 y 2024, Lambda Ingenieros opera desde Arica
+              hasta el Cabo de Hornos, en alianza público-privada con{' '}
+              <strong className="text-text-emphasis">ASMAR Magallanes</strong>, el astillero más
+              austral del mundo.
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {projectCases.map((project, index) => (
+              <motion.div
+                key={project.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="rounded-xl border border-base-300 bg-base-200 p-6 hover:border-primary/35 transition-all duration-300"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <MapPin className="w-4 h-4 text-primary shrink-0" />
+                  <span className="text-xs text-text-muted">{project.location}</span>
+                </div>
+                <h3 className="text-sm font-semibold text-text-heading mb-2">{project.name}</h3>
+                <p className="text-sm text-text-body leading-relaxed text-justify">{project.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   )
 }
 
 function AboutHero() {
   return (
-    <section className="bg-base-100 py-24 lg:py-32">
+    <section className="bg-base-100 pt-32 pb-12 lg:pt-40 lg:pb-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -109,11 +214,11 @@ function AboutHero() {
         transition={{ duration: 0.5 }}
         className="max-w-3xl mx-auto px-6 lg:px-8 text-center"
       >
-        <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-black tracking-[-0.02em] text-text-heading uppercase leading-none mb-5">
+        <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-text-heading uppercase mb-5">
           Quiénes <span className="text-primary">Somos</span>
         </h1>
         <p className="text-base text-text-body leading-relaxed">
-          Empresa B de ingenieros chilenos comprometidos con el desarrollo
+          Empresa de ingenieros chilenos comprometidos con el desarrollo
           sustentable de soluciones de <strong className="text-text-heading">eficiencia energética</strong>.
         </p>
       </motion.div>
@@ -129,21 +234,21 @@ type ZigzagSectionProps = {
 
 function ZigzagSection({ imageUrl, reverse = false, children }: ZigzagSectionProps) {
   return (
-    <section className="relative min-h-[500px] flex items-end md:items-center overflow-hidden">
+    <section className="group relative min-h-[500px] flex items-end md:items-center overflow-hidden">
       {/* Imagen de fondo */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center"
+        className="absolute inset-0 z-0 bg-cover bg-center img-cool"
         style={{ backgroundImage: `url(${imageUrl})` }}
       />
 
-      {/* Overlay de oscurecimiento */}
-      <div className="absolute inset-0 z-[1] bg-base-100/30" />
+      {/* Tint azul */}
+      <div className="absolute inset-0 z-[1] img-cool-tint" />
 
       {/* Gradiente direccional */}
       <div className={`absolute inset-0 z-10 ${reverse ? 'zigzag-fade-right' : 'zigzag-fade-left'}`} />
 
       {/* Contenido */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-48 pb-8 md:py-16 lg:py-20">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-10 md:py-16 lg:py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
