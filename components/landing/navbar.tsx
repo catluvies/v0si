@@ -8,8 +8,8 @@ import { Menu, X, Sun, Moon } from 'lucide-react'
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
-  { href: '/solucion', label: 'Nuestra Solución' },
   { href: '/nosotros', label: 'Nosotros' },
+  { href: '/solucion', label: 'Nuestra Solución' },
   { href: '/contacto', label: 'Contacto' },
   { href: '/#faq', label: 'FAQ' },
 ]
@@ -97,9 +97,9 @@ export default function Navbar() {
           <Image
             src="/images/lambda-logo.svg"
             alt="Lambda Ingenieros"
-            width={220}
-            height={73}
-            className="h-16 w-auto object-contain"
+            width={68}
+            height={80}
+            className="h-12 sm:h-14 lg:h-16 w-auto object-contain"
             priority
           />
         </Link>
@@ -129,7 +129,7 @@ export default function Navbar() {
           {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
         </button>
 
-        <Link href="/contacto" className="btn btn-ghost border border-base-300 hover:border-base-300 hidden lg:inline-flex">
+        <Link href="/contacto" className="btn btn-ghost border border-base-300 hover:border-primary/35 hidden lg:inline-flex">
           Iniciar sesión
         </Link>
 

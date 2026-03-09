@@ -12,6 +12,10 @@ export default function LogoCloud() {
     <section className="relative py-14 lg:py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
+        <p className="text-sm font-semibold tracking-widest uppercase text-text-muted text-center mb-8">
+          Nuestros Socios de Confianza
+        </p>
+
         {/* Marquee */}
         <div className="relative">
           {/* Fade left */}
