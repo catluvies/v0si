@@ -1,4 +1,4 @@
-# CLAUDE.md — Lambda Solar Landing Page
+# CLAUDE.md — Lambda Ingenieros Landing Page
 
 ## Stack
 
@@ -7,7 +7,6 @@
 - **DaisyUI v5** (plugin en CSS via `@plugin "daisyui"`)
 - **Framer Motion** para animaciones scroll/entrada
 - **Lucide React** para iconos
-- **ApexCharts + react-apexcharts** para graficos y dashboards
 - **Zod** para validacion de schemas
 - **Vitest + React Testing Library** para testing
 - **Vercel Analytics** (`@vercel/analytics/next`)
@@ -35,15 +34,15 @@ app/
     nosotros/         # /nosotros
     solucion/         # /solucion
     contacto/         # /contacto
-  (dashboard)/        # Route group — dashboard (futuro, con auth)
+  (dashboard)/        # Route group — dashboard (no existe aún)
 components/
   landing/            # Un archivo por seccion del landing
-  dashboard/          # Componentes del dashboard (futuro)
-  ui/                 # Primitivos UI reutilizables (futuro)
-hooks/                # Custom React hooks (futuro — useAuth, useMediaQuery, etc.)
-lib/                  # Utilidades puras, helpers, constantes
-services/             # Lógica de API, fetch wrappers, server actions
-types/                # Tipos compartidos entre features
+  dashboard/          # (no existe aún)
+  ui/                 # (no existe aún)
+hooks/                # (no existe aún)
+lib/                  # (vacío — futuras utilidades, helpers, constantes)
+services/             # (no existe aún)
+types/                # (no existe aún)
 public/
   images/             # Imagenes locales (hero, logo, clients/)
 ```
@@ -277,6 +276,25 @@ className="rounded-xl border border-base-300 bg-base-200 p-6"
 className="rounded-xl border border-base-300 bg-base-200 p-6 hover:border-primary/35 transition-all duration-300"
 ```
 
+### CSS Utilities Custom
+
+Definidas en `globals.css`:
+
+```css
+.img-brand        /* Imagen desaturada (grayscale 100%, opacity 40%) */
+.img-brand-tint   /* Imagen con tint de marca (sepia + hue-rotate a blue) */
+.zigzag-fade-left /* Gradiente fade hacia la izquierda para layouts alternados */
+.zigzag-fade-right /* Gradiente fade hacia la derecha */
+```
+
+## ESLint
+
+Config en `eslint.config.mjs` (flat config, `defineConfig`). Reglas custom:
+
+- `@typescript-eslint/no-explicit-any: 'error'`
+- `complexity: ['warn', { max: 10 }]`
+- `max-lines: ['warn', { max: 300 }]`
+
 ## Framer Motion
 
 ### Animaciones de Entrada
@@ -340,7 +358,7 @@ Usar clases semanticas de DaisyUI cuando exista un componente. No reconstruir co
 | Button | `btn`, `btn-primary`, `btn-ghost`, `btn-circle`, `btn-sm` | Botones |
 | Badge | `badge`, `badge-outline`, `badge-sm` | Labels de seccion |
 | Menu | `menu`, `menu-horizontal` | Listas de nav links |
-| Collapse | `collapse`, `collapse-arrow`, `collapse-title`, `collapse-content` | FAQ accordion |
+| Accordion (custom) | React `useState` + `grid-template-rows` | FAQ — no usar DaisyUI collapse |
 | Form | `input`, `input-bordered`, `input-error`, `textarea`, `textarea-bordered`, `textarea-error` | Formularios |
 
 ### Regla de customización DaisyUI
@@ -458,23 +476,6 @@ Convenciones:
 - Nombres descriptivos en español: `'renderiza el heading principal'`
 - Testear comportamiento, no implementacion
 
-## Charts (ApexCharts)
-
-Usar `react-apexcharts` con `dynamic import` para evitar SSR (ApexCharts requiere `window`):
-
-```tsx
-import dynamic from 'next/dynamic'
-const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
-```
-
-Convenciones de estilo para charts:
-- `chart.foreColor: '#9ca3af'` — texto de ejes
-- `chart.background: 'transparent'` — fondo transparente
-- `tooltip.theme: 'dark'` — tooltips oscuros
-- `grid.borderColor: 'rgba(255,255,255,0.06)'` — lineas de grid sutiles
-- Colores primarios: `#3b82f6` (blue/primary), `#6366f1` (indigo), `#0ea5e9` (sky)
-- `chart.toolbar.show: false` — ocultar toolbar en landing (mostrar en dashboard)
-
 ## Validacion (Zod)
 
 Usar Zod para validar inputs en Server Actions y forms:
@@ -491,7 +492,7 @@ const contactSchema = z.object({
 type ContactForm = z.infer<typeof contactSchema>
 ```
 
-Validaciones chilenas como funciones puras en `lib/validations.ts`:
+Validaciones chilenas (futuro — mover a `lib/validations.ts`):
 - `isValidChileanPhone()` — valida formato +56 9 XXXX XXXX
 - `formatChileanPhone()` — input mask para teléfono
 - `isValidName()` — min 2 chars, no solo números/espacios
@@ -510,4 +511,5 @@ Validaciones chilenas como funciones puras en `lib/validations.ts`:
 | Imágenes locales sobre CDN | Control total, no depender de servicios externos, Next.js optimiza | Unsplash/Cloudinary URLs |
 | ESLint flat config | Estándar Next.js 16+, defineConfig nativo | Legacy .eslintrc (deprecated) |
 | color-mix() en gradientes | Aplica opacidad a CSS variables sin hardcodear colores | rgba() hardcodeado (no respeta temas) |
-| Validaciones como funciones puras en lib/ | Testeable, reutilizable entre forms y server actions | Inline en componentes |
+| Validaciones como funciones puras en lib/ | Testeable, reutilizable entre forms y server actions (pendiente de extraer) | Inline en componentes |
+| FAQ accordion custom sobre DaisyUI collapse | DaisyUI collapse era inestable con Framer Motion y transition-all | DaisyUI collapse (descartado) |
