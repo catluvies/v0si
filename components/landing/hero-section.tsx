@@ -9,7 +9,7 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden bg-base-100">
       {/* Imagen arriba — absolute para que se superponga con el contenido */}
-      <div className="absolute top-0 left-0 right-0 h-[55vh] z-[0]">
+      <div className="absolute top-0 left-0 right-0 h-[55vh] z-0">
         <Image
           src="/images/hero-energy.jpg"
           alt="Infraestructura eléctrica"
@@ -20,11 +20,11 @@ export default function HeroSection() {
         {/* Tint azul */}
         <div className="absolute inset-0 bg-primary/30 mix-blend-color" />
         {/* Fade inferior al fondo */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-base-100/10 to-base-100" />
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-base-100/10 to-base-100" />
       </div>
 
       {/* Contenido con wireframe mesh */}
-      <div className="relative flex-1 flex items-center z-[1]">
+      <div className="relative flex-1 flex items-center z-1">
         <WireframeMesh />
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 py-20">
           <div className="flex flex-col items-center max-w-4xl mx-auto text-center">
@@ -73,7 +73,7 @@ export default function HeroSection() {
       </div>
 
       {/* Logo cloud integrado en la parte inferior del hero */}
-      <div className="relative z-[2]">
+      <div className="relative z-2">
         <LogoCloud />
       </div>
     </section>
@@ -205,7 +205,7 @@ function WireframeMesh() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 z-[1] pointer-events-none"
+      className="absolute inset-0 z-1 pointer-events-none"
       style={{
         maskImage: 'linear-gradient(to bottom, transparent 30%, black 55%, transparent 95%)',
         WebkitMaskImage: 'linear-gradient(to bottom, transparent 30%, black 55%, transparent 95%)',

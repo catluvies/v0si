@@ -195,7 +195,7 @@ function ZigzagSection({ imageUrl, reverse = false, children }: ZigzagSectionPro
       />
 
       {/* Tint azul */}
-      <div className="absolute inset-0 z-[1] img-cool-tint" />
+      <div className="absolute inset-0 z-1 img-cool-tint" />
 
       {/* Gradiente direccional */}
       <div className={`absolute inset-0 z-10 ${reverse ? 'zigzag-fade-right' : 'zigzag-fade-left'}`} />
