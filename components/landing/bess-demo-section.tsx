@@ -1,5 +1,6 @@
 'use client'
 
+import { useId, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Fuel, Leaf, BatteryCharging, Activity } from 'lucide-react'
 
@@ -59,8 +60,8 @@ export default function BESSDemoSection() {
             Control Total de tu <span className="text-primary">Energía</span>
           </h2>
           <p className="text-base text-text-body leading-relaxed text-pretty">
-            Monitoreo del flujo energetico entre generacion solar,
-            almacenamiento en baterias y cargas de consumo en cada instalacion.
+            Monitoreo del flujo energético entre generación solar,
+            almacenamiento en baterías y cargas de consumo en cada instalación.
           </p>
         </motion.div>
 
@@ -86,7 +87,7 @@ export default function BESSDemoSection() {
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h3 className="text-sm font-bold text-text-heading">
-                  Flujo Energetico — Instalacion BESS
+                  Flujo Energético — Instalación BESS
                 </h3>
                 <p className="text-xs text-text-body mt-0.5">
                   Zona Norte · Chile
@@ -94,7 +95,7 @@ export default function BESSDemoSection() {
               </div>
               <div className="flex items-center gap-2 rounded bg-green-500/10 border border-green-500/20 px-3 py-1">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-xs text-green-500 font-medium">En linea</span>
+                <span className="text-xs text-green-500 font-medium">En línea</span>
               </div>
             </div>
             <EnergyFlowDiagram />
@@ -157,15 +158,47 @@ function FleetKpis() {
   )
 }
 
+type SvgIds = {
+  inverterGrad: string
+  glow: string
+  flowSolarInv: string
+  flowInvLoad: string
+  flowInvBat: string
+}
+
+function useReducedMotion() {
+  const [reduced, setReduced] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  })
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const handler = (e: MediaQueryListEvent) => setReduced(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+  return reduced
+}
+
 function EnergyFlowDiagram() {
+  const uid = useId()
+  const ids: SvgIds = {
+    inverterGrad: `inverterGrad${uid}`,
+    glow: `glow${uid}`,
+    flowSolarInv: `flowSolarInv${uid}`,
+    flowInvLoad: `flowInvLoad${uid}`,
+    flowInvBat: `flowInvBat${uid}`,
+  }
+  const reduceMotion = useReducedMotion()
+
   return (
-    <svg viewBox="0 0 800 380" className="w-full h-auto" aria-label="Diagrama de flujo energetico">
+    <svg viewBox="0 0 800 380" className="w-full h-auto" aria-label="Diagrama de flujo energético">
       <defs>
-        <linearGradient id="inverterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id={ids.inverterGrad} x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#3b82f6" />
           <stop offset="100%" stopColor="#2563eb" />
         </linearGradient>
-        <filter id="glow">
+        <filter id={ids.glow}>
           <feGaussianBlur stdDeviation="3" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
@@ -174,10 +207,10 @@ function EnergyFlowDiagram() {
         </filter>
       </defs>
       <SolarNode />
-      <InverterNode />
+      <InverterNode ids={ids} reduceMotion={reduceMotion} />
       <LoadsNode />
       <BatteryNode />
-      <FlowLines />
+      <FlowLines ids={ids} reduceMotion={reduceMotion} />
     </svg>
   )
 }
@@ -200,27 +233,29 @@ function SolarNode() {
         350 kW
       </text>
       <text x="90" y="118" textAnchor="middle" fill="rgba(14,165,233,0.45)" fontSize="10">
-        Generacion actual
+        Generación actual
       </text>
     </g>
   )
 }
 
-function InverterNode() {
+function InverterNode({ ids, reduceMotion }: { ids: SvgIds; reduceMotion: boolean }) {
   return (
     <g transform="translate(300, 40)">
       <rect width="200" height="170" rx="16"
-        fill="url(#inverterGrad)" filter="url(#glow)" />
+        fill={`url(#${ids.inverterGrad})`} filter={`url(#${ids.glow})`} />
       <g transform="translate(70, 30)">
         <path
           d="M0,25 Q15,0 30,25 Q45,50 60,25"
           fill="none" stroke="white" strokeWidth="3" strokeLinecap="round"
         >
-          <animate
-            attributeName="d"
-            values="M0,25 Q15,0 30,25 Q45,50 60,25;M0,25 Q15,50 30,25 Q45,0 60,25;M0,25 Q15,0 30,25 Q45,50 60,25"
-            dur="2s" repeatCount="indefinite"
-          />
+          {!reduceMotion && (
+            <animate
+              attributeName="d"
+              values="M0,25 Q15,0 30,25 Q45,50 60,25;M0,25 Q15,50 30,25 Q45,0 60,25;M0,25 Q15,0 30,25 Q45,50 60,25"
+              dur="2s" repeatCount="indefinite"
+            />
+          )}
         </path>
       </g>
       <text x="100" y="90" textAnchor="middle" fill="white" fontSize="15" fontWeight="700">
@@ -230,7 +265,9 @@ function InverterNode() {
         Operando
       </text>
       <circle cx="100" cy="145" r="4" fill="#22c55e">
-        <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
+        {!reduceMotion && (
+          <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
+        )}
       </circle>
     </g>
   )
@@ -271,44 +308,44 @@ function BatteryNode() {
         1,500 kWh
       </text>
       <text x="100" y="78" textAnchor="middle" fill="rgba(59,130,246,0.4)" fontSize="10">
-        Banco de Baterias
+        Banco de Baterías
       </text>
     </g>
   )
 }
 
-function FlowLines() {
+function FlowLines({ ids, reduceMotion }: { ids: SvgIds; reduceMotion: boolean }) {
   return (
     <>
       {/* Solar -> Inverter */}
-      <path id="flowSolarInv" d="M200,125 L300,125"
+      <path id={ids.flowSolarInv} d="M200,125 L300,125"
         fill="none" stroke="rgba(14,165,233,0.2)" strokeWidth="2" />
-      {[0, 1, 2].map(i => (
+      {!reduceMotion && [0, 1, 2].map(i => (
         <circle key={`si${i}`} r="4" fill="#0ea5e9" opacity="0.85">
           <animateMotion dur="1.5s" repeatCount="indefinite" begin={`${i * 0.5}s`}>
-            <mpath href="#flowSolarInv" />
+            <mpath href={`#${ids.flowSolarInv}`} />
           </animateMotion>
         </circle>
       ))}
 
       {/* Inverter -> Loads */}
-      <path id="flowInvLoad" d="M500,125 L600,125"
+      <path id={ids.flowInvLoad} d="M500,125 L600,125"
         fill="none" stroke="rgba(59,130,246,0.2)" strokeWidth="2" />
-      {[0, 1, 2].map(i => (
+      {!reduceMotion && [0, 1, 2].map(i => (
         <circle key={`il${i}`} r="4" fill="#3b82f6" opacity="0.85">
           <animateMotion dur="1.5s" repeatCount="indefinite" begin={`${i * 0.5}s`}>
-            <mpath href="#flowInvLoad" />
+            <mpath href={`#${ids.flowInvLoad}`} />
           </animateMotion>
         </circle>
       ))}
 
       {/* Inverter -> Battery */}
-      <path id="flowInvBat" d="M400,210 L400,270"
+      <path id={ids.flowInvBat} d="M400,210 L400,270"
         fill="none" stroke="rgba(59,130,246,0.2)" strokeWidth="2" />
-      {[0, 1].map(i => (
+      {!reduceMotion && [0, 1].map(i => (
         <circle key={`ib${i}`} r="3.5" fill="#3b82f6" opacity="0.85">
           <animateMotion dur="1.2s" repeatCount="indefinite" begin={`${i * 0.6}s`}>
-            <mpath href="#flowInvBat" />
+            <mpath href={`#${ids.flowInvBat}`} />
           </animateMotion>
         </circle>
       ))}

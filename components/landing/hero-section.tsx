@@ -68,8 +68,8 @@ export default function HeroSection() {
             </p>
           </motion.div>
 
+          </div>
         </div>
-      </div>
       </div>
 
       {/* Logo cloud integrado en la parte inferior del hero */}
@@ -113,6 +113,7 @@ function WireframeMesh() {
 
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     let animId = 0
+    let resizeRaf = 0
 
     function resize() {
       const dpr = window.devicePixelRatio || 1
@@ -188,10 +189,16 @@ function WireframeMesh() {
       animId = requestAnimationFrame(loop)
     }
 
-    window.addEventListener('resize', resize)
+    function debouncedResize() {
+      cancelAnimationFrame(resizeRaf)
+      resizeRaf = requestAnimationFrame(resize)
+    }
+
+    window.addEventListener('resize', debouncedResize)
     return () => {
       cancelAnimationFrame(animId)
-      window.removeEventListener('resize', resize)
+      cancelAnimationFrame(resizeRaf)
+      window.removeEventListener('resize', debouncedResize)
     }
   }, [])
 
