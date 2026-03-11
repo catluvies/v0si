@@ -113,26 +113,24 @@ export default function SolutionSection() {
             </div>
           </div>
 
-          {/* Features as separated cards */}
-          <div className="bg-base-200 rounded-xl p-6 lg:p-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: 0.2 + index * 0.06 }}
-                  className="rounded-xl border border-base-300 bg-base-100 p-4 flex flex-col gap-3 hover:border-primary/35 hover:bg-surface-hover transition-all duration-300"
-                >
-                  <div>
-                    <p className="text-xs font-semibold text-text-heading uppercase tracking-wide text-center">{feature.title}</p>
-                    <div className="w-8 h-px bg-primary mx-auto mt-2" />
-                  </div>
-                  <p className="text-[11px] text-text-body leading-relaxed text-justify">{feature.description}</p>
-                </motion.div>
-              ))}
-            </div>
+          {/* Features */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: 0.2 + index * 0.06 }}
+                className="rounded-xl border border-base-300 bg-base-200 p-4 flex flex-col gap-3 hover:border-primary/35 transition-all duration-300"
+              >
+                <div>
+                  <p className="font-display text-xs font-semibold text-text-heading uppercase tracking-wide text-center">{feature.title}</p>
+                  <div className="w-8 h-px bg-primary mx-auto mt-2" />
+                </div>
+                <p className="text-[11px] text-text-body leading-relaxed text-justify">{feature.description}</p>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Users, Rocket, Cpu, MapPin } from 'lucide-react'
+import { Mail, Users, Rocket, Cpu } from 'lucide-react'
 
 const selloValues = [
   {
@@ -24,12 +24,6 @@ const selloValues = [
   },
 ]
 
-const projectCases = [
-  { name: 'Alcaldía de Mar Timbales', location: 'Canal Beagle', description: 'Turbina hídrica + baterías litio.' },
-  { name: 'Alcaldía de Mar Corrientes', location: 'Canal Murray', description: 'Aerogenerador eólico + baterías litio.' },
-  { name: 'Hospital Salamanca', location: 'Coquimbo', description: 'ENEFISYS BESS en sector salud.' },
-  { name: 'Faro Concordia', location: 'Arica', description: 'Planta solar + baterías litio + generadores. Proyecto más reciente (oct 2024).' },
-]
 
 export default function AboutSection() {
   return (
@@ -99,7 +93,7 @@ export default function AboutSection() {
             transition={{ duration: 0.5 }}
             className="text-center max-w-2xl mx-auto mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text-heading text-balance mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-text-heading text-balance mb-4">
               NUESTRO <span className="text-primary">SELLO</span>
             </h2>
           </motion.div>
@@ -159,47 +153,6 @@ export default function AboutSection() {
         </a>
       </ZigzagSection>
 
-      {/* Presencia Nacional */}
-      <section className="bg-base-100 py-20 lg:py-28">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center max-w-2xl mx-auto mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text-heading text-balance mb-4">
-              PRESENCIA <span className="text-primary">NACIONAL</span>
-            </h2>
-            <p className="text-base text-text-body leading-relaxed text-pretty">
-              Con 31 proyectos completados entre 2017 y 2024, Lambda Ingenieros opera desde Arica
-              hasta el Cabo de Hornos, en alianza público-privada con{' '}
-              <strong className="text-text-emphasis">ASMAR Magallanes</strong>, el astillero más
-              austral del mundo.
-            </p>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {projectCases.map((project, index) => (
-              <motion.div
-                key={project.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="rounded-xl border border-base-300 bg-base-200 p-6 hover:border-primary/35 transition-all duration-300"
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <MapPin className="w-4 h-4 text-primary shrink-0" />
-                  <span className="text-xs text-text-muted">{project.location}</span>
-                </div>
-                <h3 className="text-sm font-semibold text-text-heading mb-2">{project.name}</h3>
-                <p className="text-sm text-text-body leading-relaxed text-justify">{project.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   )
 }
