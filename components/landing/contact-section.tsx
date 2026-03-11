@@ -34,34 +34,35 @@ export default function ContactSection() {
             <form className="rounded-xl border border-base-300 bg-base-200 p-6 lg:p-8 flex flex-col gap-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-text-heading">Nombre</label>
-                  <input type="text" placeholder="Tu nombre" className="input input-bordered w-full" />
+                  <label htmlFor="contact-nombre" className="text-sm font-medium text-text-heading">Nombre</label>
+                  <input id="contact-nombre" type="text" placeholder="Tu nombre" className="input input-bordered w-full" />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-text-heading">Apellido</label>
-                  <input type="text" placeholder="Tu apellido" className="input input-bordered w-full" />
+                  <label htmlFor="contact-apellido" className="text-sm font-medium text-text-heading">Apellido</label>
+                  <input id="contact-apellido" type="text" placeholder="Tu apellido" className="input input-bordered w-full" />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-text-heading">Email</label>
-                  <input type="email" placeholder="tu@empresa.cl" className="input input-bordered w-full" />
+                  <label htmlFor="contact-email" className="text-sm font-medium text-text-heading">Email</label>
+                  <input id="contact-email" type="email" placeholder="tu@empresa.cl" className="input input-bordered w-full" />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-text-heading">Teléfono</label>
-                  <input type="tel" placeholder="+56 9 1234 5678" className="input input-bordered w-full" />
+                  <label htmlFor="contact-telefono" className="text-sm font-medium text-text-heading">Teléfono</label>
+                  <input id="contact-telefono" type="tel" placeholder="+56 9 1234 5678" className="input input-bordered w-full" />
                 </div>
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium text-text-heading">Asunto</label>
-                <input type="text" placeholder="Motivo de tu consulta" className="input input-bordered w-full" />
+                <label htmlFor="contact-asunto" className="text-sm font-medium text-text-heading">Asunto</label>
+                <input id="contact-asunto" type="text" placeholder="Motivo de tu consulta" className="input input-bordered w-full" />
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium text-text-heading">Mensaje</label>
+                <label htmlFor="contact-mensaje" className="text-sm font-medium text-text-heading">Mensaje</label>
                 <textarea
+                  id="contact-mensaje"
                   placeholder="Describe tu proyecto o necesidad energética..."
                   rows={5}
                   className="textarea textarea-bordered w-full resize-none"

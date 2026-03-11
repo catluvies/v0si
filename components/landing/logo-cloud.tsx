@@ -14,9 +14,9 @@ export default function LogoCloud() {
     <section className="relative py-8 lg:py-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
-        <p className="font-display text-sm font-semibold tracking-widest uppercase text-text-muted text-center mb-8">
+        <h2 className="font-display text-sm font-semibold tracking-widest uppercase text-text-muted text-center mb-8">
           Nuestros Socios de Confianza
-        </p>
+        </h2>
 
         {/* Marquee */}
         <div className="relative">
@@ -37,7 +37,7 @@ export default function LogoCloud() {
                     <div className="h-16 sm:h-20 lg:h-24 flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                       <Image
                         src={client.src}
-                        alt={copy === 0 ? client.name : ''}
+                        alt=""
                         width={240}
                         height={96}
                         className="object-contain max-h-full w-auto"

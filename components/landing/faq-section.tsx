@@ -65,6 +65,8 @@ export default function FAQSection() {
         <div className="max-w-3xl mx-auto divide-y divide-base-300">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index
+            const buttonId = `faq-button-${index}`
+            const panelId = `faq-panel-${index}`
 
             return (
               <motion.div
@@ -75,7 +77,10 @@ export default function FAQSection() {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
               >
                 <button
+                  id={buttonId}
                   type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
                   onClick={() => toggle(index)}
                   className="w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer group"
                 >
@@ -91,6 +96,10 @@ export default function FAQSection() {
                   />
                 </button>
                 <div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
+                  aria-hidden={!isOpen}
                   className="grid transition-[grid-template-rows] duration-200"
                   style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
                 >

@@ -43,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" data-theme="dark" className={`${dmSans.variable} ${montserrat.variable} scroll-smooth`}>
+    <html lang="es" data-theme="dark" className={`${dmSans.variable} ${montserrat.variable} motion-safe:scroll-smooth`}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />
