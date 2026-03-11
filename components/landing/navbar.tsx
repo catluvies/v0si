@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sun, Moon } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
@@ -60,29 +60,12 @@ function MobileMenu({ open, onClose }: MobileMenuProps) {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [isDark, setIsDark] = useState(true)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      const theme = document.documentElement.getAttribute('data-theme')
-      setIsDark(theme === 'dark')
-    })
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
-    return () => observer.disconnect()
-  }, [])
-
-  function toggleTheme() {
-    const next = isDark ? 'light' : 'dark'
-    document.documentElement.setAttribute('data-theme', next)
-    document.documentElement.classList.toggle('dark', next === 'dark')
-    setIsDark(!isDark)
-  }
 
   return (
     <header
@@ -95,10 +78,10 @@ export default function Navbar() {
       <div className="navbar-start">
         <Link href="/" className="flex items-center">
           <Image
-            src="/images/lambda-logo.svg"
+            src="/images/lambdalogo-solo.svg"
             alt="Lambda Ingenieros"
-            width={68}
-            height={80}
+            width={38}
+            height={44}
             className="h-12 sm:h-14 lg:h-16 w-auto object-contain"
             priority
           />
@@ -121,15 +104,7 @@ export default function Navbar() {
       </nav>
 
       <div className="navbar-end gap-2">
-        <button
-          onClick={toggleTheme}
-          className="btn btn-ghost btn-circle btn-sm"
-          aria-label="Cambiar tema"
-        >
-          {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-        </button>
-
-        <Link href="/contacto" className="btn btn-ghost border border-base-300 hover:border-primary/35 hidden lg:inline-flex">
+        <Link href="/contacto" className="btn btn-primary hidden lg:inline-flex">
           Iniciar sesión
         </Link>
 

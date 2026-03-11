@@ -20,16 +20,16 @@ export default function Footer() {
   return (
     <footer className="border-t border-base-300 bg-base-100">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[auto_1fr_1fr_1fr] gap-x-16 gap-y-12 items-start">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1 flex items-start">
             <Link href="/" className="block">
               <Image
-                src="/images/lambda-logoletra.svg"
+                src="/images/lambdalogo.svg"
                 alt="Lambda Ingenieros"
-                width={240}
-                height={120}
-                className="w-full max-w-[180px] h-auto object-contain"
+                width={190}
+                height={168}
+                className="h-auto object-contain"
               />
             </Link>
           </div>
