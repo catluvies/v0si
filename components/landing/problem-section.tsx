@@ -1,33 +1,34 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { TrendingDown, Clock, DollarSign } from 'lucide-react'
 
-const impacts = [
+const problems = [
   {
-    icon: TrendingDown,
-    title: 'Pérdidas de Eficiencia',
+    title: 'Sin Visibilidad',
     description:
-      'El consumo descontrolado genera sobrecostos evitables. Sin visibilidad del sistema, cada mes se pierden recursos que podrían reinvertirse en el negocio.',
+      'Muchas empresas desconocen cómo utilizan realmente su energía. Sin datos en tiempo real, es imposible optimizar el consumo o detectar anomalías.',
   },
   {
-    icon: Clock,
+    title: 'Pérdidas de Eficiencia',
+    description:
+      'El consumo descontrolado genera sobrecostos evitables. Sin visibilidad del sistema, cada mes se pierden recursos que podrían reinvertirse.',
+  },
+  {
     title: 'Tiempo de Respuesta',
     description:
       'Las fallas eléctricas sin monitoreo se detectan tarde. Cada hora sin respuesta significa pérdidas operacionales y riesgo para los equipos.',
   },
   {
-    icon: DollarSign,
     title: 'Costos Operativos',
     description:
-      'La falta de datos precisos impide negociar mejores tarifas eléctricas y tomar decisiones de inversión fundamentadas en eficiencia energética.',
+      'La falta de datos precisos impide negociar mejores tarifas y tomar decisiones de inversión fundamentadas en el uso real de la energía.',
   },
 ]
 
 export default function ProblemSection() {
   return (
     <section id="problem" className="py-20 lg:py-28">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col gap-16">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col gap-10">
 
         {/* Header centrado */}
         <motion.div
@@ -41,53 +42,24 @@ export default function ProblemSection() {
             El Problema que <span className="text-primary">Abordamos</span>
           </h2>
           <p className="text-base text-text-body leading-relaxed text-pretty">
-            Las constantes alzas de tarifas eléctricas han impactado negativamente los costos
-            de empresas, industrias, instituciones y condominios. Sin un sistema de monitoreo
-            adecuado, se generan pérdidas importantes por uso ineficiente de la energía.
+            La falta de visibilidad energética genera pérdidas evitables.
           </p>
         </motion.div>
 
-        {/* Tarjeta situación actual — full width */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="rounded-xl border border-base-300 bg-base-200 border-l-2 border-l-primary p-8 lg:p-10"
-        >
-          <h3 className="text-xl font-bold text-text-heading mb-4 text-balance">
-            La Falta de Visibilidad y Control Energético
-          </h3>
-          <p className="text-sm text-text-body leading-relaxed text-justify mb-4">
-            Muchas empresas e instituciones desconocen cómo están utilizando realmente su energía.
-            Sin datos precisos y análisis en tiempo real, es imposible optimizar el consumo,
-            detectar anomalías o tomar decisiones informadas sobre eficiencia energética.
-          </p>
-          <p className="text-sm text-text-body leading-relaxed text-justify">
-            Instalar paneles solares sin antes corregir la eficiencia en el uso de la energía
-            existente es un error frecuente. El monitoreo y análisis son fundamentales para
-            cualquier estrategia energética exitosa.
-          </p>
-        </motion.div>
-
-        {/* Impact cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {impacts.map((item, index) => (
+        {/* Grid 2x2 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {problems.map((item, index) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="rounded-xl border border-base-300 bg-base-200 p-6 flex flex-col items-center gap-4 hover:border-primary/35 transition-all duration-300"
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="rounded-xl border border-base-300 bg-base-200 p-6 flex flex-col hover:border-primary/35 transition-all duration-300"
             >
-              <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
-                <item.icon className="w-4 h-4 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-base font-semibold text-text-heading mb-1.5 text-center">{item.title}</h3>
-                <p className="text-sm text-text-body leading-relaxed text-justify">{item.description}</p>
-              </div>
+              <h3 className="font-display text-sm font-bold text-text-heading uppercase tracking-wide mb-2">{item.title}</h3>
+              <div className="w-8 h-px bg-primary mb-3" />
+              <p className="text-sm text-text-body leading-relaxed text-justify">{item.description}</p>
             </motion.div>
           ))}
         </div>
