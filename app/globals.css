@@ -1,24 +1,23 @@
 @import 'tailwindcss';
 
 @plugin "daisyui" {
-  themes: light --default, dark --prefersDark;
+  themes: dark;
 }
 
 @custom-variant dark (&:is(.dark *, [data-theme="dark"] *));
 
 @theme inline {
   --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
-  --font-display: var(--font-outfit), 'Outfit', system-ui, sans-serif;
-  --font-mono: var(--font-dm-mono), 'DM Mono', monospace;
+  --font-display: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
 
-  /* Text scale — defaults registered here, overridden per theme below */
+  /* Text scale */
   --color-text-heading: #ffffff;
-  --color-text-emphasis: #d4d4d8;
-  --color-text-body: #a1a1aa;
-  --color-text-muted: #71717a;
+  --color-text-emphasis: #cdd5dc;
+  --color-text-body: #94a0b0;
+  --color-text-muted: #68748a;
 
   /* Surface hover */
-  --color-surface-hover: #171717;
+  --color-surface-hover: #141720;
 
   /* Blue accent palette */
   --color-blue-50:  #eff6ff;
@@ -33,26 +32,12 @@
   --color-blue-900: #1e3a8a;
 }
 
-/* DaisyUI primary override — blue */
+/* DaisyUI color overrides */
 [data-theme="dark"] {
   --color-base-100: #000000;
-  --color-base-200: #0A0A0A;
-  --color-base-300: #262626;
-  --color-text-heading: #ffffff;
-  --color-text-emphasis: #d4d4d8;
-  --color-text-body: #a1a1aa;
-  --color-text-muted: #71717a;
-  --color-surface-hover: #171717;
-  --color-primary: oklch(62.3% 0.214 259.1);
-  --color-primary-content: oklch(98% 0.01 260);
-}
-[data-theme="light"] {
-  --color-text-heading: #18181b;
-  --color-text-emphasis: #3f3f46;
-  --color-text-body: #52525b;
-  --color-text-muted: #a1a1aa;
-  --color-surface-hover: #f4f4f5;
-  --color-primary: oklch(54.6% 0.245 262.88);
+  --color-base-200: #0a0b0e;
+  --color-base-300: #1e2128;
+  --color-primary: oklch(63% 0.107 255);
   --color-primary-content: oklch(98% 0.01 260);
 }
 
@@ -112,7 +97,7 @@
 .img-cool-tint {
   background-color: var(--color-primary);
   mix-blend-mode: color;
-  opacity: 0.3;
+  opacity: 0.15;
   pointer-events: none;
   transition: opacity 0.5s ease;
 }
@@ -180,14 +165,14 @@
   animation: border-spin 3s linear infinite;
 }
 
-/* Custom scrollbar for dark mode */
-[data-theme="dark"] ::-webkit-scrollbar {
+/* Custom scrollbar */
+::-webkit-scrollbar {
   width: 8px;
 }
-[data-theme="dark"] ::-webkit-scrollbar-track {
-  background: #1a1d23;
+::-webkit-scrollbar-track {
+  background: #141720;
 }
-[data-theme="dark"] ::-webkit-scrollbar-thumb {
-  background: #2a2d35;
+::-webkit-scrollbar-thumb {
+  background: #232836;
   border-radius: 4px;
 }
