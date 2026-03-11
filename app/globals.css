@@ -106,7 +106,7 @@
   opacity: 0;
 }
 
-/* Zigzag fade: texto izquierda, imagen asoma por derecha */
+/* Zigzag fade: text left, image peeks from right */
 .zigzag-fade-left {
   background: linear-gradient(
     to right,
@@ -120,7 +120,7 @@
   );
 }
 
-/* Zigzag fade: texto derecha, imagen asoma por izquierda */
+/* Zigzag fade: text right, image peeks from left */
 .zigzag-fade-right {
   background: linear-gradient(
     to left,
@@ -134,7 +134,7 @@
   );
 }
 
-/* Mobile: gradiente vertical (imagen arriba, texto abajo) */
+/* Mobile: vertical gradient (image top, text bottom) */
 @media (max-width: 767px) {
   .zigzag-fade-left,
   .zigzag-fade-right {
