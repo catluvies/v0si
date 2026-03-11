@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 
 const clients = [
@@ -9,10 +11,10 @@ const clients = [
 
 export default function LogoCloud() {
   return (
-    <section className="relative py-14 lg:py-20 overflow-hidden">
+    <section className="relative py-8 lg:py-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
-        <p className="text-sm font-semibold tracking-widest uppercase text-text-muted text-center mb-8">
+        <p className="font-display text-sm font-semibold tracking-widest uppercase text-text-muted text-center mb-8">
           Nuestros Socios de Confianza
         </p>
 

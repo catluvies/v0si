@@ -3,7 +3,7 @@
 import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Briefcase, Clock, Activity } from 'lucide-react'
+import LogoCloud from './logo-cloud'
 
 export default function HeroSection() {
   return (
@@ -20,7 +20,7 @@ export default function HeroSection() {
         {/* Tint azul */}
         <div className="absolute inset-0 bg-primary/30 mix-blend-color" />
         {/* Fade inferior al fondo */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-base-100/30 to-base-100" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-base-100/10 to-base-100" />
       </div>
 
       {/* Contenido con wireframe mesh */}
@@ -35,8 +35,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-[-0.02em] text-text-heading text-balance"
           >
-            Mejorando la{' '}
-            <span className="text-primary">Eficiencia Energética</span>
+            Tecnología <span className="text-primary">Made in Chile</span>
           </motion.h1>
 
           <motion.div
@@ -46,11 +45,10 @@ export default function HeroSection() {
             className="mt-7 max-w-2xl space-y-2"
           >
             <p className="text-xl text-text-heading font-medium leading-snug">
-              Especialistas en proyectos eléctricos y eficiencia energética.
+              Diseñamos y fabricamos soluciones eléctricas inteligentes en Chile, con monitoreo y control de desarrollo propio.
             </p>
             <p className="text-base text-text-muted leading-relaxed">
-              Desarrollamos tecnología Made in Chile para la gestión inteligente
-              de sistemas fotovoltaicos.
+              Más de 20 años creando sistemas que operan en los entornos más extremos del país.
             </p>
           </motion.div>
 
@@ -60,22 +58,10 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="mt-8 w-full"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
-              <StatCard
-                icon={<Briefcase className="w-5 h-5" />}
-                value="31"
-                label="Proyectos Completados"
-              />
-              <StatCard
-                icon={<Clock className="w-5 h-5" />}
-                value="20+"
-                label="Años de Experiencia"
-              />
-              <StatCard
-                icon={<Activity className="w-5 h-5" />}
-                value="24/7"
-                label="Monitoreo Continuo"
-              />
+            <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
+              <StatCard value="31" label="Proyectos Completados" />
+              <StatCard value="20+" label="Años de Experiencia" />
+              <StatCard value="24/7" label="Monitoreo Continuo" />
             </div>
             <p className="mt-4 text-xs text-text-muted italic">
               * Datos acumulados desde 2004
@@ -85,34 +71,33 @@ export default function HeroSection() {
         </div>
       </div>
       </div>
+
+      {/* Logo cloud integrado en la parte inferior del hero */}
+      <div className="relative z-[2]">
+        <LogoCloud />
+      </div>
     </section>
   )
 }
 
 type StatCardProps = {
-  icon: React.ReactNode
   value: string
   label: string
 }
 
-function StatCard({ icon, value, label }: StatCardProps) {
+function StatCard({ value, label }: StatCardProps) {
   return (
-    <div className="flex items-center gap-4 rounded-xl bg-base-200/80 backdrop-blur-sm border border-base-300 px-6 py-5 hover:border-primary/30 transition-all duration-300">
-      <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0">
-        {icon}
-      </div>
-      <div>
-        <p className="text-2xl font-bold text-text-heading tracking-tight leading-none">{value}</p>
-        <p className="text-sm text-text-muted mt-1">{label}</p>
-      </div>
+    <div className="rounded-xl bg-base-200/80 backdrop-blur-sm border border-base-300 px-4 py-4 text-center hover:border-primary/30 transition-all duration-300">
+      <p className="font-display text-2xl font-bold text-text-heading tracking-tight leading-none">{value}</p>
+      <p className="text-xs text-text-muted mt-1.5">{label}</p>
     </div>
   )
 }
 
 const COLS = 45
 const ROWS = 22
-const LINE_COLOR = 'rgba(59, 130, 246, 0.18)'
-const DOT_COLOR_BASE = [59, 130, 246]
+const LINE_COLOR = 'rgba(90, 142, 200, 0.18)'
+const DOT_COLOR_BASE = [90, 142, 200]
 const WAVE_SPEED = 0.0009
 const WAVE_AMP = 14
 

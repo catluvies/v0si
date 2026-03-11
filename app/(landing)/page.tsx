@@ -1,5 +1,4 @@
 import HeroSection from '@/components/landing/hero-section'
-import LogoCloud from '@/components/landing/logo-cloud'
 import ProblemSection from '@/components/landing/problem-section'
 import ProductsSection from '@/components/landing/products-section'
 import SolutionSection from '@/components/landing/solution-section'
@@ -10,7 +9,6 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <LogoCloud />
       <ProblemSection />
       <ProductsSection />
       <SolutionSection />
