@@ -14,7 +14,7 @@ export default function HeroSection() {
           src="/images/hero-energy.jpg"
           alt="Infraestructura eléctrica"
           fill
-          className="object-cover object-bottom grayscale brightness-[0.25]"
+          className="object-cover object-bottom grayscale brightness-[0.35]"
           priority
         />
         {/* Tint azul */}
@@ -44,11 +44,8 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-7 max-w-2xl space-y-2"
           >
-            <p className="text-xl text-text-heading font-medium leading-snug">
-              Diseñamos y fabricamos soluciones eléctricas inteligentes en Chile, con monitoreo y control de desarrollo propio.
-            </p>
-            <p className="text-base text-text-muted leading-relaxed">
-              Más de 20 años creando sistemas que operan en los entornos más extremos del país.
+            <p className="text-lg text-text-body leading-relaxed">
+              Soluciones eléctricas inteligentes con monitoreo y control de desarrollo propio.
             </p>
           </motion.div>
 
@@ -58,7 +55,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="mt-8 w-full"
           >
-            <div className="grid grid-cols-3 gap-4 max-w-xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl mx-auto">
               <StatCard value="31" label="Proyectos Completados" />
               <StatCard value="20+" label="Años de Experiencia" />
               <StatCard value="24/7" label="Monitoreo Continuo" />
@@ -96,8 +93,8 @@ function StatCard({ value, label }: StatCardProps) {
 
 const COLS = 45
 const ROWS = 22
-const LINE_COLOR = 'rgba(90, 142, 200, 0.18)'
-const DOT_COLOR_BASE = [90, 142, 200]
+const LINE_COLOR = 'rgba(91, 135, 180, 0.18)'
+const DOT_COLOR_BASE = [91, 135, 180]
 const WAVE_SPEED = 0.0009
 const WAVE_AMP = 14
 

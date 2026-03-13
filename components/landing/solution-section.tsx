@@ -75,7 +75,7 @@ export default function SolutionSection() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="overflow-hidden"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 mb-12">
             {/* Left: text */}
             <div className="rounded-xl border border-base-300 bg-base-200 border-l-2 border-l-primary p-6 flex flex-col justify-center">
               <p className="text-sm text-text-body leading-relaxed text-justify mb-4">

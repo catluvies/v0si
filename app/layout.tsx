@@ -20,15 +20,7 @@ export const metadata: Metadata = {
   title: 'Lambda Ingenieros | Monitoreo Fotovoltaico Inteligente',
   description:
     'Plataforma de monitoreo en tiempo real para sistemas solares fotovoltaicos. Visualiza, analiza y optimiza tu generacion de energia con Lambda Ingenieros.',
-  generator: 'v0.app',
   keywords: ['solar', 'fotovoltaico', 'monitoreo', 'dashboard', 'energia', 'Chile', 'Lambda Ingenieros'],
-  icons: {
-    icon: [
-      { url: '/icon-dark-32x32.png' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
-    ],
-    apple: '/apple-icon.png',
-  },
 }
 
 export const viewport: Viewport = {
