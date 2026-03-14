@@ -1,17 +1,21 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
   { href: '/nosotros', label: 'Nosotros' },
-  { href: '/solucion', label: 'Nuestra Solución' },
   { href: '/contacto', label: 'Contacto' },
-  { href: '/#faq', label: 'FAQ' },
+]
+
+const productLinks = [
+  { href: '/productos/enefisys', label: 'ENEFISYS®' },
+  { href: '/productos/enebomb', label: 'ENEBOMB®' },
+  { href: '/productos/eneplus', label: 'ENEPLUS' },
 ]
 
 type MobileMenuProps = {
@@ -20,6 +24,8 @@ type MobileMenuProps = {
 }
 
 function MobileMenu({ open, onClose }: MobileMenuProps) {
+  const [productsOpen, setProductsOpen] = useState(false)
+
   useEffect(() => {
     if (!open) return
     const handleEscape = (e: KeyboardEvent) => {
@@ -39,7 +45,7 @@ function MobileMenu({ open, onClose }: MobileMenuProps) {
           className="absolute top-full left-0 right-0 bg-base-100/95 backdrop-blur-xl border-b border-base-300 p-4 lg:hidden"
         >
           <ul className="menu gap-1">
-            {navLinks.map((link) => (
+            {navLinks.slice(0, 2).map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
@@ -50,6 +56,42 @@ function MobileMenu({ open, onClose }: MobileMenuProps) {
                 </Link>
               </li>
             ))}
+            <li>
+              <button
+                className="rounded-lg text-text-body hover:text-text-heading flex items-center justify-between w-full"
+                onClick={() => setProductsOpen(!productsOpen)}
+              >
+                Productos y Servicios
+                <ChevronDown className={`w-4 h-4 transition-transform ${productsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              <AnimatePresence>
+                {productsOpen && (
+                  <motion.ul
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="menu gap-1 pl-4"
+                  >
+                    {productLinks.map((link) => (
+                      <li key={link.href}>
+                        <Link href={link.href} className="rounded-lg text-text-body hover:text-text-heading" onClick={onClose}>
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </motion.ul>
+                )}
+              </AnimatePresence>
+            </li>
+            <li>
+              <Link
+                href="/contacto"
+                className="rounded-lg text-text-body hover:text-text-heading"
+                onClick={onClose}
+              >
+                Contacto
+              </Link>
+            </li>
             <li>
               <Link
                 href="/contacto"
@@ -63,6 +105,61 @@ function MobileMenu({ open, onClose }: MobileMenuProps) {
         </motion.div>
       )}
     </AnimatePresence>
+  )
+}
+
+function ProductsDropdown() {
+  const [open, setOpen] = useState(false)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null)
+
+  function handleEnter() {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    setOpen(true)
+  }
+
+  function handleLeave() {
+    timeoutRef.current = setTimeout(() => setOpen(false), 150)
+  }
+
+  return (
+    <li
+      className="relative"
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
+      <button
+        className="rounded-lg text-text-body hover:text-text-heading hover:bg-surface-hover transition-colors font-medium flex items-center gap-1"
+        onClick={() => setOpen(!open)}
+      >
+        Productos y Servicios
+        <ChevronDown className={`w-3.5 h-3.5 transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 4 }}
+            transition={{ duration: 0.15 }}
+            className="absolute top-full left-0 mt-1 w-56 rounded-xl bg-base-100/95 backdrop-blur-xl shadow-lg overflow-hidden"
+          >
+            <ul className="menu gap-0.5 p-2">
+              {productLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="rounded-lg text-text-body hover:text-text-heading hover:bg-surface-hover text-sm"
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </li>
   )
 }
 
@@ -99,7 +196,7 @@ export default function Navbar() {
 
       <nav className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal gap-1 px-1 text-base">
-          {navLinks.map((link) => (
+          {navLinks.slice(0, 2).map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
@@ -109,6 +206,15 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
+          <ProductsDropdown />
+          <li>
+            <Link
+              href="/contacto"
+              className="rounded-lg text-text-body hover:text-text-heading hover:bg-surface-hover transition-colors font-medium"
+            >
+              Contacto
+            </Link>
+          </li>
         </ul>
       </nav>
 
