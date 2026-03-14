@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import AboutSection from '@/components/landing/about-section'
+import VideosSection from '@/components/landing/videos-section'
 
 export const metadata: Metadata = {
   title: 'Quiénes Somos | Lambda Ingenieros',
@@ -7,5 +8,10 @@ export const metadata: Metadata = {
 }
 
 export default function NosotrosPage() {
-  return <AboutSection />
+  return (
+    <>
+      <AboutSection />
+      <VideosSection />
+    </>
+  )
 }
