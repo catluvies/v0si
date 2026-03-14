@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { DM_Sans, DM_Mono, Outfit } from 'next/font/google'
+import { DM_Sans, Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -9,41 +9,22 @@ const dmSans = DM_Sans({
   display: 'swap',
 })
 
-const dmMono = DM_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-dm-mono',
-  display: 'swap',
-})
-
-const outfit = Outfit({
+const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['700', '800', '900'],
-  variable: '--font-outfit',
+  variable: '--font-montserrat',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Lambda Solar Dashboard | Monitoreo Fotovoltaico Inteligente',
+  title: 'Lambda Ingenieros | Monitoreo Fotovoltaico Inteligente',
   description:
     'Plataforma de monitoreo en tiempo real para sistemas solares fotovoltaicos. Visualiza, analiza y optimiza tu generacion de energia con Lambda Ingenieros.',
-  generator: 'v0.app',
   keywords: ['solar', 'fotovoltaico', 'monitoreo', 'dashboard', 'energia', 'Chile', 'Lambda Ingenieros'],
-  icons: {
-    icon: [
-      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
-    ],
-    apple: '/apple-icon.png',
-  },
 }
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f9fafb' },
-    { media: '(prefers-color-scheme: dark)', color: '#0f1114' },
-  ],
+  themeColor: '#000000',
   width: 'device-width',
   initialScale: 1,
 }
@@ -54,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" data-theme="dark" className={`${dmSans.variable} ${dmMono.variable} ${outfit.variable}`}>
+    <html lang="es" data-theme="dark" className={`${dmSans.variable} ${montserrat.variable} motion-safe:scroll-smooth`}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />

@@ -1,106 +1,211 @@
 'use client'
 
+import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { BarChart3, Zap, Activity } from 'lucide-react'
 import Image from 'next/image'
+import LogoCloud from './logo-cloud'
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Imagen de fondo con overlay */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative min-h-screen flex flex-col overflow-hidden bg-base-100">
+      {/* Imagen arriba — absolute para que se superponga con el contenido */}
+      <div className="absolute top-0 left-0 right-0 h-[55vh] z-0">
         <Image
-          src="/images/hero-solar.jpg"
-          alt="Paneles solares en instalación fotovoltaica"
+          src="/images/hero-energy-new.jpg"
+          alt="Infraestructura eléctrica"
           fill
-          className="object-cover"
+          className="object-cover object-bottom brightness-[0.35]"
           priority
         />
-        <div className="absolute inset-0 bg-linear-to-r from-base-100/80 via-base-100/70 to-base-100/35" />
+        <div className="absolute inset-0 bg-primary/25 mix-blend-color" />
+        {/* Fade inferior al fondo */}
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-base-100/10 to-base-100" />
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-96 z-5 bg-linear-to-t from-base-100 via-base-100/80 via-40% to-transparent pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 pt-40 pb-28">
-        <div className="flex flex-col items-start max-w-4xl">
+      {/* Contenido con wireframe mesh */}
+      <div className="relative flex-1 flex items-center z-1">
+        <WireframeMesh />
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 py-20">
+          <div className="flex flex-col items-center max-w-4xl mx-auto text-center">
 
-          {/* Badge */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-[-0.02em] text-base-content text-balance"
+            className="font-display text-5xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-[-0.02em] text-text-heading text-balance"
           >
-            Más de 20 Años Mejorando la{' '}
-            <span className="text-primary">Eficiencia Energética</span>
+            Tecnología <span className="text-primary">Made in Chile</span>
           </motion.h1>
 
-          {/* Párrafo */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-7 max-w-2xl space-y-2"
           >
-            <p className="text-xl text-base-content/80 font-medium leading-snug">
-              Especialistas en proyectos eléctricos y eficiencia energética.
-            </p>
-            <p className="text-base text-base-content/50 leading-relaxed">
-              Desarrollamos tecnología Made in Chile para la gestión inteligente
-              de sistemas fotovoltaicos.
+            <p className="text-lg text-text-body leading-relaxed">
+              Soluciones eléctricas inteligentes con monitoreo y control de desarrollo propio.
             </p>
           </motion.div>
 
-          {/* Stat cards */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
             className="mt-8 w-full"
           >
-            <div className="flex flex-col sm:flex-row gap-4">
-              <StatCard
-                icon={<BarChart3 className="w-5 h-5" />}
-                value="3,203"
-                label="Lecturas del Sistema"
-              />
-              <StatCard
-                icon={<Zap className="w-5 h-5" />}
-                value="4"
-                label="Trackers Solares"
-              />
-              <StatCard
-                icon={<Activity className="w-5 h-5" />}
-                value="24/7"
-                label="Monitoreo Continuo"
-              />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl mx-auto">
+              <StatCard value="31" label="Proyectos Completados" />
+              <StatCard value="20+" label="Años de Experiencia" />
+              <StatCard value="24/7" label="Monitoreo Continuo" />
             </div>
-            <p className="mt-4 text-xs text-base-content/35 italic">
-              * Datos actualizados a diciembre de 2024
+            <p className="mt-4 text-xs text-text-muted italic">
+              * Datos acumulados desde 2004
             </p>
           </motion.div>
 
+          </div>
         </div>
+      </div>
+
+      {/* Logo cloud integrado en la parte inferior del hero */}
+      <div className="relative z-2">
+        <LogoCloud />
       </div>
     </section>
   )
 }
 
 type StatCardProps = {
-  icon: React.ReactNode
   value: string
   label: string
 }
 
-function StatCard({ icon, value, label }: StatCardProps) {
+function StatCard({ value, label }: StatCardProps) {
   return (
-    <div className="flex items-center gap-4 rounded-xl bg-base-content/5 backdrop-blur-sm border border-base-content/10 px-6 py-5 hover:bg-base-content/10 transition-colors">
-      <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
-        {icon}
-      </div>
-      <div>
-        <p className="text-2xl font-bold text-base-content tracking-tight leading-none">{value}</p>
-        <p className="text-sm text-base-content/50 mt-1">{label}</p>
-      </div>
+    <div className="rounded-xl bg-base-200/80 backdrop-blur-sm border border-base-300 px-4 py-4 text-center hover:border-primary/30 transition-all duration-300">
+      <p className="font-display text-2xl font-bold text-text-heading tracking-tight leading-none">{value}</p>
+      <p className="text-xs text-text-muted mt-1.5">{label}</p>
     </div>
+  )
+}
+
+const COLS = 45
+const ROWS = 22
+const LINE_COLOR = 'rgba(91, 135, 180, 0.18)'
+const DOT_COLOR_BASE = [91, 135, 180]
+const WAVE_SPEED = 0.0009
+const WAVE_AMP = 14
+
+function WireframeMesh() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    let animId = 0
+    let resizeRaf = 0
+
+    function resize() {
+      const dpr = window.devicePixelRatio || 1
+      const w = window.innerWidth
+      const h = window.innerHeight
+      canvas!.width = w * dpr
+      canvas!.height = h * dpr
+      canvas!.style.width = `${w}px`
+      canvas!.style.height = `${h}px`
+      ctx!.setTransform(dpr, 0, 0, dpr, 0, 0)
+    }
+
+    function getDeformed(col: number, row: number, t: number) {
+      const w = window.innerWidth
+      const h = window.innerHeight
+      const baseX = (col / COLS) * w
+      const baseY = (row / ROWS) * h
+      const dx = Math.sin(row * 0.4 + t * 1.2) * WAVE_AMP
+      const dy = Math.cos(col * 0.3 + t) * WAVE_AMP * 0.7
+      return { x: baseX + dx, y: baseY + dy }
+    }
+
+    function draw(t: number) {
+      const w = window.innerWidth
+      const h = window.innerHeight
+      ctx!.clearRect(0, 0, w, h)
+
+      ctx!.strokeStyle = LINE_COLOR
+      ctx!.lineWidth = 0.5
+
+      for (let r = 0; r <= ROWS; r++) {
+        ctx!.beginPath()
+        for (let c = 0; c <= COLS; c++) {
+          const { x, y } = getDeformed(c, r, t)
+          if (c === 0) ctx!.moveTo(x, y)
+          else ctx!.lineTo(x, y)
+        }
+        ctx!.stroke()
+      }
+
+      for (let c = 0; c <= COLS; c++) {
+        ctx!.beginPath()
+        for (let r = 0; r <= ROWS; r++) {
+          const { x, y } = getDeformed(c, r, t)
+          if (r === 0) ctx!.moveTo(x, y)
+          else ctx!.lineTo(x, y)
+        }
+        ctx!.stroke()
+      }
+
+      const [dr, dg, db] = DOT_COLOR_BASE
+      for (let r = 2; r <= ROWS; r += 4) {
+        for (let c = 3; c <= COLS; c += 7) {
+          const { x, y } = getDeformed(c, r, t)
+          const pulse = 0.15 + 0.2 * Math.sin(t * 1.5 + c * 0.5 + r * 0.7)
+          ctx!.beginPath()
+          ctx!.arc(x, y, 2, 0, Math.PI * 2)
+          ctx!.fillStyle = `rgba(${dr}, ${dg}, ${db}, ${pulse})`
+          ctx!.fill()
+        }
+      }
+    }
+
+    resize()
+
+    if (prefersReduced) {
+      draw(0)
+    } else {
+      function loop(time: number) {
+        draw(time * WAVE_SPEED)
+        animId = requestAnimationFrame(loop)
+      }
+      animId = requestAnimationFrame(loop)
+    }
+
+    function debouncedResize() {
+      cancelAnimationFrame(resizeRaf)
+      resizeRaf = requestAnimationFrame(resize)
+    }
+
+    window.addEventListener('resize', debouncedResize)
+    return () => {
+      cancelAnimationFrame(animId)
+      cancelAnimationFrame(resizeRaf)
+      window.removeEventListener('resize', debouncedResize)
+    }
+  }, [])
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 z-1 pointer-events-none"
+      style={{
+        maskImage: 'linear-gradient(to bottom, transparent 30%, black 55%, transparent 95%)',
+        WebkitMaskImage: 'linear-gradient(to bottom, transparent 30%, black 55%, transparent 95%)',
+      }}
+    />
   )
 }

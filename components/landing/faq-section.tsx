@@ -1,6 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { ChevronDown } from 'lucide-react'
 
 const faqs = [
   {
@@ -36,45 +38,90 @@ const faqs = [
 ]
 
 export default function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  function toggle(index: number) {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
   return (
-    <section id="faq" className="py-20 lg:py-28">
+    <section
+      id="faq"
+      className="py-12 lg:py-16"
+      style={{
+        background: 'linear-gradient(to bottom, var(--color-base-100) 0%, color-mix(in srgb, var(--color-blue-900) 15%, var(--color-base-100)) 30%, color-mix(in srgb, var(--color-blue-900) 20%, var(--color-base-100)) 70%, var(--color-base-100) 100%)',
+      }}
+    >
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-8"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-text-heading text-balance uppercase mb-4">
             Preguntas <span className="text-primary">Frecuentes</span>
           </h2>
-          <p className="text-base text-base-content/60 leading-relaxed text-pretty">
-            ¿Tienes dudas sobre el sistema? Aquí encontrarás respuestas a las preguntas más comunes.
+          <p className="text-base text-text-body leading-relaxed text-pretty">
+            Resolvemos las consultas más frecuentes sobre nuestros sistemas de monitoreo y eficiencia energética.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="collapse collapse-arrow rounded-xl border border-base-content/10 bg-base-content/3 hover:border-primary/35 transition-all duration-300"
-            >
-              <input type="checkbox" />
-              <div className="collapse-title flex items-center gap-3 pr-12">
-                <span className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-xs font-bold text-primary">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <span className="font-semibold text-base-content text-sm">{faq.question}</span>
-              </div>
-              <div className="collapse-content text-sm text-base-content/60 leading-relaxed pl-[calc(0.75rem+1.75rem+0.75rem)]">
-                <p>{faq.answer}</p>
-              </div>
-            </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10">
+          {[faqs.slice(0, 3), faqs.slice(3)].map((column, colIndex) => (
+            <div key={colIndex} className="divide-y divide-base-300">
+              {column.map((faq, index) => {
+                const realIndex = colIndex * 3 + index
+                const isOpen = openIndex === realIndex
+                const buttonId = `faq-button-${realIndex}`
+                const panelId = `faq-panel-${realIndex}`
+
+                return (
+                  <motion.div
+                    key={realIndex}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: realIndex * 0.05 }}
+                  >
+                    <button
+                      id={buttonId}
+                      type="button"
+                      aria-expanded={isOpen}
+                      aria-controls={panelId}
+                      onClick={() => toggle(realIndex)}
+                      className="w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer group"
+                    >
+                      <span className={`text-sm font-medium transition-colors duration-200 ${
+                        isOpen ? 'text-primary' : 'text-text-heading group-hover:text-primary'
+                      }`}>
+                        {faq.question}
+                      </span>
+                      <ChevronDown
+                        className={`w-4 h-4 shrink-0 text-text-muted transition-transform duration-200 ${
+                          isOpen ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+                    <div
+                      id={panelId}
+                      role="region"
+                      aria-labelledby={buttonId}
+                      aria-hidden={!isOpen}
+                      className="grid transition-[grid-template-rows] duration-200"
+                      style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="pb-5 text-sm text-text-body leading-relaxed text-justify">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )
+              })}
+            </div>
           ))}
         </div>
       </div>

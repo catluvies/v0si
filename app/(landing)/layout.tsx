@@ -1,6 +1,5 @@
 import Navbar from '@/components/landing/navbar'
 import Footer from '@/components/landing/footer'
-import DemoFloat from '@/components/landing/demo-float'
 
 export default function LandingLayout({
   children,
@@ -8,11 +7,10 @@ export default function LandingLayout({
   children: React.ReactNode
 }>) {
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main>{children}</main>
+      <main className="flex-1">{children}</main>
       <Footer />
-      <DemoFloat />
-    </>
+    </div>
   )
 }

@@ -1,47 +1,57 @@
 @import 'tailwindcss';
 
 @plugin "daisyui" {
-  themes: light --default, dark --prefersDark;
+  themes: dark;
 }
 
 @custom-variant dark (&:is(.dark *, [data-theme="dark"] *));
 
 @theme inline {
   --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
-  --font-display: var(--font-outfit), 'Outfit', system-ui, sans-serif;
-  --font-mono: var(--font-dm-mono), 'DM Mono', monospace;
+  --font-display: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
 
-  /* Blue accent palette */
-  --color-blue-50:  #eff6ff;
-  --color-blue-100: #dbeafe;
-  --color-blue-200: #bfdbfe;
-  --color-blue-300: #93c5fd;
-  --color-blue-400: #60a5fa;
-  --color-blue-500: #3b82f6;
-  --color-blue-600: #2563eb;
-  --color-blue-700: #1d4ed8;
-  --color-blue-800: #1e40af;
-  --color-blue-900: #1e3a8a;
+  /* Text scale */
+  --color-text-heading: #ffffff;
+  --color-text-emphasis: #cdd5dc;
+  --color-text-body: #94a0b0;
+  --color-text-muted: #68748a;
+
+  /* Surface hover */
+  --color-surface-hover: #141720;
+
+  /* Blue accent palette (desaturated to match primary) */
+  --color-blue-50:  #f0f4f9;
+  --color-blue-100: #dde6f0;
+  --color-blue-200: #c2d1e4;
+  --color-blue-300: #9bb5d2;
+  --color-blue-400: #7a9ec4;
+  --color-blue-500: #5b87b4;
+  --color-blue-600: #4a72a0;
+  --color-blue-700: #3d5f88;
+  --color-blue-800: #344e72;
+  --color-blue-900: #2c405e;
+
+  /* Sky accent (muted, for solar nodes) */
+  --color-sky-400: #7aafbf;
+  --color-sky-500: #6a9db0;
+
+  /* Indigo accent (muted, for load nodes) */
+  --color-indigo-400: #8d90bf;
+  --color-indigo-500: #7578ad;
 }
 
-/* DaisyUI primary override — blue */
+/* DaisyUI color overrides */
 [data-theme="dark"] {
-  --color-primary: oklch(62.3% 0.214 259.1);
-  --color-primary-content: oklch(98% 0.01 260);
-}
-[data-theme="light"] {
-  --color-primary: oklch(54.6% 0.245 262.88);
+  --color-base-100: #000000;
+  --color-base-200: #0a0b0e;
+  --color-base-300: #1e2128;
+  --color-primary: oklch(63% 0.107 255);
   --color-primary-content: oklch(98% 0.01 260);
 }
 
 /* Display font utility */
 .font-display {
   font-family: var(--font-display);
-}
-
-/* Smooth scroll for anchor links */
-html {
-  scroll-behavior: smooth;
 }
 
 /* Marquee animation for client carousel */
@@ -61,35 +71,58 @@ html {
   animation-play-state: paused;
 }
 
-/* Subtle breathing zoom for images */
-@keyframes subtle-zoom {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.03); }
+/* Zigzag fade: text left, image peeks from right */
+.zigzag-fade-left {
+  background: linear-gradient(
+    to right,
+    var(--color-base-100) 0%,
+    var(--color-base-100) 45%,
+    color-mix(in srgb, var(--color-base-100) 95%, transparent) 55%,
+    color-mix(in srgb, var(--color-base-100) 80%, transparent) 65%,
+    color-mix(in srgb, var(--color-base-100) 50%, transparent) 78%,
+    color-mix(in srgb, var(--color-base-100) 20%, transparent) 90%,
+    transparent 100%
+  );
 }
 
-.animate-subtle-zoom {
-  animation: subtle-zoom 12s ease-in-out infinite;
+/* Zigzag fade: text right, image peeks from left */
+.zigzag-fade-right {
+  background: linear-gradient(
+    to left,
+    var(--color-base-100) 0%,
+    var(--color-base-100) 45%,
+    color-mix(in srgb, var(--color-base-100) 95%, transparent) 55%,
+    color-mix(in srgb, var(--color-base-100) 80%, transparent) 65%,
+    color-mix(in srgb, var(--color-base-100) 50%, transparent) 78%,
+    color-mix(in srgb, var(--color-base-100) 20%, transparent) 90%,
+    transparent 100%
+  );
 }
 
-/* Unified image treatment: desaturated, dimmed, brand-tinted */
-.img-brand {
-  filter: saturate(0.3) brightness(0.8) contrast(1.1);
+/* Mobile: vertical gradient (image top, text bottom) */
+@media (max-width: 767px) {
+  .zigzag-fade-left,
+  .zigzag-fade-right {
+    background: linear-gradient(
+      to top,
+      var(--color-base-100) 0%,
+      var(--color-base-100) 40%,
+      color-mix(in srgb, var(--color-base-100) 90%, transparent) 55%,
+      color-mix(in srgb, var(--color-base-100) 60%, transparent) 70%,
+      color-mix(in srgb, var(--color-base-100) 30%, transparent) 85%,
+      transparent 100%
+    );
+  }
 }
 
-.img-brand-tint {
-  background-color: var(--color-blue-900);
-  mix-blend-mode: color;
-  opacity: 0.15;
-}
-
-/* Custom scrollbar for dark mode */
-[data-theme="dark"] ::-webkit-scrollbar {
+/* Custom scrollbar */
+::-webkit-scrollbar {
   width: 8px;
 }
-[data-theme="dark"] ::-webkit-scrollbar-track {
-  background: #1a1d23;
+::-webkit-scrollbar-track {
+  background: #141720;
 }
-[data-theme="dark"] ::-webkit-scrollbar-thumb {
-  background: #2a2d35;
+::-webkit-scrollbar-thumb {
+  background: var(--color-base-300);
   border-radius: 4px;
 }

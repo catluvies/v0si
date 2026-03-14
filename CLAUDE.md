@@ -1,4 +1,4 @@
-# CLAUDE.md — Lambda Solar Landing Page
+# CLAUDE.md — Lambda Ingenieros Landing Page
 
 ## Stack
 
@@ -7,7 +7,6 @@
 - **DaisyUI v5** (plugin en CSS via `@plugin "daisyui"`)
 - **Framer Motion** para animaciones scroll/entrada
 - **Lucide React** para iconos
-- **ApexCharts + react-apexcharts** para graficos y dashboards
 - **Zod** para validacion de schemas
 - **Vitest + React Testing Library** para testing
 - **Vercel Analytics** (`@vercel/analytics/next`)
@@ -28,12 +27,22 @@ npm run test:run # Vitest single run
 ```
 app/
   layout.tsx          # Root layout (fonts, metadata, Analytics)
-  page.tsx            # Home — compone secciones
   globals.css         # Tailwind v4 config, @theme, @plugin, animaciones
+  (landing)/          # Route group — landing pages
+    layout.tsx        # Navbar + Footer wrapper
+    page.tsx          # Home — compone secciones
+    nosotros/         # /nosotros
+    solucion/         # /solucion
+    contacto/         # /contacto
+  (dashboard)/        # Route group — dashboard (no existe aún)
 components/
   landing/            # Un archivo por seccion del landing
-  ui/                 # Primitivos UI reutilizables (futuro)
-lib/                  # Utilidades, helpers, constantes (futuro)
+  dashboard/          # (no existe aún)
+  ui/                 # (no existe aún)
+hooks/                # (no existe aún)
+lib/                  # (vacío — futuras utilidades, helpers, constantes)
+services/             # (no existe aún)
+types/                # (no existe aún)
 public/
   images/             # Imagenes locales (hero, logo, clients/)
 ```
@@ -183,31 +192,41 @@ function getStatus(value: number): Status {
 <div className="container mx-auto px-6 lg:px-8">
 ```
 
-### Escala de Opacidad
+### Escala de Texto
 
-Usar SOLO estos valores:
+Tokens definidos en `globals.css` (`@theme`). Usar SOLO estos:
 
-```
-base-content/5    — bordes ultra-sutiles
-base-content/10   — bordes estandar, divisores
-base-content/35   — footnotes, disclaimers
-base-content/50   — labels secundarios, captions
-base-content/60   — texto de cuerpo, descripciones
-base-content/70   — texto de cuerpo enfatizado
-base-content/80   — texto fuerte
-```
-
-**Nunca** usar `/55`, `/65`, `/75`. Elegir el valor estandar mas cercano.
-
-**Nunca** usar doble opacidad:
+| Token | Color | Uso |
+|---|---|---|
+| `text-text-heading` | #ffffff | Títulos, headings, texto prominente |
+| `text-text-emphasis` | #d4d4d8 | Texto enfatizado dentro de body (`<strong>`) |
+| `text-text-body` | #a1a1aa | Texto de cuerpo, descripciones |
+| `text-text-muted` | #71717a | Footnotes, disclaimers, texto sutil |
 
 ```tsx
-// MAL — opacidad doble invalida
-className="border border-base-content/10/40"
+// BIEN — tokens semánticos
+<h2 className="text-text-heading">Título</h2>
+<p className="text-text-body">Descripción</p>
+<p className="text-text-muted">* Nota al pie</p>
 
-// BIEN
-className="border border-base-content/10"
+// MAL — colores hardcodeados
+<h2 className="text-white">Título</h2>
+<p className="text-zinc-400">Descripción</p>
 ```
+
+### Superficies y Bordes
+
+Tokens DaisyUI + custom (definidos en `globals.css`):
+
+| Token | Color | Uso |
+|---|---|---|
+| `bg-base-100` | #000000 | Fondo principal |
+| `bg-base-200` | #0A0A0A | Fondo de cards |
+| `bg-base-300` | #262626 | Fondo de CTA, divisores |
+| `bg-surface-hover` | #171717 | Hover en cards |
+| `border-base-300` | #262626 | Bordes estándar |
+
+**Nunca** usar colores raw de Tailwind (`text-white`, `text-zinc-400`, `bg-zinc-800`) para elementos temáticos. Usar los tokens definidos.
 
 ### Header de Seccion
 
@@ -224,10 +243,10 @@ Patron exacto para todas las secciones:
   <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
     Label de Seccion
   </span>
-  <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-base-content text-balance mb-4">
+  <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-text-heading text-balance mb-4">
     Titulo de Seccion
   </h2>
-  <p className="text-base text-base-content/60 leading-relaxed text-pretty">
+  <p className="text-base text-text-body leading-relaxed text-pretty">
     Descripcion de la seccion.
   </p>
 </motion.div>
@@ -251,11 +270,30 @@ Patron exacto para todas las secciones:
 
 ```tsx
 {/* Card estandar */}
-className="rounded-xl border border-base-content/10 bg-base-content/[0.03] p-6"
+className="rounded-xl border border-base-300 bg-base-200 p-6"
 
 {/* Card con hover */}
-className="rounded-xl border border-base-content/10 bg-base-content/[0.03] p-6 hover:border-primary/30 transition-all duration-300"
+className="rounded-xl border border-base-300 bg-base-200 p-6 hover:border-primary/35 transition-all duration-300"
 ```
+
+### CSS Utilities Custom
+
+Definidas en `globals.css`:
+
+```css
+.img-brand        /* Imagen desaturada (grayscale 100%, opacity 40%) */
+.img-brand-tint   /* Imagen con tint de marca (sepia + hue-rotate a blue) */
+.zigzag-fade-left /* Gradiente fade hacia la izquierda para layouts alternados */
+.zigzag-fade-right /* Gradiente fade hacia la derecha */
+```
+
+## ESLint
+
+Config en `eslint.config.mjs` (flat config, `defineConfig`). Reglas custom:
+
+- `@typescript-eslint/no-explicit-any: 'error'`
+- `complexity: ['warn', { max: 10 }]`
+- `max-lines: ['warn', { max: 300 }]`
 
 ## Framer Motion
 
@@ -320,24 +358,41 @@ Usar clases semanticas de DaisyUI cuando exista un componente. No reconstruir co
 | Button | `btn`, `btn-primary`, `btn-ghost`, `btn-circle`, `btn-sm` | Botones |
 | Badge | `badge`, `badge-outline`, `badge-sm` | Labels de seccion |
 | Menu | `menu`, `menu-horizontal` | Listas de nav links |
-| Collapse | `collapse`, `collapse-arrow`, `collapse-title`, `collapse-content` | FAQ accordion |
+| Accordion (custom) | React `useState` + `grid-template-rows` | FAQ — no usar DaisyUI collapse |
+| Form | `input`, `input-bordered`, `input-error`, `textarea`, `textarea-bordered`, `textarea-error` | Formularios |
+
+### Regla de customización DaisyUI
+
+**Se puede customizar:** colores, bordes, fondo, márgenes, shadows del contenedor.
+**NO tocar:** `display`, `padding`, `position`, `border-radius` de sub-elementos internos (`collapse-title`, `collapse-content`, padding de `btn`, etc.).
+
+```tsx
+// MAL — sobreescribe layout interno de DaisyUI
+<div className="collapse-title flex items-center pr-12">
+<button className="btn btn-ghost rounded-xl px-6">
+
+// BIEN — solo customiza lo externo
+<div className="collapse collapse-arrow rounded-xl border border-base-300 bg-base-200">
+<button className="btn btn-ghost border border-base-300">
+```
 
 ### Colores
 
-Usar colores semanticos de DaisyUI. Nunca colores raw de Tailwind para elementos temáticos.
+Usar tokens semánticos. Nunca colores raw de Tailwind para elementos temáticos.
 
 ```tsx
 // MAL
 className="bg-gray-900 text-white"
+className="text-zinc-400"
 
 // BIEN
-className="bg-base-100 text-base-content"
-className="bg-primary text-primary-content"
+className="bg-base-100 text-text-heading"
+className="text-text-body"
 ```
 
-Tokens disponibles: `base-100`, `base-200`, `base-300`, `base-content`, `primary`, `primary-content`, `secondary`, `accent`
-
-Paleta custom (definida en `@theme`): `blue-50` a `blue-900`
+Tokens de texto: `text-heading`, `text-emphasis`, `text-body`, `text-muted` (definidos en `@theme`)
+Tokens DaisyUI: `base-100`, `base-200`, `base-300`, `primary`, `primary-content`, `secondary`, `accent`
+Paleta custom: `blue-50` a `blue-900`, `surface-hover`
 
 ## Imagenes
 
@@ -392,9 +447,8 @@ setMobileOpen(true)
 
 1. **`any`** — usar `unknown`, generics, o tipos explicitos
 2. **`container mx-auto`** — usar `max-w-6xl mx-auto` (ancho explicito)
-3. **Doble opacidad** (`/10/40`) — usar valor unico (`/10`)
+3. **Colores raw** (`text-white`, `text-zinc-400`, `bg-zinc-800`) — usar tokens (`text-text-heading`, `text-text-body`, `bg-base-300`)
 4. **URLs de imagenes externas** — descargar a `public/images/`
-5. **Opacidades no estandar** (`/55`, `/65`, `/75`) — usar la escala definida
 6. **Componentes duplicados** — hacer uno configurable con props
 7. **Comentarios obvios** — solo explicar lo no evidente
 8. **Arrow function components** — usar function declarations
@@ -422,23 +476,6 @@ Convenciones:
 - Nombres descriptivos en español: `'renderiza el heading principal'`
 - Testear comportamiento, no implementacion
 
-## Charts (ApexCharts)
-
-Usar `react-apexcharts` con `dynamic import` para evitar SSR (ApexCharts requiere `window`):
-
-```tsx
-import dynamic from 'next/dynamic'
-const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
-```
-
-Convenciones de estilo para charts:
-- `chart.foreColor: '#9ca3af'` — texto de ejes
-- `chart.background: 'transparent'` — fondo transparente
-- `tooltip.theme: 'dark'` — tooltips oscuros
-- `grid.borderColor: 'rgba(255,255,255,0.06)'` — lineas de grid sutiles
-- Colores primarios: `#3b82f6` (blue/primary), `#6366f1` (indigo), `#0ea5e9` (sky)
-- `chart.toolbar.show: false` — ocultar toolbar en landing (mostrar en dashboard)
-
 ## Validacion (Zod)
 
 Usar Zod para validar inputs en Server Actions y forms:
@@ -454,3 +491,25 @@ const contactSchema = z.object({
 
 type ContactForm = z.infer<typeof contactSchema>
 ```
+
+Validaciones chilenas (futuro — mover a `lib/validations.ts`):
+- `isValidChileanPhone()` — valida formato +56 9 XXXX XXXX
+- `formatChileanPhone()` — input mask para teléfono
+- `isValidName()` — min 2 chars, no solo números/espacios
+- Usar con `.refine()` en schemas Zod
+
+## Decisiones Arquitectónicas
+
+| Decisión | Razón | Alternativa descartada |
+|---|---|---|
+| DaisyUI v5 sobre shadcn/ui | Plugin CSS puro, sin JS runtime. Más liviano para landing. | shadcn requiere copiar componentes |
+| Tailwind v4 CSS-first | Sin tailwind.config.js, config en CSS. Estándar 2025. | v3 con config JS |
+| App Router con route groups | `(landing)` y `(dashboard)` comparten root layout pero tienen nav/footer distintos | Pages Router (legacy) |
+| Framer Motion sobre CSS animations | API declarativa, viewport detection, AnimatePresence para exit animations | CSS animations (limitado) |
+| Zod sobre yup/joi | Type inference nativa con TypeScript, tree-shakeable, estándar en Next.js | yup (menos type-safe) |
+| Server Components por defecto | Reduce JS bundle. Client solo cuando hay hooks/interactividad | Todo client (innecesario) |
+| Imágenes locales sobre CDN | Control total, no depender de servicios externos, Next.js optimiza | Unsplash/Cloudinary URLs |
+| ESLint flat config | Estándar Next.js 16+, defineConfig nativo | Legacy .eslintrc (deprecated) |
+| color-mix() en gradientes | Aplica opacidad a CSS variables sin hardcodear colores | rgba() hardcodeado (no respeta temas) |
+| Validaciones como funciones puras en lib/ | Testeable, reutilizable entre forms y server actions (pendiente de extraer) | Inline en componentes |
+| FAQ accordion custom sobre DaisyUI collapse | DaisyUI collapse era inestable con Framer Motion y transition-all | DaisyUI collapse (descartado) |

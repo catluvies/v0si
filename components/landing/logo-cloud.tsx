@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 
 const clients = [
@@ -9,8 +11,12 @@ const clients = [
 
 export default function LogoCloud() {
   return (
-    <section className="relative py-14 lg:py-20 overflow-hidden">
+    <section className="relative py-8 lg:py-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
+
+        <h2 className="font-display text-sm font-semibold tracking-widest uppercase text-text-muted text-center mb-8">
+          Nuestros Socios de Confianza
+        </h2>
 
         {/* Marquee */}
         <div className="relative">
@@ -21,24 +27,23 @@ export default function LogoCloud() {
 
           <div className="overflow-hidden">
             <div className="animate-marquee">
-              {/* 4 copies for seamless loop */}
-              {[0, 1, 2].map((copy) =>
+              {[0, 1, 2, 3].map((copy) =>
                 clients.map((client, i) => (
                   <div
                     key={`${copy}-${i}`}
                     aria-hidden={copy > 0}
                     className="inline-flex flex-col items-center justify-center mx-10 sm:mx-14 lg:mx-16 w-44 sm:w-48 lg:w-56 shrink-0"
                   >
-                    <div className="h-16 sm:h-20 lg:h-24 flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300">
+                    <div className="h-16 sm:h-20 lg:h-24 flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                       <Image
                         src={client.src}
-                        alt={copy === 0 ? client.name : ''}
+                        alt=""
                         width={240}
                         height={96}
                         className="object-contain max-h-full w-auto"
                       />
                     </div>
-                    <span className="text-xs text-base-content/35 mt-3 font-medium">
+                    <span className="text-xs text-text-muted mt-3 font-medium">
                       {client.name}
                     </span>
                   </div>
