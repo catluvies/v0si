@@ -1,23 +1,21 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Users, Rocket, Cpu } from 'lucide-react'
+import Image from 'next/image'
+import { Mail } from 'lucide-react'
 
 const selloValues = [
   {
-    icon: Users,
     title: 'Orientación al Cliente',
     description:
       'Escuchar los problemas y necesidades de los clientes, desarrollando la empresa a partir de un fuerte componente de realidad, potenciando capacidades tecnológicas y de innovación.',
   },
   {
-    icon: Rocket,
     title: 'Desarrollo Continuo',
     description:
       'Respuesta desde la excelencia al vertiginoso avance tecnológico en sistemas eléctricos, reconocido permanentemente por sus clientes.',
   },
   {
-    icon: Cpu,
     title: 'Tecnología Made in Chile',
     description:
       'Pensar, desarrollar y producir sistemas eléctricos originales e innovadores que responden a los principales desafíos de la sociedad.',
@@ -31,8 +29,8 @@ export default function AboutSection() {
       <AboutHero />
 
       {/* Nuestra Historia */}
-      <ZigzagSection imageUrl="/images/historia.jpg">
-        <h2 className="font-display text-2xl lg:text-3xl font-bold text-text-heading uppercase tracking-[0.08em] mb-3">
+      <ZigzagSection imageUrl="/images/historia.jpg" imagePosition="right center">
+        <h2 className="font-display text-2xl lg:text-3xl font-bold text-text-heading tracking-tight mb-3">
           Nuestra Historia
         </h2>
         <div className="w-12 h-0.5 bg-primary mb-6" />
@@ -54,8 +52,8 @@ export default function AboutSection() {
       </ZigzagSection>
 
       {/* Nuestra Misión */}
-      <ZigzagSection imageUrl="/images/mision.jpg" reverse>
-        <h2 className="font-display text-2xl lg:text-3xl font-bold text-text-heading uppercase tracking-[0.08em] mb-3">
+      <ZigzagSection imageUrl="/images/mision.jpg" imagePosition="left 40%" reverse>
+        <h2 className="font-display text-2xl lg:text-3xl font-bold text-text-heading tracking-tight mb-3">
           Nuestra Misión
         </h2>
         <div className="w-12 h-0.5 bg-primary mb-6" />
@@ -69,8 +67,8 @@ export default function AboutSection() {
       </ZigzagSection>
 
       {/* Nuestra Visión */}
-      <ZigzagSection imageUrl="/images/vision.jpg">
-        <h2 className="font-display text-2xl lg:text-3xl font-bold text-text-heading uppercase tracking-[0.08em] mb-3">
+      <ZigzagSection imageUrl="/images/vision.jpg" imagePosition="center 40%">
+        <h2 className="font-display text-2xl lg:text-3xl font-bold text-text-heading tracking-tight mb-3">
           Nuestra Visión
         </h2>
         <div className="w-12 h-0.5 bg-primary mb-6" />
@@ -84,18 +82,42 @@ export default function AboutSection() {
       </ZigzagSection>
 
       {/* Nuestro Sello */}
-      <section className="bg-base-100 py-20 lg:py-28">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <section
+        className="relative overflow-hidden py-20 lg:py-28"
+        style={{
+          background: 'linear-gradient(to bottom, var(--color-base-100) 0%, color-mix(in srgb, var(--color-blue-900) 15%, var(--color-base-100)) 30%, color-mix(in srgb, var(--color-blue-900) 20%, var(--color-base-100)) 70%, var(--color-base-100) 100%)',
+        }}
+      >
+        {/* Pattern background — faded at edges */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.04]"
+          style={{
+            maskImage: 'radial-gradient(ellipse 70% 70% at 50% 50%, transparent 30%, black 80%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 70% 70% at 50% 50%, transparent 30%, black 80%)',
+          }}
+        >
+          <svg className="w-full h-full">
+            <defs>
+              <pattern id="sello-pattern" patternUnits="userSpaceOnUse" width="12" height="12">
+                <rect width="2" height="2" x="0" y="0" fill="currentColor" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#sello-pattern)" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center max-w-2xl mx-auto mb-16"
+            className="text-center max-w-2xl mx-auto mb-10"
           >
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-text-heading text-balance mb-4">
-              NUESTRO <span className="text-primary">SELLO</span>
+              Nuestro Sello
             </h2>
+            <div className="w-16 h-0.5 bg-primary mx-auto" />
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {selloValues.map((item, index) => (
@@ -105,12 +127,10 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="rounded-xl border border-base-300 bg-base-200 p-6 hover:border-primary/35 transition-all duration-300"
+                className="rounded-xl border border-base-300 bg-base-100 p-6 border-l-2 border-l-primary hover:border-primary/35 hover:bg-base-200 transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
-                  <item.icon className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="text-sm font-semibold text-text-heading mb-2">{item.title}</h3>
+                <h3 className="font-display text-sm font-bold text-text-heading mb-2 uppercase tracking-wide">{item.title}</h3>
+                <div className="w-8 h-px bg-primary mb-3" />
                 <p className="text-sm text-text-body leading-relaxed text-justify">{item.description}</p>
               </motion.div>
             ))}
@@ -119,8 +139,8 @@ export default function AboutSection() {
       </section>
 
       {/* Nuestro Fundador */}
-      <ZigzagSection imageUrl="/images/fundador.jpg" reverse>
-        <h2 className="font-display text-2xl lg:text-3xl font-bold text-text-heading uppercase tracking-[0.08em] mb-3">
+      <ZigzagSection imageUrl="/images/fundador.jpg" imagePosition="center 10%" reverse>
+        <h2 className="font-display text-2xl lg:text-3xl font-bold text-text-heading tracking-tight mb-3">
           Nuestro Fundador
         </h2>
         <div className="w-12 h-0.5 bg-primary mb-6" />
@@ -167,9 +187,10 @@ function AboutHero() {
         transition={{ duration: 0.5 }}
         className="max-w-3xl mx-auto px-6 lg:px-8 text-center"
       >
-        <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-text-heading uppercase mb-5">
-          Quiénes <span className="text-primary">Somos</span>
+        <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-text-heading mb-4">
+          Quiénes Somos
         </h1>
+        <div className="w-16 h-0.5 bg-primary mx-auto mb-5" />
         <p className="text-base text-text-body leading-relaxed">
           Empresa de ingenieros chilenos comprometidos con el desarrollo
           sustentable de soluciones de <strong className="text-text-heading">eficiencia energética</strong>.
@@ -181,33 +202,43 @@ function AboutHero() {
 
 type ZigzagSectionProps = {
   imageUrl: string
+  imagePosition?: string
   reverse?: boolean
   children: React.ReactNode
 }
 
-function ZigzagSection({ imageUrl, reverse = false, children }: ZigzagSectionProps) {
+function ZigzagSection({ imageUrl, imagePosition = 'center', reverse = false, children }: ZigzagSectionProps) {
   return (
-    <section className="group relative min-h-[500px] flex items-end md:items-center overflow-hidden">
-      {/* Imagen de fondo */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center img-cool"
-        style={{ backgroundImage: `url(${imageUrl})` }}
-      />
-
-      {/* Tint azul */}
-      <div className="absolute inset-0 z-1 img-cool-tint" />
+    <section className="group relative min-h-[400px] md:min-h-[500px] flex items-end md:items-center overflow-hidden bg-base-100">
+      
+      {/* Contenedor de la imagen, limitado a la parte visible para evitar exceso de zoom en pantallas anchas */}
+      <div 
+        className={`absolute top-0 bottom-0 z-0 w-full md:w-1/2 lg:w-[45%] ${
+          reverse ? 'left-0' : 'right-0'
+        }`}
+      >
+        <Image
+          src={imageUrl}
+          alt=""
+          fill
+          className="object-cover brightness-[0.35]"
+          style={{ objectPosition: imagePosition }}
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+        <div className="absolute inset-0 bg-primary/25 mix-blend-color" />
+      </div>
 
       {/* Gradiente direccional */}
       <div className={`absolute inset-0 z-10 ${reverse ? 'zigzag-fade-right' : 'zigzag-fade-left'}`} />
 
       {/* Contenido */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-10 md:py-16 lg:py-20">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-10 md:py-12 lg:py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className={`max-w-full md:max-w-lg ${reverse ? 'md:ml-auto' : ''}`}
+          className={`max-w-full md:max-w-xl ${reverse ? 'md:ml-auto' : ''}`}
         >
           {children}
         </motion.div>

@@ -71,28 +71,6 @@
   animation-play-state: paused;
 }
 
-/* Image treatment: desaturated with hover color restore */
-.img-cool {
-  filter: grayscale(100%) brightness(0.35);
-  transition: filter 0.5s ease;
-}
-
-.group:hover .img-cool {
-  filter: grayscale(0%) brightness(0.6);
-}
-
-.img-cool-tint {
-  background-color: var(--color-primary);
-  mix-blend-mode: color;
-  opacity: 0.15;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
-}
-
-.group:hover .img-cool-tint {
-  opacity: 0;
-}
-
 /* Zigzag fade: text left, image peeks from right */
 .zigzag-fade-left {
   background: linear-gradient(

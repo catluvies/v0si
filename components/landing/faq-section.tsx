@@ -45,7 +45,13 @@ export default function FAQSection() {
   }
 
   return (
-    <section id="faq" className="py-20 lg:py-28">
+    <section
+      id="faq"
+      className="py-12 lg:py-16"
+      style={{
+        background: 'linear-gradient(to bottom, var(--color-base-100) 0%, color-mix(in srgb, var(--color-blue-900) 15%, var(--color-base-100)) 30%, color-mix(in srgb, var(--color-blue-900) 20%, var(--color-base-100)) 70%, var(--color-base-100) 100%)',
+      }}
+    >
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -62,56 +68,61 @@ export default function FAQSection() {
           </p>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto divide-y divide-base-300">
-          {faqs.map((faq, index) => {
-            const isOpen = openIndex === index
-            const buttonId = `faq-button-${index}`
-            const panelId = `faq-panel-${index}`
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10">
+          {[faqs.slice(0, 3), faqs.slice(3)].map((column, colIndex) => (
+            <div key={colIndex} className="divide-y divide-base-300">
+              {column.map((faq, index) => {
+                const realIndex = colIndex * 3 + index
+                const isOpen = openIndex === realIndex
+                const buttonId = `faq-button-${realIndex}`
+                const panelId = `faq-panel-${realIndex}`
 
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-              >
-                <button
-                  id={buttonId}
-                  type="button"
-                  aria-expanded={isOpen}
-                  aria-controls={panelId}
-                  onClick={() => toggle(index)}
-                  className="w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer group"
-                >
-                  <span className={`text-sm font-medium transition-colors duration-200 ${
-                    isOpen ? 'text-primary' : 'text-text-heading group-hover:text-primary'
-                  }`}>
-                    {faq.question}
-                  </span>
-                  <ChevronDown
-                    className={`w-4 h-4 shrink-0 text-text-muted transition-transform duration-200 ${
-                      isOpen ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                <div
-                  id={panelId}
-                  role="region"
-                  aria-labelledby={buttonId}
-                  aria-hidden={!isOpen}
-                  className="grid transition-[grid-template-rows] duration-200"
-                  style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
-                >
-                  <div className="overflow-hidden">
-                    <p className="pb-5 text-sm text-text-body leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            )
-          })}
+                return (
+                  <motion.div
+                    key={realIndex}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: realIndex * 0.05 }}
+                  >
+                    <button
+                      id={buttonId}
+                      type="button"
+                      aria-expanded={isOpen}
+                      aria-controls={panelId}
+                      onClick={() => toggle(realIndex)}
+                      className="w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer group"
+                    >
+                      <span className={`text-sm font-medium transition-colors duration-200 ${
+                        isOpen ? 'text-primary' : 'text-text-heading group-hover:text-primary'
+                      }`}>
+                        {faq.question}
+                      </span>
+                      <ChevronDown
+                        className={`w-4 h-4 shrink-0 text-text-muted transition-transform duration-200 ${
+                          isOpen ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+                    <div
+                      id={panelId}
+                      role="region"
+                      aria-labelledby={buttonId}
+                      aria-hidden={!isOpen}
+                      className="grid transition-[grid-template-rows] duration-200"
+                      style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="pb-5 text-sm text-text-body leading-relaxed text-justify">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )
+              })}
+            </div>
+          ))}
         </div>
       </div>
     </section>

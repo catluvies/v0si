@@ -5,7 +5,12 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react'
 
 export default function ContactSection() {
   return (
-    <section className="py-20 lg:py-28">
+    <section
+      className="py-20 lg:py-28"
+      style={{
+        background: 'linear-gradient(to bottom, var(--color-base-100) 0%, color-mix(in srgb, var(--color-blue-900) 15%, var(--color-base-100)) 30%, color-mix(in srgb, var(--color-blue-900) 20%, var(--color-base-100)) 70%, var(--color-base-100) 100%)',
+      }}
+    >
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         <motion.div
@@ -31,7 +36,7 @@ export default function ContactSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="lg:col-span-3"
           >
-            <form className="rounded-xl border border-base-300 bg-base-200 p-6 lg:p-8 flex flex-col gap-5">
+            <form className="rounded-xl border border-base-300 bg-base-100 p-6 lg:p-8 flex flex-col gap-5 border-l-2 border-l-primary">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="contact-nombre" className="text-sm font-medium text-text-heading">Nombre</label>
@@ -92,7 +97,7 @@ function ContactInfo() {
       transition={{ duration: 0.5, delay: 0.2 }}
       className="lg:col-span-2 flex flex-col gap-6"
     >
-      <div className="rounded-xl border border-base-300 bg-base-200 p-6 flex flex-col gap-5">
+      <div className="rounded-xl border border-base-300 bg-base-100 p-6 flex flex-col gap-5 border-l-2 border-l-primary">
         <h3 className="text-base font-semibold text-text-heading">Información de Contacto</h3>
 
         <div className="flex items-start gap-3">

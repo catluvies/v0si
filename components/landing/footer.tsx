@@ -2,19 +2,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Mail, Phone, MapPin } from 'lucide-react'
 
-const footerLinks = {
-  Solución: [
-    { label: 'Monitoreo Solar', href: '/solucion' },
-    { label: 'Control BESS', href: '/solucion#bess' },
-    { label: 'Capacidades', href: '/solucion#capabilities' },
-    { label: 'Preguntas Frecuentes', href: '/#faq' },
-  ],
-  Empresa: [
-    { label: 'Quiénes Somos', href: '/nosotros' },
-    { label: 'Nuestro Equipo', href: '/nosotros#team' },
-    { label: 'Contacto', href: '/contacto' },
-  ],
-}
+const companyLinks = [
+  { label: 'Quiénes Somos', href: '/nosotros' },
+  { label: 'Contacto', href: '/contacto' },
+]
+
+const productLinks = [
+  { label: 'ENEFISYS®', href: '/productos/enefisys' },
+  { label: 'ENEBOMB®', href: '/productos/enebomb' },
+  { label: 'ENEPLUS', href: '/productos/eneplus' },
+]
 
 export default function Footer() {
   return (
@@ -34,24 +31,39 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Link columns */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h4 className="text-sm font-semibold text-text-heading mb-4">{title}</h4>
-              <ul className="flex flex-col gap-3">
-                {links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-text-body hover:text-text-heading transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Products */}
+          <div>
+            <h4 className="text-sm font-semibold text-text-heading mb-4">Productos</h4>
+            <ul className="flex flex-col gap-3">
+              {productLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-text-body hover:text-text-heading transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="text-sm font-semibold text-text-heading mb-4">Compañía</h4>
+            <ul className="flex flex-col gap-3">
+              {companyLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-text-body hover:text-text-heading transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Contact column */}
           <div>
@@ -84,10 +96,7 @@ export default function Footer() {
       <div className="border-t border-base-300">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-6 flex flex-col items-center gap-1 text-center">
           <p className="text-xs text-text-body">
-            © 2026 Sistema Fotovoltaico RadioTumbes. Todos los derechos reservados.
-          </p>
-          <p className="text-xs text-text-body">
-            © 2026 Lambda Ingenieros · Tecnología Made in Chile.
+            © 2026 Lambda Ingenieros · Tecnología Made in Chile. Todos los derechos reservados.
           </p>
         </div>
       </div>
