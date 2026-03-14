@@ -11,14 +11,13 @@ export default function HeroSection() {
       {/* Imagen arriba — absolute para que se superponga con el contenido */}
       <div className="absolute top-0 left-0 right-0 h-[55vh] z-0">
         <Image
-          src="/images/hero-energy.jpg"
+          src="/images/hero-energy-new.jpg"
           alt="Infraestructura eléctrica"
           fill
-          className="object-cover object-bottom grayscale brightness-[0.35]"
+          className="object-cover object-bottom brightness-[0.35]"
           priority
         />
-        {/* Tint azul */}
-        <div className="absolute inset-0 bg-primary/30 mix-blend-color" />
+        <div className="absolute inset-0 bg-primary/25 mix-blend-color" />
         {/* Fade inferior al fondo */}
         <div className="absolute inset-0 bg-linear-to-b from-transparent via-base-100/10 to-base-100" />
       </div>
